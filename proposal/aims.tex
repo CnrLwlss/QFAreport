@@ -1,0 +1,59 @@
+\section{Aims}
+\label{sec:aims}
+Quantitative fitness analysis (QFA) is a method for inferring the
+fitness of microbial cultures from their growth curves and can be used
+to conduct genome-wide screening for genetic interactions or drug
+responses (see
+\citet{Addinall2008,Addinall2011,Lawless2010,Banks2012,Andrew2013}). In
+QFA, growth curves are automatically captured for arrays of typically
+384 cultures grown on solid agar, with each culture containing an
+individual genetic strain. Plates can contain any combination of
+different strains or repeats. % Microbial organisms have evolved
+% redundancies such that very few single gene knockouts are lethal \cite. due
+% to redundany microbial fitness is a useful phenotype for measuring
+% genetic interaction \cite{Costanzo2010}. If a greater than expected
+% loss of fitness occurs in a double mutant knockout this indicates that
+% the genes are functionally related because very few genes are
+% essential so microbial allowing in the same pathway are expected
+Usually QFA cultures are assumed to grow independently
+(e.g. \citet{Addinall2011}). We aim to test the validity of this
+assumption in a range of different QFA experiments using a new model
+of population growth which includes competition and signalling between
+cultures. We expect that accounting explicitly for competition and
+signalling in analysis of QFA data will increase the reproducibility
+of fitness estimates and ultimately increase the statistical power of
+QFA in screens for genetic interactions and drug responses.
+
+An analysis by \citet{Baryshnikova2010}, of data obtained using
+1536-pin synthetic genetic array (SGA), an alternative procedure also
+using an array of cultures on solid agar, attempts to normalise for
+systematic variation in growth observations, which may include
+variation from competition and signalling effects, using statistical
+techniques aimed at improving the correlation between repeats of
+identical mutant strains at different locations. By accounting for
+competition and signalling mechanistically, we hope to learn more
+about the sources of systematic variation in both QFA and SGA
+experiments, and to develop analyses and experimental designs to deal
+with them. We then aim to determine whether accounting for competition
+and signalling will improve variability and rank order of fitness
+estimates using unpublished QFA data for the model organism
+\textit{Saccharomyces cerevisiae}. We will package all models and
+analysis tools so that they may be used in future studies or to
+reanalyse data from past studies.
+
+\subsection{Hypotheses}
+This project aims to test the following hypotheses:
+\begin{itemize}
+\item Growth of cultures in QFA and SGA is affected by competition for
+  nutrients and/or signalling.
+\item By accounting mechanistically for competition and signalling
+  effects, it will be possible to design analyses and experiments
+  which minimise them.
+\item Explicitly accounting for competition and signalling effects in
+  data analysis will improve the reproducibility of fitness estimates.
+\end{itemize}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "proposal"
+%%% End:
