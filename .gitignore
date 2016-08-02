@@ -1,2 +1,6 @@
 *~
 *.el
+*.aux
+*.blg
+*.log
+*.out

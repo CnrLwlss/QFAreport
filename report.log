@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.1)  2 AUG 2016 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.1)  2 AUG 2016 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -427,24 +427,24 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \f@ncyO@olf=\skip67
 \f@ncyO@orf=\skip68
 )
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip69
+\bibsep=\skip70
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count131
+)
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/15 v2.10.1 Sectioning titles
 \ttl@box=\box60
-\beforetitleunit=\skip69
-\aftertitleunit=\skip70
+\beforetitleunit=\skip71
+\aftertitleunit=\skip72
 \ttl@plus=\dimen150
 \ttl@minus=\dimen151
 \ttl@toksa=\toks32
 \titlewidth=\dimen152
 \titlewidthlast=\dimen153
 \titlewidthfirst=\dimen154
-)
-(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip71
-\bibsep=\skip72
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count131
 )) (./report.aux)
 \openout1 = `report.aux'.
 
@@ -464,7 +464,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count132
@@ -559,41 +558,47 @@ mes.
 )
 LaTeX Font Info:    Font shape `LY1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `LY1/phv/b/n' tried instead on input line 10.
- (./introduction.tex
+ (./abstract.tex
 LaTeX Font Info:    Font shape `LY1/phv/bx/n' in size <12> not available
-(Font)              Font shape `LY1/phv/b/n' tried instead on input line 3.
+(Font)              Font shape `LY1/phv/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `LY1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `LY1/ptm/b/n' tried instead on input line 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+
+ []
+
+) (./introduction.tex
 LaTeX Font Info:    Font shape `LY1/phv/bx/n' in size <10.95> not available
 (Font)              Font shape `LY1/phv/b/n' tried instead on input line 7.
-)
-(./methods.tex) (./results.tex) (./discussion.tex) (./report.bbl
-LaTeX Font Info:    Font shape `LY1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `LY1/ptm/b/n' tried instead on input line 8.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 24.
+) (./methods.tex) (./results.tex) (./discussion.tex)
+(./report.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 24.
- (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 24.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 24.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
+
+(./report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 34D62AF99ED6FF9BAA90389DDE838713;412.
+(rerunfilecheck)             Checksum: A31AC7DEE4BDF4D141EABEA4E262DD8A;436.
  ) 
 Here is how much of TeX's memory you used:
- 9455 strings out of 493029
- 135815 string characters out of 6136235
- 245249 words of memory out of 5000000
- 12848 multiletter control sequences out of 15000+600000
+ 9458 strings out of 493029
+ 135855 string characters out of 6136235
+ 246271 words of memory out of 5000000
+ 12849 multiletter control sequences out of 15000+600000
  18864 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,843b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,43p,843b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (1 page, 53527 bytes).
+Output written on report.pdf (1 page, 59063 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
