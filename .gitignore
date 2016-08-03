@@ -5,5 +5,4 @@
 *.log
 *.out
 *.el
-auto/*
 auto/*.el
