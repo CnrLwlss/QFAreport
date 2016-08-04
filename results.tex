@@ -1,10 +1,21 @@
-\graphicspath{{images/stripes}}
+\graphicspath{{images/}}
 
 \section{\thesection~Results}
 \label{sec:results}
 \citep{palkova1997}
 
 \subsection{\thesubsection~Subsection}
+
+
+\graphicspath{{images/guessing/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/kn_guessing}
+  \captionof{figure}{Guessing \(k_{n}\) from variation in final cell
+    amounts.}
+  \label{fig:kn_guessing}
+\end{Figure}
+
 
 \end{multicols}
 \graphicspath{{images/guessing/}}
@@ -27,6 +38,7 @@
 \end{Figure}
 \begin{multicols}{2}
 
+
 Scripts were run with combinations of the following values.
 cellratios = np.logspace(-3, -5, num=5)
 fittype = ["imagneigh", "logeq"]
@@ -37,28 +49,30 @@ supplied to the initial guesser and used at the plate level.
 
 for b-guess in [35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 95, 100, 150]:
 
-Each b value is used to guess a complete set of parameters b
-parameters for every culture in the plate. Each of these parameter
-sets is then used as an initial guess to Competition Model
-fitting. For the 13 b-guesses we must run 13 Competition Model
-fits. It would be better and more efficient to loop through the
-b-guesses at the culture level. Each culture still undergoes imaginary
-neighbour guessing with each of the 13 b-guess values, but now, for
-each culture, we choose just the b estimate from the best of the 13
-fits. This will produce one set of b guesses which should be superior
-to any of the guesses attained when iterating through b-guess at the
-plate level. Then we only need to fit the Competition Model to 1 guess
-rather than 13. This will reduce the number of scripts that need to be
-run in parallel, or the use of a finer grid over \(C_{0}\), and should
-make convergence faster. However, if using a gradient method we are
-still likely to encounter local minima from these guesses. Instead,
-this improvement could be considered when developing a genetic
-algorithm (if initial guesses are required) or if fitting using a
-brute force method with a fine grid of fixed plate level
-parameters. We will see later that with true plate level parameters
-fixed we can recover good estimates for b using a gradient method. It
-may be possible to evolve candidates of plate level parameters, fix
-these, and minimize using the current gradient method.
+Each b-guess value is used to guess a complete set of b parameters for
+every culture in the plate. Each of these parameter sets is then used
+as an initial guess to Competition Model fitting. For the 13 b-guesses
+we must run 13 Competition Model fits. It would be better and more
+efficient to loop through the b-guesses at the culture level. Each
+culture still undergoes imaginary neighbour guessing with each of the
+13 b-guess values, but now, for each culture, we choose just the b
+estimate from the best of the 13 fits. This will produce one set of b
+guesses which should be superior to any of the guesses attained when
+iterating through b-guess at the plate level. Then we only need to fit
+the Competition Model to 1 guess rather than 13. This will reduce the
+number of scripts that need to be run in parallel, or the use of a
+finer grid over \(C_{0}\), and should make convergence
+faster. However, if using a gradient method we are still likely to
+encounter local minima from these guesses. Instead, this improvement
+could be considered when developing a genetic algorithm (if initial
+guesses are required) or if fitting using a brute force method with a
+fine grid of fixed plate level parameters. We will see later that with
+true plate level parameters fixed we can recover good estimates for b
+using a gradient method. It may be possible to evolve candidates of
+plate level parameters, fix these, and minimise using the current
+gradient method.
+
+
 
 % Make landscape and take a whole page.
 \end{multicols}
@@ -67,7 +81,7 @@ these, and minimize using the current gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
-  \captionof{figure}{(R5, C18) P15}
+  \captionof{figure}{(R5, C18) P15 requires legend}
   \label{fig:comp_fit_plate}
 \end{Figure}
 \end{landscape}
@@ -77,21 +91,111 @@ these, and minimize using the current gradient method.
 \graphicspath{{images/comp_fit/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{finals/P15_r5_c18_3x3}
+  \includegraphics[width=\linewidth]{final/P15_r5_c18_3x3}
   \captionof{figure}{(R5, C18) P15}
   \label{fig:comp_fit_zone}
 \end{Figure}
 \begin{multicols}{2}
 
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text.
+
+\graphicspath{{images/correlation/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{top_two_comp_p15_correlations_trimmed}
+  \captionof{figure}{Comparison of b ranking for best five Competition
+    Model fits P15. Includes HIS3 from edge cultures (could separate or
+    exclude these).}
+  \label{fig:comp_b_ranking}
+\end{Figure}
+
+\subsection{\thesubsection~Comparison of fitness ranking}
+
+\graphicspath{{images/correlation/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{r_correlations}
+  \captionof{figure}{r correlations for Comp Model BC, QFA R logistic,
+    and logistic equivalent P15. INSTEAD GO WITH MDR AND USE
+    GENERALIZED LOGISTIC MODEL AS WELL? ADD P-VALUES.}
+  \label{fig:r_ranking}
+\end{Figure}
+
+\subsection{\thesubsection~Comparison of Variation in Fitness Estimates}
+
+Use repeats on plate 15 (6 per deletion) to calculate coefficient of
+variation (COV) of estimated r or MDR.
+
+\end{multicols}
+\graphicspath{{images/COV/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{r_cov_trimmed}
+  \captionof{figure}{Coefficient of variation of r estimates from fits
+    of the Competition Model BC, the QFA R Logistic Model, and the
+    Logistic Equivalent Model to P15.}
+  \label{fig:r_cov}
+\end{Figure}
+\begin{multicols}{2}
+
+
+\subsection{\thesubsection~Cross-plate validation}
+
 \end{multicols}
 \graphicspath{{images/stripes/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{finals/validation_r9_c10}
+  \includegraphics[width=\linewidth]{final/validation_r9_c10}
   \captionof{figure}{(R9, C10) top-right possible pinning mistake. Bottom-left not close to any such mistake.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
+
+\subsection{\thesubsection~Towards a Genetic Algorithm Method}
+
+%\end{multicols}
+\graphicspath{{images/genetic_algorithm/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/ga_fit_to_sim_true_plate_lvl}
+  \captionof{figure}{Genetic algorithm fit to a 3x3 simulation. MIGHT
+    TAKE A LITTLE BIT OF WORK TO REPRODUCE AND COULD USE PARAMETERS
+    FROM THE BEST P15 FIT RATHER THAN JUST PICKING/RANDOMIZING. NEED
+    TO CHECK THAT PLATE LEVEL PARAMETERS WERE ALSO EVOLVED.}
+  \label{fig:3x3_genetic_algorithm_comp_fit_fixed_plate_level}
+\end{Figure}
+%\begin{multicols}{2}
+
+
+%\end{multicols}
+\graphicspath{{images/genetic_algorithm/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/est_b_vs_true_b_imag_neigh_guess_sim_1_trimmed}
+  \captionof{figure}{Recovery of true b values from a gradient method
+    with fixed plate level parameters. I simulated timecourses from
+    the best five (which model? all BC?) fits to p15, fixed the true
+    plate level parameters, and used a gradient method to recover
+    b. This plot shows the worst case from the five sets of values.}
+  \label{fig:comp_fit_fixed_plate_level}
+\end{Figure}
+%\begin{multicols}{2}
 
 %%% Local Variables:
 %%% mode: latex
