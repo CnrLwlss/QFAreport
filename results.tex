@@ -6,7 +6,6 @@
 
 \subsection{\thesubsection~Guessing}
 
-
 \graphicspath{{images/guessing/}}
 \begin{Figure}
   \centering
@@ -127,12 +126,45 @@ gradient method.
   \label{fig:comp_b_ranking}
 \end{Figure}
 
+\subsection{\thesubsection~Evaluating the treatment of boundaries}
+
+\end{multicols}
+\graphicspath{{images/corners/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/top_left}
+  \captionof{figure}{Top left corner of the Competition Model and
+    Competition Model BC estimates for P15. NEED TO FIND OBJ FUN FOR
+    DEPTH ONE AND TWO AND COMPARE TO AVG OBJ FUN FOR WHOLE PLATE (JUST
+    DIVIDE BY 384). ALSO FIND COV FOR THE HIS3 EDGES.}
+  \label{fig:P15_corner}
+\end{Figure}
+\begin{multicols}{2}
+
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text Some text Some text Some
+  text Some text Some text Some text Some text Some text Some text
+  Some text Some text Some text Some text.
+
 \subsection{\thesubsection~Comparison of fitness ranking}
 
 \graphicspath{{images/correlation/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{r_correlations}
+  \includegraphics[width=\linewidth]{r_correlations_trimmed}
   \captionof{figure}{r correlations for Comp Model BC, QFA R logistic,
     and logistic equivalent P15. INSTEAD GO WITH MDR AND USE
     GENERALIZED LOGISTIC MODEL AS WELL? ADD P-VALUES.}
@@ -164,12 +196,12 @@ variation (COV) of estimated r or MDR.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/validation_r9_c10}
-  \captionof{figure}{(R9, C10) top-right possible pinning mistake. Bottom-left not close to any such mistake.}
+  \captionof{figure}{(R9, C10) top-right probable pinning mistake. Bottom-left not close to any such mistake.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
 
-\subsection{\thesubsection~Towards a Genetic Algorithm Method}
+\subsection{\thesubsection~Towards a genetic algorithm}
 
 %\end{multicols}
 \graphicspath{{images/genetic_algorithm/}}
