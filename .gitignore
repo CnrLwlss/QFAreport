@@ -8,3 +8,4 @@
 auto/*.el
 *.bbl
 *.out
+_*_.tex
