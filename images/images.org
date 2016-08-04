@@ -1,38 +1,64 @@
-* TODO Introduction [4/4]
+* TODO Introduction [3/4]
   - [X] Section of P15
   - [X] Stripes plate images
   - [X] Comp Model Schematic
-  - [X] Correction
+  - [ ] The competiton model as a correction to the logistic model
+    - [ ] Put kn values and r,K values on the figure
+    - [ ] Maybe even a b value?
 
 * TODO Guessing [1/4]
-  - [ ] Schematic of Imag Neighbour Guess
+  - [ ] Schematic of Imag Neighbour Guessing
   - [ ] kn Variation
     - [ ] Format
     - [ ] (Could use est params not Gaussian)
   - [X] Imag neigh fit to P15 (R5, C18)
 
-* TODO Boundary Conditions [0/1]
+* TODO Boundary Conditions / Corners [0/1]
+  - To compare the one and two N_0 models.
   - [ ] top left 3x3 P15
     - [ ] Best Comp Model fit to P15
     - [ ] Best Comp Model BC fit to P15
-    - [ ] obj funs just for edges
+    - [ ] label with obj funs just for edges or outmost two
 
-* TODO P15 [2/5]
+* TODO P15 [2/6]
   - [X] Comp Fit whole plate
   - [X] Comp Fit zone (R5, C18)
+  - [ ] Logistic model fit zone?
+    - [ ] Logistic equivilant or QFA R (log or gen log)?
   - [ ] Ranks for best Comp fits
     - [ ] Make labels clearer
     - [ ] Remove lines through gene names
-    - [ ] Separate HIS3 for edges or remove
+    - [ ] Separate HIS3 for edges or remove?
   - [ ] Ranks for different models
     - [ ] Remove log eq
-    - [ ] Add general logistic model
+    - [ ] Add general logistic model?
     - [ ] Remove lines through gene names
+    - [ ] Add p-values
   - [ ] COV
-    - [ ] MDR
-    - [ ] r
+    - [ ] MDR?
+    - [ ] r?
     - [ ] comp BC, log, and gen log (not log eq?)
-    - For the competition model all of the variance is contained in b
+    - For the competition model all of the variance is contained in
+      b. This is not true for the others.
 
+* TODO Cross-plate validation [1/2]
+  - [X] Stripes and filled simulation 3x3 (R9, C10).
+  - [-] Change in rank between plates for each model w/ spearman's
+    - [ ] How many genes to use in rank plots? Would definately have to be full
+      page to use all as most have no reapeats (~ 384/2 in total (192)).
+    - [ ] Comp model BC b
+    - [ ] QFA log model or QFA gen log model? MDR or r?
+    - [ ] Spearman's Rho
+    - [X] p-values not possible do to lack of repeats
 
-* TODO Cross-plate validation [0/0]
+* TODO Genetic Algorithm [0/3]
+  - [ ] Fit of 3x3 zone
+    - [ ] Check that I was also fitting rather that fixing plate level params
+    - [ ] Could redo with local min est params rather than chosen/random
+  - [ ] Gradient fit of b with fixed plate level params to a
+    simulation using params from one of the best Comp Model BC estimates for P15.
+    - [ ] Check that all five simulation param sets were from the Comp
+      Model BC (not no BC)
+    - [ ] Tidy up
+
+* TODO Discussion [0/0]
