@@ -7,3 +7,4 @@
 *.el
 auto/*.el
 *.bbl
+*.out
