@@ -1,0 +1,38 @@
+* TODO Introduction [4/4]
+  - [X] Section of P15
+  - [X] Stripes plate images
+  - [X] Comp Model Schematic
+  - [X] Correction
+
+* TODO Guessing [1/4]
+  - [ ] Schematic of Imag Neighbour Guess
+  - [ ] kn Variation
+    - [ ] Format
+    - [ ] (Could use est params not Gaussian)
+  - [X] Imag neigh fit to P15 (R5, C18)
+
+* TODO Boundary Conditions [0/1]
+  - [ ] top left 3x3 P15
+    - [ ] Best Comp Model fit to P15
+    - [ ] Best Comp Model BC fit to P15
+    - [ ] obj funs just for edges
+
+* TODO P15 [2/5]
+  - [X] Comp Fit whole plate
+  - [X] Comp Fit zone (R5, C18)
+  - [ ] Ranks for best Comp fits
+    - [ ] Make labels clearer
+    - [ ] Remove lines through gene names
+    - [ ] Separate HIS3 for edges or remove
+  - [ ] Ranks for different models
+    - [ ] Remove log eq
+    - [ ] Add general logistic model
+    - [ ] Remove lines through gene names
+  - [ ] COV
+    - [ ] MDR
+    - [ ] r
+    - [ ] comp BC, log, and gen log (not log eq?)
+    - For the competition model all of the variance is contained in b
+
+
+* TODO Cross-plate validation [0/0]
