@@ -4,7 +4,7 @@
 \label{sec:results}
 \citep{palkova1997}
 
-\subsection{\thesubsection~Subsection}
+\subsection{\thesubsection~Guessing}
 
 
 \graphicspath{{images/guessing/}}
@@ -23,15 +23,16 @@
   \centering
   \includegraphics[width=\linewidth]{final/P15_R5_C18_guess_sim}
   \captionof{figure}{Comp Model BC simulation using parameters from
-    Imaginary Neighbour guessing of P15. NOT TO GO HERE This method of
-    guessing requires a b-guess to be supplied to fix the faster
-    growing neighbour. (I iterated through cell ratios. I iterated
-    through a range of b guesses supplied at the plate level; running
-    a different script with a \(C_{0}\) guess, \(b_{guess}\). It would probably
-    have been better iterate through a list of b-guess values for each
-    culture and choosing the estimated b value from the best fit of
-    each culture. Guessing time is currently about four minutes which
-    is fast compared to fitting which takes approximately three
+    Imaginary Neighbour guessing of P15 for \textit{cdc13-1} P15 at
+    27C (R5, C18). NOT TO GO HERE This method of guessing requires a
+    b-guess to be supplied to fix the faster growing neighbour. (I
+    iterated through cell ratios. I iterated through a range of b
+    guesses supplied at the plate level; running a different script
+    with a \(C_{0}\) guess, \(b_{guess}\). It would probably have been
+    better iterate through a list of b-guess values for each culture
+    and choosing the estimated b value from the best fit of each
+    culture. Guessing time is currently about four minutes which is
+    fast compared to fitting which takes approximately three
     hours. However, this is unlikely to stop us from encountering
     local minima when we fit the Competition Model.}
   \label{fig:imag_neigh_guess_sim}
@@ -73,6 +74,7 @@ plate level parameters, fix these, and minimise using the current
 gradient method.
 
 
+\subsection{\thesubsection~Competition Model Fitting to P15}
 
 % Make landscape and take a whole page.
 \end{multicols}
