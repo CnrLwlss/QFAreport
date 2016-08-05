@@ -80,30 +80,41 @@ the proposal).
 // Model equations for metabolism.//
 
 Reo and Korolev (2014) simulate nutrient dependent growth of a single
-bacterial culture on a pertri dish using the diffusion equation and
-Neumann and Dirichlet boundary conditions. They create a sink for
-nutrients from culture growth and equate the rate of increase in
-culture size with the flux of nutrients through the culture area. They
-model culture area as varying and keep culture density constant. We
-may instead keep culture are area constant, allow culture density to
-vary and use our mass action kinetic model to determine the nutrient
-sink and culture growth. Simulating or fitting this model could help
-us learn about diffusion in QFA experiments. I am interested to know
-whether growth becomes diffusion limited at some point before
-nutrients are fully depleted. It is probably unfeasible to use such a
-detailed model to fit a whole plate because of the computational time
-this would take. However, it may be possible to use a finer grid to
-increase compartmentalisation of nutrients if this is necessary. This
-may extend the validity of the competition model over a larger range
-of culture growth rates (for instance when cultures are left empty)
-(probably a mistake to leave cultures completely empty in validation
-plot; should have instead just used weaker growers to induce a smaller
-change).
-
+bacterial culture on a pertri dish in two-dimensions using the
+diffusion equation and Neumann and Dirichlet boundary conditions. They
+create a sink for nutrients from culture growth and equate the flux of
+nutrients through the culture area with the rate of increase in
+culture size. They model culture area as varying and keep culture
+density constant. We may instead keep culture area constant, allow
+culture density to vary, and use our mass action kinetic model for the
+nutrient sink and culture growth. Simulating or fitting this model
+could help us learn more about diffusion in QFA experiments. I am
+interested to know whether growth becomes diffusion limited at some
+time-point (before nutrients are fully depleted) and what area of
+nutrients a culture can access within this time. It is probably
+unfeasible to use such a detailed model to fit a whole plate because
+of the computational time this would take. However, if necessary, it
+may be possible to use a finer grid to increase compartmentalisation
+of nutrients. This could extend the validity of the competition model
+over a larger range of variability in culture growth rates (for
+instance when some cultures are left empty and others are very fast
+growing.) (Probably a mistake to leave cultures completely empty in
+validation plot; should have instead just used weaker growers to
+induce a smaller change).
 
 
 //Talk about an improvement to the imaginary neighbour model.//
 
+The composition of nutrients (sugars, nitrogen, etc.) in QFQ agars
+follows a traditional recipe designed to reduce the excess of any
+single nutrient. ((background) What is the nutrient?  Nitrogen is only
+used to build molecules for new cells, whereas sugars are also used
+for metabolism.) For modelling nutrient limited growth, especially
+across plates, it would be better if we knew the identity of the
+limiting nutrient and could ensure that it is always the same
+molecule. This could be achieve using a different formula of agar.
+
+//Signalling//
 
 
 
