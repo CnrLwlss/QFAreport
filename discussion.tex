@@ -105,26 +105,6 @@ over a larger range of variability in culture growth rates (for
 instance when some cultures are left empty and others are very fast
 growing.)
 
-We could have designed the stripes validation experiment
-better. Rather than filling the gaps with cultures which were not
-grown on the stripes plate, and for which we had no b estimates, we
-could have repeated the cultures from the stripes plate. (I'm not sure
-it makes any difference actually whether we validate from one
-direction to the other). It would also have been helpful to have
-repeats to study differences in COV between the competition and
-independent models.
-
-In order to make sure that competition effects were present in data we
-used stripes and filled plates with drastic differences. This is a
-stern test of the competition model. The model assumes that
-competition effects are present whenever there is a difference in
-final cell amounts between cultures. We could have first validated the
-model against a smaller change, by varying between slower and faster
-growing cultures rather that none and very strong growing cultures. If
-the model works well between such plates it may work well for the
-majority of QFA experiments which typically have smaller differences
-between cultures than the data we study.
-
 It would also be useful to determine experimentally how nutrients are
 distributed throughout the agar at the stationary phase. Gaps could be
 left in an array of cultures and only inoculated once the stationary
@@ -144,6 +124,28 @@ limited growth, especially across plates, it would be better if we
 knew the identity of the limiting nutrient and could ensure that it is
 always the same molecule. This could be achieved using a different
 formula of agar.
+
+We could have designed the stripes validation experiment
+better. Rather than filling the gaps with cultures which were not
+grown on the stripes plate, and for which we had no b estimates, we
+could have repeated the cultures from the stripes plate. (I'm not sure
+it makes any difference actually whether we validate from one
+direction to the other). It would also have been helpful to have
+repeats to study differences in COV between the competition and
+independent models. In order to make sure that competition effects
+were present in data we used stripes and filled plates with drastic
+differences. This is a stern test of the competition model. The model
+assumes that competition effects are present whenever there is a
+difference in final cell amounts between cultures. We could have first
+validated the model against a smaller change, by varying between
+slower and faster growing cultures rather that none and very strong
+growing cultures. If the model works well between such plates it may
+work well for the majority of QFA experiments which typically have
+smaller differences between cultures than the data we study. If we did
+want to test the in an extreme case we could have inoculated fast
+growing cultures next certain strains and not others to try to induce
+a change in ranking for which the competition model might compensate
+better than the logistic model.
 
 //Signalling//
 
@@ -175,12 +177,13 @@ surrounding the zone. We could also surround with an identical strain
 to reduce net flux although then we would have to consider biological
 variance.
 % (Would it be better not to use a temperature dependent strain?)
-//
 
-Stochastic effects. Unpublished work by Hermann and Lawless has
+//Stochastic effects.//
+
+Unpublished work by Hermann and Lawless has
 investigated heterogeneity between cell lines within single QFA
 spots. They have found that a single or small number of extremely fast
-growing cell-lines can come to dominate the population of a single
+growing cell-lines comes to dominate the population of a single
 culture. The implication is that cultures with a lower starting cell
 densities are likely to have greater variance between repeats. We
 could use higher starting cell concentrations to reduce this variance
@@ -201,20 +204,29 @@ To fit growth curves more accurately QFA has begun using the
 generalised logistic model (cite). Fitness estimates (MDR*MDP or MDR?)
 from this model have higher coefficient of variation than those from
 either the standard logistic or competition model. (accuracy and
-precision?) Although the fits to data are qualitatively worse, it may
-be advisable to revert to the standard logistic model.
+precision? Could for instance a step function be less variable than
+the standard logistic model?)  Although the fits to data are
+qualitatively worse, it may be advisable to revert to the standard
+logistic model.
 
 
-est1 and heuristic checks.
+The logistic model requires different K parameters (\(N_{0}\) for
+log. eq.) to be fit for each culture. The competition model shares
+information about \(N_{0}\) between cultures and therefore has 383
+fewer parameters for a full plate (Could this also explain the higher
+variance for the fastest growers?). For the slowest growing cultures,
+noise is more dominant and there is a confounding effect between r and
+K. To deal with this, the QFA R package uses heuristic checks. In the
+case of \textit{est1\(\Delta\)}, this has led to a dramatic
+disagreement in estimated fitness with the competition model. The
+estimate from (which model)? agrees better with existing biological
+knowledge (/independent spot experiments?). (Is the competition model
+then useful?)
 
+//QFA R is fixing \(C_{0}\) rather than fitting (I used a grid))//
 
 //Improvement to imaginary neighbour guessing//
 
-% also talk about computational limitations of more complicated
-% modelling approaches. Can do this when describing the motivation for
-% the fought for model.
-
-\subsection{\thesubsection~Subsection}
 
 %%% Local Variables:
 %%% mode: latex
