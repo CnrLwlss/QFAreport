@@ -17,18 +17,21 @@ ranking may still be better (for the competition model).
 
 The first thing to notice about QFA data - from P15, the striped
 plate, and the filled plate - is the characteristic endpoint in growth
-on each plate. This holds whether a region contains many fast growing
-cultures or not. This suggests a plate-level growth-limiting
-effect. This could conceivably be an experimental limitation such as
-the drying out of an agar plate over time. However, comparison of the
-striped and filled data, shows that cultures tend to grow larger when
-neighbours are removed and this suggests a direct interaction between
-cultures. The strongest candidates are competition for nutrients and
-growth limiting signalling such as ethanol poisoning. It is possible
-that other growth limiting effects may exist and could confound any
-attempt to fit a model which accounts for just one of these. It makes
-sense to investigate each likely effect in turn to determine its
-contribution and to start by validating the independent limit.
+on each plate (experiments could be designed to study variation in
+timescales over regions of a plate by inoculating cultures in columns
+left-to-right according to fitness). This suggests a plate-level or
+region-level growth-limiting effect.
+% This could conceivably be an experimental limitation such as the
+% drying out of an agar plate over time.
+Comparison of the striped and filled data, shows that cultures grow
+larger when neighbours are removed and this suggests a direct
+interaction between cultures. The strongest candidates are competition
+for nutrients and growth limiting signalling such as ethanol
+poisoning. It is possible that other growth limiting effects may exist
+and could confound any attempt to fit a model which accounts for just
+one of these. It makes sense to investigate each likely effect in turn
+to determine its contribution and to start by validating the
+independent limit.
 
 
 
@@ -70,12 +73,12 @@ three-dimentsional (gas or fluid?) (Guldberg and Waage C.M. Guldberg
 and P. Waage, Studies Concerning Affinity, C. M. Forhandlinger:
 Videnskabs-Selskabet i Christiana (1864), 35) and this approximation
 is more valid for liquid cultures than for cultures spotted onto a
-surface. I suggest to study first the more ideal case of liquid cultures
-and later see if the model holds for cultures grown on a surface. If
-it does not, it may be necessary to use a fractal kinetics model or
-consider a more detailed model of diffusion of nutrients in agar (if
-the reaction is diffusion limited) (I have references for this from
-the proposal).
+surface. I suggest to study first the more ideal case of liquid
+cultures and later see if the model holds for cultures grown on a
+surface. If it does not, it may be necessary to use a fractal kinetics
+model (I have references for this from the proposal) or, if the
+reaction is diffusion limited, consider a more detailed model of
+nutrient diffusion.
 
 // Model equations for metabolism.//
 
@@ -102,24 +105,81 @@ growing.) (Probably a mistake to leave cultures completely empty in
 validation plot; should have instead just used weaker growers to
 induce a smaller change).
 
+It would also be useful to determine experimentally how nutrients are
+distributed throughout the agar at the stationary phase. Gaps could be
+left in an array of cultures and only inoculated once the stationary
+phase is reached. If they grow then nutrients remain. This could be
+extended by growing a single column of identical strains and, after
+the stationary stage has been reached, inoculating identical strains
+on the same plate at different distances from the row.
 
 //Talk about an improvement to the imaginary neighbour model.//
 
 The composition of nutrients (sugars, nitrogen, etc.) in QFQ agars
 follows a traditional recipe designed to reduce the excess of any
-single nutrient. ((background) What is the nutrient?  Nitrogen is only
-used to build molecules for new cells, whereas sugars are also used
-for metabolism.) For modelling nutrient limited growth, especially
-across plates, it would be better if we knew the identity of the
-limiting nutrient and could ensure that it is always the same
-molecule. This could be achieve using a different formula of agar.
+single nutrient (check QFA paper and cite). ((background) What is the
+nutrient?  Nitrogen is only used to build molecules for new cells,
+whereas sugars are also used for metabolism.) For modelling nutrient
+limited growth, especially across plates, it would be better if we
+knew the identity of the limiting nutrient and could ensure that it is
+always the same molecule. This could be achieved using a different
+formula of agar.
 
 //Signalling//
 
+If we find that competition for nutrients is not a significant effect,
+for instance if growth becomes diffusion limited before nutrients from
+neighbours can be accessed, then we could instead model signalling by
+ethanol as the interaction effect. This may be modelled similarly to
+how we are already modelling nutrient diffusion.
+
+//Signalling equation//
+
+If there is any combination of effects contributing significantly to
+differences in the growth of cultures and the interaction between
+neighbours then it will be difficult to separate them when fitting a
+model to data. We may have to develop ways to calibrate effects in
+isolation (e.g. by adding/measuring ethanol?) and use this information
+when fitting to high-throughput data.
+
+It is quicker to fit to small zones of a plate but as these have a
+larger proportion of edge cultures boundary conditions become
+important. In current data (e.g. P15) the cultures surrounding the
+edge may be very different from each other and this makes accurate
+fitting difficult. As a result we need to use larger zones are more
+difficult to work with. If we could surround small 3x3 and 4x4 zones
+with an empty ring then we would only need to consider the net flux of
+nutrients into or out of the zone and not the variation cultures
+surrounding the zone. We could also surround with an identical strain
+to reduce net flux although then we would have to consider biological
+variance.
+% (Would it be better not to use a temperature dependent strain?)
+//
+
+Stochastic effects. Unpublished work by Hermann and Lawless has
+investigated heterogeneity between cell lines within single QFA
+spots. They have found that a single or small number of extremely fast
+growing cell-lines can come to dominate the population of a single
+culture. The implication is that cultures with a lower starting cell
+densities are likely to have greater variance between repeats. We
+could use higher starting cell concentrations to reduce this variance
+but then we study less of the growth phase. It may be possible to
+reduce the effect by taking cells to be inoculated from the
+exponential growth phase rather than the stationary phase and still
+study full growth curves. (Unless mean population growth constant is
+being studied...) Staring cell densities should ideally be as close to
+the lowest resolvable level as possible.
+
+//Ways to measure C_0//
+There is a confounding effect between initial cell density and
+
+To fit growth curves more accurately QFA has begun using the
+generalised logistic model. General logistic model shows higher
+coeffient of variation in estimated (MDR*MDP or MDR) than either the
+standard logistic model or competition model.
 
 
-(experiments could be designed to study variation in timescales over
-regions of a plate)
+//Improvement to imaginary neighbour guessing//
 
 % also talk about computational limitations of more complicated
 % modelling approaches. Can do this when describing the motivation for
