@@ -3,20 +3,57 @@
 \section{\thesection~Discussion}
 \label{sec:discussion}
 
-Fitness ranking from the competition model may be better than from the
-logistic model (Will comparing stripes rankings reveal
-anythin?). However, we cannot currently compare quantitatively fitness
-estimates between plates using the competition model because we are
-not finding global minima. Work has begun to develop a genetic
-algorithm to do so. I am not convinced that this will succeed because,
-for all of the current best parameter solutions, growth is
-systematically overestimated when we move from the filled to striped
-plate. This suggests an issue with the modelling approach and below I
-suggest ways in which this could be improved. In any case, qualitative
-cross-plate validation using order of fitness ranking may still be
-better for the competition model.
+Fitness ranking from competition model fits may be better than from
+logistic model fits (Will comparing stripes rankings reveal
+anythin?). However, we cannot quantitatively compare fitness estimates
+between plates because we are not finding global minima. Work has
+begun to develop a genetic algorithm to do so. I am not convinced that
+this will succeed because growth is systematically overestimated when
+we move from the filled to striped plate for all of the current best
+parameter solutions. This suggests an issue with the modelling
+approach; below I suggest ways in which this could be improved. In
+any case, qualitative cross-plate validation using order of fitness
+ranking may still be better (for the competition model).
 
 
+The first thing to notice about QFA data - from P15, the striped
+plate, and the filled plate - is the characteristic endpoint in growth
+on each plate. This holds whether a region contains many fast growing
+cultures or not. This suggests a plate-level growth-limiting
+effect. This could conceivably be an experimental limitation such as
+the drying out of an agar plate over time. However, comparison of the
+striped and filled data, shows that cultures tend to grow larger when
+neighbours are removed and this suggests a direct interaction between
+cultures. The strongest candidates are competition for nutrients and
+growth limiting signalling such as ethanol poisoning. It is possible
+that other growth limiting effects may exist and could confound any
+attempt to fit a model which accounts for just one of these. It makes
+sense to investigate each likely effect in turn to determine its
+contribution and to start by validating the independent limit.
+
+We have only studied data where cultures are grown in an array on
+solid agar and growth cannot be assumed to be independent. Our model
+says that nutrients can only be converted to cells and in the
+independent limit all cultures starting with the same amount of
+nutrients will reach the same final cell density. This ignores
+metabolism and efficiency of converting nutrients to cells, which may
+differ between strains. If present, differences in such effects could
+account entirely for differences in final cell density. However, it is
+unlikely to be the only effect, because this would not lead to the
+observed characteristic endpoint in growth.
+
+
+where it is diffidifferentiation in growth from competiton or
+independent factors is difficult to separate. growthvariation caused
+by but by using one-culture spot tests or liquid cultures
+
+
+(experiments could be designed to study variation in timescales over
+regions of a plate)
+
+% also talk about computational limitations of more complicated
+% modelling approaches. Can do this when describing the motivation for
+% the fought for model.
 
 \subsection{\thesubsection~Subsection}
 
