@@ -21,8 +21,10 @@ on each plate (experiments could be designed to study variation in
 timescales over regions of a plate by inoculating cultures in columns
 left-to-right according to fitness). This suggests a plate-level or
 region-level growth-limiting effect.
-% This could conceivably be an experimental limitation such as the
-% drying out of an agar plate over time.
+//
+Could this conceivably be an experimental limitation such as the
+drying out of an agar plate over time?
+//
 Comparison of the striped and filled data, shows that cultures grow
 larger when neighbours are removed and this suggests a direct
 interaction between cultures. The strongest candidates are competition
@@ -32,7 +34,6 @@ and could confound any attempt to fit a model which accounts for just
 one of these. It makes sense to investigate each likely effect in turn
 to determine its contribution and to start by validating the
 independent limit.
-
 
 
 Spots can grow after a long time. Must be nutrients remaining or an
@@ -56,7 +57,8 @@ solid agar where we cannot validate the independent limit. In this
 limit, our model says that nutrients can only be converted to cells
 and all cultures starting with the same amount of nutrients will reach
 the same final cell density. This ignores metabolism which may differ
-between strains. Cell arrest could also limit growth. If present,
+between strains. Cell arrest could also limit growth (and this may
+occur in different strains at different rates). If present,
 differences in such effects could account entirely for differences in
 final cell density. However, they are unlikely to be the only effect,
 because this would not lead to the observed characteristic endpoint in
@@ -170,13 +172,21 @@ study full growth curves. (Unless mean population growth constant is
 being studied...) Staring cell densities should ideally be as close to
 the lowest resolvable level as possible.
 
-//Ways to measure C_0//
-There is a confounding effect between initial cell density and
+//Ways to measure \(C_{0}\)// There is a confounding effect between
+initial cell density and b value with may justify using initial cell
+densities slightly above the minimum detectable level. There is still
+the issue of heterogeneity if not all of these cells grow as starting
+cell density would then effectively be lower than the measured value.
 
 To fit growth curves more accurately QFA has begun using the
-generalised logistic model. General logistic model shows higher
-coeffient of variation in estimated (MDR*MDP or MDR) than either the
-standard logistic model or competition model.
+generalised logistic model (cite). Fitness estimates (MDR*MDP or MDR?)
+from this model have higher coefficient of variation than those from
+either the standard logistic or competition model. (accuracy and
+precision?) Although the fits to data are qualitatively worse, it may
+be advisable to revert to the standard logistic model.
+
+
+est1 and heuristic checks.
 
 
 //Improvement to imaginary neighbour guessing//
