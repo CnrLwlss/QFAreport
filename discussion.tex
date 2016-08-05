@@ -103,9 +103,27 @@ may be possible to use a finer grid to increase compartmentalisation
 of nutrients. This could extend the validity of the competition model
 over a larger range of variability in culture growth rates (for
 instance when some cultures are left empty and others are very fast
-growing.) (Probably a mistake to leave cultures completely empty in
-validation plot; should have instead just used weaker growers to
-induce a smaller change).
+growing.)
+
+We could have designed the stripes validation experiment
+better. Rather than filling the gaps with cultures which were not
+grown on the stripes plate, and for which we had no b estimates, we
+could have repeated the cultures from the stripes plate. (I'm not sure
+it makes any difference actually whether we validate from one
+direction to the other). It would also have been helpful to have
+repeats to study differences in COV between the competition and
+independent models.
+
+In order to make sure that competition effects were present in data we
+used stripes and filled plates with drastic differences. This is a
+stern test of the competition model. The model assumes that
+competition effects are present whenever there is a difference in
+final cell amounts between cultures. We could have first validated the
+model against a smaller change, by varying between slower and faster
+growing cultures rather that none and very strong growing cultures. If
+the model works well between such plates it may work well for the
+majority of QFA experiments which typically have smaller differences
+between cultures than the data we study.
 
 It would also be useful to determine experimentally how nutrients are
 distributed throughout the agar at the stationary phase. Gaps could be
@@ -137,12 +155,13 @@ how we are already modelling nutrient diffusion.
 
 //Signalling equation//
 
-If there is any combination of effects contributing significantly to
-differences in the growth of cultures and the interaction between
-neighbours then it will be difficult to separate them when fitting a
-model to data. We may have to develop ways to calibrate effects in
-isolation (e.g. by adding/measuring ethanol?) and use this information
-when fitting to high-throughput data.
+If there is any combination of competition, metabolism, signalling, or
+arrest contributing significantly to differences in the growth of
+cultures and the interaction between neighbours then it will be
+difficult to separate them when fitting a model to data. We may have
+to develop ways to calibrate effects in isolation (e.g. by
+adding/measuring ethanol?) and use this information when fitting to
+high-throughput data.
 
 It is quicker to fit to small zones of a plate but as these have a
 larger proportion of edge cultures boundary conditions become
