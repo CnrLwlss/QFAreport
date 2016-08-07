@@ -84,15 +84,15 @@ nutrient diffusion.
 
 // Model equations for metabolism.//
 
-Our model splits the agar into a grid with volume discretised
-per culture. In the stripes validation, we overestimate the effect of
+Our model splits the agar into a grid with volume discretised per
+culture. In the stripes validation, we overestimate the effect of
 diffusion when neighbouring cultures are removed. I believe that we
-are not capturing the point where growth becomes diffusion limited and
-that nutrients are not evenly distributed withing the spatial scales
-that we model. A diffusion equation model could capture the local
-distribution of nutrients around a culture when the stationary phase
-is reached.
-Reo and Korolev (2014) use the diffusion equation (and Neumann and
+are not accurately capturing the point at which growth becomes
+diffusion limited and that nutrients are well approximated as being
+evenly distributed withing the spatial scales that we model. A
+diffusion equation model could capture the local distribution of
+nutrients around a culture when the stationary phase is reached.  Reo
+and Korolev (2014) use the diffusion equation (and Neumann and
 Dirichlet boundary conditions) to simulate nutrient dependent growth
 of a single bacterial culture on a pertri dish in two-dimensions. They
 create a sink for nutrients from culture growth and equate the flux of
@@ -102,15 +102,14 @@ density constant. We may instead keep culture area constant, allow
 culture density to vary, and use our mass action kinetic model (eq
 no.) for the nutrient sink and culture growth. Simulating or fitting
 this model could help us learn more about diffusion in QFA
-experiments.
-It is probably computationally unfeasible to use such a detailed model
-to fit a whole plate. However, if necessary, it may be possible to use
-a finer grid to increase compartmentalisation of nutrients to capture
-spatial heterogeneity in the distribution of nutrients around a
-culture and the effect of diffusion limited growth. This could extend
-the validity of the competition model over a larger range of
-variability in culture growth rates (for instance when some cultures
-are left empty and others are very fast growing.)
+experiments.  It is probably computationally unfeasible to use such a
+detailed model to fit a whole plate. However, if necessary, it may be
+possible to use a finer grid to increase compartmentalisation of
+nutrients to capture spatial heterogeneity in the distribution of
+nutrients around a culture and the effect of diffusion limited
+growth. This could extend the validity of the competition model over a
+larger range of variability in culture growth rates (for instance when
+some cultures are left empty and others are very fast growing.)
 
 It would also be useful to determine experimentally how nutrients are
 distributed throughout the agar at the stationary phase. Gaps could be
