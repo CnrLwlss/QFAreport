@@ -1,0 +1,94 @@
+Daniel Proposal
+
+General points:
+~~~~~~~~~~~~~~~
+
+What is the wordcount at the moment?  Most of my suggestions below are to delete some paragraphs.
+
+Several times you describe growth curve analysis in SGA.  Although I show growth curves for 1536 cultures in the Colonyzer paper, nobody else does this typically.  Typical SGA experiments include just a single snapshot of growth, taken somewhere in the middle of the growth curve, as a surrogate for growth rate.  We sometimes call those timecourses in 1536 format pinned QFA.
+
+Need to cut down on discussion of details of genetic interaction calculations.  It's enough to say that fitness is a good phenotype for measuing GI, and that screens for GIs are useful.  Here we concentrate on fitness/growth rates.
+
+In introduction/aims Should say something about why fitness is an interesting/useful phenotype.  This will help a lot later on in the proposal (will remove need to keep discussing genetic interactions).
+
+
+Specific points:
+~~~~~~~~~~~~~~~~
+
+AIMS -> INTRODUCTION?
+
+...screening of genetic-interaction... -> ...screening for genetic-interaction...
+drug response -> drug responses
+
+"performed using a high-throughput protocol" -> delete
+"independent genetic strains" -> delete 
+384 spots can include any combination of different strains and replicates of strains.
+
+"It is possible that growth curves..."  You need a bit more intro here.  Something like: "QFA cultures are typically assumed to grow completely independently.  Here we will examine whether this assumption is valid in a range of different QFA experiments.  We propose a new model of population growth which includes competition between spots.  Explicitly modelling competition may increase reproducibility of QFA fitness estimates.  Ultimately we expect that explicitly modelling competition will increase the statistical power of QFA during screens for genetic interactions and drug responses."
+
+"...signalling has on measures of fitness." -> "...signalling has on variability and rank order of fitness estimates".
+
+Hypotheses
+
+"...determine whether the following hypotheses are correct" -> "...test the following hypotheses"
+
+OBJECTIVES
+
+MiniQFA -> miniQFA
+
+oder -> order
+
+Better to compare with our own model of independence: exact equivalence, same inference, same image analysis, same exact dataset.
+
+BACKGROUND RESEARCH
+
+QFA and SGA are for high-throughput, quantitative screening of fitness.
+"both of which can be performed using a high-throughput protocol" -> delete
+"more of growth curves can be captured" -> "growth curves are more complete".
+"outwards" -> "radially"
+
+No need to say "with permission", "courtesy of" etc.  Just cite, that is more than enough.  You would only need permission for republication for example, and even then, only if the original was not openly licensed.
+
+"...Colonyzer to take the..." -> "...Colonyzer to generate..."
+liquid cultures -> independent liquid cultures
+
+Growth curves captured by Colonyzer and assembled by QFA R package.
+
+quorum sensing molecule: ammonia
+
+Mass Action Kinetics
+
+"This accurately reflects the probabilistic nature of reactions in the gas phase, which arise from collisions between reactants travelling at high velocity in random directions".
+
+Eq (2) Careful here, need to think about units of r (concentration is # cells/volume)
+PDE -> Spatial PDE
+
+"...better modelled using fractal kinetics." Better in what sense?
+
+Logistic model is not used in SGA (does not involve growth curves).
+
+"Measures of fitness are commonly....... existing fitness measures" -> Delete.  Let's just concentrate on r and K.
+
+"done on a genome wide scale" -> "carried out on a genome wide scale"
+
+"There exist several methods ... benefits for humans" -> Delete, too much detail about genetic interaction strength
+
+square array -> rectangular array?
+
+Need better nomenclature for "all elements of neighbourhood of position i" in Eq (9).  Something like j \epsilon \delta_i  ?
+
+Yes, we should assume no cell death initially.  This assumption not relevant in deterministic, continuous logistic model (parameter r is just the combined effect of birth and death processes).  Cells might or might not be dying in these popultions.  If there is cell death, you usually see a distinctive sectored morphology in spots (nibbled edges corresponding to wedges missing from circle of colony where cell lineage would have been without death).  Cell death must occur at a pretty low rate in typical microbial growth curves as they are monotonically increasing (fluctuations in QFA growth curves almost certainly due to lighting issues).  Another kind of "death" is transition to a non-dividing state, whereby a cell still takes a place in the population but no longer divides.  This is pretty common.  We can explore effect of including or not including a death process in CANS model.  Note that it will add another parameter, may be over-fitting issues to consider.
+
+Analyse Experimental Data
+
+Can use yzer.ncl.ac.uk for computation: 56 cores, 256Gb RAM, massive GPU.
+
+"The QFA R package.... parameter os fht same model." -> Delete
+
+"rewrite the ODE model in Stan" I've been thinking, this might be about equivalent in difficulty to automatically spitting out an SBML version of the model (i.e. not that difficult).  If we think carefully when writing code to generate SBML, we might be able to generate STAN ODEs in the same way.
+
+"Probably being too speculative here" This sounds good to me.  I suspect that we will find that by modelling competition, we will improve our confidence in estimates of r by using information from the end of the growth curves as well as the beginnning to inform our estimates.
+
+CMS -> CSM
+
+
