@@ -1,0 +1,72 @@
+* TODO Introduction [0/9]
+  - [ ] Explain QFA
+  - [ ] In contrast SGA fits no growth curves (but is
+    quantitative. Takes a number from cell density measurement at the
+    time the experiment is stopped.)
+  - [ ] Explain here or in the method the previous work of addinall and the
+  - [ ] Temperature and conditional mutants
+  - [ ] Taken out of incubator and photographed
+  - [ ] Images analysed and intensity of cultures used as a proxy for cell density
+  - [ ] QFA R packages assumes independence and
+    - [ ] fits logistic and generalised logistic growth curves
+    - [ ] r not equivlent between these two models. Uses other fitness estimates
+    - [ ] MDR, MDP and MDR*MDP
+    - [ ] Fixes C_0 for all cultures.
+    - [ ] Has heuristic checkes for slow growing cultures due
+  - [ ] Cannot measure the amount of nutrients
+  - [ ] In many datasets (e.g. P15) the initial cell density is below the
+    resolution of the imaging analysis.
+
+
+
+* TODO Method [0/7]
+  - [ ] Data procecessing with Colonyzer.
+  - [ ] P15 cdc13-1 background mutation at 27C Adinall 2011
+    - [ ] Repeats (Inoculated from different liquid cultures? - could
+      have differentiated?)
+    - [ ] Inoculation density?
+    - [ ] Noise
+    - [ ] Innoculation of HIS3 in edge locations
+    - [ ] Noise in edge cultures and greater associated area of
+      nutrients. (Remove from model)
+  - [ ] Stripes and Filled data sets
+    - [ ] Validated against this experiment.
+    - [ ] Low numbers of repeats (none for most cultures)
+    - [ ] What is background mutation if there is one?
+    - [ ]
+    - [ ] Different strains innoculated in columns with gaps left in one plate
+    - [ ] Gaps filled with other strains on a separate plate (How do these differ?)
+    - [ ] Identical strains on both plates inoculated from the same
+      liquid cultures.
+  - [ ] Simulation and Fitting with a Gradient method.
+    - [ ] odeint
+    - [ ] scipy.optimize.minimize
+    - [ ] Fit C_0, N_0, and kn (plate level) and b (culture level) collectively
+    - [ ] Scaling of C_0
+  - [ ] Logistic equivalent model
+  - [ ] Speeding up the solver
+    - [ ] 5x speed up by vectorizing operations using numpy. Still too slow.
+    - [ ] Wrote models in SBML using libSBML
+    - [ ] Species, parameters, and reaction equations are
+      automatically generated for any dimension plate.
+    - [ ] Flexibility to change the model defining a new reaction or
+      rate equations including new species. Permits reactions within a
+      cell or diffusion between horizontal and horizontal and vertical
+      neighbours (could technically be reactions other than
+      diffusion).
+    - [ ] Explain how a model is defined and
+    - [ ] dealing with boundaries
+      - [ ] P15 data has the same strain around the whole edge. Have
+        access to a greater area of nutrinients becasue there is a
+        zone around the edge of the agar where no cultures are
+        inoculated. This differs for each side depending on how
+        centrally the cultures have been inoculated onto the plate. An
+        again greater are of the agar belongs to corners cultures. We
+        treat all edge cultures the same and use a second N_0 in the
+        model. We will discard edge cultures from our final results but aim to increase the accuracy of estimates of inner cultures b
+      - [ ] More nutrients, same starting concentration, same reaction area/volume
+      - [ ] Could have
+  - [ ] Python implementation
+    - [ ] "empties" to remove empty c_meas from the objective
+      function. Not simpy enough to set b to zero as would bias C_0
+      estimates.
