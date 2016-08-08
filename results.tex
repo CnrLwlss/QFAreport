@@ -6,8 +6,8 @@
 
 \subsection{\thesubsection~Guessing}
 
-Guessing N_0 from average final cell amounts. See formula in code for
-two N_0.
+N_{0} estimated from average final cell amounts. See formula in code
+for two N_{0} estimation.
 
 \graphicspath{{images/guessing/}}
 \begin{Figure}
@@ -16,9 +16,8 @@ two N_0.
   \captionof{figure}{\textbf{Guessing \(k_{n}\) from the variance in
       final cell amounts.} The competition model is simulated for a
     16x24 format plate using two random sets of culture-level \(b\)
-    (growth constant) parameters drawn from different normal
-    distributions. Each set of \(b\) parameters is simulated over a
-    range of \(k_n\) (nutrient diffusion constant) parameter
+    parameters drawn from different normal distributions. Each set of
+    \(b\) parameters is simulated with a range of \(k_n\) parameter
     values. The variance in final cell density for all cultures is
     plotted against \(k_n\) for each simulation. Lines are shown for
     least squares fits to points from each set of \(b\) parameters.}
@@ -31,19 +30,20 @@ two N_0.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/P15_R5_C18_guess_sim}
-  \captionof{figure}{Comp Model BC simulation using parameters from
-    Imaginary Neighbour guessing of P15 for \textit{cdc13-1} P15 at
-    27C (R5, C18). NOT TO GO HERE This method of guessing requires a
-    b-guess to be supplied to fix the faster growing neighbour. (I
-    iterated through cell ratios. I iterated through a range of b
-    guesses supplied at the plate level; running a different script
-    with a \(C_{0}\) guess, \(b_{guess}\). It would probably have been
-    better iterate through a list of b-guess values for each culture
-    and choosing the estimated b value from the best fit of each
-    culture. Guessing time is currently about four minutes which is
-    fast compared to fitting which takes approximately three
-    hours. However, this is unlikely to stop us from encountering
-    local minima when we fit the Competition Model.}
+  \captionof{figure}{\textbf{Competition model simulation using
+      parameters from imaginary neighbour guessing.} I guessed  P15 for
+      \textit{cdc13-1} P15 at 27C (R5, C18).} NOT TO GO HERE This
+    method of guessing requires a b-guess to be supplied to fix the
+    faster growing neighbour. (I iterated through cell ratios. I
+    iterated through a range of b guesses supplied at the plate level;
+    running a different script with a \(C_{0}\) guess,
+    \(b_{guess}\). It would probably have been better iterate through
+    a list of b-guess values for each culture and choosing the
+    estimated b value from the best fit of each culture. Guessing time
+    is currently about four minutes which is fast compared to fitting
+    which takes approximately three hours. However, this is unlikely
+    to stop us from encountering local minima when we fit the
+    Competition Model.}
   \label{fig:imag_neigh_guess_sim}
 \end{Figure}
 \begin{multicols}{2}
