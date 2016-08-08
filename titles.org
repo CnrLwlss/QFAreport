@@ -82,7 +82,8 @@
   - [ ] Logistic equivalent model
   - [ ] Speeding up the solver
     - [ ] 5x speed up by vectorizing operations using numpy. Still too slow.
-    - [ ] Wrote models in SBML using libSBML
+    - [ ] Wrote models in SBML using libSBML solved with
+      libroadrunner. Could also solve and fit in Copasi.
     - [ ] Species, parameters, and reaction equations are
       automatically generated for any dimension plate.
     - [ ] Flexibility to change the model defining a new reaction or
