@@ -93,7 +93,15 @@ gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
-  \captionof{figure}{(R5, C18) P15 requires legend}
+  \captionof{figure}{\textbf{Fit of the competition model to a QFA
+      plate.} Data is for a 16x24 format plate (P15) with a background
+    mutation \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate
+    contains 6 repeats of 50 genetic strains randomly arranged across
+    the internal cultures. Repeats of a single strain are used for all
+    edge cultures (removed in the plot). Model output for state
+    variable, cell population size (blue curve), is fit to observed
+    data (black crosses). Model predictions for unobserved variable
+    (nutrient amount) are also plotted (yellow).}
   \label{fig:comp_fit_plate}
 \end{Figure}
 \end{landscape}
@@ -104,7 +112,8 @@ gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/P15_r5_c18_3x3}
-  \captionof{figure}{(R5, C18) P15}
+  \captionof{figure}{\textbf{A 3x3 zone from Figure~\ref{fig:comp_fit_plate}
+      with top-left coordinate (5, 18)}.}
   \label{fig:comp_fit_zone}
 \end{Figure}
 \begin{multicols}{2}
@@ -135,10 +144,12 @@ gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/top_left}
-  \captionof{figure}{Top left corner of the Competition Model and
-    Competition Model BC estimates for P15. NEED TO FIND OBJ FUN FOR
-    DEPTH ONE AND TWO AND COMPARE TO AVG OBJ FUN FOR WHOLE PLATE (JUST
-    DIVIDE BY 384). ALSO FIND COV FOR THE HIS3 EDGES.}
+  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
+      of the competition model.} The top left corner of a 16x24 QFA
+    plate fitted with two versions of the competition model: the first
+    containing a single initial nutrient amount for all cultures; the
+    second containing a separate initial nutrient amount for edge
+    cultures.}
   \label{fig:P15_corner}
 \end{Figure}
 \begin{multicols}{2}
@@ -167,9 +178,9 @@ gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{top_two_comp_p15_correlations_trimmed}
-  \captionof{figure}{Comparison of b ranking for best five Competition
-    Model fits P15. Includes HIS3 from edge cultures (could separate or
-    exclude these).}
+  \captionof{figure}{\textbf{Comparison of \(\bm{b}\) ranking for the
+      best five competition model fits to P15.} Ranking is calculated
+    from the mean \(b\) estimate from the six repeats or each strain.}
   \label{fig:comp_b_ranking}
 \end{Figure}
 
@@ -179,9 +190,12 @@ gradient method.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{r_correlations_trimmed}
-  \captionof{figure}{r correlations for Comp Model BC, QFA R logistic,
-    and logistic equivalent P15. INSTEAD GO WITH MDR AND USE
-    GENERALIZED LOGISTIC MODEL AS WELL? ADD P-VALUES.}
+  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
+      of the competition and logistic model to P15.} Competition model
+    \(r\) was converted from \(b\), \(N_0\), and \(C_0\) from the best
+    competition model estimate. Logistic \(r\) was taken from fits
+    using the QFA R package which makes heuristic checks for slow
+    growing cultures.}
   \label{fig:r_ranking}
 \end{Figure}
 
@@ -195,9 +209,11 @@ variation (COV) of estimated r or MDR.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{r_cov_trimmed}
-  \captionof{figure}{Coefficient of variation of r estimates from fits
-    of the Competition Model BC, the QFA R Logistic Model, and the
-    Logistic Equivalent Model to P15.}
+  \captionof{figure}{\textbf{Coefficient of variation of \(\bm{r}\)
+      estimates.} Strains are ordered left to right along the
+    horizontal axis by highest to lowest competition model \(r\)
+    ranking. Fits are for the competition model, the QFA R logistic
+    model, and the logistic equivalent model.}
   \label{fig:r_cov}
 \end{Figure}
 \begin{multicols}{2}
@@ -210,10 +226,8 @@ variation (COV) of estimated r or MDR.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/validation_r9_c10}
-  \captionof{figure}{(R9, C10) top-right probable pinning
-    mistake. Bottom-left not close to any such mistake. This is quite
-    an extreme step between experiments. Perhaps we could have tried
-    validating against weaker growing cultures rather than none.}
+  \captionof{figure}{\textbf{Calibration and validation of the
+      competition model.} }
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
