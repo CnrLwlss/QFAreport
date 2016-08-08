@@ -1,26 +1,62 @@
-* TODO Introduction [0/9]
+* TODO Introduction [0/10]
+  - [ ] SGA, QFA, and liquid cultures.
   - [ ] Explain QFA
-  - [ ] In contrast SGA fits no growth curves (but is
-    quantitative. Takes a number from cell density measurement at the
-    time the experiment is stopped.)
-  - [ ] Explain here or in the method the previous work of addinall and the
-  - [ ] Temperature and conditional mutants
-  - [ ] Taken out of incubator and photographed
-  - [ ] Images analysed and intensity of cultures used as a proxy for cell density
-  - [ ] QFA R packages assumes independence and
-    - [ ] fits logistic and generalised logistic growth curves
-    - [ ] r not equivlent between these two models. Uses other fitness estimates
-    - [ ] MDR, MDP and MDR*MDP
-    - [ ] Fixes C_0 for all cultures.
-    - [ ] Has heuristic checkes for slow growing cultures due
-  - [ ] Cannot measure the amount of nutrients
-  - [ ] In many datasets (e.g. P15) the initial cell density is below the
-    resolution of the imaging analysis.
+    - [ ] Temperature and conditional mutants
+    - [ ] Inoculated with different strains (with deletion and querry)
+      often with repeats. Rectangular array on agar. Many plates in a
+      genome-wide screen. How many per plate?
+    - [ ] Grown in an incubator and taken out to be photographed at
+      different timepoints.
+    - [ ] Images analysed and intensity of cultures used as a proxy for
+      cell density using Colonyzer.
+    - [ ] QFA R packages assumes independence
+      - [ ] fits logistic and generalised logistic growth curves
+      - [ ] r not equivlent between these two models. Uses other fitness estimates
+      - [ ] MDR, MDP and MDR*MDP
+    - [ ] In many datasets (e.g. P15) the initial cell density is below the
+      resolution of the imaging analysis and must be inferred.
+      - [ ] Fixes C_0 for all cultures (rather than any fitting?).
+      - [ ] Makes heuristic checks for slow growing cultures because
+	noise confounds r and K.
+    - [ ] In contrast SGA fits no growth curves (but is
+      quantitative. Takes one number from a cell density measurement
+      partway through growth when the experiments is stopped (aiming to
+      still be in the exponential phase?).)
+    - [ ] Cannot measure the amount of nutrients directly.
+      - [ ] Nutrients (sugars, nitrogen, etc.) in QFQ agars are of a
+	standard composition, designed to reduce the excess of any single
+	nutrient (check QFA paper and cite).
+      - [ ] Identity of the limiting nutrient known? Nitrogen is only
+	used to build molecules for new cells, whereas sugars are also
+	used for metabolism.
+	- Could for instance add sugar at periods throughout the
+          experiment or use a different composition so that the limiting
+          nutrient is always the same.
+  - [ ] Explain here or in the methods the previous work of addinall
+    and the p15 data set? - (also mention telomere and importance in
+    aging?)
+  - [ ] Use of QFA in infering genetic interaction, drug screening, etc.
+  - [ ] Why we belive there may be competition effects
+    - [ ] Could introduce stripes dataset and p15
+  - [ ] Explain our model - Should I be doing this here or in the
+    methods? I could just introduce mass action kinetics
+    - [ ] Network diffusion
+    - [ ] Mass action kinetics
+    - [ ] Reduction to independent limit which is equivalent to the
+      logistic model.
+      - [ ] Validity of approximation / fractal kinetics
+      - [ ] Why deterministic and not stochastic?
+      - [ ] Plate level and culture level parameters
+      - [ ] Boundary conditions and two N_0s
+  - [ ] Viewed as a correction to the independent model
+  - [ ] Introduce SBML?
+  - [ ] Gradient fitting and genetic algorithms
+  - [ ] Imaginary neighbour model and guesssing
 
-
-
-* TODO Method [0/7]
-  - [ ] Data procecessing with Colonyzer.
+# I think it might be best to get all of the figures I want for the
+# results FIRST and then just explain how I got them here.
+* TODO Method [0/9]
+  - [ ] Data procecessed with Colonyzer.
   - [ ] P15 cdc13-1 background mutation at 27C Adinall 2011
     - [ ] Repeats (Inoculated from different liquid cultures? - could
       have differentiated?)
@@ -39,7 +75,7 @@
     - [ ] Identical strains on both plates inoculated from the same
       liquid cultures.
   - [ ] Simulation and Fitting with a Gradient method.
-    - [ ] odeint
+    - [ ] odeint and least squares
     - [ ] scipy.optimize.minimize
     - [ ] Fit C_0, N_0, and kn (plate level) and b (culture level) collectively
     - [ ] Scaling of C_0
@@ -70,3 +106,8 @@
     - [ ] "empties" to remove empty c_meas from the objective
       function. Not simpy enough to set b to zero as would bias C_0
       estimates.
+  - [ ] Splining using python for data wihth manyu timepoints
+  - [ ] Genetic algorithm
+    - [ ] hierarchical
+    - [ ] insypred
+    - [ ] multiprocessing
