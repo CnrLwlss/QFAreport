@@ -6,8 +6,8 @@
 
 \subsection{\thesubsection~Guessing}
 
-N_{0} estimated from average final cell amounts. See formula in code
-for two N_{0} estimation.
+\(N_{0}\) estimated from average final cell amounts. See formula in code
+for two \(N_{0}\) estimation.
 
 \graphicspath{{images/guessing/}}
 \begin{Figure}
@@ -31,23 +31,24 @@ for two N_{0} estimation.
   \centering
   \includegraphics[width=\linewidth]{final/P15_R5_C18_guess_sim}
   \captionof{figure}{\textbf{Competition model simulation using
-      parameters from imaginary neighbour guessing.} I guessed  P15 for
-      \textit{cdc13-1} P15 at 27C (R5, C18).} NOT TO GO HERE This
-    method of guessing requires a b-guess to be supplied to fix the
-    faster growing neighbour. (I iterated through cell ratios. I
-    iterated through a range of b guesses supplied at the plate level;
-    running a different script with a \(C_{0}\) guess,
-    \(b_{guess}\). It would probably have been better iterate through
-    a list of b-guess values for each culture and choosing the
-    estimated b value from the best fit of each culture. Guessing time
-    is currently about four minutes which is fast compared to fitting
-    which takes approximately three hours. However, this is unlikely
-    to stop us from encountering local minima when we fit the
-    Competition Model.}
+      parameters from imaginary neighbour guessing.} Shows a 3x3 zone
+    with top-left coordinate (5, 18) from P15 with background
+    \textit{cdc13-1} at 27\(^{\circ}C\).}
   \label{fig:imag_neigh_guess_sim}
 \end{Figure}
 \begin{multicols}{2}
 
+
+  (NOT TO GO HERE This method of guessing requires a b-guess to be
+  supplied to fix the faster growi ng neighbour. (I iterated through
+  cell ratios. I iterated through a range of b guesses supplied at the
+  plate level; running a different script with a \(C_{0}\) guess,
+  \(b_{guess}\). It would probably have been better iterate through a
+  list of b-guess values for each culture and choosing the estimated b
+  value from the best fit of each culture. Guessing time is currently
+  about four minutes which is fast compared to fitting which takes
+  approximately three hours. However, this is unlikely to stop us from
+  encountering local minima when we fit the Competition Model.)
 
 Scripts were run with combinations of the following values.
 cellratios = np.logspace(-3, -5, num=5)
