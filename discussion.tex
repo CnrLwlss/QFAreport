@@ -3,6 +3,31 @@
 \section{\thesection~Discussion}
 \label{sec:discussion}
 
+%% insert this somewhere %%%%%%%%%%
+//Noise affecting competition model//
+
+I also had some thoughts about why the competition model might have
+higher variance. The competition model has to deal with noise of the
+slowest growing cultures which affects both plate level parameter
+estimates and the b estimates of faster growing
+neighbours. I.e. sharing plate level parameters gives us more
+information about slower growing cultures but adds noise to our
+estimates of faster growing cultures. For the logistic model, each
+growth curve is fit independently and so fast growing cultures are
+less affected by noise and may have less variance than competition
+model estimates. Conversely slow-growing cultures are dominated by
+noise and this requires us to use heuristic checks (accuracy is
+actually affected more than precision). This may be why we see more
+variance in the b estimates of fast growing cultures from the
+competition but less for medium and slow growing (probably also less
+overall). If we had a plate with no very slow growing cultures
+dominated by noise perhaps we would see less variance in the fastest
+growers from the competition model. We could probably use the filled
+plate to check this.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 Fitness ranking from competition model fits may be better than from
 logistic model fits (Will comparing stripes rankings reveal
 anythin?). However, we cannot quantitatively compare fitness estimates
