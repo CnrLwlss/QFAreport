@@ -253,9 +253,18 @@ variation (COV) of estimated r or MDR.
 \graphicspath{{images/stripes/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{final/validation_r9_c10}
+  \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
   \captionof{figure}{\textbf{Calibration and validation of the
-      competition model.} }
+      competition model.} I fit the competition model to the 16x24
+    format ``Stripes'' and ``Filled'' plates in
+    Figure~\ref{fig:stripes_images}. The plot shows cell measurements
+    and estimates for 3x3 sections with top left coordinates (R9,
+    C10). I took the parameters estimated for the ``Filled'' plate
+    (calibration) and set growth constant, b, to zero for all empty
+    cultures in the stripes plate. I then simulated using these
+    parameters to get dashed curve (validation). If the model is
+    working correctly, the dashed curve should resemble the
+    ``Stripes'' data.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
