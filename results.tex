@@ -201,7 +201,7 @@ gradient method.
 
 \subsection{\thesubsection~Agreement of b rankings}
 
-\graphicspath{{images/correlation/}}
+\graphicspath{{images/rank/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{top_two_comp_p15_correlations_trimmed}
@@ -213,17 +213,31 @@ gradient method.
 
 \subsection{\thesubsection~Comparison of fitness ranking}
 
-\graphicspath{{images/correlation/}}
+\graphicspath{{images/rank/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{r_correlations_trimmed}
+  \includegraphics[width=\linewidth]{final/comp_b_log_r_log_mdr_trimmed}
   \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
       of the competition and logistic model to P15.} Competition model
     \(r\) was converted from \(b\), \(N_0\), and \(C_0\) from the best
     competition model estimate. Logistic \(r\) was taken from fits
     using the QFA R package which makes heuristic checks for slow
     growing cultures.}
-  \label{fig:r_ranking}
+  \label{fig:comp_vs_log_ranking}
+\end{Figure}
+
+
+\graphicspath{{images/rank/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/comp_b_log_r_trimmed}
+  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
+      of the competition and logistic model to P15.} Competition model
+    \(r\) was converted from \(b\), \(N_0\), and \(C_0\) from the best
+    competition model estimate. Logistic \(r\) was taken from fits
+    using the QFA R package which makes heuristic checks for slow
+    growing cultures.}
+  \label{fig:comp_vs_log_ranking2}
 \end{Figure}
 
 \subsection{\thesubsection~Comparison of Variation in Fitness Estimates}
