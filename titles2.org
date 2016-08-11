@@ -1,4 +1,4 @@
-* TODO Introduction Grand Plan [0/12]
+* TODO Introduction [0/12]
   - [ ] Describe yeast/bacterial growth
   - [ ] Model organism can tell us about other species (humans)
   - [ ] Growth rate as a proxy for fitness
@@ -79,77 +79,99 @@ just say this in one line but I imagine that the above will already
 take a fair amount of space and we haven't found that yet. Perhaps at
 the end of the discussion.
 
-* TODO Imaginary Neighbour Model [0/1]
-  # I am not really sure where to write about this, at the end of the
-  # introduction or in the methods. I think it needs its own section
-  # somewhere.
+* Methods
+** TODO Tools, solving, and fitting [0/5]
+  - [ ] I wrote the code in python
+  - [ ] Data analysed using Colonyzer (Python)
+  - [ ] Solving
+    - [ ] scipy.odeint -> optimized by vectorizing and using numpy
+    - [ ] libroadrunner
+  - [ ] Writing models using libSBML
+  - [ ] Fitting the Competition Model
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] QFA R package for logistic model
+    - [ ] Should I talk about the Development Process? (i.e. use of
+      simulations and zones; determining tolerances)
+** TODO Initail Guess [0/5]
+  # I was debating putting the imaginary neighbour model in the
+  # introduction or splitting the model and fitting between the
+  # introduction and methods. I now think that this should all go in
+  # the methods. Been as this is a masters disertation I think it
+  # should be alright to have a couple of figures in the methods.
+  - [ ] N_0 can be inferred from final cell amounts
   - [ ] Explain the Imaginary neighbour model
+    - [ ] Include a schematic
     - [ ] I have come up with a model for quickly fitting individual
       cultures to get appoximate estimates of b.
     - [ ] It is based on the competition model we already have.
+    - [ ] We fit cell data for each culture individually
+      - Solve using scipy.odeint
+      - Fit using scipy.optimize.minimize and least squares
     - [ ] Places imaginary fast growing and empty cultures next to the
-      culture of interest.
+      culture of interest
     - [ ] We use the same number, n, of each of these. This could be
       eight in total to represent, for instance, 4 fast growing
       neighbours or 4 slow growing neighbours.
-    - [ ] N_0 can be inferred from the data final cell amounts
-    - [ ] The number of neighbours which we imagine is determined by
-      how far above the final cell amount the initial amount of
-      nutrients is.
-    - [ ] Have real data for the culture of interest
-    - [ ] Fix N_0 and the growth of both neighbours. We have to use a
-      grid of fixed C_0 values and take the best fit.
-    - [ ] Allow k1, k2 and b for the culture of interest to vary.
+    - [ ] The value of n to use can be determined by the ratio of
+      final cell amount to initial nutrient amount.
+    - [ ] Fix N_0 and the growth constants of both neighbours. We have
+      to use a grid of fixed C_0 values and take the best fit.
+    - [ ] Allow k1, k2, and b to vary. b is the growth constant for
+      the culture of interest.
     - [ ] We can also try different values of b_fast for fits of each
-      culture.
+      culture to approximate different neighbour configurations.
     - [ ] Main difference is in having two kn's (k1 and k2) which we
       allow to vary freely.
-    - Performance of imaginary neighbour guessing will have to wait
-      until the results.
-
-* TODO Methods Grand Plan [0/9]
-  - [ ] Data Analysis with Colonyzer
-  - [ ] Solving
-    - [ ] scipy.odeint
-    - [ ] libroadrunner
-    - [ ] Should I talk about the Development Process? (i.e. use of
-      simulations and zones; trying to determine tollerances) I think
-      that this could be left out.
-  - [ ] Writing models using libSBML
-  - [ ] Fittng
-    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
-    - [ ] QFA R package for logistic model
+  - [ ] Guessing k_n from b distiribution
+    - [ ] I have a plot which demonstrates this which can go here or
+      in the results. I think that it would be clearer to put it here.
+  - [ ] Performance of imaginary neighbour guessing (plot of fit) can
+    wait until the results.
+** TODO Initial guess tl;dr [0/1]
   - [ ] Initial guess
     - [ ] Guessing N_0
     - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
     - [ ] Guessing k_n from b distiribution
-  - [ ] P15
+** TODO Model comparison using a single QFA plate [0/1]
+  - [ ] P15 [0/3]
     - [ ] Describe data
-    - [ ] Describe experiments and analysis
-  - [ ] Stripes and Filled Plates
+    - [ ] Describe fitting and analysis
+    - [ ] Describe validation spot test data here?
+** TODO Cross-plate calibration and validation [0/1]
+  - [ ] Stripes and Filled Plates [0/2]
     - [ ] Describe data
-    - [ ] Describe experiments and analysis
-  - [ ] Describe validation data here?
+    - [ ] Describe fitting and analysis
+** TODO Development of a genetic algorithm [0/1]
   - [ ] Developing a genetic algorithm with inspyred
-    - [ ] Heirarchical
+    - [ ] Heirarchical plate level and
     - [ ] Multiprocessing
 
+- Note about availibility? This is already in the abstract
 
+Details to add
 - pandas parser
 - empties
 - edges
 - C_0 scaling
-- bounds BFSGS?
+- Bounds: Constrained minimization algorithm L-BFGS-B algorithm
+  - [R128] (1, 2) Byrd, R H and P Lu and J. Nocedal. 1995. A Limited
+    Memory Algorithm for Bound Constrained Optimization. SIAM Journal
+    on Scientific and Statistical Computing 16 (5): 1190-1208.
+  - [R129] (1, 2) Zhu, C and R H Byrd and J Nocedal. 1997. L-BFGS-B:
+    Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound
+    constrained optimization. ACM Transactions on Mathematical
+    Software 23 (4): 550-560.
 - stopping criteria
 - Two N_0 model
 - objective function least squares
 - select just the internals
 - yzer
-- Splining
-- Can solve SBML in Copasi
+- Splining for Stripes and Filled plates
+- Can also solve SBML in Copasi
 
 * TODO Results [0/0]
 * TODO Discussion [0/0]
+* TODO Conclusion [0/0]
 * TODO Acknowlegements [0/6]
   # How do I go about acknowledge people involved in the work? / What do I need to do?
   - [ ] Conor - Coming up with the model and idea for the project. Collaborated throughout.
