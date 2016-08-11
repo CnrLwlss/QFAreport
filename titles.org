@@ -56,12 +56,85 @@
 # I think it might be best to get all of the figures I want for the
 # results FIRST and then just explain how I got them here.
 
-* TODO Methods Grand Plan [0/8]
+
+Describe data
+- cells observable; nutrients hidden
+- C_0 below level of detection
+
+* TODO Introduction Grand Plan [0/11]
+  - [ ] Describe yeast/bacterial growth
+  - [ ] Model organism can tell us about other species
+  - [ ] Growth rate as a proxy for fitness
+    - [ ] Explain why is this is suitible for microbial species
+  - [ ] Fitness/health tells us about genetic interaction and drug
+    response
+  - [ ] Describe spot tests and liquid cultures
+    - [ ] Mention disagreement in fitness estimates between growth mediums
+  - [ ] Introduce SGA and QFA
+    - [ ] Why hightroughput? same conditions/more of the genome
+    - [ ] Why quantitative is better
+  - [ ] Describe QFA in more detail
+    - [ ] Describe the experiment design/procedure
+      - Dilute or more concentrated inoculation
+    - [ ] Describe the data that is produced and processing with Colonyzer
+    - [ ] Describe current analysis with the logistic model and QFA R
+    - [ ] Previous results (Adinall) and follow up (Holstein &
+      Clark) - Check which results were actually followed up.
+  - [ ] Explain the motivation for a nutrient diffusion model and
+    current support for an effect on results
+    - [ ] At the same time, introduce P15 and the Stripes and Filled
+      plates but wait until the methods to describe in more detail
+    - [ ] Briefly mention alternative hypotheses or wait until
+      discussion? I will mention metabolism when I explain the
+      approximations of the competition model.
+  - [ ] Describe previous attempts to correct for competition and how
+    our approach differs
+  - [ ] Introduce the Competition model
+    - [ ] Mass action kinetics and network diffusion
+      - Cells observed; nutrients hidden
+      - Plate and culture level parameters
+      - What can we measure? kn? C_0 often below detectable level in
+        QFA - write here or elsewhere?
+    - [ ] Justify approximations
+      - [ ] Mass action kinetics
+      - [ ] Coarse grid diffusion
+      - [ ] Deterministic not stochastic
+      - [ ] All nutrients are converted to cells
+	- [ ] All cultures starting with the same amount of nutrients
+          end with the same amount of cells.
+    - [ ] Reduces to the logistic equivalent model in the independent limit
+      - [ ] Can be seen as a correction for nutrient diffusion
+    - [ ] Briefly explain what we plan to do with the model
+      - Fit to data to determine to see if we can improve
+  - [ ] Explain the Imaginary neighbour model - Really do this here or
+    in methods? I am beginning to think methods. Seems like results
+    for this would useually go in the appendix.
+    - [ ] I have come up with a model for quickly fitting individual
+      cultures to get appoximate estimates of b
+    - [ ] It is based on the competition model we already have
+    - [ ] Places fast growing and empty cultures next to the culture of interest.
+    - [ ] We use the same number, n, of each of these. This could
+      represent, for instance, 4 fast growing neighbours or 4 slow
+      growing neighbours.
+    - [ ] N_0 can be inferred from the data
+    - [ ] The number of neighbours which we imagine is determined by
+      how far above the final cell amount the initial amount of
+      nutrients is.
+    - [ ] Have real data for the culture of interest
+    - [ ] What parameters are fixed and which do we fit?
+    - [ ] Main difference is in having two kn's (k1 and k2) which we
+      allow to vary freely.
+#  - [ ] Validation data from spot tests - Explain here, in the methods or in the results?
+
+
+* TODO Methods Grand Plan [0/9]
   - [ ] Data Analysis with Colonyzer
   - [ ] Solving
     - [ ] scipy.odeint
     - [ ] libroadrunner
-    - [ ] Should I talk about the Development process (i.e. use of simulations and zones; trying to determine tollerances)?
+    - [ ] Should I talk about the Development Process? (i.e. use of
+      simulations and zones; trying to determine tollerances) I think
+      that this could be left out.
   - [ ] Writing models using libSBML
   - [ ] Fittng
     - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
@@ -76,12 +149,27 @@
   - [ ] Stripes and Filled Plates
     - [ ] Describe data
     - [ ] Describe experiments and analysis
+  - [ ] Describe validation data here?
   - [ ] Developing a genetic algorithm with inspyred
     - [ ] Heirarchical
     - [ ] Multiprocessing
 
 
-* TODO Methods Grand Plan [0/8]
+- pandas parser
+- empties
+- edges
+- C_0 scaling
+- bounds BFSGS?
+- stopping criteria
+- Two N_0 model
+- objective function least squares
+- select just the internals
+- yzer
+- Splining
+- Can solve SBML in Copasi
+
+
+* TODO Methods More Detail [0/8]
   - [ ] Data Analysis with Colonyzer
   - [ ] Solving
     - [ ] scipy.odeint
@@ -96,12 +184,12 @@
     - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
     - [ ] Guessing k_n from b distiribution
   - [ ] P15
-    - [ ] Describe data
+    - [ ] Describe data (cdc13-1 Adinall etc,)
     - [ ] Describe experiments and analysis (yzer)
   - [ ] Stripes and Filled Plates
     - [ ] Describe data
     - [ ] Describe experiments and analysis
-      - [ ] Why no C_0?
+      - [ ] Why no use of C_0 data?
   - [ ] Developing a genetic algorithm with inspyred
     - [ ] Heirarchical
     - [ ] Multiprocessing
@@ -171,3 +259,14 @@
 
 
 # Cite matplotlib in methods?
+
+How do I go about acknowledge people involved in the work?
+* TODO Acknowlegements
+  - [ ] Conor - Coming up with the model and idea for the project. Collaborated throughout.
+    - Should I reference some of your blog posts?
+  - [ ] Paolo - Suggested to use roadrunner for instance
+  - [ ] Helena - I wish to talk about her project to discuss issues
+    with C_0
+  - [ ] Addinall - P15
+  - [ ] Who? - Stripes and Filled
+  - [ ] David - Validation spot test data
