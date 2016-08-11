@@ -1,0 +1,154 @@
+* TODO Introduction Grand Plan [0/12]
+  - [ ] Describe yeast/bacterial growth
+  - [ ] Model organism can tell us about other species (humans)
+  - [ ] Growth rate as a proxy for fitness
+    - [ ] Explain why this is suitible for microbial species
+  - [ ] Describe spot tests and liquid cultures
+    - [ ] Mention disagreement in growth estimates between growth mediums
+  - [ ] Introduce SGA and QFA - (can leave contrast until I have
+    explained QFA in more detail)
+    - [ ] Solid agar; high-troughput; quantitative; can study whole genomes
+    - [ ] Explain how fitness of genetic strains can tell us about
+      genetic interactions and drug responses.
+      - Give examples of this use and emphasise benefits to human health.
+      - [ ] Say that Adinall studied genes involved in telomere
+        stabilitly because of their links with cancer and aging and
+        this could have impacts for humans but do not go into any more
+        detail about telomeres, cancer, drugs, etc., (won't have room
+        and don't really care for this study).
+  - [ ] Describe QFA in more detail - "I study QFA data ->"
+    - [ ] Describe the experiment design/procedure
+      - Dilute or more concentrated inoculation
+    - [ ] Describe the data that is produced and processing with Colonyzer
+    - [ ] Describe current analysis with THE LOGISTIC MODEL and QFA R
+    - [ ] Contrast QFA with SGA
+    - [ ] Previous results (?) and follow up (Holstein &
+      Clark) - Check which results were actually followed up.
+  - [ ] Explain the motivation for a nutrient diffusion model and
+    current support for an effect
+    - [ ] At the same time, introduce P15 and the Stripes and Filled
+      plates but wait until the methods to describe in these
+      experiments in more detail.
+    - [ ] Briefly mention alternative hypotheses (e.g. singal,
+      metabolism) or wait until discussion? I will mention metabolism
+      when I explain the approximations of the competition model. I
+      think that I should probably mention this here if I have room.
+  - [ ] Describe previous attempts to correct for competition and how
+    our approach differs
+  - [ ] Describe previous attempts to model diffusion (Diffusion
+    equation model of Reo and Korolev 2014)
+    - I am planning to talk about this in the discussion so could
+      introduce here and also explain why we need a less detailed
+      model (limits of computational power).
+  - [ ] Introduce the Competition model
+    - [ ] Mass action kinetics and network diffusion
+      - Cells observed; nutrients hidden
+      - Explain the plate and culture level parameters.
+      - Explain what is measureable and what we must infer. kn? C_0
+        often below detectable level in QFA - write here or elsewhere?
+        We explain how we infer N_0 when we talk about initial guessing.
+    - [ ] Justify approximations
+      - [ ] Mass action kinetics
+      - [ ] Coarse grid diffusion
+      - [ ] Deterministic not stochastic
+      - [ ] All nutrients are converted to cells
+	- [ ] All cultures starting with the same amount of nutrients
+          end with the same amount of cells.
+    - [ ] Reduces to the logistic equivalent model in the independent limit
+      - [ ] Can be seen as a correction for nutrient diffusion
+  - [ ] Briefly explain what we plan to do with the model
+    - Fit to data to determine to see if we can find estimate growth
+      parameters more reliably
+  - [ ] Short summary
+    - More reliable measurement of growth parameters ->
+    - More reliable fitness estimates ->
+    - Better prediction of genetic interaction or drug response
+
+I could also say - We hope that a model could be used to
+compare/improve experimental design by simulation of
+e.g. randomisation / SGA v QFA and dilute vs concentrated. I could
+just say this in one line but I imagine that the above will already
+take a fair amount of space and we haven't found that yet. Perhaps at
+the end of the discussion.
+
+* TODO Imaginary Neighbour Model [0/1]
+  # I am not really sure where to write about this, at the end of the
+  # introduction or in the methods. I think it needs its own section
+  # somewhere.
+  - [ ] Explain the Imaginary neighbour model
+    - [ ] I have come up with a model for quickly fitting individual
+      cultures to get appoximate estimates of b.
+    - [ ] It is based on the competition model we already have.
+    - [ ] Places imaginary fast growing and empty cultures next to the
+      culture of interest.
+    - [ ] We use the same number, n, of each of these. This could be
+      eight in total to represent, for instance, 4 fast growing
+      neighbours or 4 slow growing neighbours.
+    - [ ] N_0 can be inferred from the data final cell amounts
+    - [ ] The number of neighbours which we imagine is determined by
+      how far above the final cell amount the initial amount of
+      nutrients is.
+    - [ ] Have real data for the culture of interest
+    - [ ] Fix N_0 and the growth of both neighbours. We have to use a
+      grid of fixed C_0 values and take the best fit.
+    - [ ] Allow k1, k2 and b for the culture of interest to vary.
+    - [ ] We can also try different values of b_fast for fits of each
+      culture.
+    - [ ] Main difference is in having two kn's (k1 and k2) which we
+      allow to vary freely.
+    - Performance of imaginary neighbour guessing will have to wait
+      until the results.
+
+* TODO Methods Grand Plan [0/9]
+  - [ ] Data Analysis with Colonyzer
+  - [ ] Solving
+    - [ ] scipy.odeint
+    - [ ] libroadrunner
+    - [ ] Should I talk about the Development Process? (i.e. use of
+      simulations and zones; trying to determine tollerances) I think
+      that this could be left out.
+  - [ ] Writing models using libSBML
+  - [ ] Fittng
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] QFA R package for logistic model
+  - [ ] Initial guess
+    - [ ] Guessing N_0
+    - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
+    - [ ] Guessing k_n from b distiribution
+  - [ ] P15
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis
+  - [ ] Stripes and Filled Plates
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis
+  - [ ] Describe validation data here?
+  - [ ] Developing a genetic algorithm with inspyred
+    - [ ] Heirarchical
+    - [ ] Multiprocessing
+
+
+- pandas parser
+- empties
+- edges
+- C_0 scaling
+- bounds BFSGS?
+- stopping criteria
+- Two N_0 model
+- objective function least squares
+- select just the internals
+- yzer
+- Splining
+- Can solve SBML in Copasi
+
+* TODO Results [0/0]
+* TODO Discussion [0/0]
+* TODO Acknowlegements [0/6]
+  # How do I go about acknowledge people involved in the work? / What do I need to do?
+  - [ ] Conor - Coming up with the model and idea for the project. Collaborated throughout.
+    - Should I reference some of your blog posts?
+  - [ ] Paolo - Suggested to use roadrunner for instance
+  - [ ] Helena - I wish to talk about her project to discuss issues
+    with C_0
+  - [ ] Addinall - P15
+  - [ ] Who? - Stripes and Filled
+  - [ ] David - Validation spot test data

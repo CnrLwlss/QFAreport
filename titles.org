@@ -57,44 +57,55 @@
 # results FIRST and then just explain how I got them here.
 
 
-Describe data
-- cells observable; nutrients hidden
-- C_0 below level of detection
-
-* TODO Introduction Grand Plan [0/11]
+* TODO Introduction Grand Plan [0/12]
   - [ ] Describe yeast/bacterial growth
-  - [ ] Model organism can tell us about other species
+  - [ ] Model organism can tell us about other species (humans)
   - [ ] Growth rate as a proxy for fitness
-    - [ ] Explain why is this is suitible for microbial species
-  - [ ] Fitness/health tells us about genetic interaction and drug
-    response
+    - [ ] Explain why this is suitible for microbial species
   - [ ] Describe spot tests and liquid cultures
-    - [ ] Mention disagreement in fitness estimates between growth mediums
-  - [ ] Introduce SGA and QFA
-    - [ ] Why hightroughput? same conditions/more of the genome
-    - [ ] Why quantitative is better
-  - [ ] Describe QFA in more detail
+    - [ ] Mention disagreement in growth estimates between growth mediums
+  - [ ] Introduce SGA and QFA - (can leave contrast until I have
+    explained QFA in more detail)
+    - [ ] Solid agar; high-troughput; quantitative; can study whole genomes
+    - [ ] Explain how fitness of genetic strains can tell us about
+      genetic interactions and drug responses.
+      - Give examples of this use and emphasise benefits to human health.
+      - [ ] Say that Adinall studied genes involved in telomere
+        stabilitly because of their links with cancer and aging and
+        this could have impacts for humans but do not go into any more
+        detail about telomeres, cancer, drugs, etc., (won't have room
+        and don't really care for this study).
+  - [ ] Describe QFA in more detail - "I study QFA data ->"
     - [ ] Describe the experiment design/procedure
       - Dilute or more concentrated inoculation
     - [ ] Describe the data that is produced and processing with Colonyzer
-    - [ ] Describe current analysis with the logistic model and QFA R
-    - [ ] Previous results (Adinall) and follow up (Holstein &
+    - [ ] Describe current analysis with THE LOGISTIC MODEL and QFA R
+    - [ ] Contrast QFA with SGA
+    - [ ] Previous results (?) and follow up (Holstein &
       Clark) - Check which results were actually followed up.
   - [ ] Explain the motivation for a nutrient diffusion model and
-    current support for an effect on results
+    current support for an effect
     - [ ] At the same time, introduce P15 and the Stripes and Filled
-      plates but wait until the methods to describe in more detail
-    - [ ] Briefly mention alternative hypotheses or wait until
-      discussion? I will mention metabolism when I explain the
-      approximations of the competition model.
+      plates but wait until the methods to describe in these
+      experiments in more detail.
+    - [ ] Briefly mention alternative hypotheses (e.g. singal,
+      metabolism) or wait until discussion? I will mention metabolism
+      when I explain the approximations of the competition model. I
+      think that I should probably mention this here if I have room.
   - [ ] Describe previous attempts to correct for competition and how
     our approach differs
+  - [ ] Describe previous attempts to model diffusion (Diffusion
+    equation model of Reo and Korolev 2014)
+    - I am planning to talk about this in the discussion so could
+      introduce here and also explain why we need a less detailed
+      model (limits of computational power).
   - [ ] Introduce the Competition model
     - [ ] Mass action kinetics and network diffusion
       - Cells observed; nutrients hidden
-      - Plate and culture level parameters
-      - What can we measure? kn? C_0 often below detectable level in
-        QFA - write here or elsewhere?
+      - Explain the plate and culture level parameters.
+      - Explain what is measureable and what we must infer. kn? C_0
+        often below detectable level in QFA - write here or elsewhere?
+        We explain how we infer N_0 when we talk about initial guessing.
     - [ ] Justify approximations
       - [ ] Mass action kinetics
       - [ ] Coarse grid diffusion
@@ -104,11 +115,28 @@ Describe data
           end with the same amount of cells.
     - [ ] Reduces to the logistic equivalent model in the independent limit
       - [ ] Can be seen as a correction for nutrient diffusion
-    - [ ] Briefly explain what we plan to do with the model
-      - Fit to data to determine to see if we can improve
-  - [ ] Explain the Imaginary neighbour model - Really do this here or
-    in methods? I am beginning to think methods. Seems like results
-    for this would useually go in the appendix.
+  - [ ] Briefly explain what we plan to do with the model
+    - Fit to data to determine to see if we can find estimate growth
+      parameters more reliably
+  - [ ] Short summary
+    - More reliable measurement of growth parameters ->
+    - More reliable fitness estimates ->
+    - Better prediction of genetic interaction or drug response
+
+
+# I could also say - We hope that a model could be used to
+# compare/improve experimental design by simulation of
+# e.g. randomisation / SGA v QFA and dilute vs concentrated. I could
+# just say this in one line but I imagine that the above will already
+# take a fair amount of space and we haven't found that yet. Perhaps at
+# the end of the discussion.
+
+
+# I am not really sure where to write about this, at the end of the
+# introduction or in the methods. I think it needs its own section
+# somewhere.
+* TODO Imaginary Neighbour Model [/]
+  - [ ] Explain the Imaginary neighbour model
     - [ ] I have come up with a model for quickly fitting individual
       cultures to get appoximate estimates of b.
     - [ ] It is based on the competition model we already have.
@@ -129,8 +157,8 @@ Describe data
       culture.
     - [ ] Main difference is in having two kn's (k1 and k2) which we
       allow to vary freely.
-    - Performance will have to wait until the results.
-#  - [ ] Validation data from spot tests - Explain here, in the methods or in the results?
+    - Performance of imaginary neighbour guessing will have to wait
+      until the results.
 
 
 * TODO Methods Grand Plan [0/9]
@@ -266,13 +294,3 @@ Describe data
 
 # Cite matplotlib in methods?
 
-How do I go about acknowledge people involved in the work?
-* TODO Acknowlegements
-  - [ ] Conor - Coming up with the model and idea for the project. Collaborated throughout.
-    - Should I reference some of your blog posts?
-  - [ ] Paolo - Suggested to use roadrunner for instance
-  - [ ] Helena - I wish to talk about her project to discuss issues
-    with C_0
-  - [ ] Addinall - P15
-  - [ ] Who? - Stripes and Filled
-  - [ ] David - Validation spot test data
