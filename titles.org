@@ -110,20 +110,26 @@ Describe data
     in methods? I am beginning to think methods. Seems like results
     for this would useually go in the appendix.
     - [ ] I have come up with a model for quickly fitting individual
-      cultures to get appoximate estimates of b
-    - [ ] It is based on the competition model we already have
-    - [ ] Places fast growing and empty cultures next to the culture of interest.
-    - [ ] We use the same number, n, of each of these. This could
-      represent, for instance, 4 fast growing neighbours or 4 slow
-      growing neighbours.
-    - [ ] N_0 can be inferred from the data
+      cultures to get appoximate estimates of b.
+    - [ ] It is based on the competition model we already have.
+    - [ ] Places imaginary fast growing and empty cultures next to the
+      culture of interest.
+    - [ ] We use the same number, n, of each of these. This could be
+      eight in total to represent, for instance, 4 fast growing
+      neighbours or 4 slow growing neighbours.
+    - [ ] N_0 can be inferred from the data final cell amounts
     - [ ] The number of neighbours which we imagine is determined by
       how far above the final cell amount the initial amount of
       nutrients is.
     - [ ] Have real data for the culture of interest
-    - [ ] What parameters are fixed and which do we fit?
+    - [ ] Fix N_0 and the growth of both neighbours. We have to use a
+      grid of fixed C_0 values and take the best fit.
+    - [ ] Allow k1, k2 and b for the culture of interest to vary.
+    - [ ] We can also try different values of b_fast for fits of each
+      culture.
     - [ ] Main difference is in having two kn's (k1 and k2) which we
       allow to vary freely.
+    - Performance will have to wait until the results.
 #  - [ ] Validation data from spot tests - Explain here, in the methods or in the results?
 
 
