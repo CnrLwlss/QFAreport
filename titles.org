@@ -55,6 +55,62 @@
 
 # I think it might be best to get all of the figures I want for the
 # results FIRST and then just explain how I got them here.
+
+* TODO Methods Grand Plan [0/8]
+  - [ ] Data Analysis with Colonyzer
+  - [ ] Solving
+    - [ ] scipy.odeint
+    - [ ] libroadrunner
+    - [ ] Should I talk about the Development process (i.e. use of simulations and zones; trying to determine tollerances)?
+  - [ ] Writing models using libSBML
+  - [ ] Fittng
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] QFA R package for logistic model
+  - [ ] Initial guess
+    - [ ] Guessing N_0
+    - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
+    - [ ] Guessing k_n from b distiribution
+  - [ ] P15
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis
+  - [ ] Stripes and Filled Plates
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis
+  - [ ] Developing a genetic algorithm with inspyred
+    - [ ] Heirarchical
+    - [ ] Multiprocessing
+
+
+* TODO Methods Grand Plan [0/8]
+  - [ ] Data Analysis with Colonyzer
+  - [ ] Solving
+    - [ ] scipy.odeint
+    - [ ] libroadrunner
+    - [ ] Should I talk about the Development process (i.e. use of simulations and zones; trying to determine tollerances)?
+  - [ ] Writing models using libSBML
+  - [ ] Fittng
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] QFA R package for logistic model
+  - [ ] Initial guess
+    - [ ] Guessing N_0
+    - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
+    - [ ] Guessing k_n from b distiribution
+  - [ ] P15
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis (yzer)
+  - [ ] Stripes and Filled Plates
+    - [ ] Describe data
+    - [ ] Describe experiments and analysis
+      - [ ] Why no C_0?
+  - [ ] Developing a genetic algorithm with inspyred
+    - [ ] Heirarchical
+    - [ ] Multiprocessing
+
+
+
+
+
+
 * TODO Method [0/9]
   - [ ] Data procecessed with Colonyzer.
   - [ ] P15 cdc13-1 background mutation at 27C Adinall 2011
@@ -112,3 +168,6 @@
     - [ ] hierarchical
     - [ ] insypred
     - [ ] multiprocessing
+
+
+# Cite matplotlib in methods?
