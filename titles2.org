@@ -92,7 +92,7 @@ the end of the discussion.
     - [ ] QFA R package for logistic model
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
-** TODO Initail Guess [0/5]
+** TODO Initail Guess [0/4]
   # I was debating putting the imaginary neighbour model in the
   # introduction or splitting the model and fitting between the
   # introduction and methods. I now think that this should all go in
