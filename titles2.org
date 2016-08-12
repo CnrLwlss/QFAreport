@@ -48,6 +48,8 @@
       - Reaction and rate equations
       - Cells observed; nutrients hidden
       - Explain the plate and culture level parameters.
+      - Explain that there are fewer parameters than in the logistic
+        model.
       - Explain what is measureable and what we must infer. kn? C_0
         often below detectable level in QFA - write here or elsewhere?
         We explain how we infer N_0 when we talk about initial guessing.
