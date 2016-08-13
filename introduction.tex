@@ -144,7 +144,6 @@ Fitting the logistic model to QFA data requires plate level or culture
 level parameters for \(C_{0}\) and culture level parameters for \(r\)
 and \(K\) making 769 or 1152 parameters per plate of 384 cultures.
 
-
 The growth constant \(r\) could be used as a fitness measure. However,
 \citet{Addinall2011} define a more complicated fitness measure as the
 product of Maximum Doubling Rate (MDR) and Maximum Doubling Potential
@@ -152,19 +151,27 @@ product of Maximum Doubling Rate (MDR) and Maximum Doubling Potential
 the doubling rate at the beginning of the exponential growth phase,
 when growth is fastest, and MDP is the number of divisions which a
 culture undergoes from inoculation to the stationary phase.
+%
+\begin{subequations}
+  \label{eq:MDR_MDP}
+    \begin{align}
+      MDR &= \frac{r}{log\left(\frac{2(K-C_0)}{K-2C_0}\right)}\\
+      MDP &= \frac{log\left(\frac{K}{C_0}\right)}{log(2)}
+    \end{align}
+\end{subequations}
+%
+To improve the quality of fits QFA now uses the generalised logistic
+model which requires an extra parameter for each culture. Standard and
+generalised logistic model \(r\) are not equivalent so comparison
+relies on MDR and MDP as fitness measures. The analysis of QFA data
+using both models is available through the QFA R package
+\citep{qfa2016}.
 
-The standard logistic model (\ref{eq:logistic_model}) does not provide
-a good fit to growth curves in many cases. This lead to the use of the
-generalised logsitic model which better fits growth curves but uses an
-extra shape parameter for each culture. \(r\) of the standard and
-generalised logistic model are not equivalent or comparable so
-comparison relies on MDR as a fitness measure. The analysis of QFA
-data using both the standard and generalised logistic models is
-available through the QFA R package \citep{qfa2016}.
 
-% Fits of the logistic model in liquid cultures
+% Example use of QFA by Addinall \citep{Addinall2011} telomeres.
+% And follow up Holstein and Clark \citep{Holstein20141259}
 
-% generalised logistic model and how many parameters
+
 
 
 
@@ -185,7 +192,7 @@ colony which grows radially. The number of individual colonies in a
 spotted culture is high enough that lag and other stochastic effects
 should average out.
 
-% Example use of QFA by Addinall telomeres.
+
 
 
 
