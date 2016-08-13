@@ -31,10 +31,12 @@ clones originating from a single cell or) belong to different genetic
 strains originating from different individual cells. In favourable
 conditions, growth is exponential and this makes growth rate a major
 component of fitness; faster growing strains quickly come to dominate
-the population. For unicellular organisms, growth rate is equal to
-cell cycle progression rate. Evolutionary pressure has led to rapidly
-dividing organisms with a compact genome of essential genes. These
-genes have been conserved in other species over billions of years of
+the population. At a certain point growth becomes limited and a
+stationary phase is reached. For unicellular organisms, growth rate is
+equal to cell cycle progression rate. Evolutionary pressure has led to
+rapidly dividing organisms (such as \textit{E. Coli} and \textit{S.
+  cerevisae}) with compact genomes of essential genes. These genes
+have been conserved in other species over billions of years of
 evolution. The eukaryote \textit{S. cerevisae}, is particularly useful
 for the study of other eukaryotes such as humans.
 
@@ -51,8 +53,8 @@ talking about this issue but they have a correlation plot Fig2a where
 correlations are worse with a liquid culture study by Jasnos and
 Korona; in fact the Baryshnikova paper Fig3c seems to say that they
 had strong correlation in their ``high-resolution liquid growth
-profiling study''). I do not focus on this issue and used data
-exclusively from experiments using solid agar.
+profiling study''). I do not focus on this issue and exclusively study
+fitness screens using solid agar.
 
 % Where do cells grow surfaces films.
 
@@ -101,20 +103,52 @@ explore \(\sim\)75\% of the \textit{S. cerevisae} genome.
 Synthetic Genetic Array (SGA) and Quantitative Fitness Analysis (QFA)
 are high-throughput methods for obtaining quantitative fitness
 estimates of microbial cultures grown on solid agar
-\citep{Baryshnikova2010sga,Banks2012}. Typically one query gene is
-used per solid agar plate and many replicates of each deletion are
-contained on each plate. Many plates can be analysed in
-high-throughput to explore whole genomes.
+\citep{Baryshnikova2010sga,Banks2012}. Typically one query gene and
+replicates of deletion are contained in a rectangular array on a solid
+agar plate. Many plates with different query genes and deletions can
+be grown in high-throughput to explore whole genomes. I study data
+from QFA which refers to quantitative estimation of fitness by
+measurement and fitting of growth curves.
+
+In a typical QFA procedure liquid cultures are incolulated onto solid
+agar (containing nutrients (already mentioned above)) often with 384
+cultures in 16x24 rectangular array. Initial inoculum density can be
+varied to capture more or less of the growth curve. It is estimated
+that dilute cultures are inoculated with \(\sim\)100 starting cells
+\citep{Addinall2011}. Plates are grown in incubation. Photographs of
+whole plates are taken at timepoints throughouth growth which
+typically covers several days. Images are processed by Colonyzer
+\citep{Lawless2010} to produce cell density estimates from the
+intensity of cultures in photographs. Current analysis independently
+fits the logistic growth model to the timecourse of each culture and
+fitness estimates are derived in terms of the growth constant, \(r\),
+and carrying capacity, \(K\).
+
+% logistic equation.
+
+The logistic growth model,
+\begin{equation}
+  \label{eq:logistic_rate}
+  \dot{C} = rC\left(1 - \frac{C}{K}\right)
+\end{equation}
+\citep{Verhulst1845}, for a population of density \(C\), with parameters, \(r\), growth
+rate and \(K\), carrying capacity, describes self-limiting growth and is currently used to
+fit QFA data with an assumption of independence between cultures
+\citep{Addinall2011,qfa2016}. It has the following analytical solution:
+\begin{equation}
+  \label{eq:logistic_solution}
+  C(t) = \frac{KC_{0}e^{rt}}{K + C_{0}(e^{rt}-1)},
+\end{equation}
+where P is the initial population density. Measures of fitness are
+commonly defined in terms of the parameters \(r\), \(K\), and initial
+cell density \(C_{0}\) \citep{Addinall2011}. We hope to improve the
+reproducibility of fitness estimates using a model accounting for
+competition and signalling
 
 
 
-In SGA 1536 cultures are pinned onto solid agar and an endpoint assay
-of culture area is us ed as a growth estimate.
-
-In QFA typically 384 liquid cultures are inoculated onto a solid agar
-plate and cell density is measured throughout the growth
-curve. Fitness estimates are made by fitting the measured growth
-curves.
+In contrast, SGA typically uses an array of 1536 pinned cultures and
+an endpoint assay of culture area to quantify growth.
 
 
 QFA
