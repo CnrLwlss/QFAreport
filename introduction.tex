@@ -7,6 +7,22 @@
 
 % Dummy \citet{Lawless2010} citations \citep{Heydari2016} \citep{Addinall2008}.
 
+% The bacteria \textit{Eschericia Coli} and yeast \textit{Saccharomyces
+%   cerevisae} are unicellular organisms studied as a model prokaryote
+% and eukaryote respectively. They grow in colonies, where cells may (be
+% clones originating from a single cell or) belong to different genetic
+% strains originating from different individual cells. In favourable
+% conditions, growth is exponential and this makes growth rate a major
+% component of fitness; faster growing strains quickly come to dominate
+% the population. Growth rate is measurable and is often used to
+% determine the fitness of microbial organisms. For unicellular
+% organisms, growth rate is equal to cell cycle progression
+% rate. Evolutionary pressure has led to rapidly dividing organisms with
+% a compact genome of essential genes. These genes have been conserved
+% in other species over billions of years of evolution. The eukaryote
+% \textit{S. cerevisae}, is particularly useful for the study of other
+% eukaryotes such as humans.
+
 
 The bacteria \textit{Eschericia Coli} and yeast \textit{Saccharomyces
   cerevisae} are unicellular organisms studied as a model prokaryote
@@ -24,35 +40,84 @@ for the study of other eukaryotes such as humans.
 
 The growth rate of microbial organisms is measurable and is often used
 to determine fitness. In experiments, cell cultures are commonly grown
-in two types of medium. In spot atests (phenotypic array), cultures are pinned or
-inoculated onto the surface of a solid agar containing nutrients. In
-liquid culture assays, cultures are mixed in a liquid medium
-containing nutrients. In both cases cultures are incubated and growth
-is observed. Identical strains grow differently between the two
-mediums and disagreement between fitness estimates is currently an
-issue. I did not focus on this issue and used data exclusively from
-experiments using solid agar.
+in two types of medium. In spot tests (phenotypic array), cultures
+are pinned or inoculated onto the surface of a solid agar containing
+nutrients. In liquid culture assays, cultures are mixed in a liquid
+medium containing nutrients. In both cases cultures are incubated and
+growth is observed. Identical strains can grow differently between the
+two mediums and disagreement between fitness estimates is currently an
+issue \citet{Baryshnikova2010} (I couldn't find a paper specifically
+talking about this issue but they have a correlation plot Fig2a where
+correlations are worse with a liquid culture study by Jasnos and
+Korona; in fact the Baryshnikova paper Fig3c seems to say that they
+had strong correlation in their ``high-resolution liquid growth
+profiling study''). I did not focus on this issue and used data
+exclusively from experiments using solid agar.
+
+
+Synthetic Genetic Array (SGA) and Quantitative Fitness Analysis (QFA)
+are high-throughput methods for obtaining quantitative fitness
+estimates of cultures grown on solid agar
+\citep{Baryshnikova2010sga,Banks2012}.
+
+Fitness estimates can be used to infer genetic interaction or drug
+response and high-throughput methods allow this to be done on a
+genome-wide scale (see e.g. \citet{Costanzo2010}). In a typical
+genetic interaction study, a strain is made with a mutation in a query
+gene. Double mutants are created by introducing a second deletion in
+this strain. Typically one query gene is used per plate with
+replicates of many different deletions. By comparing the growth of
+double mutants with a control containing a neutral deletion, genetic
+interactions can be inferred. If a strain is fitter than the control
+then the deletion is said to suppress the defect of the query gene. If
+a strain is fitter than the control then the deletion is said to
+enhance the defect of the query gene. Either scenario suggests that
+the two genes interact and have a related function. Typically one
+query gene is used per plate and many replicates of each deletion are
+contained on each plate. Many plates can be analysed in
+high-throughput to explore whole genomes.
+
+
+
+Due to redundancy, single deletions are often not lethal. This allowed
+\citet{Costanzo2010} to explore \(\sim\)75\% of the \textit{S. cerevisae}
+genome.
 
 
 
 
-The bacteria \textit{Eschericia Coli} and yeast \textit{Saccharomyces
-  cerevisae} are unicellular organisms studied as a model prokaryote
-and eukaryote respectively. They grow in colonies, where cells may (be
-clones originating from a single cell or) belong to different genetic
-strains originating from different individual cells. In favourable
-conditions, growth is exponential and this makes growth rate a major
-component of fitness; faster growing strains quickly come to dominate
-the population. Growth rate is measurable and is often used to
-determine the fitness of microbial organisms. For unicellular
-organisms, growth rate is equal to cell cycle progression
-rate. Evolutionary pressure has led to rapidly dividing organisms with
-a compact genome of essential genes. These genes have been conserved
-in other species over billions of years of evolution. The eukaryote
-\textit{S. cerevisae}, is particularly useful for the study of other
-eukaryotes such as humans.
 
 
+These techniques can be used
+for genome-wide measurement of genetic interaction or drug response.
+\citep{Addinall2011}
+
+
+
+In SGA 1536 cultures are pinned onto solid agar and an endpoint assay
+of culture area is us ed as a growth estimate.
+
+In QFA typically 384 liquid cultures are inoculated onto a solid agar
+plate and cell density is measured throughout the growth
+curve. Fitness estimates are made by fitting the measured growth
+curves.
+
+
+QFA
+collects more information about growth by taking images of plates at
+points throughout the growth curve. QFA can be performed using either
+the pinned cultures (used in SGA) or dilute liquid cultures
+(``spots'') of lower initial cell density. Although pinned QFA allows
+for more cultures per plate (1536 vs 384 in spotted), spotted QFA
+allows for more accurate fitting of growth models as growth curves are
+more complete (see Figure~\ref{fig:qfa_and_sga_growth_curves})
+\citep{Lawless2010}. Comparison of spotted and pinned QFA cultures in
+Figure~\ref{fig:qfa_and_sga_growth_curves}c shows how spotted cultures
+are composed of many individual colonies which increase in size and
+thickness, whereas pinned cultures are composed of a single uniform
+colony which grows radially. The number of individual colonies in a
+spotted culture is high enough that lag and other stochastic effects
+should average out.
 
 
 % Where do cells grow surfaces films.
