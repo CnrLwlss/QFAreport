@@ -280,13 +280,12 @@ required.
 //Diffusion Equation//
 
 
-\textit{Lawless} proposed a model of nutrient dependent growth and
-competition using mass action kinetics and a network diffusion model,
-hereinafter the competition model
+\textit{Lawless} (link blog) proposed a model of nutrient dependent
+growth and competition using mass action kinetics and a network
+diffusion model, hereinafter the competition model
 (\ref{eq:reaction},\ref{eq:competition_model}). A schematic of the
-model is drawn in Figure~\ref{fig:comp_model_schematic}. In the
-competition model, the nutrient dependent division of cells is
-represented by the reaction equation,
+model is drawn in Figure~\ref{fig:comp_model_schematic}. He represents
+the nutrient dependent division of cells with the reaction equation,
 \begin{subequations}
   \label{eq:reaction}
   \begin{align}
@@ -294,19 +293,20 @@ represented by the reaction equation,
 %    &rate = b_{i}[C][N],
   \end{align}
 \end{subequations}
-where \(C\) is a cell, \(N\) is the amount of nutrients required for
-one cell division, and \(b\) is a rate constant for the
-reaction. Separate reactions (\ref{eq:reaction}) with growth constant
-\(b_{i}\) are defined for each culture, indexed \(i\), on a
-plate. Mass action kinetics is used to derive rate equations for the
-amount of cells and nutrients associated with each culture, \(C_{i}\)
-and \(N_{i}\). This gives us the rate equation for \(C_{i}\)
-(\ref{eq:competition_model}a) and the first term in the rate equation
-for \(N_{i}\) (\ref{eq:competition_model}b). The rate of nutrient
-diffusion between culture \(i\) and its closest neighbours, belonging
-to the region \(\delta_{i}\), is modelled by the second term in
-(\ref{eq:competition_model}b), where \(k_{n}\) is a nutrient diffusion
-constant which is shared across a plate.
+where \(C\) is a cell, \(N\) is the amount of nutrient required for
+one cell division, and \(b\) is a rate constant for the reaction. The
+identity of the limiting nutrient \(N\) is unknown but possible
+candidates are sugar and nitrogen. He defines separate reactions
+(\ref{eq:reaction}) with growth constant \(b_{i}\) for each culture,
+indexed \(i\), on a plate and uses mass action kinetics to derive rate
+equations for the amount of cells and nutrients associated with each
+culture, \(C_{i}\) and \(N_{i}\). This gives the rate equation for
+\(C_{i}\) (\ref{eq:competition_model}a) and the first term in the rate
+equation for \(N_{i}\) (\ref{eq:competition_model}b). To arrive at the
+full competition model, he models the diffusion of nutrients along
+gradients between a culture \(i\) and its closest neighbours,
+\(\delta_{i}\), by the second term in (\ref{eq:competition_model}b),
+where \(k_{n}\) is a nutrient diffusion constant.
 \begin{subequations}
   \label{eq:competition_model}
   \begin{align}
@@ -316,40 +316,35 @@ constant which is shared across a plate.
     \dot{N_{i}}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
   \end{align}
 \end{subequations}
-Outside of the independent limit equation~\ref{eq:competition_model}
-has no analytical solution, and unlike the logistic model
-(\ref{eq:logistic_model}), must instead be solved numerically. In the
-independent limit, when \(k_{n}\) is set to zero, the competition
-model reduces to the mass action equivalent of the logistic model,
-hereinafter the mass-action logistic model (blog ref), and has the
-same sigmoidal solution. (In this limit, parameters of the competition
-model can be converted in terms of parameters the logistic model (see
-methods section)). When fit to QFA data, \(C_{i}\) is observed whereas
-\(N_{i}\) is hidden. By assuming that incolulum density is the same
-for all cultures and that nutrients are distributed evenly throughout
-a homogenous and hetrogenous agar at time zero, plate level initial
-values of cells and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\), and a
-plate level nutrient diffusion constant, \(k_{n}\), can be used. There
-are then 384 growth constants, \(b_{i}\), for each culture on a
-typical QFA plate making 387 parameters in total. This is about half
-the number of parameters in the standard logistic model (769) which
-must fit carrying capacity \(K_{i}\) at the culture level. In
-contrast, the generalised logistic model, used to better fit QFA
-growth curves, adds an extra culture level shape parameter and has
-1153 parameters in total \citep{Banks2012,qfa2016}. The competition
-model shares more information between cultures than either of these
-models.
+Unlike the logistic model~(\ref{eq:logistic_model}), the competition
+model has no analytical solution, and must instead be solved
+numerically. If \(k_{n}\) is set to zero (in the independent limit),
+the competition model reduces to the mass action equivalent of the
+logistic model, hereinafter the mass-action logistic model (blog
+ref)(, and has the same sigmoidal solution). (In this limit,
+parameters of the competition model can be converted in terms of
+parameters the logistic model (see methods section)).
+%%%% could go to methods %%%%
+When the competition model is fit to QFA data, \(C_{i}\) is observed
+and \(N_{i}\) is hidden. Inoculum density, \(C_{t_{0}}\), is often
+below detectable levels. By assuming that incolulum density is the
+same for all cultures and that nutrients are distributed evenly
+throughout the agar at time zero, plate level initial values of cells
+and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\) can be used. \(k_{n}\)
+is assumed to be constant across the plate but must be inferred. There
+is then a growth constant, \(b_{i}\), for each of 384 cultures on a
+typical QFA plate making 387 parameters in total. The competition
+model shares more information between cultures and has far fewer
+parameters (387) than either the standard or generalised logistic
+model which have 796 and 1153 total parameters respectively
+\citep{Banks2012,qfa2016}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The competition model shares more information between cultures and has
+fewer than half the parameters of either the standard or generalised
+logistic model \citep{Banks2012,qfa2016}.
 
-% What is a nutrient.
 
-Because of the network model of diffusion is fairly absract and we
-have no way to measure nutrients it is not possible to measure \(k_n\)
-and it must instead be inferred. Often \(C_{t_{0}}\) is below the
-detectable levels and must also be inferred. (Wait until discussion:
-Recent work by Herrmann and Lawless - issues with plate level
-\(C_{t_{0}}\) - Could approximate cells as not starting to grow until
-levels become detectable at \(t_{i}\) (OK if assume only small
-diffusion before this point)).
+
 
 
 \begin{Figure}
