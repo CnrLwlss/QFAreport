@@ -186,26 +186,40 @@ Addinall paper when I describe p15 in the methods.)
 
 
 
+The solution to the logistic model is a sigmoidal curve. Growth begins
+exponentially with rate \(rC\) and curtails as the population size
+increases and cells begin to compete for space and nutrients or
+interact in some other way. Cell density finally reaches the carrying
+capacity \(K\) at the stationary phase. In QFA, nutrients must diffuse
+through agar to reach cells growing on the surface. It is plausible
+that the carrying capacity \(K\) represents the point at which
+nutrients either run out or growth becomes limited by the diffusion of
+nutrients and is approximately stationary.
 
-
-QFA
-collects more information about growth by taking images of plates at
-points throughout the growth curve. QFA can be performed using either
-the pinned cultures (used in SGA) or dilute liquid cultures
-(``spots'') of lower initial cell density. Although pinned QFA allows
-for more cultures per plate (1536 vs 384 in spotted), spotted QFA
-allows for more accurate fitting of growth models as growth curves are
-more complete (see Figure~\ref{fig:qfa_and_sga_growth_curves})
-\citep{Lawless2010}. Comparison of spotted and pinned QFA cultures in
-Figure~\ref{fig:qfa_and_sga_growth_curves}c shows how spotted cultures
-are composed of many individual colonies which increase in size and
-thickness, whereas pinned cultures are composed of a single uniform
-colony which grows radially. The number of individual colonies in a
-spotted culture is high enough that lag and other stochastic effects
-should average out.
-
-
-
+Since QFA aims to determine differences in the fitness of microbial
+strains from measurements of differences in growth, fast and slow
+growing cultures are often grown
+side-by-side. Figure~\ref{fig:p15_section} shows a section of a QFA
+plate from a study by \citeauthor*{Addinall2011} where this is the
+case. (Each spot is a culture that was inoculated with approximately
+equal cell density but have grown to visibly different sizes after
+\(\sim\)2.5 days.) It is likely that nutrients diffuse along gradients
+between fast and slow growing cultures so as to make growth appear
+faster of slower than would occur if growth were independent. Further
+support for such an effect comes from the experiment shown in
+Figure~\ref{fig:stripes_images} where the same cultures are grown in
+alternate columns on two separate plates but with cultures added or
+removed from the neighbouring columns in between. The cultures in
+Figure~\ref{fig:stripes_images}a) where neighbours were absent grew
+faster and larger than the same cultures in
+Figure~\ref{fig:stripes_images}b) where neighbours were added. Despite
+this, current QFA analysis using the logistic model assumes that
+cultures grow independently and ignores possible competition effects
+between neighbours. The sigmoidal curve of the logistic model poorly
+fits QFA data in many cases. If competition effects due to nutrient
+diffusion can be modelled and corrected for it may be possible to make
+better fits to data and improve the accuracy and precision of fitness
+estimates.
 
 
 
