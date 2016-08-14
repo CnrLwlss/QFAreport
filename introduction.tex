@@ -221,6 +221,30 @@ network model of nutrient dependent growth and diffusion to QFA data
 to try to correct for competition and increase the accuracy and
 precision of fitness estimates.
 
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{p15_section/p15_section}
+  \captionof{figure}{\textbf{4x5 section of a QFA plate.} Taken from a
+    16x24 format solid agar plate inoculated with dilute
+    \textit{S. cerevisae} cultures.
+  Image captured at \(\sim\)2.5d after inoculation and incubation at
+  27\(^{\circ}C\).}
+  \label{fig:p15_section}
+\end{Figure}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{stripes/final/striped}
+  \includegraphics[width=\linewidth]{stripes/final/filled}
+  \captionof{figure}{\textbf{An experiment designed to examine
+      competition.}\\
+    A) QFA plate inocluated with a more concentrated
+    \textit{S. Cerevisae} inoculum (no cells inocluated on alternative
+    columns).\\
+    B) Same as in A, but with strains of similar growth rate
+    inoculated in the positions missing in A.}
+  \label{fig:stripes_images}
+\end{Figure}
+
 Alternatively, competition effects could be dealt with experimentally
 by randomising the location of cultures on repeated plates. This does
 not require explicit knowledge or modelling of the source of
@@ -255,50 +279,72 @@ experiments. Therefore a simpler model of nutrient diffusion is
 required.
 //Diffusion Equation//
 
+
 \textit{Lawless} proposed a model of nutrient dependent growth and
 competition using mass action kinetics and a network diffusion model,
-hereinafter referred to a the competition model \ref{eq:competition_model}.
+hereinafter referred to as the competition model
+(\ref{eq:reaction},\ref{eq:competition_model}). A schematic of the
+model is drawn in Figure~\ref{fig:comp_model_schematic}. In the
+competition model, the nutrient dependent division of cells is
+represented by the reaction equation,
+\begin{subequations}
+  \label{eq:reaction}
+  \begin{align}
+    &C + N \xrightarrow[]{b} 2C,
+%    &rate = b_{i}[C][N],
+  \end{align}
+\end{subequations}
+where \(C\) is a cell, \(N\) is the amount of nutrients required for
+one cell division, and \(b\) is a rate constant for the
+reaction. Separate reactions (\ref{eq:reaction}) with growth constant
+\(b_{i}\) are defined for each culture, indexed \(i\), on a
+plate. Mass action kinetics is used to derive rate equations for the
+amount of cells and nutrients associated with each culture, \(C_{i}\)
+and \(N_{i}\). This gives us the rate equation for \(C_{i}\)
+(\ref{eq:competition_model}a) and the first term in the rate equation
+for \(N_{i}\) (\ref{eq:competition_model}b). The rate of nutrient
+diffusion between culture \(i\) and its closest neighbours, belonging
+to the region \(\delta_{i}\), is modelled by the second term in
+(\ref{eq:competition_model}b), where \(k_{n}\) is a nutrient diffusion
+constant which is shared across a plate.
 \begin{subequations}
   \label{eq:competition_model}
   \begin{align}
-    \frac{dC_{i}}{dt}& = b_{i}N_{i}C_{i},\\
-    \frac{dN_{i}}{dt}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}),\\
+    % \frac{dC_{i}}{dt}& = b_{i}N_{i}C_{i},\\
+    % \frac{dN_{i}}{dt}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
+    \dot{C_{i}}& = b_{i}N_{i}C_{i},\\
+    \dot{N_{i}}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
   \end{align}
 \end{subequations}
-where, \(\delta_i\) indicates the set of closest neighbours, \(k_{n}\)
-and \(k_{s}\) are nutrient and signal diffusion constants, \(\alpha\)
-is a rate constant for signal secretion, and \(\beta\) is a constant
-for the effect of signal on culture population.
+Unlike the logistic model (\ref{eq:logistic_model}),
+equation~\ref{eq:competition_model} has no analytically solution and
+must instead me solved numerically.
+
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{comp_model/comp_model_schematic}
+  \captionof{figure}{\textbf{Schematic of the competition model.}
+    Each circle represents a culture, indexed \(i\), growing in a
+    rectangular array on the surface of a nutrient containing solid
+    agar. Arrows represent a network of nutrient diffusion along
+    gradients between cultures. \(C_{i}\) - amount of cells; \(N_{i}\)
+    - amount of nutrients; \(k_{n}\) - plate level diffusion constant;
+    darker blue circles \(\delta_{i}\) - closest neighbours of culture
+    i.}
+  \label{fig:comp_model_schematic}
+\end{Figure}
+
+
+
+% What is a nutrient?
+
+
+
 
 
 
 \subsection{\thesubsection~Subsection}
 
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{p15_section/p15_section}
-  \captionof{figure}{\textbf{4x5 section of a QFA plate.} Taken from a
-    16x24 format solid agar plate inoculated with dilute
-    \textit{S. cerevisae} cultures.
-  Image captured at \(\sim\)2.5d after inoculation and incubation at
-  27\(^{\circ}C\).}
-  \label{fig:p15_section}
-\end{Figure}
-
-
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{stripes/final/striped}
-  \includegraphics[width=\linewidth]{stripes/final/filled}
-  \captionof{figure}{\textbf{An experiment designed to examine
-      competition.}\\
-    A) QFA plate inocluated with a more concentrated
-    \textit{S. Cerevisae} inoculum (no cells inocluated on alternative
-    columns).\\
-    B) Same as in A, but with strains of similar growth rate
-    inoculated in the positions missing in A.}
-  \label{fig:stripes_images}
-\end{Figure}
 
 
 
