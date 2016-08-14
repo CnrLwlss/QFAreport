@@ -216,37 +216,59 @@ Figure~\ref{fig:stripes_images}b), where neighbours were
 added. Despite this, current QFA analysis using the logistic model
 assumes that cultures grow independently and ignores possible
 competition effects between neighbours. The sigmoidal curve of the
-logistic model poorly fits QFA data in many cases. If competition
-effects due to nutrient diffusion can be modelled and corrected for,
-it may be possible to make better fits to data and improve the
-accuracy and precision of fitness estimates.
+logistic model poorly fits QFA data in many cases. I aim to fit a
+network model of nutrient dependent growth and diffusion to QFA data
+to try to correct for competition and increase the accuracy and
+precision of fitness estimates.
 
-Competition effects could be dealt with experimentally by randomising
-the location of cultures on repeated plates. This does not require
-explicit knowledge or modelling of the source of competition but
-reduces throughput, so, if possible, a modelling approach is
-desirable. Poisoning of cultures by a signal molecule such as ethanol,
-which \textit{S. cerevisae} produces in the metabolism of sugars by
-fermentation, is another possible source of competition. QFA does not
-measure nutrients or signal, so if more than one source of competition
-exists, it will become very difficult to fit a model and randomisation
-may be the best approach.  In an SGA study, \citet{Baryshnikova2010}
-use statistical techniques to correct for competition between fast and
-slow growing neighbours in end-point assays of culture area. We hope
-that modelling the diffusion of nutrients explicitly and using a full
-network diffusion model will allow us to better correct for
-competition using fewer repeats. With QFA, we can also use more
-information by fitting whole growth curves rather than a single
-endpoint assay so a modelling approach offers to be more
-powerful. Furthermore, modelling may help us to identify and
+Alternatively, competition effects could be dealt with experimentally
+by randomising the location of cultures on repeated plates. This does
+not require explicit knowledge or modelling of the source of
+competition but reduces throughput, so, if possible, a modelling
+approach is desirable. Poisoning of cultures by a signal molecule such
+as ethanol, which \textit{S. cerevisae} produces in the metabolism of
+sugars by fermentation, is another possible source of competition. QFA
+does not measure nutrients or signal, so if more than one source of
+competition exists, it will become very difficult to fit a model and
+randomisation may be the best approach.  In an SGA study,
+\citet{Baryshnikova2010} use statistical techniques to correct for
+competition between fast and slow growing neighbours in end-point
+assays of culture area. We hope that modelling the diffusion of
+nutrients explicitly and using a full network diffusion model will
+allow us to better correct for competition using fewer repeats. With
+QFA, we can also use more information by fitting whole growth curves
+rather than a single endpoint assay so a modelling approach offers to
+be more powerful. Furthermore, modelling may help us to identify and
 understand the source of competition. Simulation of an accurate model
 will allow us to compare experimental designs and explore ways to
 reduce competition effects.
 
+//Diffusion Equation: I am probably going to have to reexplain this
+when I get to the discussion so I could just leave until then.//
+% Previous model of nutrient diffusion.
+\citep{Reo2014} use a diffusion equation model to simulate nutrient
+dependent growth of a single bacterial culture on a pertri dish in
+two-dimensions. It would be too computationally intensive to fit a
+similar model to a full QFA plate in three-dimensions, especially if
+we are to use the model to process many plates from high-throughput
+experiments. Therefore a simpler model of nutrient diffusion is
+required.
+//Diffusion Equation//
 
-
-
-
+\textit{Lawless} proposed a model of nutrient dependent growth and
+competition using mass action kinetics and a network diffusion model,
+hereinafter referred to a the competition model \ref{eq:competition_model}.
+\begin{subequations}
+  \label{eq:competition_model}
+  \begin{align}
+    \frac{dC_{i}}{dt}& = b_{i}N_{i}C_{i},\\
+    \frac{dN_{i}}{dt}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}),\\
+  \end{align}
+\end{subequations}
+where, \(\delta_i\) indicates the set of closest neighbours, \(k_{n}\)
+and \(k_{s}\) are nutrient and signal diffusion constants, \(\alpha\)
+is a rate constant for signal secretion, and \(\beta\) is a constant
+for the effect of signal on culture population.
 
 
 
