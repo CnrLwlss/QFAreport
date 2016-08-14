@@ -141,7 +141,7 @@ and \(C_0\) is cell density at time zero.
 \end{subequations}
 %
 Fitting the logistic model to QFA data requires plate level or culture
-level parameters for \(C_{0}\) and culture level parameters for \(r\)
+level parameters for \(C_{t_{0}}\) and culture level parameters for \(r\)
 and \(K\) making 769 or 1152 parameters per plate of 384 cultures.
 
 //Could remove and just discus MDR when I get to the results//
@@ -162,11 +162,11 @@ culture undergoes from inoculation to the stationary phase.
 \end{subequations}
 %
 To improve the quality of fits QFA now uses the generalised logistic
-model which requires an extra parameter for each culture. Standard and
-generalised logistic model \(r\) are not equivalent so comparison
-relies on MDR and MDP as fitness measures. The analysis of QFA data
-using both models is available through the QFA R package
-\citep{qfa2016}.
+model which requires an extra shape parameter for each culture to try
+to improve the quality of fits to data. Standard and generalised
+logistic model \(r\) are not equivalent so comparison relies on MDR
+and MDP as fitness measures. The analysis of QFA data using both
+models is available through the QFA R package \citep{qfa2016}.
 //Could remove and just discus MDR when I get to the results//
 
 
@@ -282,7 +282,7 @@ required.
 
 \textit{Lawless} proposed a model of nutrient dependent growth and
 competition using mass action kinetics and a network diffusion model,
-hereinafter referred to as the competition model
+hereinafter the competition model
 (\ref{eq:reaction},\ref{eq:competition_model}). A schematic of the
 model is drawn in Figure~\ref{fig:comp_model_schematic}. In the
 competition model, the nutrient dependent division of cells is
@@ -316,9 +316,41 @@ constant which is shared across a plate.
     \dot{N_{i}}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
   \end{align}
 \end{subequations}
-Unlike the logistic model (\ref{eq:logistic_model}),
-equation~\ref{eq:competition_model} has no analytically solution and
-must instead me solved numerically.
+Outside of the independent limit equation~\ref{eq:competition_model}
+has no analytical solution, and unlike the logistic model
+(\ref{eq:logistic_model}), must instead be solved numerically. In the
+independent limit, when \(k_{n}\) is set to zero, the competition
+model reduces to the mass action equivalent of the logistic model,
+hereinafter the mass-action logistic model (blog ref), and has the
+same sigmoidal solution. (In this limit, parameters of the competition
+model can be converted in terms of parameters the logistic model (see
+methods section)). When fit to QFA data, \(C_{i}\) is observed whereas
+\(N_{i}\) is hidden. By assuming that incolulum density is the same
+for all cultures and that nutrients are distributed evenly throughout
+a homogenous and hetrogenous agar at time zero, plate level initial
+values of cells and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\), and a
+plate level nutrient diffusion constant, \(k_{n}\), can be used. There
+are then 384 growth constants, \(b_{i}\), for each culture on a
+typical QFA plate making 387 parameters in total. This is about half
+the number of parameters in the standard logistic model (769) which
+must fit carrying capacity \(K_{i}\) at the culture level. In
+contrast, the generalised logistic model, used to better fit QFA
+growth curves, adds an extra culture level shape parameter and has
+1153 parameters in total \citep{Banks2012,qfa2016}. The competition
+model shares more information between cultures than either of these
+models.
+
+% What is a nutrient.
+
+Because of the network model of diffusion is fairly absract and we
+have no way to measure nutrients it is not possible to measure \(k_n\)
+and it must instead be inferred. Often \(C_{t_{0}}\) is below the
+detectable levels and must also be inferred. (Wait until discussion:
+Recent work by Herrmann and Lawless - issues with plate level
+\(C_{t_{0}}\) - Could approximate cells as not starting to grow until
+levels become detectable at \(t_{i}\) (OK if assume only small
+diffusion before this point)).
+
 
 \begin{Figure}
   \centering
