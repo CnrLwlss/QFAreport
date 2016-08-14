@@ -189,7 +189,7 @@ Addinall paper when I describe p15 in the methods.)
 The solution to the logistic model is a sigmoidal curve. Growth begins
 exponentially with rate \(rC\) and curtails as the population size
 increases and cells begin to compete for space and nutrients or
-interact in some other way. Cell density finally reaches the carrying
+interact in some other way. Cell density reaches a final carrying
 capacity \(K\) at the stationary phase. In QFA, nutrients must diffuse
 through agar to reach cells growing on the surface. It is plausible
 that the carrying capacity \(K\) represents the point at which
@@ -201,25 +201,39 @@ strains from measurements of differences in growth, fast and slow
 growing cultures are often grown
 side-by-side. Figure~\ref{fig:p15_section} shows a section of a QFA
 plate from a study by \citeauthor*{Addinall2011} where this is the
-case. (Each spot is a culture that was inoculated with approximately
-equal cell density but have grown to visibly different sizes after
+case. (Cultures were inoculated with approximately equal cell density
+but have grown at different rates to visibly different sizes after
 \(\sim\)2.5 days.) It is likely that nutrients diffuse along gradients
-between fast and slow growing cultures so as to make growth appear
-faster of slower than would occur if growth were independent. Further
+between fast and slow growing neighbours causing growth to appear
+faster or slower than would occur if it were independent. Further
 support for such an effect comes from the experiment shown in
 Figure~\ref{fig:stripes_images} where the same cultures are grown in
 alternate columns on two separate plates but with cultures added or
-removed from the neighbouring columns in between. The cultures in
-Figure~\ref{fig:stripes_images}a) where neighbours were absent grew
+removed from the neighbouring columns in between. Cultures in
+Figure~\ref{fig:stripes_images}a), where neighbours were removed, grew
 faster and larger than the same cultures in
-Figure~\ref{fig:stripes_images}b) where neighbours were added. Despite
-this, current QFA analysis using the logistic model assumes that
-cultures grow independently and ignores possible competition effects
-between neighbours. The sigmoidal curve of the logistic model poorly
-fits QFA data in many cases. If competition effects due to nutrient
-diffusion can be modelled and corrected for it may be possible to make
-better fits to data and improve the accuracy and precision of fitness
-estimates.
+Figure~\ref{fig:stripes_images}b), where neighbours were
+added. Despite this, current QFA analysis using the logistic model
+assumes that cultures grow independently and ignores possible
+competition effects between neighbours. The sigmoidal curve of the
+logistic model poorly fits QFA data in many cases. If competition
+effects due to nutrient diffusion can be modelled and corrected for,
+it may be possible to make better fits to data and improve the
+accuracy and precision of fitness estimates.
+
+
+
+Attempts have been made to correct for competition in other
+studies. An experimental approach would be to randomise the locations
+of cultures and run repeats of plates. This has the advantage of not
+reacquiring explicit knowledge or modelling of the source of
+competition but reduces the throughput of the experiment. (Another
+possible source of competition is poisoning of cultures by a signal
+molecule such as ethanol which is produced by yeast in the metabolism
+of sugars by fermentation.)
+
+
+Boone et al
 
 
 
