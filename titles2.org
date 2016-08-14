@@ -46,6 +46,7 @@
   - [ ] Introduce the Competition model
     - [ ] Mass action kinetics and network diffusion
       - Reaction and rate equations
+      - No numerical solution
       - Cells observed; nutrients hidden
       - Explain the plate and culture level parameters.
       - Explain that there are fewer parameters than in the logistic
