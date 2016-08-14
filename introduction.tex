@@ -33,28 +33,31 @@ conditions, growth is exponential and this makes growth rate a major
 component of fitness; faster growing strains quickly come to dominate
 the population. At a certain point growth becomes limited and a
 stationary phase is reached. For unicellular organisms, growth rate is
-equal to cell cycle progression rate. Evolutionary pressure has led to
-rapidly dividing organisms (such as \textit{E. Coli} and \textit{S.
-  cerevisae}) with compact genomes of essential genes. These genes
-have been conserved in other species over billions of years of
-evolution. The eukaryote \textit{S. cerevisae}, is particularly useful
-for the study of other eukaryotes such as humans.
+equal to cell cycle progression rate and all of the genetic
+information must be copied before each division. As a result,
+evolutionary pressure has led to rapidly dividing organisms with
+compact genomes of essential genes. These genes have been conserved in
+other species over billions of years of evolution, which is, in part,
+what makes \textit{E. Coli} and \textit{S.  cerevisae} useful as
+model species. The eukaryote \textit{S. cerevisae}, is particularly
+useful for the study of other eukaryotes such as humans.
 
 The growth rate of microbial organisms is measurable and is often used
 to determine fitness. In experiments, cell cultures are commonly grown
-in two types of medium. In spot tests (phenotypic array), cultures are
-pinned or inoculated on the surface of a solid agar containing
-nutrients. In liquid culture assays, cultures are mixed in a liquid
-medium containing nutrients. In both cases cultures are incubated and
-growth is observed. Identical strains can grow differently between the
-two mediums and disagreement in fitness estimates is currently an
-issue \citet{Baryshnikova2010} (I couldn't find a paper specifically
-talking about this issue but they have a correlation plot Fig2a where
-correlations are worse with a liquid culture study by Jasnos and
-Korona; in fact the Baryshnikova paper Fig3c seems to say that they
-had strong correlation in their ``high-resolution liquid growth
-profiling study''). I do not focus on this issue and exclusively study
-fitness screens using solid agar.
+in two types of medium: on the surface of a nutrient rich solid agar
+and in a liquid mixture containing nutrients. (REMOVE: In spot tests
+(phenotypic array), cultures are pinned or inoculated on the surface
+of a solid agar containing nutrients. In liquid culture assays,
+cultures are mixed in a liquid medium containing nutrients.) In both
+cases cultures are incubated and growth is observed. Identical strains
+can grow differently between the two mediums and disagreement in
+fitness estimates is currently an issue \citet{Baryshnikova2010} (I
+couldn't find a paper specifically talking about this issue but they
+have a correlation plot Fig2a where correlations are worse with a
+liquid culture study by Jasnos and Korona; in fact the Baryshnikova
+paper Fig3c seems to say that they had strong correlation in their
+``high-resolution liquid growth profiling study''). I do not focus on
+this issue and exclusively study fitness screens using solid agar.
 
 % Where do cells grow surfaces films.
 
@@ -86,8 +89,8 @@ fitness screens using solid agar.
 Fitness estimates can be used to infer genetic interaction or drug
 response and high-throughput methods allow this to be conducted on a
 genome-wide scale (see e.g. \citet{Costanzo2010,Andrew2013}). In a
-typical genetic interaction screen, a strain is made with a mutation
-in a query gene. Double mutants are created by introducing a second
+typical genetic interaction screen a strain is made with a mutation in
+a query gene. Double mutants are created by introducing a second
 deletion in this strain. By comparing the growth of double mutants
 with a control containing a neutral deletion, genetic interactions can
 be inferred. If a strain is fitter than the control then the deletion
@@ -96,59 +99,69 @@ fit than the control then the deletion is said to enhance the defect
 of the query gene. Either scenario suggests that the two genes
 interact and have a related function. Due to redundancy, single
 deletions are often non-lethal. (Remove: Knock downs and conditional
-mutations can also be used.) This allowed \citet{Costanzo2010} to
-explore \(\sim\)75\% of the \textit{S. cerevisae} genome.
+mutations can also be used.) This has allowed \citet{Costanzo2010} to
+explore genetic interactions for \(\sim\)75\% of the
+\textit{S. cerevisae} genome.
 
 
 Synthetic Genetic Array (SGA) and Quantitative Fitness Analysis (QFA)
 are high-throughput methods for obtaining quantitative fitness
 estimates of microbial cultures grown on solid agar
 \citep{Baryshnikova2010sga,Banks2012}. Typically one query gene and
-replicates of deletion are contained in a rectangular array on a solid
-agar plate. Many plates with different query genes and deletions can
-be grown in high-throughput to explore whole genomes. I study data
-from QFA which refers to quantitative estimation of fitness by
-measurement and fitting of growth curves.
-
-
-In a typical QFA procedure liquid cultures are incolulated onto solid
-agar (containing nutrients (already mentioned above)) often with 384
-cultures in 16x24 rectangular array. Initial inoculum density can be
-varied to capture more or less of the growth curve. Dilute cultures
+replicates of several deletions are pinned or inoculated in a
+rectangular array on a solid agar plate. Many plates with different
+query genes and deletions are grown in high-throughput to explore
+whole genomes. I study data from QFA which refers to quantitative
+estimation of fitness by measurement and fitting of growth curves. In
+a typical QFA procedure liquid cultures are incolulated onto solid
+agar (containing nutrients (already mentioned above)) in a 16x24
+rectangular array of 384 spots. Inoculum density can be varied to
+capture more or less of the growth curve and the most dilute cultures
 are inoculated with \(\sim\)100 starting cells
-\citep{Addinall2011}. Plates are grown in incubation. Photographs of
-whole plates are taken at timepoints throughout growth which typically
-covers several days and captures the exponential and stationary growth
-phases. Photographs are processed by Colonyzer \citep{Lawless2010} to
-produce cell density estimates from the optical density of
-cultures. Past analysis independently fit the logistic model, which
-describes self-limiting growth, to the timecourse of each culture and
-quantitative fitness estimates are defined in terms of the growth
-constant, \(r\), and carrying capacity, \(K\). In contrast, SGA
-typically uses an array of 1536 pinned cultures and an endpoint assay
-of culture area (a single measurement) to quantify growth. The the
+\citep{Addinall2011}. Plates are grown in incubation and removed to be
+photographed at timepoints throughout growth. Photographs are of whole
+plates and growth typically covers several days to capture both the
+exponential and stationary growth phases. Colonyzer
+\citep{Lawless2010} processes optical density measurements in
+photographs to produce a timecourse of cell density estimates for each
+culture. In pasts analysis, the logistic growth model was
+independently fit to the timecourse of each culture and fitness
+estimates were defined in terms of parameters of this model: the
+growth constant \(r\) and carrying capacity \(K\). In contrast, SGA
+typically uses a larger array of 1536 pinned cultures and a single
+endpoint assay of culture area to quantify growth. The the
 differential form and solution of the logistic model
 \citep{Verhulst1845} (probably don't need this reference) are given in
 Equations~\ref{eq:logistic_model}, where \(C\) represents cell density
-and \(C_0\) is cell density at time zero.
+and \(C_{t_{0}}\) is cell density at time zero.
 % Logistic model equations
 \begin{subequations}
   \label{eq:logistic_model}
   \begin{align}
     &\dot{C} = rC\left(1 - \frac{C}{K}\right)\\
-    &C(t) = \frac{KC_{0}e^{rt}}{K + C_{0}(e^{rt}-1)}
+    &C(t) = \frac{KC_{t_{0}}e^{rt}}{K + C_{t_{0}}(e^{rt}-1)}
   \end{align}
 \end{subequations}
 %
-Fitting the logistic model to QFA data requires plate level or culture
-level parameters for \(C_{t_{0}}\) and culture level parameters for \(r\)
-and \(K\) making 769 or 1152 parameters per plate of 384 cultures.
+The logistic model is a simple mechanistic model describing
+self-limiting growth and has a sigmoidal solution. Growth begins
+exponentially with rate \(rC\) and curtails as the population size
+increases and cells begin to compete for space and nutrients (remove:
+or interact in some other way). Cell density reaches a final carrying
+capacity \(K\) at the stationary phase. In QFA, nutrients must diffuse
+through agar to reach cells growing on the surface. It is plausible
+that the carrying capacity \(K\) represents the point at which
+nutrients either run out or growth becomes limited by the diffusion of
+nutrients and is approximately stationary. Fitting the logistic model
+to QFA data requires plate level or culture level parameters for
+\(C_{t_{0}}\) and culture level parameters for \(r\) and \(K\) making
+769 or 1152 parameters per 384 culture plate.
 
 //Could remove and just discus MDR when I get to the results//
 The growth constant \(r\) could be used as a fitness measure. However,
 \citet{Addinall2011} define a more complicated fitness measure as the
 product of Maximum Doubling Rate (MDR) and Maximum Doubling Potential
-(MDP) which they derive from logistic model parameters. MDR measures
+(MDP) which they calculate from logistic model parameters. MDR measures
 the doubling rate at the beginning of the exponential growth phase,
 when growth is fastest, and MDP is the number of divisions which a
 culture undergoes from inoculation to the stationary phase.
@@ -161,40 +174,30 @@ culture undergoes from inoculation to the stationary phase.
     \end{align}
 \end{subequations}
 %
-To improve the quality of fits QFA now uses the generalised logistic
-model which requires an extra shape parameter for each culture to try
-to improve the quality of fits to data. Standard and generalised
-logistic model \(r\) are not equivalent so comparison relies on MDR
-and MDP as fitness measures. The analysis of QFA data using both
-models is available through the QFA R package \citep{qfa2016}.
-//Could remove and just discus MDR when I get to the results//
+To improve the quality of fits, QFA now uses the generalised logistic
+model which requires an extra shape parameter for each
+culture. Standard and generalised logistic model \(r\) are not
+equivalent so comparison relies on MDR and MDP as fitness
+measures. The analysis of QFA data using both models is available
+through the QFA R package \citep{qfa2016}.  //Could remove and just
+discus MDR when I get to the results//
 
 
-//Could remove//
-\citet{Addinall2011} used QFA and \textit{S. cerevisae} to screen for
-genes involved in telomere stability which is related to ageing and
-cancer and has implications for human health and disease. Hits from
-this study have been successfully followed to discover new biology
+//Could remove//\citet{Addinall2011} used QFA and
+\textit{S. cerevisae} to screen for genes involved in telomere
+stability which is related to ageing and cancer and has implications
+for human health and disease. Hits from this study have been
+successfully followed to discover new biology
 \citep{Holstein20141259}. (To be honest I have no idea what they found
 in that paper. Maybe I should leave this to biologist and out of my
 report? We had a more general focus. Obviously I will mention the
-Addinall paper when I describe p15 in the methods.)
-//Could remove//
+Addinall paper when I describe p15 in the methods.)  //Could remove//
 % Example use of QFA by Addinall \citep{Addinall2011} telomeres.
 % And follow up Holstein and Clark \citep{Holstein20141259}
 
 
 
 
-The solution to the logistic model is a sigmoidal curve. Growth begins
-exponentially with rate \(rC\) and curtails as the population size
-increases and cells begin to compete for space and nutrients or
-interact in some other way. Cell density reaches a final carrying
-capacity \(K\) at the stationary phase. In QFA, nutrients must diffuse
-through agar to reach cells growing on the surface. It is plausible
-that the carrying capacity \(K\) represents the point at which
-nutrients either run out or growth becomes limited by the diffusion of
-nutrients and is approximately stationary.
 
 Since QFA aims to determine differences in the fitness of microbial
 strains from measurements of differences in growth, fast and slow
@@ -205,22 +208,27 @@ case. (Cultures were inoculated with approximately equal cell density
 but have grown at different rates to visibly different sizes after
 \(\sim\)2.5 days.) It is likely that nutrients diffuse along gradients
 between fast and slow growing neighbours causing growth to appear
-faster or slower than would occur if it were independent. Further
-support for such an effect comes from the experiment shown in
+faster or slower than if it were independent. Further support for such
+an effect comes from the experiment shown in
 Figure~\ref{fig:stripes_images} where the same cultures are grown in
 alternate columns on two separate plates but with cultures added or
 removed from the neighbouring columns in between. Cultures in
 Figure~\ref{fig:stripes_images}a), where neighbours were removed, grew
-faster and larger than the same cultures in
-Figure~\ref{fig:stripes_images}b), where neighbours were
-added. Despite this, current QFA analysis using the logistic model
-assumes that cultures grow independently and ignores possible
-competition effects between neighbours. The sigmoidal curve of the
-logistic model poorly fits QFA data in many cases. I aim to fit a
-network model of nutrient dependent growth and diffusion to QFA data
-to try to correct for competition and increase the accuracy and
-precision of fitness estimates.
+faster and larger (how much? I can look at the data myself) than the
+same cultures in Figure~\ref{fig:stripes_images}b), where neighbours
+were added. This suggests that an interaction between neighbours is
+present and may be affecting fitness estimates. Current QFA analysis
+using the logistic model assumes that cultures grow independently and
+ignores possible competition effects between neighbours. The sigmoidal
+curve of the logistic model poorly fits QFA data in many cases and
+this may be due to competition effects. I aim to fit a network model of
+nutrient dependent growth and diffusion to QFA data to try to correct
+for competition and increase the accuracy and precision of fitness
+estimates.
 
+
+Could explain the difference in dilute and more concentrated
+cultures. In the image captions or elsewhere?
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{p15_section/p15_section}
@@ -302,11 +310,7 @@ indexed \(i\), on a plate and uses mass action kinetics to derive rate
 equations for the amount of cells and nutrients associated with each
 culture, \(C_{i}\) and \(N_{i}\). This gives the rate equation for
 \(C_{i}\) (\ref{eq:competition_model}a) and the first term in the rate
-equation for \(N_{i}\) (\ref{eq:competition_model}b). To arrive at the
-full competition model, he models the diffusion of nutrients along
-gradients between a culture \(i\) and its closest neighbours,
-\(\delta_{i}\), by the second term in (\ref{eq:competition_model}b),
-where \(k_{n}\) is a nutrient diffusion constant.
+equation for \(N_{i}\) (\ref{eq:competition_model}b).
 \begin{subequations}
   \label{eq:competition_model}
   \begin{align}
@@ -316,6 +320,16 @@ where \(k_{n}\) is a nutrient diffusion constant.
     \dot{N_{i}}& = - b_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
   \end{align}
 \end{subequations}
+To arrive at the full competition model, he models the diffusion of
+nutrients along gradients between a culture \(i\) and its closest
+neighbours, \(\delta_{i}\), by the second term in
+(\ref{eq:competition_model}b), where \(k_{n}\) is a nutrient diffusion
+constant. This can also be expressed as a series of mass action kinetic
+reactions,
+\begin{equation}
+    N_{i} \xrightarrow[]{k_{n}} N_{j}.
+  \label{eq:diffusion_reaction}
+\end{equation}
 Unlike the logistic model~(\ref{eq:logistic_model}), the competition
 model has no analytical solution, and must instead be solved
 numerically. If \(k_{n}\) is set to zero (in the independent limit),
@@ -330,23 +344,14 @@ and \(N_{i}\) is hidden. Inoculum density, \(C_{t_{0}}\), is often
 below detectable levels. By assuming that incolulum density is the
 same for all cultures and that nutrients are distributed evenly
 throughout the agar at time zero, plate level initial values of cells
-and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\) can be used. \(k_{n}\)
+and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\), can be used. \(k_{n}\)
 is assumed to be constant across the plate but must be inferred. There
-is then a growth constant, \(b_{i}\), for each of 384 cultures on a
-typical QFA plate making 387 parameters in total. The competition
-model shares more information between cultures and has far fewer
-parameters (387) than either the standard or generalised logistic
-model which have 796 and 1153 total parameters respectively
+is a growth constant, \(b_{i}\), for each of 384 cultures on a typical
+QFA plate making 387 parameters in total. The competition model shares
+more information between cultures and has fewer than half the number
+of the parameters of either the standard or generalised logistic model
 \citep{Banks2012,qfa2016}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The competition model shares more information between cultures and has
-fewer than half the parameters of either the standard or generalised
-logistic model \citep{Banks2012,qfa2016}.
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{comp_model/comp_model_schematic}
@@ -361,11 +366,36 @@ logistic model \citep{Banks2012,qfa2016}.
   \label{fig:comp_model_schematic}
 \end{Figure}
 
+% Justify mass action kinetics
+Mass action kinetics applies to reactions in a well stirred mixture
+and this is perhaps not valid for a culture growing on solid agar. The
+order of a reaction also affects the rate equation and the identity
+and quantity of the nutrient molecule in (\ref{eq:reaction}) is
+unknown. However, a mass action approximation has been successful in
+the Lotka-Volterra model of predator-prey dynamics
+\citep{Berryman1992} and in signalling and reaction models inside
+cells \citep{Aldridge2006,Chen2010} where this assumption is also
+questionable. In QFA, populations begin with \(\sim\)100 cells and
+quickly grow to reach thousands of cells so a deterministic
+approximation also seems valid. I am attempting to collectively fit a
+large model with many parameters to a set of data in a difficult
+optimisation problem where I only have observations for one variable
+(\(C\)). This involves many simulations of a model so if this is to be
+computationally feasible (and eventually used in the analysis of
+high-throughput data) then I must use a simplified model with many
+approximations. It is hoped that even an approximate model will
+measure more reliable growth parameters and better estimate
+fitness. This will increase our power to infer genetic interaction and
+drug response which could lead to further discoveries (Addinall and ).
+% Comment on all nutrients go to cells can wait until methods
 
 
-% What is a nutrient?
 
 
+% % Fractal kinetics can wait until the discussion.
+% fractal kinetics if nutrient diffusion is limited inside cultures, due
+% to gel-like properties of the medium \citep{savageau1995,Kopelman1988}
+% \citep{savageau1995,Kopelman1988}
 
 
 
