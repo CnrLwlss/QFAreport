@@ -296,13 +296,10 @@ diffusion model, hereinafter the competition model
 (\ref{eq:reaction},\ref{eq:competition_model}). A schematic of the
 model is drawn in Figure~\ref{fig:comp_model_schematic}. He represents
 the nutrient dependent division of cells with the reaction equation,
-\begin{subequations}
+\begin{equation}
   \label{eq:reaction}
-  \begin{align}
-    &C + N \xrightarrow[]{b} 2C,
-%    &rate = b_{i}[C][N],
-  \end{align}
-\end{subequations}
+    C + N \xrightarrow[]{b} 2C,
+\end{equation}
 where \(C\) is a cell, \(N\) is the amount of nutrient required for
 one cell division, and \(b\) is a rate constant for the reaction. The
 identity of the limiting nutrient \(N\) is unknown but possible
@@ -369,26 +366,35 @@ of the parameters of either the standard or generalised logistic model
 \end{Figure}
 
 % Justify mass action kinetics
+
+In QFA, populations begin with \(\sim\)100 cells and quickly grow to
+reach thousands of cells so a deterministic approximation seems valid.
 Mass action kinetics applies to reactions in a well stirred mixture
-and this is perhaps not valid for a culture growing on solid agar. The
-order of a reaction also affects the rate equation and the identity
-and quantity of the nutrient molecule in (\ref{eq:reaction}) is
-unknown. However, a mass action approximation has been successful in
-the Lotka-Volterra model of predator-prey dynamics
-\citep{Berryman1992} and in signalling and reaction models inside
-cells \citep{Aldridge2006,Chen2010} where this assumption is also
-questionable. In QFA, populations begin with \(\sim\)100 cells and
-quickly grow to reach thousands of cells so a deterministic
-approximation also seems valid. I am attempting to collectively fit a
-large model with many parameters to a set of data in a difficult
-optimisation problem where I only have observations for one variable
-(\(C\)). This involves many simulations of a model so if this is to be
-computationally feasible (and eventually used in the analysis of
-high-throughput data) then I must use a simplified model with many
-approximations. It is hoped that even an approximate model will
-measure more reliable growth parameters and better estimate
-fitness. This will increase our power to infer genetic interaction and
-drug response which could lead to further discoveries (Addinall and ).
+and is perhaps less valid for a culture growing on solid agar.
+However, a mass action approximation has been successful in other
+situations where this assumption is questionable: in the
+Lotka-Volterra model of predator-prey dynamics \citep{Berryman1992}
+and in signalling and reaction models inside cells
+\citep{Aldridge2006,Chen2010}. The order of a reaction also affects
+the rate equation and the identity and quantity of the nutrient
+molecule in the (\ref{eq:reaction}) is unknown. Reaction
+(\ref{eq:reaction}) also assumes that all nutrients are converted to
+cells and includes no model of metabolism. I justify the use of the
+competition model because in the independent limit it has the same
+solution as the logistic model which has long been used to model
+microbial growth. Studying the competition model may help us to
+understand the nature of QFA experiments and, if some assumptions do
+not hold, it could be used as a first step in developing a more
+accurate model. Furthermore, collectively fitting the competition
+model involves a the large number of parameters and data points and
+will require many simulations to be run. This necessitates the use of
+an approximate model for computational feasibility. This is especially
+true if the model is to be used in the analysis of
+high-throughput data. It is hoped that even an approximate model will
+be able to measure more reliable growth parameters and better estimate
+fitness. This will increase the power to infer genetic interaction and
+drug response which could lead to further discoveries (see
+e.g. \citet{Addinall2011} and \citet{Holstein20141259}).
 % Comment on all nutrients go to cells can wait until methods
 
 
