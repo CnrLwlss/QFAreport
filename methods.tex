@@ -3,19 +3,78 @@
 \section{\thesection~Methods}
 \label{sec:methods}
 
-\subsection{\thesubsection~Conversion between models}
+\subsection{\thesubsection~Parameter conversion}
 
-The reaction equation of the competition model \ref{eq:reaction}
+(Could move to discussion: The identity of the
+nutrient molecule is unknown and it is not clear whether metabolism of
+the nutrient molecule will have a significant effect. If necessary a
+metabolism reaction could also be modelled.)\\
+
+When \(k_{n}\) is set to zero, the competition model
+(\ref{eq:competition_model}) reduces to the mass action logistic model
+which and has the same sigmoidal solution as the standard logistic
+model. In this limit, it is possible to equate cells of both models
+and convert parameters using (\ref{eq:conversion}) (see
+Conor's blog for a derivation).
+% Derivation or link to blog.
+\begin{subequations}
+  \label{eq:conversion}
+  \begin{align}
+    &r_{i} = b_{i}(C_{t_{0}} + N_{t_{0}})\\
+    &K = (C_{t_{0}} + N_{t_{0}})
+    % &r = b(C_{t_{0}} + N_{t_{0}})\\
+    % &K = (C_{t_{0}} + N_{t_{0}})
+  \end{align}
+\end{subequations}
+%
+The reaction equation of the competition model (\ref{eq:reaction})
 assumes that all nutrients are converted to cells. This implies that
 cultures starting with the same amount of nutrients reach the same
-final amount of cells. (Discussion: The identity of the nutrient
-molecule is unknown and it is not clear whether metabolism of the
-nutrient molecule will have a significant effect. If necessary a
-metabolism reaction could also be modelled.) To fit the mass action
-kinetic logistic model, it is necessary to assume different
-\(N_{t_{0}}\) for each culture which is not physical.
+final amount of cells. To fit the mass action logistic model, it is
+necessary to allow \(N_{t_{0}}\) to vary for each culture which is not
+physical. In this case, the mass action logistic model has the same
+number of parameters (769) as the standard logistic model. (Probably
+repetition: When I fit the competition model I collectively fit the
+timecourses of all cultures on a plate using a plate level
+\(N_{t_{0}}\) and 387 parameters.)
+%
+Figure~\ref{fig:correction} shows fits of a single culture on a larger
+16x24 format plate using both models. This culture grew faster than
+its neighbours (not shown) and, according to the competition model,
+competed for more nutrients.
+%
+Figure~\ref{fig:correction}a shows the mass-action logistic model fit
+where \(N_{t_{0},i}\) is estimated as being approximately equal to the
+final cell amount, or carrying capacity \(K_{i}\).
+%
+Figure~\ref{fig:correction}b shows the competition model fit with a
+plate level \(N_{t_{0}}\) and \(kn > 0\). Re-simulating with \(k_{n}\)
+set to zero to gives the dashed curves that are equivalent to the
+logistic model and which we would be observe if there were no
+competition. Competition can therefore be corrected for by converting
+competition model estimates of \(b_{i}\), \(C_{t_{0}}\), and
+\(N_{t_{0}}\) to independent model \(r_{i}\) and \(K_{i}\) by
+(\ref{eq:conversion}).
+% This produces the correction in \(r\) and \(K\) between the two fits
+% (see Figures~\ref{fig:correction}) and allows direct comparison
+% between competition and logistic model estimates.
+%
 
-
+In the competition model, \(C_{t_{0}}\) and \(N_{t_{0}}\) are the same
+for all cultures on a plate. Therefore, by the conversion equations
+(\ref{eq:conversion}), all cultures have the same carrying capacity
+\(K\) and all \(b_{i} \propto r_{i}\) by the same factor. Similarly
+all \(b_{i} \propto MDR_{i}\) by the same factor and \(MDP\) is the
+same for all cultures (see equation~\ref{eq:MDR_MDP}). \(b_{i}\) is
+therefore equivalent to the QFA fitness estimates currently in use
+(see e.g. \citet{Addinall2011} and \citet{qfa2016}). This makes
+\(b_{i}\) an ideal fitness estimate for the competition model; we need
+not convert to logistic model parameters to compare the fitness
+rankings of cultures on the same plate. To compare competition model
+fitness rankings between different plates we can of course use
+\(b_{i}\). However, this is not equivalent to comparing \(r_{i}\) or
+\(MDR_{i}\) as different plates may have different \(C_{t_{0}}\) and
+\(N_{t_{0}}\).
 
 \begin{Figure}
   \centering
@@ -35,6 +94,7 @@ kinetic logistic model, it is necessary to assume different
     the logistic model.}
   \label{fig:correction}
 \end{Figure}
+
 
 %%% Local Variables:
 %%% mode: latex
