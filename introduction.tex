@@ -196,9 +196,6 @@ Addinall paper when I describe p15 in the methods.)  //Could remove//
 % And follow up Holstein and Clark \citep{Holstein20141259}
 
 
-
-
-
 Since QFA aims to determine differences in the fitness of microbial
 strains from measurements of differences in growth, fast and slow
 growing cultures are often grown
@@ -229,7 +226,7 @@ estimates.
 Could explain the difference in dilute and more concentrated
 cultures. In the image captions or elsewhere?
 
-% Eddited up to here.
+% First edit checkpoint 1
 
 \begin{Figure}
   \centering
@@ -245,65 +242,66 @@ cultures. In the image captions or elsewhere?
   \centering
   \includegraphics[width=\linewidth]{stripes/final/striped}
   \includegraphics[width=\linewidth]{stripes/final/filled}
-  \captionof{figure}{\textbf{An experiment designed to examine
-      competition.}\\
-    A) QFA plate inocluated with a more concentrated
-    \textit{S. Cerevisae} inoculum (no cells inocluated on alternative
-    columns).\\
-    B) Same as in A, but with strains of similar growth rate
+  \captionof{figure}{\textbf{QFA experiment designed to examine
+      competition.}  A) QFA plate inocluated with a more concentrated
+    \textit{S. Cerevisae} inoculum (no cells inocluated on alternate
+    columns). B) Same as in A, but with strains of similar growth rate
     inoculated in the positions missing in A.}
   \label{fig:stripes_images}
 \end{Figure}
 
-Alternatively, competition effects could be dealt with experimentally
-by randomising the location of cultures on repeated plates. This does
-not require explicit knowledge or modelling of the source of
-competition but reduces throughput, so, if possible, a modelling
-approach is desirable. Poisoning of cultures by a signal molecule such
-as ethanol, which \textit{S. cerevisae} produces in the metabolism of
-sugars by fermentation, is another possible source of competition. QFA
-does not measure nutrients or signal, so if more than one source of
-competition exists, it will become very difficult to fit a model and
-randomisation may be the best approach.  In an SGA study,
-\citet{Baryshnikova2010} use statistical techniques to correct for
-competition between fast and slow growing neighbours in end-point
-assays of culture area. We hope that modelling the diffusion of
-nutrients explicitly and using a full network diffusion model will
-allow us to better correct for competition using fewer repeats. With
-QFA, we can also use more information by fitting whole growth curves
-rather than a single endpoint assay so a modelling approach offers to
-be more powerful. Furthermore, modelling may help us to identify and
-understand the source of competition. Simulation of an accurate model
-will allow us to compare experimental designs and explore ways to
+Competition effects could be dealt with experimentally by randomising
+the location of cultures on repeated plates. This does not require
+explicit knowledge or modelling of the source of competition but
+reduces throughput, so, if possible, a modelling approach is
+desirable. Poisoning of cultures by a signal molecule such as ethanol,
+which \textit{S. cerevisae} produces in the metabolism of sugars by
+fermentation, is another possible source of competition. QFA does not
+measure nutrients or signal, so if more than one source of competition
+exists, it becomes very difficult to fit a model and randomisation may
+be the best approach. In an SGA study, \citet{Baryshnikova2010} use
+statistical techniques to correct for competition between fast and
+slow growing neighbours in end-point assays of culture area. I hope
+that modelling competition for nutrients explicitly will better
+correct for competition using fewer repeats. QFA uses more information
+than SGA by fitting whole growth curves, rather than a single endpoint
+assay, so a modelling approach promises to be more
+powerful.
+% Furthermore, modelling may help us to identify and
+% understand the source of competition. Simulation of an accurate model
+% will allow us to compare experimental designs and explore ways to
+% reduce competition effects.
+Furthermore, modelling may identify and
+explain the source of competition. Simulation of an accurate model
+will allow comparison of experimental designs and exploration of ways to
 reduce competition effects.
 
-//Diffusion Equation: I am probably going to have to reexplain this
+//Diffusion Equation: I am probably going to have to repeat this
 when I get to the discussion so I could just leave until then.//
 % Previous model of nutrient diffusion.
-\citep{Reo2014} use a diffusion equation model to simulate nutrient
+\citet{Reo2014} use a diffusion equation model to simulate nutrient
 dependent growth of a single bacterial culture on a pertri dish in
 two-dimensions. It would be too computationally intensive to fit a
 similar model to a full QFA plate in three-dimensions, especially if
-we are to use the model to process many plates from high-throughput
-experiments. Therefore a simpler model of nutrient diffusion is
-required.
-//Diffusion Equation//
+the model is to be used to process many plates from high-throughput
+experiments. Therefore, a simpler model of nutrient diffusion is
+required. //Diffusion Equation//
 
 
 \textit{Lawless} (link blog) proposed a model of nutrient dependent
-growth and competition using mass action kinetics and a network
-diffusion model, hereinafter the competition model
-(\ref{eq:reaction},\ref{eq:competition_model}). A schematic of the
-model is drawn in Figure~\ref{fig:comp_model_schematic}. He represents
-the nutrient dependent division of cells with the reaction equation,
+growth and competition (\ref{eq:reaction},\ref{eq:competition_model}),
+hereinafter the competition model, using mass action kinetics and
+network diffusion. A schematic of the model is drawn in
+Figure~\ref{fig:comp_model_schematic}. He represents the nutrient
+dependent division of cells with the reaction equation,
 \begin{equation}
   \label{eq:reaction}
     C + N \xrightarrow[]{b} 2C,
 \end{equation}
 where \(C\) is a cell, \(N\) is the amount of nutrient required for
-one cell division, and \(b\) is a rate constant for the reaction. The
+one cell division, and \(b\) is a rate constant for the reaction. (The
 identity of the limiting nutrient \(N\) is unknown but possible
-candidates are sugar and nitrogen. He defines separate reactions
+candidates are sugar and nitrogen.) He defines separate reactions
 (\ref{eq:reaction}) with growth constant \(b_{i}\) for each culture,
 indexed \(i\), on a plate and uses mass action kinetics to derive rate
 equations for the amount of cells and nutrients associated with each
@@ -321,20 +319,23 @@ equation for \(N_{i}\) (\ref{eq:competition_model}b).
 \end{subequations}
 To arrive at the full competition model, he models the diffusion of
 nutrients along gradients between a culture \(i\) and its closest
-neighbours, \(\delta_{i}\), by the second term in
+neighbours \(\delta_{i}\) by the second term in
 (\ref{eq:competition_model}b), where \(k_{n}\) is a nutrient diffusion
-constant. This can also be expressed as a series of mass action kinetic
-reactions,
-\begin{equation}
-    N_{i} \xrightarrow[]{k_{n}} N_{j}.
+constant. This can also be expressed as a series of reactions of the
+form,
+\begin{subequations}
   \label{eq:diffusion_reaction}
-\end{equation}
-Unlike the logistic model~(\ref{eq:logistic_model}), the competition
-model has no analytical solution, and must instead be solved
-numerically. If \(k_{n}\) is set to zero (in the independent limit),
-the competition model reduces to the mass action equivalent of the
-logistic model, hereinafter the mass-action logistic model (blog
-ref)(, and has the same sigmoidal solution). (In this limit,
+  \begin{align}
+  &N_{i} \xrightarrow[]{k_{n}} N_{j}\\
+  &N_{j} \xrightarrow[]{k_{n}} N_{i},
+  \end{align}
+\end{subequations}
+and modelled with mass action kinetics. Unlike the logistic
+model~(\ref{eq:logistic_model}), the competition model has no
+analytical solution, and must instead be solved numerically. If
+\(k_{n}\) is set to zero, the competition model reduces to the mass
+action equivalent of the logistic model, hereinafter the mass-action
+logistic model, (and has the same sigmoidal solution). (In this limit,
 parameters of the competition model can be converted in terms of
 parameters the logistic model (see methods section)).
 %%%% could go to methods %%%%
@@ -347,9 +348,11 @@ and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\), can be used. \(k_{n}\)
 is assumed to be constant across the plate but must be inferred. There
 is a growth constant, \(b_{i}\), for each of 384 cultures on a typical
 QFA plate making 387 parameters in total. The competition model shares
-more information between cultures and has fewer than half the number
-of the parameters of either the standard or generalised logistic model
-\citep{Banks2012,qfa2016}.
+more information between cultures and has less than half the number of
+parameters of either the standard or generalised logistic model
+\citep{Banks2012,qfa2016}. (If I remove the section on MDR and the
+generalised logistic model above I will need to add a line of
+explanation here.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{Figure}
   \centering
@@ -359,18 +362,16 @@ of the parameters of either the standard or generalised logistic model
     rectangular array on the surface of a nutrient containing solid
     agar. Arrows represent a network of nutrient diffusion along
     gradients between cultures. \(C_{i}\) - amount of cells; \(N_{i}\)
-    - amount of nutrients; \(k_{n}\) - plate level diffusion constant;
-    darker blue circles \(\delta_{i}\) - closest neighbours of culture
-    i.}
+    - amount of nutrients; \(k_{n}\) - plate level nutrient diffusion
+    constant; darker blue circles \(\delta_{i}\) - closest neighbours
+    of culture i.}
   \label{fig:comp_model_schematic}
 \end{Figure}
 
-% Justify mass action kinetics
-
 In QFA, populations begin with \(\sim\)100 cells and quickly grow to
-reach thousands of cells so a deterministic approximation seems valid.
-Mass action kinetics applies to reactions in a well stirred mixture
-and is perhaps less valid for a culture growing on solid agar.
+reach thousands of cells so a deterministic approximation appears
+valid.  Mass action kinetics applies to reactions in a well stirred
+mixture and is perhaps less valid for a culture growing on solid agar.
 However, a mass action approximation has been successful in other
 situations where this assumption is questionable: in the
 Lotka-Volterra model of predator-prey dynamics \citep{Berryman1992}
@@ -389,29 +390,19 @@ accurate model. Furthermore, collectively fitting the competition
 model involves a the large number of parameters and data points and
 will require many simulations to be run. This necessitates the use of
 an approximate model for computational feasibility. This is especially
-true if the model is to be used in the analysis of
-high-throughput data. It is hoped that even an approximate model will
-be able to measure more reliable growth parameters and better estimate
+true if the model is to be used in the analysis of high-throughput
+data. It is hoped that even an approximate model will be able to
+measure more reliable growth parameters and better estimate
 fitness. This will increase the power to infer genetic interaction and
-drug response which could lead to further discoveries (see
-e.g. \citet{Addinall2011} and \citet{Holstein20141259}).
+drug response which could lead to further discoveries. (For an example
+of a sucessful QFA study and follow up using the logistic model see
+\citet{Addinall2011} and \citet{Holstein20141259}).
+
 % Comment on all nutrients go to cells can wait until methods
-
-
-
-
 % % Fractal kinetics can wait until the discussion.
 % fractal kinetics if nutrient diffusion is limited inside cultures, due
 % to gel-like properties of the medium \citep{savageau1995,Kopelman1988}
 % \citep{savageau1995,Kopelman1988}
-
-
-
-
-\subsection{\thesubsection~Subsection}
-
-
-
 
 %%% Local Variables:
 %%% mode: latex
