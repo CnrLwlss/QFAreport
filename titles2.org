@@ -85,21 +85,29 @@ the end of the discussion.
 
 * Methods
 
+** TODO Boundary conditions [0/0]
+  - [ ] Two NE_0 model - Just for competition model
+
 ** TODO Tools, solving, and fitting [0/6]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
   - [ ] Solving
     - [ ] scipy.odeint -> optimized by vectorizing and using numpy
+      - [ ] atol=1.49012e-8, rtol=1.49012e-8, mxhnil=0
     - [ ] libroadrunner
+    - [ ] Empties
+    - [ ] Two N_0 model
+    - [ ]
   - [ ] Writing models using libSBML
   - [ ] SBML and reproducibility - spit out
   - [ ] Fitting the Competition Model
     - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] maximum likelihood
     - [ ] QFA R package for logistic model
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
-** TODO Parameter Conversion [7/9]  # could go in or after fitting
+** TODO Parameter Conversion [9/9]  # could go in or after fitting
   - [X] When kn = 0 reduces to logistic model with same solution
   - [X] Can equate models
   - [X] Conversion equation
@@ -109,8 +117,8 @@ the end of the discussion.
   - [X] Correction Figure
   - [X] We can convert between models to compare fitness estimates
     directly.
-  - [ ] b rank is proportional to r MDR and MDP
-  - [ ] b as a fitness estimate
+  - [X] b rank is proportional to r MDR and MDP
+  - [X] b as a fitness estimate
 
 ** TODO Initail Guess [0/4]
   # I was debating putting the imaginary neighbour model in the
@@ -149,7 +157,7 @@ the end of the discussion.
     wait until the results.
 ** TODO Initial guess tl;dr [0/1]
   - [ ] Initial guess
-    - [ ] Guessing N_0
+    - [ ] Guessing N_0 and NE_0
     - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
     - [ ] Guessing k_n from b distiributio
 ** TODO Development of a genetic algorithm [0/1]
