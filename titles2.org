@@ -1,4 +1,4 @@
-* TODO Introduction [7/13]
+* TODO Introduction [9/13]
   - [X] Describe yeast/bacterial growth
   - [X] Model organism can tell us about other species (humans)
   - [X] Yeast and humans are eukaryotes
@@ -55,12 +55,12 @@
     - [X] Explain what is measureable and what we must infer. kn? C_0
       often below detectable level in QFA - write here or elsewhere?
       We explain how we infer N_0 when we talk about initial guessing.
-    - [-] Justify approximations
+    - [X] Justify approximations
       - [X] Mass action kinetics
       - [X] Network diffusion
       - [X] Deterministic not stochastic
-      - [ ] All nutrients are converted to cells
-	- [ ] Implies all cultures starting with the same amount of
+      - [X] All nutrients are converted to cells
+	- Methods: Implies all cultures starting with the same amount of
           nutrients end with the same amount of cells. ->
           Mention metabolism
     - [ ] Reduces to the logistic equivalent model in the independent limit
@@ -69,9 +69,9 @@
         derivation - Link to Conor's blog?)
       - [ ] With same plate level parameters b rank is equivalent to r
         rank (also MDR and MDR*MDP) and K is constant.
-  - [ ] Briefly explain what we plan to do with the model
+  - [X] Briefly explain what we plan to do with the model
     - Fit to data to try to estimate growth parameters more reliably
-  - [ ] Short summary
+  - [X] Short summary
     - More reliable measurement of growth parameters ->
     - More reliable fitness estimates ->
     - Better prediction of genetic interaction or drug response
@@ -85,28 +85,29 @@ the end of the discussion.
 
 * Methods
 
-** TODO Tools, solving, and fitting [0/5]
+** TODO Tools, solving, and fitting [0/6]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
   - [ ] Solving
     - [ ] scipy.odeint -> optimized by vectorizing and using numpy
     - [ ] libroadrunner
   - [ ] Writing models using libSBML
+  - [ ] SBML and reproducibility - spit out
   - [ ] Fitting the Competition Model
     - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
     - [ ] QFA R package for logistic model
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
-** TODO Parameter Conversion [0/9]  # could go in or after fitting
-  - [ ] When kn = 0 reduces to logistic model with same solution
-  - [ ] Can equate models
-  - [ ] Conversion equation
-  - [ ] Mass action logistic assumes all nutrients go to cells and
+** TODO Parameter Conversion [7/9]  # could go in or after fitting
+  - [X] When kn = 0 reduces to logistic model with same solution
+  - [X] Can equate models
+  - [X] Conversion equation
+  - [X] Mass action logistic assumes all nutrients go to cells and
     needs culture level N_0 to be fit.
-  - [ ] Can be seen as a correction to the logistic model
-  - [ ] Correction Figure
-  - [ ] We can convert between models to compare fitness estimates
+  - [X] Can be seen as a correction to the logistic model
+  - [X] Correction Figure
+  - [X] We can convert between models to compare fitness estimates
     directly.
   - [ ] b rank is proportional to r MDR and MDP
   - [ ] b as a fitness estimate
@@ -150,7 +151,11 @@ the end of the discussion.
   - [ ] Initial guess
     - [ ] Guessing N_0
     - [ ] Imaginary neighbour model - (scipy.odeint, scipy.optimize.minimize)
-    - [ ] Guessing k_n from b distiribution
+    - [ ] Guessing k_n from b distiributio
+** TODO Development of a genetic algorithm [0/1]
+  - [ ] Developing a genetic algorithm with inspyred
+    - [ ] Heirarchical plate level and
+    - [ ] Multiprocessing
 ** TODO Model comparison using a single QFA plate [0/1]
   - [ ] P15 [0/3]
     - [ ] Describe data
@@ -160,10 +165,6 @@ the end of the discussion.
   - [ ] Stripes and Filled Plates [0/2]
     - [ ] Describe data
     - [ ] Describe fitting and analysis
-** TODO Development of a genetic algorithm [0/1]
-  - [ ] Developing a genetic algorithm with inspyred
-    - [ ] Heirarchical plate level and
-    - [ ] Multiprocessing
 
 - Note about availibility? This is already in the abstract
 
