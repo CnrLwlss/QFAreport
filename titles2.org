@@ -1,34 +1,35 @@
-* TODO Introduction [0/12]
-  - [ ] Describe yeast/bacterial growth
-  - [ ] Model organism can tell us about other species (humans)
-  - [ ] Growth rate as a proxy for fitness
-    - [ ] Explain why this is suitible for microbial species
-  - [ ] Describe spot tests and liquid cultures
-    - [ ] Mention disagreement in growth estimates between growth mediums
-  - [ ] Introduce SGA and QFA - (can leave contrast until I have
+* TODO Introduction [7/13]
+  - [X] Describe yeast/bacterial growth
+  - [X] Model organism can tell us about other species (humans)
+  - [X] Yeast and humans are eukaryotes
+  - [X] Growth rate as a proxy for fitness
+    - [X] Explain why this is suitible for microbial species
+  - [X] Describe growth mediums (spot tests and liquid cultures)
+    - [X] Mention disagreement in growth estimates between growth mediums
+  - [-] Introduce SGA and QFA - (can leave contrast until I have
     explained QFA in more detail)
-    - [ ] Solid agar; high-troughput; quantitative; can study whole genomes
-    - [ ] Explain how fitness of genetic strains can tell us about
+    - [X] Solid agar; high-troughput; quantitative; can study whole genomes
+    - [X] Explain how fitness of genetic strains can tell us about
       genetic interactions and drug responses.
-      - Give examples of this use and emphasise benefits to human health.
-      - [ ] Say that Adinall studied genes involved in telomere
-        stabilitly because of their links with cancer and aging and
-        this could have impacts for humans but do not go into any more
-        detail about telomeres, cancer, drugs, etc., (won't have room
-        and don't really care for this study).
-  - [ ] Describe QFA in more detail - "I study QFA data ->"
-    - [ ] Describe the experiment design/procedure
+    - [ ] Give examples of this use and emphasise benefits to human health.
+    - [ ] Say that Adinall studied genes involved in telomere
+      stabilitly because of their links with cancer and aging and
+      this could have impacts for humans but do not go into any more
+      detail about telomeres, cancer, drugs, etc., (won't have room
+      and don't really care for this study).
+  - [-] Describe QFA in more detail - "I study QFA data ->"
+    - [X] Describe the experiment design/procedure
       - Dilute or more concentrated inoculation
-    - [ ] Describe the data that is produced and processing with Colonyzer
-    - [ ] Describe current analysis with THE LOGISTIC MODEL and QFA R
-      - [ ] Write the logistic model equation
-      - [ ] I mention MDR so explain this as well
-    - [ ] Contrast QFA with SGA
+    - [X] Describe the data that is produced and processing with Colonyzer
+    - [X] Describe current analysis with THE LOGISTIC MODEL and QFA R
+      - [X] Write the logistic model equation
+      - [X] I mention MDR so explain this as well
+    - [X] Contrast QFA with SGA
     - [ ] Previous results (?) and follow up (Holstein &
       Clark) - Check which results were actually followed up.
-  - [ ] Explain the motivation for a nutrient diffusion model and
+  - [-] Explain the motivation for a nutrient diffusion model and
     current support for an effect
-    - [ ] At the same time, introduce P15 and the Stripes and Filled
+    - [X] At the same time, introduce P15 and the Stripes and Filled
       plates but wait until the methods to describe in these
       experiments in more detail.
     - [ ] Briefly mention alternative hypotheses (e.g. singal,
@@ -36,28 +37,28 @@
       when I explain the approximations of the competition model. I
       think that I should probably mention signal and metabolism here
       if I have room.
-  - [ ] Describe previous attempts to correct for competition and how
+  - [X] Describe previous attempts to correct for competition and how
     our approach differs
-  - [ ] Describe previous attempts to model diffusion (Diffusion
+  - [X] Describe previous attempts to model diffusion (Diffusion
     equation model of Reo and Korolev 2014)
     - I am planning to talk about this in the discussion so could
       introduce here and also explain why we need a less detailed
       model (limits of computational power).
-  - [ ] Introduce the Competition model
-    - [ ] Mass action kinetics and network diffusion
-      - Reaction and rate equations
-      - No numerical solution
-      - Cells observed; nutrients hidden
-      - Explain the plate and culture level parameters.
-      - Explain that there are fewer parameters than in the logistic
-        model.
-      - Explain what is measureable and what we must infer. kn? C_0
-        often below detectable level in QFA - write here or elsewhere?
-        We explain how we infer N_0 when we talk about initial guessing.
-    - [ ] Justify approximations
-      - [ ] Mass action kinetics
-      - [ ] Coarse grid diffusion - What is the best name for this?
-      - [ ] Deterministic not stochastic
+  - [-] Introduce the Competition model
+    - [X] Mass action kinetics and network diffusion
+    - [X] Reaction and rate equations
+    - [X] No numerical solution
+    - [X] Cells observed; nutrients hidden
+    - [X] Explain the plate and culture level parameters.
+    - [X] Explain that there are fewer parameters than in the logistic
+      model.
+    - [X] Explain what is measureable and what we must infer. kn? C_0
+      often below detectable level in QFA - write here or elsewhere?
+      We explain how we infer N_0 when we talk about initial guessing.
+    - [-] Justify approximations
+      - [X] Mass action kinetics
+      - [X] Network diffusion
+      - [X] Deterministic not stochastic
       - [ ] All nutrients are converted to cells
 	- [ ] Implies all cultures starting with the same amount of
           nutrients end with the same amount of cells. ->
@@ -83,6 +84,7 @@ take a fair amount of space and we haven't found that yet. Perhaps at
 the end of the discussion.
 
 * Methods
+
 ** TODO Tools, solving, and fitting [0/5]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
@@ -95,6 +97,20 @@ the end of the discussion.
     - [ ] QFA R package for logistic model
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
+
+** TODO Parameter Conversion [0/9]  # could go in or after fitting
+  - [ ] When kn = 0 reduces to logistic model with same solution
+  - [ ] Can equate models
+  - [ ] Conversion equation
+  - [ ] Mass action logistic assumes all nutrients go to cells and
+    needs culture level N_0 to be fit.
+  - [ ] Can be seen as a correction to the logistic model
+  - [ ] Correction Figure
+  - [ ] We can convert between models to compare fitness estimates
+    directly.
+  - [ ] b rank is proportional to r MDR and MDP
+  - [ ] b as a fitness estimate
+
 ** TODO Initail Guess [0/4]
   # I was debating putting the imaginary neighbour model in the
   # introduction or splitting the model and fitting between the
