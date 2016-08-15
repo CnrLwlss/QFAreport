@@ -20,13 +20,61 @@ To analyse QFA data I created a Python package (``CANS'') for model
 composition, model simulation, parameter inference, and visualisation
 of results. It accepts timecourse data of culture density for any size
 rectangular array. I use QFA data after processing with Colonyzer
-\citep{Lawless2010} to produce timecourses of cell density for each
-culture on a plate. Colonyzer processes series of time-stamped whole
-plate images and uses integrated optical density measurements as a
-proxy for cell density. I use these cell density estimates, with
-arbitrary units, throughout my analysis.
+\citep{Lawless2010}. Colonyzer processes series of time-stamped
+whole-plate images and uses integrated optical density measurements as
+a proxy for cell density to produce timecourses for all cultures on a
+plate. I use these cell density estimates, with arbitrary units,
+throughout my analysis.
+
+% read in data using pandas probably don't need to know how I read in
+% csv files
+
+I solved models by one of two methods. The first was slower and used
+SciPy's integrate.odeint. I optimised solving of the competition model
+with this method by vectorising (\ref{eq:competition_model} using
+NumPy. For solving a plate of 384 cultures with 10 unevenly spaced
+time points I found a \(\sim\)10x further increases in speed by using
+Python bindings for the package libRoadRunner. libRoadRoadrunner
+requires models to be written in SBML so I wrote code using the
+libSBML Python API to automatically generate SBML versions of the
+compettion model for any size plate.
+% //I could go into more detail about how models are defined// but
+% maybe this is not needed.
+I solved SBML models using libroadrunner's RoadRunner.simulate. Unlike
+SciPy's odeint, RoadRunner can only simulate at even time intervals.
+To fit QFA cell observations, which are not taken at even intervals,
+requires simulated cell amounts at the observed timepoints. For the
+analysis in (P15 section), where each timecourse has only 10
+timepoints, I simulated repeatedly between timepoints. For the
+analysis in (Stripes section), each timecourse had \(sim\)30
+timepoints and this made solving between timepoints slow.
+
+To increase speed I splined data using SciPy's interpolate simulated
+using 15 evenly spaced timepoints over the course of observations and
+used these to simulate with one call to RoadRunner's
+RoadRunner.simulate.
+
+I used SciPy's interpolate.splrep to make a 5th order B-spline of cell
+density timecourses with smoothing condition \(s=1.0\). I evaluted the
+spline for cell density using SciPy's interpolate.splev at 15 evenly
+spaced intervals from time zero to the time of the last QFA
+observation. I the solved these timecourses using libRoadRunner
+without having to simulate between timepoints.
 
 
+
+% tolerances - These tolerances returned estimated parameters with a
+% high precision when using simulated data sets.
+
+%initial amounts
+%time points and splining
+
+% Displayed output using matplotlib
+
+% Automatic SBML model composition
+% Should I include a code example of defining a model?
+
+% SolvingThis uses libRoadRunners
 
 \subsection{\thesubsection~Parameter conversion}
 
