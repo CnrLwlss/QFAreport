@@ -3,6 +3,31 @@
 \section{\thesection~Methods}
 \label{sec:methods}
 
+To analyse QFA data I created a Python package (``CANS'') for model
+composition, model simulation, parameter inference, and visualisation
+of results. It accepts timecourse data from QFA using any size
+rectangular array. CANS can produce SBML models to document fitting
+results which can be validated independently using a variety of
+tools. It is relatively simple to create new models, similar in form
+to the competition model, containing reactions between species within
+cultures or between neighbouring cultures. These can also be simulated
+and fit. (Methods for making initial guesses are model specific.) The
+CANS package is available for download at (github).
+
+\subsection{\thesubsection~Tools, solving, and fitting}
+
+To analyse QFA data I created a Python package (``CANS'') for model
+composition, model simulation, parameter inference, and visualisation
+of results. It accepts timecourse data of culture density for any size
+rectangular array. I use QFA data after processing with Colonyzer
+\citep{Lawless2010} to produce timecourses of cell density for each
+culture on a plate. Colonyzer processes series of time-stamped whole
+plate images and uses integrated optical density measurements as a
+proxy for cell density. I use these cell density estimates, with
+arbitrary units, throughout my analysis.
+
+
+
 \subsection{\thesubsection~Parameter conversion}
 
 (Could move to discussion: The identity of the
@@ -14,8 +39,8 @@ When \(k_{n}\) is set to zero, the competition model
 (\ref{eq:competition_model}) reduces to the mass action logistic model
 which and has the same sigmoidal solution as the standard logistic
 model. In this limit, it is possible to equate cells of both models
-and convert parameters using (\ref{eq:conversion}) (see
-Conor's blog for a derivation).
+and convert parameters using (\ref{eq:conversion}) (see Conor's blog
+for a derivation).
 % Derivation or link to blog.
 \begin{subequations}
   \label{eq:conversion}
@@ -100,3 +125,8 @@ fitness rankings between different plates we can of course use
 %%% mode: latex
 %%% TeX-master: "report"
 %%% End:
+
+\subsection{\thesubsection~Making an initial guess}
+\subsection{\thesubsection~Development of a genetic algorithm}
+\subsection{\thesubsection~Model comparison using a single QFA plate}
+\subsection{\thesubsection~Cross-plate calibration and validation}
