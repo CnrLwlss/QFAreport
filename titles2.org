@@ -172,16 +172,17 @@ the end of the discussion.
         function when fitting data. I selected between different fits
         to the same data the objective function for only the internal
         cultures.
-  - [ ] Writing models using libSBML
-  - [ ] SBML and reproducibility - spit out
+  - [ ] SBML and reproducibility - spit out models with estimated
+    parameters
   - [ ] Fitting the Competition Model
     - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
-    - [ ] maximum likelihood
-    - [ ] QFA R package for logistic model
+    - [ ] Given a model and data, I made maximum likelihood estimates
+      of parameters using a normal model of measurement error.
+    - [ ] QFA R package for logistic model - Contains heuristic checks
+      for slow growing cultures and is currently used in QFA.
     - [ ] Should I talk about the Development Process? (i.e. use of
-      simulations and zones; determining tolerances)
-
-
+      simulations and zones; determining tolerances) Probably won't
+      have room.
 
 ** TODO Parameter Conversion [9/9]  # could go in or after fitting
   - [X] When kn = 0 reduces to logistic model with same solution
