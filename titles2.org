@@ -107,14 +107,14 @@ the end of the discussion.
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
-** TODO Tools, solving, and fitting [0/6]
+** TODO Tools, solving, and fitting [0/5]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
-  - [ ] Solving
+  - [-] Solving
     - [ ] scipy.odeint -> optimized by vectorizing and using numpy
       - [ ] atol=1.49012e-8, rtol=1.49012e-8, mxhnil=0
-    - [ ] libroadrunner
-    - [ ] must write models in SBML (libSBML) and, unlike odeint,
+    - [X] libroadrunner
+    - [X] must write models in SBML (libSBML) and, unlike odeint,
       simulations only produce values at constant timeintervals.
       - Cell observations from QFA are not taken at constant time
         intervals. When fitting the competition model to data,
@@ -173,13 +173,17 @@ the end of the discussion.
         to the same data the objective function for only the internal
         cultures.
   - [ ] SBML and reproducibility - spit out models with estimated
-    parameters
+    parameters - mentioned in short intro.
   - [ ] Fitting the Competition Model
     - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
     - [ ] Given a model and data, I made maximum likelihood estimates
       of parameters using a normal model of measurement error.
     - [ ] QFA R package for logistic model - Contains heuristic checks
       for slow growing cultures and is currently used in QFA.
+      - [ ] I did not have heuristic checks but did use a plate level
+        C_0. I did not have time to write heuristic checks and wanted
+        to compare to existing QFA fitting.
+      - [ ] QFA R logistic fits do not set a plate level C_0.
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances) Probably won't
       have room.
