@@ -42,19 +42,19 @@ versions of the competition model for any size plate.
 % //I could go into more detail about how models are defined// but
 % maybe this is not needed.
 
-Unlike SciPy's odeint, libRoadRunner can only simulate at uniformly
+Unlike SciPy's odeint, libRoadRunner only simulates at uniformly
 spaced timepoints. To fit QFA timecourses, which do not have fixed
 intervals, requires simulated cell amounts at the observed
 timepoints. For the analysis in (P15 section), where each timecourse
 has only 10 timepoints, I simulated using a function call between each
 pair of adjacent timepoints. This method was slower for the analysis
-in (Stripes section) where each timecourse had around 50 timepoints. To
-increase speed I used SciPy's interpolate.splrep to make a 5th order
-B-spline of cell density timecourses with smoothing condition
-\(s=1.0\). I evaluated the spline for cell density using SciPy's
-interpolate.splev at 15 evenly spaced intervals from time zero to the
-time of the last QFA observation. I then solved these timecourses with
-one call to RoadRunner.simulate.
+in (Stripes section) where each timecourse had around 50
+timepoints. To increase speed I used SciPy's interpolate.splrep to
+make a 5th order B-spline of cell density timecourses with smoothing
+condition \(s=1.0\). I evaluated the spline for cell density using
+SciPy's interpolate.splev at 15 evenly spaced intervals from time zero
+to the time of the last QFA observation. I then solved these
+timecourses with one call to RoadRunner.simulate.
 
 QFA data for the Stripes plate (sec ref) contained observations for
 cultures that were known to be empty. When fitting the competition
