@@ -63,20 +63,23 @@ timecourses with one call to RoadRunner.simulate.\\\\
 
 To fit the competition model to QFA data, I made maximum likelihood
 estimates of parameters using a normal model of measurement
-error. This used the L-BFGS-B constrained minimisation algorithm
-from SciPy's integrate package. I determined stopping criteria so that
+error. This used the L-BFGS-B constrained minimisation algorithm from
+SciPy's integrate package. I determined stopping criteria so that
 parameters of full-plate simulated data sets, with a small amount of
-simulated noise, were recovered with high precision.
-
-To fit each plate I used a range of initial parameter guesses
-(described in Section~(guessing section)).
-
+simulated noise, were recovered with high precision. To help the
+minimizer I scaled \(C_{t_{0}}\) values by a factor of \(10^{5}\) to
+make parameter values closer in order of magnitude. I ran repeated
+fits using different parameter guesses for each plate (see
+Section~(ref)). I set bounds according to Table~\ref{tab:p15_bounds}
+and made sure that best fits had no parameter estimates at a boundary.
+%
 \columnbreak
 \begin{center}
   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
     competition model to P15 and the Stripes and Filled plates. Bounds
     on \(N_{t_{0}}\) were applied to both \(N^{I}_{t_{0}}\) and
-    \(N^{E}_{t_{0}}\) for internal and edge cultures.}
+    \(N^{E}_{t_{0}}\) for internal and edge cultures. ``guess'' refers
+    to the initial guess (see Section~(ref).}
   \begin{tabular}{| c | c c |}
     \hline
     Parameter        & Lower   & Upper \\
@@ -85,32 +88,17 @@ To fit each plate I used a range of initial parameter guesses
     \(N_{t_{0}}\)     & guess / \(2\)  & guess x \(2\)\\
     % \(N^{I}_{t_{0}}\) \& \(N^{E}_{t_{0}}\) & guess / \(2\)  & guess x \(2\)\\\\
     \(k_{n}\)        & 0.0    & 10.0\\
-    \(b\) (all cultures)           & 0.0    & \(\infty\) \\
-    % \(b\)           & 0.0    & None \\
+    % \(b\) (all cultures)           & 0.0    & \(\infty\) \\
+    \(b\)           & 0.0    & None \\
     \hline
   \end{tabular}
   \label{tab:p15_bounds}
 \end{center}
-
-//Delete this note: I was supposed to change the parameter bounds on b
-after fitting p15 (once we had a rough idea) but forgot. I was using
-the same script to fit the logistic equivalent model where we do get
-large b and need heuristic checks. This probably hasn't made any
-difference though as we don't get stupidly high b values and fits look
-quite good. Imaginary neighbour guessing of b does use stricter
-bounds.//
-
-Table~\ref{tab:p15_bounds}
-
-
-I bound all growth constants \(b\) to be above zero and  parameters to
-be between zero and  above zero and made sure that I always had fits where no parameters
-hit the bounds.
-
-
-%%%% C_0 Scaling %%%%%
-
+%
 %%%% Boundary conditions Two N_0 %%%%%
+
+
+
 
 
 %%%% Empties %%%%%
