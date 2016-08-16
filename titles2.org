@@ -104,7 +104,7 @@ the end of the discussion.
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
-** TODO Tools, solving, and fitting [0/7]
+** TODO Tools, solving, and fitting [1/7]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
   - [-] Solving
@@ -168,33 +168,24 @@ the end of the discussion.
       - I improved the error in cell density estimates for cultures
         one row or column inside the edge using the method and this
         resulted in better fits to internal cultures overall.
-      - An alternative model could
-        have added nutrient containing volumes (essentially empty
-        cultures) outside of edge cultures with an extra parameter for
-        their size and included theses in the network diffusion model
-        with the same \(kn\). As this is just a correction and cell
-        density observations from these cultures are very noisy, and
-        these cultures are dominated by noise.
-      - When fitting the competition model, it would be better if
-        these cultures were left empty to remove noise in cell density
-        observations.
       - I evaluated both edge cultures and internals in the objective
         function when fitting data. I selected between different fits
         to the same data the objective function for only the internal
         cultures.
       - [ ] Could not use rules to set bound NE_0 > N_0 using L-BFGS-B
-        algorithm
+        algorithm. Minor point - Haven't found a good place to
+        include.
     - [X] Empties
       - Set b = 0
       - Remove from objective fn
-  - [ ] Fitting the logistic model
-    - [ ] QFA R package for logistic model
-    - [ ] - Contains heuristic checks for slow growing cultures and is
+  - [X] Fitting the logistic model
+    - [X] QFA R package for logistic model
+    - [X] - Contains heuristic checks for slow growing cultures and is
       currently used in QFA.
-    - [ ] I did not have heuristic checks but did use a plate level
+    - [X] I did not have heuristic checks but did use a plate level
       C_0. I did not have time to write heuristic checks and wanted
       to compare to existing QFA fitting.
-    - [ ] QFA R logistic fits do not set a plate level C_0.
+    - [X] QFA R logistic fits do not set a plate level C_0.
   - [ ] Should I talk about the Development Process? (i.e. use of
     simulations and zones; determining tolerances) Probably won't
     have room.
@@ -292,7 +283,19 @@ Details to add
 - Can also solve SBML in Copasi
 
 * TODO Results [0/0]
-* TODO Discussion [0/0]
+* TODO Discussion [0/1]
+  - [ ] Edge cultures [0/2]
+    - [ ] Discussion: An alternative model could have added nutrient
+      containing volumes (essentially empty cultures) outside of edge
+      cultures with an extra parameter for their size and included
+      theses in the network diffusion model with the same \(kn\). As
+      this is just a correction and cell density observations from these
+      cultures are very noisy, and these cultures are dominated by
+      noise.
+    - [ ] Discussion: When fitting the competition model, it would be
+      better if these cultures were left empty to remove noise in cell
+      density observations.
+
 * TODO Conclusion [0/0]
 * TODO Acknowlegements [0/6]
   # How do I go about acknowledge people involved in the work? / What do I need to do?
