@@ -107,6 +107,82 @@ the end of the discussion.
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
+** TODO Tools, solving, and fitting [0/6]
+  - [ ] I wrote the code in python
+  - [ ] Data analysed using Colonyzer (Python)
+  - [ ] Solving
+    - [ ] scipy.odeint -> optimized by vectorizing and using numpy
+      - [ ] atol=1.49012e-8, rtol=1.49012e-8, mxhnil=0
+    - [ ] libroadrunner
+    - [ ] must write models in SBML (libSBML) and, unlike odeint,
+      simulations only produce values at constant timeintervals.
+      - Cell observations from QFA are not taken at constant time
+        intervals. When fitting the competition model to data,
+        evaluations of the objective function require timepoints to be
+        the same for observed and simulated cell density. At first, I
+        dealt with this issue by simulating between adjacent
+        timepoints using repeated function calls to produce simulated
+        species amounts at the observed times. I used this method of
+        solving to fit P15 QFA data which has cell density observation
+        at 10 timepoints. A second set of QFA data from the (Stripes
+        and Filled plates experiment) has \(\sim\)50 timepoints per
+        plate. Solving between timepoints was therefore about five
+        times slower. Instead, I made a 5th order spline (SciPy) of
+        cell density timecourses and took 15 evenly spaced cell
+        density datapoints from the spline. The spline used smoothing
+        s=1 and timepoints ranged from time zero to the time of the
+        final cell observation in the raw data.
+    - [ ] QFA data for the Stripes plate contained cell observations
+      for cultures that were known to be empty. I set b to zero for
+      these cultures and removed them from the objective function.
+    - [ ] Cultures at the edge of a plate have an advantage because
+      they have access to a greater area of nutrients which could
+      diffuse from outside of the array.
+      - (Data from these cultures is noisey due to reflections from
+        plate edges. This is only partially corrected for by Colonyzer
+        (ref) and as a result data from edge cultures is useually
+        discarded. Addniall et al grow the a repeats of the same
+        culture in edge locations, rather than leaving them empty,
+        because of concerns about competition.)
+      - I correct for this (in the competition model) using a new
+        parameter (\N^{e}_{t_{0}}\) for the initial amount of
+        nutrients in edge cultures. In rate equations involving edge
+        cultures I convert this amount to a nutrient density by
+        scaling \(N_{i}\) for each culture by the ratio
+        \(N^{i}_{t_{0}}/N^{e}_{t_{0}}\) where \(N^{i}_{t_{0}}\) is the
+        amount of nutrients in internal cultures (which have reaction
+        volume one).
+      - The physical interpretation of this correction is
+        that edge cultures have an extra supply of nutrients which can
+        diffuse instantly into the reaction volume.
+      - I improved the error in cell density estimates for cultures
+        one row or column inside the edge using the method and this
+        resulted in better fits to internal cultures overall.
+      - An alternative model could
+        have added nutrient containing volumes (essentially empty
+        cultures) outside of edge cultures with an extra parameter for
+        their size and included theses in the network diffusion model
+        with the same \(kn\). As this is just a correction and cell
+        density observations from these cultures are very noisy, and
+        these cultures are dominated by noise.
+      - When fitting the competition model, it would be better if
+        these cultures were left empty to remove noise in cell density
+        observations.
+      - I evaluated both edge cultures and internals in the objective
+        function when fitting data. I selected between different fits
+        to the same data the objective function for only the internal
+        cultures.
+  - [ ] Writing models using libSBML
+  - [ ] SBML and reproducibility - spit out
+  - [ ] Fitting the Competition Model
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+    - [ ] maximum likelihood
+    - [ ] QFA R package for logistic model
+    - [ ] Should I talk about the Development Process? (i.e. use of
+      simulations and zones; determining tolerances)
+
+
+
 ** TODO Parameter Conversion [9/9]  # could go in or after fitting
   - [X] When kn = 0 reduces to logistic model with same solution
   - [X] Can equate models
