@@ -140,12 +140,10 @@ the end of the discussion.
       - Give tollerances - With these tollerances I could recover the
         parameters of simulated data sets (both with and without a
         small amount of simulated noise) with high precision.
-    - [ ] How did I set bounds?
-      - [ ] So that parameters did not hit them
-      - [ ] everything above zero
-      - [ ] Tollerances above and below initial guesses. This goes
-        with initial guessing.
-    - [ ] C_0 scaling
+    - [X] How did I set bounds?
+      - [X] So that parameters did not hit them
+      - [X] Table
+    - [X] C_0 scaling
     - [ ] Two N_0 BC conditions: Cultures at the edge of a plate have an
       advantage because they have access to a greater area of
       nutrients which could diffuse from outside of the array.
@@ -186,7 +184,7 @@ the end of the discussion.
         cultures.
       - [ ] Could not use rules to set bound NE_0 > N_0 using L-BFGS-B
         algorithm
-    - [ ] Empties
+    - [X] Empties
       - Set b = 0
       - Remove from objective fn
   - [ ] Fitting the logistic model
