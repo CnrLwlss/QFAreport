@@ -3,18 +3,20 @@
 \section{\thesection~Methods}
 \label{sec:methods}
 
-To analyse QFA data I created a Python package (``CANS'') for model
-composition, model simulation, parameter inference, and visualisation
-of results. It accepts cell density timecourses for any size
-rectangular array. CANS can produce SBML models to document results of
-parameter inference or for independent validation. It is relatively
-simple to create and simulate new models, if they involve reactions
-between species within cultures or between neighbouring cultures, and
-to fit these provided an initial guess. The CANS package, containing
-source code for the results in this paper, is available at
+\subsection{CANS}
+
+To analyse QFA data using the competition model I developed the Python
+package CANS which can be used for model composition, model
+simulation, parameter inference, and visualisation of results. CANS
+accepts cell density timecourses for any size rectangular array. CANS
+can produce SBML models to document results of parameter inference or
+for independent validation. It is relatively simple to create and
+simulate new models involving reactions between species within
+cultures or between neighbouring cultures, and to fit these provided
+an initial guess. The CANS package is available at
 \href{https://github.com/lwlss/CANS}{https://github.com/lwlss/CANS}.
 
-\subsection{\thesubsection~Tools, solving, and fitting}
+\subsection{\thesubsection~Solving and fitting}
 
 \subsubsection{Solving}
 
@@ -24,52 +26,49 @@ source code for the results in this paper, is available at
 % accepts timecourse data of cell density for any size rectangulare
 % array.]\\
 
-I use CANS to parse QFA data after processing with Colonyzer
-\citep{Lawless2010}. Colonyzer processes series of time-stamped
-whole-plate images, using integrated optical density measurement as a
-proxy for cell density, to produce timecourses of cell density for all
-cultures on a plate. I use these cell density estimates, which have
-arbitrary units, throughout my analysis. CANS numerically solves
-models using one of two methods. The first is slower and uses SciPy's
-integrate.odeint to solve models written in Python at user supplied
-timepoints. I vectorised code using NumPy to optimise solving of the
-competition model by this method. For solving a plate of 384 cultures
-with cell density observations at 10 unevenly spaced time points, I
-found an approximately 10 times further increase in speed using the
-Python bindings for the package libRoadRunner. libRoadRoadrunner's
-RoadRunner.simulate requires models to be written in SBML so I wrote
-code using the libSBML Python API to automatically generate SBML
-versions of the competition model for any size plate.
-
+CANS numerically solves models using one of two methods. The first is
+slower and uses SciPy's integrate.odeint to solve models written in
+Python at user supplied timepoints. I vectorised code using NumPy to
+optimise solving of the competition model by this method. For solving
+a plate of 384 cultures with cell density observations at 10 unevenly
+spaced time points, I found that using the Python bindings for
+libRoadRunner was about 10 times faster. libRoadRunner requires models
+to be written in SBML so I wrote code using the libSBML Python API to
+automatically generate SBML versions of the competition model for any
+size plate.
 % //I could go into more detail about how models are defined// but
 % maybe this is not needed.
-
 Unlike SciPy's odeint, libRoadRunner only simulates at uniformly
-spaced timepoints. To fit QFA timecourses, which do not have fixed
-intervals, requires simulated cell amounts at the observed
+spaced timepoints. To fit QFA cell observations, which are not made at
+fixed time intervals, requires simulated cell amounts at the observed
 timepoints. For the analysis in (P15 section), where each timecourse
-has only 10 timepoints, I simulated using a function call between each
-pair of adjacent timepoints. This method was slower for the analysis
-in (Stripes section) where each timecourse had around 50
-timepoints. To increase speed I used SciPy's interpolate.splrep to
-make a 5th order B-spline of cell density timecourses with smoothing
-condition \(s=1.0\). I evaluated the spline for cell density using
-SciPy's interpolate.splev at 15 evenly spaced intervals from time zero
-to the time of the last QFA observation. I then solved these
+has only 10 timepoints, I simulated sequentially between (pairs of)
+timepoints. This method was slower for the analysis in (Stripes
+section) where each timecourse had around 50 timepoints. To increase
+speed I used SciPy's interpolate.splrep to make a 5th order B-spline
+of cell density timecourses with smoothing condition \(s=1.0\). I
+evaluated the spline for cell density using SciPy's interpolate.splev
+at 15 evenly spaced intervals from time zero to the time of the last
+QFA observation. I then solved these
 timecourses with one call to RoadRunner.simulate.\\\\
 
 % Fitting
-\subsubsection{Fitting}
+\subsubsection{Fitting the competition model}
 
-To fit the competition model to QFA data, I made maximum likelihood
-estimates of parameters using a normal model of measurement
-error. This used the L-BFGS-B constrained minimisation algorithm from
-SciPy's integrate package. I determined stopping criteria so that
-parameters of full-plate simulated data sets, with a small amount of
-simulated noise, were recovered with high precision. To help the
-minimizer I scaled \(C_{t_{0}}\) values by a factor of \(10^{5}\) to
-make parameter values closer in order of magnitude. I ran repeated
-fits using different parameter guesses for each plate (see
+I use QFA data after processing with Colonyzer
+\citep{Lawless2010}. Colonyzer uses integrated optical density
+measurements as a proxy for cell density, to produce a timecourse of
+cell density for each culture in a series of whole plate images. I use
+these cell density estimates, which have arbitrary units, throughout
+my analysis. To fit the competition model, I made maximum likelihood
+estimates of parameters using a normal model of measurement error. For
+constrained minimisation I used the L-BFGS-B algorithm from SciPy's
+integrate package. I determined stopping criteria so that parameters
+of full-plate simulated data sets, with a small amount of simulated
+noise, were recovered with high precision. To help the minimizer I
+scaled \(C_{t_{0}}\) values by a factor of \(10^{5}\) to make
+parameter values closer in order of magnitude. I ran repeated fits
+using different parameter guesses for each plate (see
 Section~(ref)). I set bounds according to Table~\ref{tab:p15_bounds}
 and made sure that best fits had no parameter estimates at a boundary.
 %
@@ -96,24 +95,51 @@ and made sure that best fits had no parameter estimates at a boundary.
 \end{center}
 %
 %%%% Boundary conditions Two N_0 %%%%%
-
-
-
-
-
+Cultures at the edge of a plate have an advantage because they have
+access to a greater area of nutrients. I correct for this using a
+separate parameter \(N^{E}_{t_{0}}\) for the initial amount of
+nutrients in edge cultures. In rate equations involving edge cultures,
+I convert \(N_{i}\) to a nutrient density by scaling by the ratio
+\(N^{I}_{t_{0}}/N^{E}_{t_{0}}\), where \(N^{I}_{t_{0}}\) is the amount
+of nutrients in internal cultures (which have reaction volume
+one). The physical interpretation of this correction is that edge
+cultures have an extra supply of nutrients which can diffuse instantly
+into the reaction volume. I reduced the error in cell density
+estimates for cultures one row or column inside the edge using this
+method and this resulted in better fits to internal cultures overall
+(see Table~\ref{tab:corner} or Section). I fit the competition model
+using both edge and internals but selected best fits based on only the
+fit to the internal cultures. In fits of the logistic model edge
+cultures are discarded due to having more noise \citep{Lawless2010}.\\
 %%%% Empties %%%%%
-QFA data for the Stripes plate (sec ref) contained observations for
-cultures that were known to be empty. When fitting the competition
-model (\ref{eq:competition_model}), I set growth constant \(b\) to
-zero for these cultures and removed them from the objective function.
+Could move to the stripes section - Is fairly major to implement but
+is really a bit of a nuance: QFA data for the Stripes plate (sec ref)
+contained observations for cultures that were known to be empty. When
+fitting the competition model (\ref{eq:competition_model}), I set
+growth constant \(b\) to zero for these cultures and removed them from
+fitting.\\
 %%%% End Empties %%%%%
 
-% tolerances - These tolerances returned estimated parameters with a
-% high precision when using simulated data sets.
+\subsubsection{Fitting the logistic model}
 
-%initial amounts
+To fit the mass action logistic model requires using culture level
+\(N_{t_{0}}\) creating 383 extra parameters. The QFA R package
+\citep{qfa2016} can fit the logistic model and has heuristic checks to
+correct a confounding of parameters in fits to noise-dominated
+slow-growing cultures. I did not have time to implement these checks
+in CANS, so I instead use the QFA R logistic fits. This is not exactly
+equivalent because QFA R does not fit data collectively and instead
+uses a culture level \(C_{0}\). However, this is a useful comparison
+with a method of analysis currently used in QFA (see
+e.g. \citet{Addinall2011}). I do not expect much disagreement of
+fitness estimate with the mass action logistic model once heuristic
+checks are implemented.
 
-% Displayed output using matplotlib
+\subsubsection{Data visualisation}
+
+(Do I really need this?) I created plotting functions to visualise
+fits and simulations of QFA timecourses and to compare the ranking of
+fitness estimates using the Python package matplotlib.\\\\
 
 
 \subsection{\thesubsection~Parameter conversion}
