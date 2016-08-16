@@ -85,9 +85,6 @@ the end of the discussion.
 
 * Methods
 
-** TODO Boundary conditions [0/0]
-  - [ ] Two NE_0 model - Just for competition model
-
 ** TODO Tools, solving, and fitting [0/6]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
@@ -107,7 +104,7 @@ the end of the discussion.
     - [ ] Should I talk about the Development Process? (i.e. use of
       simulations and zones; determining tolerances)
 
-** TODO Tools, solving, and fitting [0/5]
+** TODO Tools, solving, and fitting [0/7]
   - [ ] I wrote the code in python
   - [ ] Data analysed using Colonyzer (Python)
   - [-] Solving
@@ -132,18 +129,33 @@ the end of the discussion.
         density datapoints from the spline. The spline used smoothing
         s=1 and timepoints ranged from time zero to the time of the
         final cell observation in the raw data.
-    - [ ] QFA data for the Stripes plate contained cell observations
-      for cultures that were known to be empty. I set b to zero for
-      these cultures and removed them from the objective function.
-    - [ ] Cultures at the edge of a plate have an advantage because
-      they have access to a greater area of nutrients which could
-      diffuse from outside of the array.
-      - (Data from these cultures is noisey due to reflections from
-        plate edges. This is only partially corrected for by Colonyzer
-        (ref) and as a result data from edge cultures is useually
-        discarded. Addniall et al grow the a repeats of the same
-        culture in edge locations, rather than leaving them empty,
-        because of concerns about competition.)
+  - [ ] SBML and reproducibility - spit out models with estimated
+    parameters - mentioned in short intro.
+  - [-] Fitting the Competition Model
+    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
+      - [ ] Constrained minimization algorithm L-BFGS-B
+    - [X] Given a model and data, I made maximum likelihood estimates
+      of parameters using a normal model of measurement error.
+    - [X] Stopping criteria
+      - Give tollerances - With these tollerances I could recover the
+        parameters of simulated data sets (both with and without a
+        small amount of simulated noise) with high precision.
+    - [ ] How did I set bounds?
+      - [ ] So that parameters did not hit them
+      - [ ] everything above zero
+      - [ ] Tollerances above and below initial guesses. This goes
+        with initial guessing.
+    - [ ] C_0 scaling
+    - [ ] Two N_0 BC conditions: Cultures at the edge of a plate have an
+      advantage because they have access to a greater area of
+      nutrients which could diffuse from outside of the array.
+      - Moved to Intro (correcting for competitoin): (Data from these
+        cultures is noisey due to reflections from plate edges. This
+        is only partially corrected for by Colonyzer (ref) and as a
+        result data from edge cultures is useually discarded. Addniall
+        et al grow the a repeats of the same culture in edge
+        locations, rather than leaving them empty, because of concerns
+        about competition.)
       - I correct for this (in the competition model) using a new
         parameter (\N^{e}_{t_{0}}\) for the initial amount of
         nutrients in edge cultures. In rate equations involving edge
@@ -172,21 +184,22 @@ the end of the discussion.
         function when fitting data. I selected between different fits
         to the same data the objective function for only the internal
         cultures.
-  - [ ] SBML and reproducibility - spit out models with estimated
-    parameters - mentioned in short intro.
-  - [ ] Fitting the Competition Model
-    - [ ] SciPy's scipy.optimize.minimize (optimization and rootfinding package)
-    - [ ] Given a model and data, I made maximum likelihood estimates
-      of parameters using a normal model of measurement error.
-    - [ ] QFA R package for logistic model - Contains heuristic checks
-      for slow growing cultures and is currently used in QFA.
-      - [ ] I did not have heuristic checks but did use a plate level
-        C_0. I did not have time to write heuristic checks and wanted
-        to compare to existing QFA fitting.
-      - [ ] QFA R logistic fits do not set a plate level C_0.
-    - [ ] Should I talk about the Development Process? (i.e. use of
-      simulations and zones; determining tolerances) Probably won't
-      have room.
+      - [ ] Could not use rules to set bound NE_0 > N_0 using L-BFGS-B
+        algorithm
+    - [ ] Empties
+      - Set b = 0
+      - Remove from objective fn
+  - [ ] Fitting the logistic model
+    - [ ] QFA R package for logistic model
+    - [ ] - Contains heuristic checks for slow growing cultures and is
+      currently used in QFA.
+    - [ ] I did not have heuristic checks but did use a plate level
+      C_0. I did not have time to write heuristic checks and wanted
+      to compare to existing QFA fitting.
+    - [ ] QFA R logistic fits do not set a plate level C_0.
+  - [ ] Should I talk about the Development Process? (i.e. use of
+    simulations and zones; determining tolerances) Probably won't
+    have room.
 
 ** TODO Parameter Conversion [9/9]  # could go in or after fitting
   - [X] When kn = 0 reduces to logistic model with same solution
@@ -208,6 +221,8 @@ the end of the discussion.
   # the methods. Been as this is a masters disertation I think it
   # should be alright to have a couple of figures in the methods.
   - [ ] N_0 can be inferred from final cell amounts
+    - [ ] Assumes reactions are nearly complete and no metabolism
+    - [ ] Equation for two N_0 model
   - [ ] Explain the Imaginary neighbour model
     - [ ] Include a schematic
     - [ ] I have come up with a model for quickly fitting individual
