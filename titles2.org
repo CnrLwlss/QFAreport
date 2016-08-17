@@ -217,26 +217,26 @@ the end of the discussion.
     - [ ] What was the range?
   - [-] Explain the Imaginary neighbour model
     - [ ] Include a schematic
-    - [ ] I have come up with a model for quickly fitting individual
+    - [X] I have come up with a model for quickly fitting individual
       cultures to get appoximate estimates of b.
-    - [ ] It is based on the competition model we already have.
-    - [ ] We fit cell data for each culture individually
+    - [X] It is based on the competition model we already have.
+    - [X] We fit cell data for each culture individually
       - Solve using scipy.odeint
       - Fit using scipy.optimize.minimize and least squares
     - [X] Places imaginary fast growing and empty cultures next to the
       culture of interest
-    - [ ] We use the same number, n, of each of these. This could be
+    - [X] We use the same number, n, of each of these. This could be
       eight in total to represent, for instance, 4 fast growing
       neighbours or 4 slow growing neighbours.
-    - [ ] The value of n to use can be determined by the ratio of
+    - [X] The value of n to use can be determined by the ratio of
       final cell amount to initial nutrient amount.
-    - [ ] Fix N_0 and the growth constants of both neighbours. We have
+    - [X] Fix N_0 and the growth constants of both neighbours. We have
       to use a grid of fixed C_0 values and take the best fit.
-    - [ ] Allow k1, k2, and b to vary. b is the growth constant for
+    - [X] Allow k1, k2, and b to vary. b is the growth constant for
       the culture of interest.
-    - [ ] We can also try different values of b_fast for fits of each
+    - [X] We can also try different values of b_fast for fits of each
       culture to approximate different neighbour configurations.
-    - [ ] Main difference is in having two kn's (k1 and k2) which we
+    - [X] Main difference is in having two kn's (k1 and k2) which we
       allow to vary freely.
   - [-] Guessing k_n from b distiribution
     - [X] Wordy explaination
@@ -251,8 +251,14 @@ the end of the discussion.
     - [ ] Guessing k_n from b distiributio
 ** TODO Development of a genetic algorithm [0/1]
   - [ ] Developing a genetic algorithm with inspyred
-    - [ ] Heirarchical plate level and
+    - [ ] Heirarchical plate level and culture level parameters
+    - [ ] Python package inspyred
+      - [ ] What algorithms etc.
+      - [ ] Starting values
+      - [ ]
     - [ ] Multiprocessing
+    - [ ] Fixing plate level and using a gradient method
+      - Actually I need only mention this if I want
 ** TODO Model comparison using a single QFA plate [0/1]
   - [ ] P15 [0/3]
     - [ ] Describe data
