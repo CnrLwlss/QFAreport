@@ -203,15 +203,18 @@ the end of the discussion.
   - [X] b rank is proportional to r MDR and MDP
   - [X] b as a fitness estimate
 
-** TODO Initail Guess [0/4]
+** TODO Initail Guess [1/5]
   # I was debating putting the imaginary neighbour model in the
   # introduction or splitting the model and fitting between the
   # introduction and methods. I now think that this should all go in
   # the methods. Been as this is a masters disertation I think it
   # should be alright to have a couple of figures in the methods.
-  - [ ] N_0 can be inferred from final cell amounts
-    - [ ] Assumes reactions are nearly complete and no metabolism
-    - [ ] Equation for two N_0 model
+  - [X] N_0 can be inferred from final cell amounts
+    - [X] Assumes reactions are nearly complete and no metabolism
+    - [X] Equation for two N_0 model
+  - [-] C_0 requires a rang of guesses
+    - [X] logspace
+    - [ ] What was the range?
   - [ ] Explain the Imaginary neighbour model
     - [ ] Include a schematic
     - [ ] I have come up with a model for quickly fitting individual
@@ -235,7 +238,8 @@ the end of the discussion.
       culture to approximate different neighbour configurations.
     - [ ] Main difference is in having two kn's (k1 and k2) which we
       allow to vary freely.
-  - [ ] Guessing k_n from b distiribution
+  - [-] Guessing k_n from b distiribution
+    - [X] Wordy explaination
     - [ ] I have a plot which demonstrates this which can go here or
       in the results. I think that it would be clearer to put it here.
   - [ ] Performance of imaginary neighbour guessing (plot of fit) can
