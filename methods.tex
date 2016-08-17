@@ -19,7 +19,7 @@ an initial guess. The CANS package is available at
 \subsection{\thesubsection~Solving and fitting}
 
 \subsubsection{Solving}
-
+\label{sec:solving_comp}
 % [Only keep if I remove the CANS overview above: To analyse QFA data I
 % created a Python package (``CANS'') for model composition, model
 % simulation, parameter inference, and visualisation of results. CANS
@@ -272,7 +272,7 @@ guessing with logistic model guessing so it is unclear which method is
 better.
 
 \subsubsection{\thesubsubsection~Guessing initial amounts}
-
+\label{sec:guessing_amounts}
 
 Recall from the competition model reaction equations
 (\ref{eq:reaction} and \ref{eq:diffusion_reaction}) that nutrients can
@@ -321,32 +321,43 @@ the fastest growing cells contribute significantly to the final
 population.)
 
 \subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
+%%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%
 
 To guess competition model \(b_{i}\) I used the imaginary neighbour
-model which can be used to quickly fit individual cultures. The model
-is based on the competition model and tries to replicate the diffusion
-of nutrients into or out of a culture using imaginary fast and slow
-growing neighbours with different diffusion constants \(k^{f}_{n}\)
-and \(k^{s}_{n}\). A schematic of the model is drawn in
-Figure~(ref). The number, \(n\), of fast and slow growing neighbours
-is determined from guesses of \(N^{I}_{t_{0}}\) and the range of final
-cell amounts such that the culture with the highest observed final
-cell density has enough slow growing neighbours to provide all of the
-nutrients necessary to reach this final cell density.
+model to quickly fit individual cultures. The model is based on the
+reaction and rate equations of the competition
+model~(\ref{eq:reaction}--\ref{eq:diffusion_reaction}) but tries to
+replicate the diffusion of nutrients into and out of a culture using
+imaginary fast and slow growing neighbours with different nutrient
+diffusion constants \(k_{n,f}\) and \(k_{n,s}\). The growth constants
+of the fast and slow growing cultures are \(b_{f}\) and \(b_{s}\). A
+schematic of the model is drawn in Figure~(ref). To fit the model to
+QFA data, I fixed \(C_{t_{0}}\) and \(N^{I}_{t_{0}}\) for all cultures
+by the initial guesses (see Section~\ref{sec:guessing_amounts}); I
+fixed \(b_{f}\) at a range of different guesses, and fixed
+\(b_{s} = 0\); I allowed \(b\), \(k_{n,f}\), and \(k_{n,s}\) to
+vary. I determined the number, \(n\), of each neighbour from the guess
+of \(N^{I}_{t_{0}}\) and the range of final cell amounts, such that
+the culture with the highest observed final cell density had enough
+slow growing neighbours to provide all of the nutrients necessary to
+reach this final cell density. I solved the imaginary neighbour model
+using SciPy's odeint and made maximum likelihood estimates of
+parameters using a normal model of measurement error and the L-BFGS-B
+algorithm from SciPy's integrate package for the competition model (cf. Sections~\ref{sec:solving_comp} and \ref{sec:fitting_comp}).
 
+%%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{\boldmath \thesubsubsection~Guessing \({k_{n}}\) \unboldmath}
 
-
-
-I discovered that sets of \(b\) parameters drawn from different normal
-distributions had a linear relationship between variance in final cell
-amount and nutrient diffusion constant \(k_{n}\). I simulated guessed
-parameters \(C_0\), \(N_0\), and \(b_{i}\) with a range of different
-\(k_{n}\) values and used linear regression to parameterise the
-straight line. I then took the variance in final cell amount for real
-data and guessed \(k_{n}\) from the straight line.
-\\
+Simulations of the competition model using sets of \(b\) parameters
+drawn from different normal distributions have linear relationships
+between variance in final cell amount and nutrient diffusion constant
+\(k_{n}\). I simulated guessed parameters \(C_0\), \(N_0\), and
+\(b_{i}\) with a range of different \(k_{n}\) values and used linear
+regression to parameterise the straight line. I then took the variance
+in final cell amount for real data and guessed \(k_{n}\) from the
+straight line.
+\\\\
 Might not need this figure. r->b and make titles bigger. Fitted
 \(k_{n}\) was much higher so I should probably resimulate over a
 bigger range. Only possibly to know in hindsight. I could also use the
@@ -368,7 +379,12 @@ distribution.
   \label{fig:kn_guessing}
 \end{Figure}
 
-
 \subsection{\thesubsection~Development of a genetic algorithm}
+
+I began work on a hierarchical genetic algorithm method of parameter
+inference inspired by the hierarchical Bayesian analysis of QFA data
+by \citet{Heydari2016}. (I'm not sure that it is too similar or was in
+fact inspired by this.)
+
 \subsection{\thesubsection~Model comparison using a single QFA plate}
 \subsection{\thesubsection~Cross-plate calibration and validation}
