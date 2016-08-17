@@ -306,7 +306,8 @@ guesses of \(N^{I}_{t_{0}}\) and \(N^{E}_{t_{0}}\) using,
 \end{equation}
 %
 When \(A_{r} = 1\), (\ref{eq:N_0_guesses}) reduces to the initial
-nutrient guess for the one initial nutrient parameter model.
+nutrient guess for the one initial nutrient parameter model. I used
+\(A_{r} = 1.4\).
 \\
 In QFA using dilute cultures, \(C_{t_{0}}\) falls below the level of
 detection.  I did not estimate initial guesses of \(C_{t_{0}}\) and
@@ -318,12 +319,27 @@ measures of \(C_{t_{0}}\) may not be reliable due to heterogeneity
 between inoculated cells; many inoculated cells don't grow and only
 the fastest growing cells contribute significantly to the final
 population.)
+
 \subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
 
 
 \subsubsection{\boldmath \thesubsubsection~Guessing \({k_{n}}\) \unboldmath}
 
 
+
+I discovered that sets of \(b\) parameters drawn from different normal
+distributions had a linear relationship between variance in final cell
+amount and nutrient diffusion constant \(k_{n}\). I simulated guessed
+parameters \(C_0\), \(N_0\), and \(b_{i}\) with a range of different
+\(k_{n}\) values and used linear regression to parameterise the
+straight line. I then took the variance in final cell amount for real
+data and guessed \(k_{n}\) from the straight line.
+\\
+Might not need this figure. r->b and make titles bigger. Fitted
+\(k_{n}\) was much higher so I should probably resimulate over a
+bigger range. I could also use the fitted parameters for this rather
+than drawing from a normal distribution..
+\\
 \graphicspath{{images/guessing/}}
 \begin{Figure}
   \centering
