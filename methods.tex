@@ -272,8 +272,32 @@ better.
 
 \subsubsection{\thesubsubsection~Guessing initial amounts}
 
-
-
+Recall from the competition model reaction equations
+(\ref{eq:reaction}) that nutrients can only diffuse or be converted to
+cells. By assuming that reactions are nearly complete at the end of
+cell observations it is therefore possible to guess \(N_{t_{0}}\) from
+final cell measurements. For the one \(N_{t_{0}}\) model the guess is
+simply the average of final cell amounts. However, I used
+\(N^{I}_{t_{0}}\) and \(N^{E}_{t_{0}}\) to model different starting
+nutrients for internal and edge cultures. Using an estimate for the
+ratio of area associated with edge cultures to area associated with
+internal cultures
+\(A_{r} = A_{E} / A_{I} = N^{E}_{t_{0}} / N^{I}_{t_{0}}\) I made
+guesses of \(N^{I}_{t_{0}}\) and \(N^{E}_{t_{0}}\) using,
+%
+\begin{subequations}
+  \label{eq:N_0_guesses}
+  \begin{align}
+    % &A_{r} = A_{E} / A_{I} = N^{E}_{t_{0}} / N^{I}_{t_{0}}\\
+    &N_{Tot} = n_{I}N^{I}_{t_{0}} + n_{E}N^{E}_{t_{0}} \approx C_{F}\\
+    &N^{I}_{t_{0}} = N_{Tot} / (n_{I} + n_{E}A_{r})\\
+    &N^{E}_{t_{0}} = (N_{Tot} - n_{I}N^{I}_{t_{0}}) / n_{E}
+  \end{align}
+\end{subequations}
+%
+where \(C_{F}\) is the average final cell measurement using all
+cultures on a plate, \(N_{Tot}\) is the total amount of nutrients, and
+\(n_{I}\) and \(n_{E}\) are the numbers of internal and edge cultures.
 \subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
 \subsubsection{\boldmath \thesubsubsection~Guessing \({k_{n}}\) \unboldmath}
 
