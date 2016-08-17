@@ -215,7 +215,7 @@ the end of the discussion.
   - [-] C_0 requires a rang of guesses
     - [X] logspace
     - [ ] What was the range?
-  - [ ] Explain the Imaginary neighbour model
+  - [-] Explain the Imaginary neighbour model
     - [ ] Include a schematic
     - [ ] I have come up with a model for quickly fitting individual
       cultures to get appoximate estimates of b.
@@ -223,7 +223,7 @@ the end of the discussion.
     - [ ] We fit cell data for each culture individually
       - Solve using scipy.odeint
       - Fit using scipy.optimize.minimize and least squares
-    - [ ] Places imaginary fast growing and empty cultures next to the
+    - [X] Places imaginary fast growing and empty cultures next to the
       culture of interest
     - [ ] We use the same number, n, of each of these. This could be
       eight in total to represent, for instance, 4 fast growing
