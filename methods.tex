@@ -60,10 +60,10 @@ I use QFA data after processing with Colonyzer \citep{Lawless2010}.
 Colonyzer uses integrated optical density measurements in whole plate
 images as a proxy for cell density. I used [timecourses of] these cell
 density estimates, which have arbitrary units, throughout my
-analysis. To fit the competition model I made maximum likelihood
-estimates of parameters using a normal model of measurement error.
-For constrained minimisation I used the L-BFGS-B algorithm from
-SciPy's integrate package.
+analysis. I fit the competition model using a gradient method and made
+maximum likelihood estimates of parameters using a normal model of
+measurement error. For constrained minimisation I used the L-BFGS-B
+algorithm from SciPy's integrate package.
 
 I determined stopping criteria so that parameters of full-plate
 simulated data sets, with a small amount of simulated noise, were
@@ -341,9 +341,8 @@ of \(N^{I}_{t_{0}}\) and the range of final cell amounts, such that
 the culture with the highest observed final cell density had enough
 slow growing neighbours to provide all of the nutrients necessary to
 reach this final cell density. I solved the imaginary neighbour model
-using SciPy's odeint and made maximum likelihood estimates of
-parameters using a normal model of measurement error and the L-BFGS-B
-algorithm from SciPy's integrate package for the competition model (cf. Sections~\ref{sec:solving_comp} and \ref{sec:fitting_comp}).
+using SciPy's odeint. I fit using a gradient method as in
+Section~\ref{sec:fitting_comp}.
 
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
