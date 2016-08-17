@@ -253,6 +253,30 @@ plates may have different \(C_{t_{0}}\) and \(N_{t_{0}}\).
 \subsection{\thesubsection~Making an initial guess}
 \label{sec:initial_guess}
 
+Achieving good fits of the competition model requires making a good
+initial guess. To fit the competition model to small simulated zones I
+could simply use many random parameter guesses. However, for fitting a
+full plate with 387 parameters the chance of any random guess being
+close to the ``true'' values is much smaller and more sophisticated
+guessing methods are required. I did not understand the disagreement
+between mass action logistic and competition model estimates of \(b\)
+which is only reduced when parameters are converted to logistic model
+\(r\) and \(K\) (see Section~\ref{sec:correction}). Without this
+conversion fitness rankings, using \(b\), are inverted between the two
+models. I instead assumed that there was a more fundamental
+disagreement between models and developed the ``Imaginary Neighbour
+Model'' for guessing competition model \(b\). This allowed good fits
+to be made. I did not have time to compare imaginary neighbour
+guessing with logistic model guessing so it is unclear which method is
+better.
+
+\subsubsection{\thesubsubsection~Guessing initial amounts}
+
+
+
+\subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
+\subsubsection{\boldmath \thesubsubsection~Guessing \({k_{n}}\) \unboldmath}
+
 
 \subsection{\thesubsection~Development of a genetic algorithm}
 \subsection{\thesubsection~Model comparison using a single QFA plate}
