@@ -57,24 +57,22 @@ timecourses with one call to RoadRunner.simulate.\\\\
 
 I use QFA data after processing with Colonyzer \citep{Lawless2010}.
 Colonyzer uses integrated optical density measurements in whole plate
-images as a proxy for cell density. I use these cell density
-estimates, which have arbitrary units, throughout my analysis.
+images as a proxy for cell density. I used [timecourses of] these cell
+density estimates, which have arbitrary units, throughout my
+analysis. To fit the competition model I made maximum likelihood
+estimates of parameters using a normal model of measurement error.
+For constrained minimisation I used the L-BFGS-B algorithm from
+SciPy's integrate package.
 
-To fit the competition model I make maximum likelihood estimates of
-parameters using a normal model of measurement error.
-
-To fit
-the competition model, I take maximum likelihood estimates of
-parameters using a normal model of measurement error. For constrained
-minimisation I used the L-BFGS-B algorithm from SciPy's integrate
-package. I determined stopping criteria so that parameters of
-full-plate simulated data sets, with a small amount of simulated
-noise, were recovered with high precision. To help the minimizer I
-scaled \(C_{t_{0}}\) values by a factor of \(10^{5}\) to make
-parameter values closer in order of magnitude. I ran repeated fits
-using different parameter guesses for each plate (see
-Section~(ref)). I set bounds according to Table~\ref{tab:p15_bounds}
-and made sure that best fits had no parameter estimates at a boundary.
+I determined stopping criteria so that parameters of full-plate
+simulated data sets, with a small amount of simulated noise, were
+recovered with high precision. To help the minimizer, I scaled
+\(C_{t_{0}}\) values by a factor of \(10^{5}\) to make parameter
+values closer in order of magnitude. I ran repeated fits using
+different parameter guesses for each plate (see Section~(P15 and
+Stripes details)). I set bounds according to
+Table~\ref{tab:p15_bounds} and checked that best fits had no
+parameters at a boundary.
 %
 \columnbreak
 \begin{center}
@@ -82,10 +80,10 @@ and made sure that best fits had no parameter estimates at a boundary.
     competition model to P15 and the Stripes and Filled plates. Bounds
     on \(N_{t_{0}}\) were applied to both \(N^{I}_{t_{0}}\) and
     \(N^{E}_{t_{0}}\) for internal and edge cultures. ``guess'' refers
-    to the initial guess (see Section~(ref).}
+    to the initial guess (see Section~\ref{sec:initial_guess}).}
   \begin{tabular}{| c | c c |}
     \hline
-    Parameter        & Lower   & Upper \\
+    Parameter        & Lower Bound  & Upper Bound \\
     \hline
     \(C_{t_{0}}\)     & guess x \(10^{-3}\)  & guess x \(10^{3}\)\\
     \(N_{t_{0}}\)     & guess / \(2\)  & guess x \(2\)\\
@@ -100,57 +98,64 @@ and made sure that best fits had no parameter estimates at a boundary.
 %
 %%%% Boundary conditions Two N_0 %%%%%
 Cultures at the edge of a plate have an advantage because they have
-access to a greater area of nutrients. I correct for this using a
-separate parameter \(N^{E}_{t_{0}}\) for the initial amount of
-nutrients in edge cultures. In rate equations involving edge cultures,
-I convert \(N_{i}\) to a nutrient density by scaling by the ratio
+access to a greater area of nutrients. I corrected for this using a
+separate parameter \(N^{E}_{t_{0}}\) representing a higher initial
+amount of nutrients in edge cultures. In rate equations involving edge
+cultures, I scaled edge culture nutrient amount \(N_{i}\) by the ratio
 \(N^{I}_{t_{0}}/N^{E}_{t_{0}}\), where \(N^{I}_{t_{0}}\) is the amount
-of nutrients in internal cultures (which have reaction volume
-one). The physical interpretation of this correction is that edge
-cultures have an extra supply of nutrients which can diffuse instantly
-into the reaction volume. I reduced the error in cell density
-estimates for cultures one row or column inside the edge using this
-method and this resulted in better fits to internal cultures overall
-(see Table~\ref{tab:corner} or Section). I fit the competition model
-using both edge and internals but selected best fits based on only the
-fit to the internal cultures. In fits of the logistic model edge
-cultures are discarded due to having more noise \citep{Lawless2010}.\\
+of nutrients in internal cultures. The physical interpretation of this
+correction is that edge cultures have an extra supply of nutrients
+that can diffuse instantly into the reaction volume. This treatment
+reduced the error in cell density estimates for cultures one row or
+column inside the edge and resulted in better fits to internal
+cultures overall (see Table~\ref{tab:corner} or Section). Cell density
+measurements from edge cultures contain more noise due to reflections
+from plate walls \citep{Lawless2010}. I collectively fit to all
+cultures and selected best fits based on only the fit to internal
+cultures.
+\\\\
+(Could move to discussion but probably get rid) When fitting the
+competition model noise might be better dealt with by leaving edge
+cultures empty.
+\\
+
 %%%% Empties %%%%%
-Could move to the stripes section - Is fairly major to implement but
-is really a bit of a nuance: QFA data for the Stripes plate (sec ref)
-contained observations for cultures that were known to be empty. When
-fitting the competition model (\ref{eq:competition_model}), I set
-growth constant \(b\) to zero for these cultures and removed them from
-fitting.\\
+(Can go to results section or Stripes method section:) QFA data for
+the Stripes plate contained observations for cultures that were known
+to be empty. When fitting the competition model, I set growth constant
+\(b\) to zero for these cultures and removed them from fitting.
 %%%% End Empties %%%%%
 
 \subsubsection{Fitting the logistic model}
 
-To fit the mass action logistic model requires using culture level
-\(N_{t_{0}}\) creating 383 extra parameters. The QFA R package
-\citep{qfa2016} can fit the logistic model and has heuristic checks to
-correct a confounding of parameters in fits to noise-dominated
-slow-growing cultures. I did not have time to implement these checks
-in CANS, so I instead use the QFA R logistic fits. This is not exactly
-equivalent because QFA R does not fit data collectively and instead
-uses a culture level \(C_{0}\). However, this is a useful comparison
-with a method of analysis currently used in QFA (see
+Fitting the mass action logistic model requires using culture level
+\(N_{t_{0}}\) and creating 383 extra parameters. The QFA R package
+\citep{qfa2016} can fit the standard logistic model and has heuristic
+checks to correct a confounding of parameters that occurs when
+slow-growing cultures are dominated by noise. I did not have time to
+implement these checks for the mass action logistic model, so I
+instead fit the standard logistic model using the QFA R package. This
+is not equivalent because QFA R does not fit data collectively and
+instead uses a culture level \(C_{0}\). However, this is a useful
+comparison with a method of analysis currently used in QFA (see
 e.g. \citet{Addinall2011}). I do not expect much disagreement of
-fitness estimate with the mass action logistic model once heuristic
-checks are implemented.
+fitness estimates with the mass action logistic model once heuristic
+checks are implemented. In contrast to the competition model, noisy
+data from edge cultures was discarded before fitting. I conduct model
+comparison between the competition and logistic models in sections
+(Results sections).
 
 \subsubsection{Data visualisation}
 
 (Do I really need this?) I created plotting functions to visualise
 fits and simulations of QFA timecourses and to compare the ranking of
-fitness estimates using the Python package matplotlib.\\\\
-
+fitness estimates using the Python package matplotlib.
 
 \subsection{\thesubsection~Parameter conversion}
 
-(Could move to discussion: The identity of the
-nutrient molecule is unknown and it is not clear whether metabolism of
-the nutrient molecule will have a significant effect. If necessary a
+(Will move to the discussion: The identity of the nutrient molecule is
+unknown and it is not clear whether metabolism of the nutrient
+molecule will have a significant effect. If necessary a
 metabolism reaction could also be modelled.)\\
 
 When \(k_{n}\) is set to zero, the competition model
@@ -246,6 +251,9 @@ plates may have different \(C_{t_{0}}\) and \(N_{t_{0}}\).
 %%% End:
 
 \subsection{\thesubsection~Making an initial guess}
+\label{sec:initial_guess}
+
+
 \subsection{\thesubsection~Development of a genetic algorithm}
 \subsection{\thesubsection~Model comparison using a single QFA plate}
 \subsection{\thesubsection~Cross-plate calibration and validation}
