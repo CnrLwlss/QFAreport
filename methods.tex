@@ -273,6 +273,7 @@ better.
 
 \subsubsection{\thesubsubsection~Guessing initial amounts}
 
+
 Recall from the competition model reaction equations
 (\ref{eq:reaction} and \ref{eq:diffusion_reaction}) that nutrients can
 only diffuse or be converted to cells. Thus, assuming that
@@ -281,7 +282,7 @@ reactions are nearly complete at the end of cell observations and that
 \(N_{Tot}\), can be estimated using,
 \begin{equation}
   \label{eq:N_Tot}
-  &N_{Tot} = n_{I}N^{I}_{t_{0}} + n_{E}N^{E}_{t_{0}} \approx C_{F},
+  N_{Tot} = n_{I}N^{I}_{t_{0}} + n_{E}N^{E}_{t_{0}} \approx C_{F},
 \end{equation}
 where \(C_{F}\) is the total of final cell measurements, \(n_{I}\) and
 \(n_{E}\) are the numbers of internal and edge cultures, and
@@ -295,18 +296,47 @@ guesses of \(N^{I}_{t_{0}}\) and \(N^{E}_{t_{0}}\) using,
 %
 \begin{equation}
   \label{eq:N_0_guesses}
-  \begin{align}
+  \begin{aligned}
     % &A_{r} = A_{E} / A_{I} = N^{E}_{t_{0}} / N^{I}_{t_{0}}\\
     % &N_{Tot} = n_{I}N^{I}_{t_{0}} + n_{E}N^{E}_{t_{0}} \approx C_{F}\\
     &N^{I}_{t_{0}} = N_{Tot} / (n_{I} + n_{E}A_{r})\\
     &N^{E}_{t_{0}} = (N_{Tot} - n_{I}N^{I}_{t_{0}}) / n_{E}.
-  \end{align}
+  \end{aligned}
 \end{equation}
 %
-When \(A_{r} = 1\) this reduces to the initial nutrient guess for the
-one initial nutrient parameter model.
+When \(A_{r} = 1\), (\ref{eq:N_0_guesses}) reduces to the initial
+nutrient guess for the one initial nutrient parameter model.
+\\
+In QFA using dilute cultures, \(C_{t_{0}}\) falls below the level of
+detection.  I did not estimate initial guesses of \(C_{t_{0}}\) and
+instead ran multiple fits over a range of \(C_{t_{0}}\) values in
+logspace. What was the range?
+\\
+(Discussion: Recent work Herrmann and Lawless suggests that direct
+measures of \(C_{t_{0}}\) may not be reliable due to heterogeneity
+between inoculated cells; many inoculated cells don't grow and only
+the fastest growing cells contribute significantly to the final
+population.)
 \subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
+
+
 \subsubsection{\boldmath \thesubsubsection~Guessing \({k_{n}}\) \unboldmath}
+
+
+\graphicspath{{images/guessing/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/kn_guessing}
+  \captionof{figure}{\textbf{Guessing \(\bm{k_{n}}\) from the variance in
+      final cell amounts.} The competition model is simulated for a
+    16x24 format plate using two random sets of culture-level \(b\)
+    parameters drawn from different normal distributions. Each set of
+    \(b\) parameters is simulated with a range of \(k_n\) parameter
+    values. The variance in final cell density for all cultures is
+    plotted against \(k_n\) for each simulation. Lines are shown for
+    least squares fits to points from each set of \(b\) parameters.}
+  \label{fig:kn_guessing}
+\end{Figure}
 
 
 \subsection{\thesubsection~Development of a genetic algorithm}
