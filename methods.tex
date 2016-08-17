@@ -276,9 +276,9 @@ better.
 
 Recall from the competition model reaction equations
 (\ref{eq:reaction} and \ref{eq:diffusion_reaction}) that nutrients can
-only diffuse or be converted to cells. Thus, assuming that
-reactions are nearly complete at the end of cell observations and that
-\(C_{t_{0}} << N_{t_{0}}\), the total initial amount of nutrients,
+only diffuse or be converted to cells. Thus, assuming that reactions
+are nearly complete at the end of cell observations and that
+\(C_{t_{0}} \ll N_{t_{0}}\), the total initial amount of nutrients,
 \(N_{Tot}\), can be estimated using,
 \begin{equation}
   \label{eq:N_Tot}
@@ -357,7 +357,7 @@ regression to parameterise the straight line. I then took the variance
 in final cell amount for real data and guessed \(k_{n}\) from the
 straight line.
 \\\\
-Might not need this figure. r->b and make titles bigger. Fitted
+Don't think I need this figure. r->b and make titles bigger. Fitted
 \(k_{n}\) was much higher so I should probably resimulate over a
 bigger range. Only possibly to know in hindsight. I could also use the
 fitted parameters for this rather than drawing from a normal
@@ -380,10 +380,10 @@ distribution.
 
 \subsection{\thesubsection~Development of a genetic algorithm}
 
-I began work on a hierarchical genetic algorithm method of parameter
-inference inspired by the hierarchical Bayesian analysis of QFA data
-by \citet{Heydari2016}. (I'm not sure that it is too similar or was in
-fact inspired by this.)
+% I began work on a hierarchical genetic algorithm method of parameter
+% inference inspired by the hierarchical Bayesian analysis of QFA data
+% by \citet{Heydari2016}. (I'm not sure that it is too similar or was in
+% fact inspired by this.)
 
 \subsection{\thesubsection~Model comparison using a single QFA plate}
 \subsection{\thesubsection~Cross-plate calibration and validation}
