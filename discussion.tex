@@ -29,50 +29,88 @@ although improved, uncertainty in estimates for the slowest growers is
 still much higher than for fastest meaning that the power to infer
 genetic reactions is not dramatically different.
 
-
 Fitting the logistic model to slower growing cultures requires
 heuristic checks to correct for confounding between \(r\) and
 \(K\). The QFA R implementation appears to have some issues. The
-strains \textit{est1\(\delta\)} and \textit{rad50\(\delta\)} have
+strains \textit{est1\(\Delta\)} and \textit{rad50\(\Delta\)} have
 dramatic changes in ranking between logistic model \(r\) and \(MDR\)
-(see Figure~\ref{fig:comp_vs_log_ranking}. In independent validation
-using spot cultures (ref) these are very sick strains and I confirmed
-this in the raw QFA images by visual inspection. High \(r\) and low
-\(K\) have been fit to both strains. This is corrected for when
-converting to \(MDR\) which agrees with the competition model ranking
-and independent validation. For other cultures it appears that
-encroachment of fast growing cultures into neighbours is not being
-picked up by Colonyzer. \textit{mre11\(\delta\)} is a weak growing
-strain (ref validation) which was misclassified as healthy by the
-competition model but not the logistic model. One repeat contained
-unusual heterogeneity which may be natural or be the results of
+(see Figure~\ref{fig:comp_vs_log_ranking}). In independent spot tests
+(ref) these are very sick strains and I confirmed this in the raw QFA
+images by visual inspection. High \(r\) and low \(K\) have been
+erroneously fit to both strains. This is corrected for when converting
+to \(MDR\) which agrees with the competition model ranking and
+independent validation and is more similar to the fitness measure
+(\(MDR \times MDP\)) used in the original analysis by
+\citet{Addinall2011}. For other cultures it appears that encroachment
+of fast growing cultures into neighbours is not being picked up by
+Colonyzer. In logistic fits some growth curves are still in the
+exponential phase at the end of observations and this may be another
+fitting issue. If repeated, the experiment of \citet{Addinall2011}
+should be run with a lower concentration of nutrients in the agar so
+that the stationary phase can be reached before cultures start to
+merge. \textit{mre11\(\Delta\)} is a weak growing strain (ref
+validation) which was misclassified as healthy by the competition
+model but not the logistic model. One repeat contained unusual
+heterogeneity which may be natural or be the results of
 contamination. (Should take median value next time). It may be that
-the failure of these checks is leading to inaccurate estimates of
-fitness for many strains. Due to a lack of independent validation it
-is unclear which model to believe for the middle rankings.
+the failure heuristic checks is leading to inaccurate estimates of
+fitness for many strains. From visual inspection of two other strains
+with noticeable disagreement, \textit{hap4\(\Delta\)} appears to be
+healthier than \textit{zrt3\(\Delta\)} which agrees with the
+competition model but not the logistic model. Although the precision
+of estimates is similar for both models, the competition model appears
+to be more accurate. Unfortunately, I lack independent data for
+validation of the middle strains.
+
+Recent work Herrmann and Lawless suggests that direct measures of
+\(C_{t_{0}}\) may not be reliable due to heterogeneity between
+starting cells in the same culture; many inoculated cells do not grow
+and only the fastest growing cells contribute significantly to the
+final population. A plate level \(C_{t_{0}}\) also seems inappropriate
+but having extra parameters for the staring cell density of each
+culture is undesirable. Only a small amount of nutrients is used when
+cultures are small. Therefore, cultures could be grown for a short
+time before making direct cell density measurements that may be more
+accurate. QFA inocula use cells taken from the stationary phase where
+there might be more heterogeneity (ref). It may be possible to
+increase the reliability of fitness estimates by taking inocula from
+the exponential growth phase or using a higher starting density to
+average out effects.
+
+The Stripes and Filled plates used a higher inoculum density and had
+very few noise-dominated cultures. This will have reduced noise in
+collectively fit competition model estimates and will not have
+required heuristic checks to be employed for the logistic model. This
+may therefore be a fairer comparison than P15. Correlation of fitness
+estimates between plates in Figure~\ref{fig:}a was similar for both
+models. This is despite not finding global minima with the competition
+model. However, correlation between models for the same plate in
+Figure~\ref{fig:r_correlations}b is poor. (Could definitely do with
+P15 correlations to compare). There are issues with validation for
+both models (see Figure~\ref{fig:stripes_validation}); the logistic
+model does not account for differences between plates at all and the
+competition model overcorrects. As I lack independent data for
+validation it is difficult to decide which to believe. (Unfortunately,
+these plates lack repeats so I could not study the reliability of
+estimates on the same plate. (I believe that we have more issues with
+accuracy than precision anyway). However, it is clear that the
+competition model could be improved.
 
 
-\textit{zrt3\(\delta\)} does not appear to be as fast growing as the
-logsitc model
-
-\textit{hap4\(\delta\)}
-%%
-
-Some reactions are not fit as being complete at the end of
-observations. Still in the exponential growth phase. Less nutrients in
-the agar so that the stationary phase could be reached before cultures
-started to merge.
+\subsection{\thesubsection~Future work}
 
 
-
-
-
-% (Discussion: Recent work Herrmann and Lawless suggests
-% that direct measures of C t 0 may not be reliable due to het-
-% erogeneity between inoculated cells; many inoculated cells
-% don’t grow and only the fastest growing cells contribute sig-
-% nificantly to the final population.)
-
+I was unable to find global minima using a gradient method (see
+Section~\ref{sec:fitting_comp}) to fit the competition model. I began
+work on a genetic algorithm method of solving but lacked time to
+complete this. I did however find that with fixed plate level
+parameters it is possible to reliably return \(b_{i}\) with a gradient
+method. This offers the potential to use a hierarchical genetic
+algorithm where plate level parameter fixed inside gradient fits of
+culture level parameters. Alternatively, a pure hierarchical genetic
+algorithm may work (where \(b_{i}\) are also evolved). A hierarchical
+approach to modelling was used by \citet{Heydari2016} to fit the
+logistic model to
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

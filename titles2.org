@@ -321,52 +321,52 @@ Details to add
      - [X] Still some issues - Some encroachment not dealt with picked
        by Colonyzer of QFA R
      - [X] - est1 fitted with a much higher r and and low K
-     - [ ] Order corrected when converting to MDR creating confusion
+     - [X] Order corrected when converting to MDR creating confusion
        about which fitness estimate to use.
-     - [ ] Could be corrected either experimentally, in Colonyzer, or in
+     - [X] Could be corrected either experimentally, in Colonyzer, or in
        QFA R using a heuristic check for late growers.
-     - [ ] Competition model rank of slow growers probably more trustworthy
+     - [X] Competition model rank of slow growers probably more trustworthy
      - [ ] QFA R uses culture level C_0 (may or may not be more
        accurate)
-   - [ ] HETEROGENEITY: Herrmann and Lawless:
-     - [ ] Due to cell heterogeneity we believe that C_0 varys between
+   - [-] HETEROGENEITY: Herrmann and Lawless:
+     - [X] Due to cell heterogeneity we believe that C_0 varys between
        cultures.
-     - [ ] Makes direct measurement of C_0 unreliable
+     - [X] Makes direct measurement of C_0 unreliable
      - [ ] Allowing a culture level C_0 more accurate but preferable
        if were similar
-     - [ ] Strategies:
-       - [ ] Experimental:
-	 - [ ] Inoculate cells taken from the exponential growth phase
+     - [X] Strategies:
+       - [X] Experimental:
+	 - [X] Inoculate cells taken from the exponential growth phase
            to reduce heterogeneity
-	 - [ ] Use higher starting density to try to average out
+	 - [X] Use higher starting density to try to average out
            heterogeneity
-       - [ ] Analysis:
-	 - [ ] Then: Fit C_0 collectively -> 1 parameter.
-	 - [ ] Or: Only small amount of nutrients used at start -> Can
+       - [X] Analysis:
+	 - [X] Then: Fit C_0 collectively -> 1 parameter.
+	 - [X] Or: Only small amount of nutrients used at start -> Can
            allow cultures to grow for a short while before starting
            observations and directly measuring C_0 -> Separate direct
            measurements of all cultures.
-	 - [ ] Or: Fit separately without direct measurement -> 384
+	 - [X] Or: Fit separately without direct measurement -> 384
            parameters
-   - [ ] Conclusion: Failure to improve reliability over Addinall et
+   - [X] Conclusion: Failure to improve reliability over Addinall et
      al and slower, although probably better for slow groweres and I
      can suggest to trust MDR over r due to failing heuristic checks
-   - [ ] Less significance in fitnesses estimates for culture ranked
+   - [X] Less significance in fitnesses estimates for culture ranked
      in the middle because comparison is to a neutral deletion so
      change in order not so important
- - [ ] Stripes and Filled
-   - [ ] Starts with higher inoculum so no noise-dominated cultures.
-   - [ ] No heuristic checks needed for logistic when no noise dominated
-   - [ ] Performance of competition model improved and similar to
+ - [-] Stripes and Filled
+   - [X] Starts with higher inoculum so no noise-dominated cultures.
+   - [X] No heuristic checks needed for logistic when no noise dominated
+   - [X] Performance of competition model improved and similar to
      logistic model. Need correlation plot for P15 to compare.
-     - [ ] Despite not finding global minima
-   - [ ] However correlation between models is now worse
-   - [ ] Validation issues with both models.
-     - [ ] Logistic does not correct at all for competition
-     - [ ] Competitoin model overcorrects
-   - [ ] No repeats on this plate so cannot study COV
-   - [ ] How can we determine which estimates to believe?
-     - [ ] Do we lack validation data for this plate?
+     - [X] Despite not finding global minima
+   - [X] However correlation between models is now worse
+   - [X] Validation issues with both models.
+     - [X] Logistic does not correct at all for competition
+     - [X] Competitoin model overcorrects
+   - [X] No repeats on this plate so cannot study COV
+   - [-] How can we determine which estimates to believe?
+     - [X] Do we lack validation data for this plate?
      - [ ] Could do with new experiments - FUTURE WORK
        - [ ] Softer validation - More representative of actual
          experiment (i.e. less drastic difference).
