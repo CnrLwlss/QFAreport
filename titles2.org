@@ -403,6 +403,11 @@ Details to add
      - [ ] Identify the limiting nutrient modecule
      - [ ] Design agar to limit a certain nutrient that is not
        metabolised.
+   - [ ] Our fits contain fairly high values of kn (fast diffusion)
+     may be inaccurate
+   - [ ] In an experiment to test the length-scale of the interaction
+     could inoculate a gradient of fast to slow growing cultures
+     across a plateand observe local differences in endpoint.
    - [ ] Diffusion equation model to study point where growth is
      limited by supply/diffusion of nutrients through agar.
    - [ ] May require finer grid.
