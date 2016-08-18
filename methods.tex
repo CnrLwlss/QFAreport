@@ -356,27 +356,27 @@ between variance in final cell amount and nutrient diffusion constant
 regression to parameterise the straight line. I then took the variance
 in final cell amount for real data and guessed \(k_{n}\) from the
 straight line.
-\\\\
-Don't think I need this figure. r->b and make titles bigger. Fitted
-\(k_{n}\) was much higher so I should probably resimulate over a
-bigger range. Only possibly to know in hindsight. I could also use the
-fitted parameters for this rather than drawing from a normal
-distribution.
-\\
-\graphicspath{{images/guessing/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/kn_guessing}
-  \captionof{figure}{\textbf{Guessing \(\bm{k_{n}}\) from the variance in
-      final cell amounts.} The competition model is simulated for a
-    16x24 format plate using two random sets of culture-level \(b\)
-    parameters drawn from different normal distributions. Each set of
-    \(b\) parameters is simulated with a range of \(k_n\) parameter
-    values. The variance in final cell density for all cultures is
-    plotted against \(k_n\) for each simulation. Lines are shown for
-    least squares fits to points from each set of \(b\) parameters.}
-  \label{fig:kn_guessing}
-\end{Figure}
+% \\\\
+% Don't think I need this figure. r->b and make titles bigger. Fitted
+% \(k_{n}\) was much higher so I should probably resimulate over a
+% bigger range. Only possibly to know in hindsight. I could also use the
+% fitted parameters for this rather than drawing from a normal
+% distribution.
+% \\
+% \graphicspath{{images/guessing/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/kn_guessing}
+%   \captionof{figure}{\textbf{Guessing \(\bm{k_{n}}\) from the variance in
+%       final cell amounts.} The competition model is simulated for a
+%     16x24 format plate using two random sets of culture-level \(b\)
+%     parameters drawn from different normal distributions. Each set of
+%     \(b\) parameters is simulated with a range of \(k_n\) parameter
+%     values. The variance in final cell density for all cultures is
+%     plotted against \(k_n\) for each simulation. Lines are shown for
+%     least squares fits to points from each set of \(b\) parameters.}
+%   \label{fig:kn_guessing}
+% \end{Figure}
 
 \subsection{\thesubsection~Development of a genetic algorithm}
 
