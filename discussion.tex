@@ -3,6 +3,57 @@
 \section{\thesection~Discussion}
 \label{sec:discussion}
 
+Fits of the competition model (see Figures~\ref{fig:comp_fit_plate}
+and \ref{fig:comp_fit_zone}) use less parameters and are qualitatively
+better than fits of either the logistic or generalised logistic model
+from the QFA R package \citep{Addinall2011,qfa2016}. Competition model
+ranking of growth estimates for repeats on P15 (see
+Figure~\ref{fig:comp_vs_log_ranking}) agree with the logistic model
+rankings from \citet{Addinall2011} for the fastest and slowest growers
+(and with rankings from independent spot tests (refs) CHECK
+THIS). However, there is much disagreement in the rank of other
+strains. (Could also do with the correlation plot for P15). The
+reliability of growth estimates was not improved using the competition
+model in for many strains on P15 (see
+Figure~\ref{fig:comp_b_log_r_cov}). This may be due to the effect of
+noise-dominated cell observations from slow growing cultures.
+Competition model estimates were less reliable for the 10 fastest
+growing strains but generally more reliable for the other 40 strains
+on the plate. The competition model shares information between all
+cultures through plate-level parameters. All cultures on a plate are
+affected by noise-dominated slow-growing cultures, not only through
+these plate-level parameters, but through uncertainty in neighbour
+interactions. In contrast, logistic model fits using the QFA R package
+are to individual cultures. This may be why the competition model is
+less reliable for the fastest growers and more reliable for
+slower-growers. The improvement could be entirely due to collective
+fitting rather than correcting for competition.
+
+
+
+
+Fits of the logistic model to slow growing cultures require heuristic
+checks to correct for confounding between \(r\) and \(K\). This
+appears to have worked fairly well because the logistic model ranking
+is Figure~\ref{fig:}. However \textit{est1\(\delta\)} and
+\textit{rad50\(\delta\)} are notable exceptions.
+
+
+(Could do with p-values on figure order of HIS3 is chaged; also bold
+HIS3 everywhere) However, the change in order between models is
+unlikely identify new genetic interactions because significance is
+determined by comparison to a neutral deletion also in this range.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% insert this somewhere %%%%%%%%%%
 //Noise affecting competition model//
 
@@ -79,9 +130,12 @@ one of these. It makes sense to investigate each likely effect in turn
 to determine its contribution and to start by validating the
 independent limit.
 
-In an experiment to test the length-scale of the interaction could
-inoculate a gradient of fast to slow growing cultures across a plate
-and observe local differences in endpoint.
+There is a characteristic timescale for the cessation of growth which
+I believe to be caused by an interaction between cultures.
+
+The an experiment to test the length-scale of the competition interaction
+could inoculate a gradient of fast to slow growing cultures across a
+plate and observe local differences in endpoint.
 
 
 Spots can grow after a long time. Must be nutrients remaining or an
@@ -144,20 +198,21 @@ and Korolev (2014) use the diffusion equation (with Neumann and
 Dirichlet boundary conditions) to simulate nutrient dependent growth
 of a single bacterial culture on a pertri dish in two-dimensions. They
 create a sink for nutrients from culture growth and equate the flux of
-nutrients through culture area with the rate of increase in
-culture size. They model culture area as varying and keep culture
-density constant. We may instead keep culture area constant, allow
-culture density to vary, and use our mass action kinetic model (eq
-no.) for the nutrient sink and culture growth. Simulating or fitting
-this model could help us learn more about diffusion in QFA
-experiments.  It is probably computationally unfeasible to use such a
-detailed model to fit a whole plate. However, if necessary, it may be
-possible to use a finer grid to increase compartmentalisation of
-nutrients to capture spatial heterogeneity in the distribution of
-nutrients around a culture and the effect of diffusion limited
-growth. This could extend the validity of the competition model over a
-larger range of variability in culture growth rates (for instance when
-some cultures are left empty and others are very fast growing.)
+nutrients through culture area with the rate of increase in culture
+size. They model culture area as varying and keep culture density
+constant. This model could be adapted for QFA by keeping culture area
+constant and allowing culture density to vary. A mass action kinetic
+model of reaction~(\ref{eq:reaction}) could be used for culture growth
+and the nutrient sink. Simulating or fitting this model could help us
+learn more about diffusion in QFA experiments. It is probably
+computationally unfeasible to use such a detailed model to fit a whole
+plate. However, if necessary, it may be possible to use a finer grid
+to increase compartmentalisation of nutrients to capture spatial
+heterogeneity in the distribution of nutrients around a culture and
+the effect of diffusion limited growth. This could extend the validity
+of the competition model over a larger range of variability in culture
+growth rates (for instance when some cultures are left empty and
+others are very fast growing.)
 
 It would also be useful to determine experimentally how nutrients are
 distributed throughout the agar at the stationary phase. Gaps could be
