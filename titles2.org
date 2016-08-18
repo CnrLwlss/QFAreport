@@ -350,6 +350,7 @@ Details to add
    - [ ] No heuristic checks needed for logistic when no noise dominated
    - [ ] Performance of competition model improved and similar to
      logistic model. Need correlation plot for P15 to compare.
+     - [ ] Despite not finding global minima
    - [ ] However correlation between models is now worse
    - [ ] Validation issues with both models.
      - [ ] Logistic does not correct at all for competition
@@ -386,12 +387,19 @@ Details to add
    go to the introduction or methods
  - [ ] Validate the independent limit
    - [ ] Assume no metabolism
-   - [ ] Mass action kinetics
+     - [ ] Could differ betweeen strains
+     - [ ] Could eat the limiting nutrient affecting reaction rate
+     - [ ] Hypothetically could account entirely for difference in
+       final cell density but would not cause observed interactions.
+   - [ ] Mass action kinetics (I have a ref for this if needed)
+     - [ ] more valid for liquid cultures
    - [ ] Liquid cultures (paper)
    - [ ] Isolated spots
-     - [ ] - Issues with diffusion limited and surface
-       (Fractal kinetics may be required (ref))
+     - [ ] Different dimensions - Issues with diffusion limited and
+       surface (Fractal kinetics may be required (ref))
      - [ ] Cultures not uniform (ring around outside)
+     - [ ] cultures grow differently between mediums but ok. Same
+       model different parameters.
    - [ ] Mass action may be more valid in liquid so could use the mass
      action logistic model and \(b\) as fitness estimate.
    - [ ] Dealing with fitness: Which is more like yeast's natural
@@ -400,21 +408,28 @@ Details to add
    - [ ] Differences between nutrient density.
      - [ ] Logistic model -> diffusion limited inside cultures?
      - [ ] I believe diffusion is limited in supply from agar
+       - [ ] that nutrients are not well approximated as being evenly
+         distributed withing the spatial scales that we model.
      - [ ] Identify the limiting nutrient modecule
      - [ ] Design agar to limit a certain nutrient that is not
        metabolised.
    - [ ] Our fits contain fairly high values of kn (fast diffusion)
      may be inaccurate
+   - [ ] Growth may stop before nutreints diffuse form neighbour.
+     - [ ] Can experimentally determine this also by growing new
+       cultures at distances after first culture reaches stationary
+       phase.
    - [ ] In an experiment to test the length-scale of the interaction
      could inoculate a gradient of fast to slow growing cultures
      across a plateand observe local differences in endpoint.
    - [ ] Diffusion equation model to study point where growth is
      limited by supply/diffusion of nutrients through agar.
+     - [ ] A diffusion equation model could capture the local
+       distribution of nutrients around a culture when the stationary
+       phase is reached
+     - [ ] I have a good section on Reo and Korolev that should go in
+       either the introduction or here.
    - [ ] May require finer grid.
-   - [ ] Growth may stop before nutreints diffuse form neighbour.
-     - [ ] Can experimentally determine this also by growing new
-       cultures at distances after first culture reaches stationary
-       phase.
    - [ ] Signal could instead/also be modelled
      - [ ] Ethanol or quorum sensing (ref)
    - [ ] Arrest. Sick cells may be arresting
