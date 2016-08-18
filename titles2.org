@@ -293,7 +293,58 @@ Details to add
 - Can also solve SBML in Copasi
 
 * TODO Results [0/0]
-* TODO Discussion [0/1]
+
+* TODO Discussion [0/0]
+** TODO Discuss results and place in context of other work [0/2]
+ - [ ] P15
+   - [ ] Fitness rankings broadly agree
+     - [ ] I could also do with correlation plots between model r as I
+       have for the stripes and filled fits to make a comparison
+   - [ ] COV
+     - [ ] COV higher in Competition model for fastest growers
+     - [ ] COV lower in competiton model for other cultures and slowest
+       growers (dominated by noise)
+     - [ ] Probably due to sharing of plate level parameters, but not
+       necessarily modelling of competition
+     - [ ] QFA R reqsuires hueristic checks for slowest growers due to
+       confounding between r and K.
+     - [ ] Still some issues - Encroachment not picked up by Colonyzer
+       of QFA R - est1 fitted with a much higher r and K
+     - [ ] Order corrected when converting to MDR creating confusion
+       about which fitness estimate to use.
+     - [ ] Could be corrected either experimentally, in Colonyzer, or in
+       QFA R using a heuristic check for late growers.
+     - [ ] Competition model rank of slow growers probably more trustworthy
+     - [ ] QFA R uses culture level C_0 (may or may not be more
+       accurate)
+   - [ ] HETEROGENEITY: Herrmann and Lawless:
+     - [ ] Due to cell heterogeneity we believe that C_0 varys between
+       cultures.
+     - [ ] Makes direct measurement of C_0 unreliable
+     - [ ] Allowing a culture level C_0 more accurate but preferable
+       if were similar
+     - [ ] Strategies:
+       - [ ] Experimental:
+	 - [ ] Inoculate cells taken from the exponential growth phase
+           to reduce heterogeneity
+	 - [ ] Use higher starting density to try to average out
+           heterogeneity
+       - [ ] Analysis:
+	 - [ ] Then: Fit C_0 collectively -> 1 parameter.
+	 - [ ] Or: Only small amount of nutrients used at start -> Can
+           allow cultures to grow for a short while before starting
+           observations and directly measuring C_0 -> Separate direct
+           measurements of all cultures.
+	 - [ ] Or: Fit separately without direct measurement -> 384
+           parameters
+ - [ ] Stripes and Filled
+   - [ ] Starts with higher inoculum so no noise dominated cultures.
+   - [ ] Performance of competition model seems better. Need
+     correlation plot for P15 to compare.
+
+** TODO Future Work [0/0]
+
+** TODO Improvements [0/1]
   - [ ] Edge cultures [0/2]
     - [ ] Discussion: An alternative model could have added nutrient
       containing volumes (essentially empty cultures) outside of edge
