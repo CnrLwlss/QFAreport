@@ -109,8 +109,40 @@ method. This offers the potential to use a hierarchical genetic
 algorithm where plate level parameter fixed inside gradient fits of
 culture level parameters. Alternatively, a pure hierarchical genetic
 algorithm may work (where \(b_{i}\) are also evolved). A hierarchical
-approach to modelling was used by \citet{Heydari2016} to fit the
-logistic model to
+Bayesian approach to fitting the competition model, similar to that
+used by \citet{Heydari2016} for the logistic model, could also return
+global minima but might be quite slow. However, current best fits,
+which are different local minima, have well correlated fitness
+rankings make similar overcorrections for competition. This suggests
+that there is a more fundamental issue with the model.
+
+It would be informative to validate the independent limit of the
+competition model to determine whether a mass action approximation is
+valid and whether it is correct to ignore the effect of metabolism on
+nutrients. (Remove? Rates of metabolism could also differ between
+strains and result in differences in final cell density.) I suggest to
+validate first in liquid cultures where the assumption of a well
+stirred mixture is more valid and then attempt to validate for single
+cultures grown on agar which more closely resembles QFA. Growth on a surface has a lower dimensionality and may
+be diffusion limited so a fractal kinetic model may be required
+
+
+
+(Culture grow differently between mediums (ref) but this just requires
+different parameters for each.)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

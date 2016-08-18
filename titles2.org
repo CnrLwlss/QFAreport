@@ -295,7 +295,7 @@ Details to add
 * TODO Results [0/0]
 
 * TODO Discussion [0/4]
-** TODO Discuss results and place in context of other work [0/4]
+** TODO Discuss results and place in context of other work [1/4]
  - [-] P15
    - [-] Qualitatively good
      - [X] Better than logistic or generalised
@@ -374,39 +374,39 @@ Details to add
        - [ ] Ideally leave edge cultures empty
        - [ ] Deliberately try to induce a change in rank by targeting
          different strains with different neighbours.
- - [ ] Issues with fitting
-   - [ ] Not finding global minina
-   - [ ] Could try genetic algorithm or Bayesian approach of
+ - [X] Issues with fitting
+   - [X] Not finding global minina
+   - [X] Could try genetic algorithm or Bayesian approach of
      Heyderi et al.
-     - [ ] Bayesian likely to be slower
-     - [ ] I have found that fixing plate level parameters allows
+     - [X] Bayesian likely to be slower
+     - [X] I have found that fixing plate level parameters allows
        global minima to be found so could possibly use hierarchical ga
        with candidates of plate level parameters. Could be faster.
-   - [ ] However, fitness rankings are similar for best fits and also
+   - [X] However, fitness rankings are similar for best fits and also
      make overestimates in validation so likely to be a more
      fundamental issue with the model.
- - [ ] Conclusion:
+ - [-] Conclusion:
    - [ ] Competitoin model appears to perform better than in p15
      (comparable?) and has different order to logistic (poor
      correlation)
    - [ ] Probably requires futher validation using cultures with
      inoculated higher density, repeats, and known biology. Perhaps a
      repeat of P15.
-   - [ ] In any case the competitoin model still needs improving
+   - [X] In any case the competitoin model still needs improving
 
 
 ** TODO Future Work [0/4]
  - [ ] Discussion about differences in final cells could potentially
    go to the introduction or methods
- - [ ] Validate the independent limit
+ - [-] Validate the independent limit
    - [ ] Assume no metabolism
      - [ ] Could differ betweeen strains
      - [ ] Could eat the limiting nutrient affecting reaction rate
      - [ ] Hypothetically could account entirely for difference in
        final cell density but would not cause observed interactions.
-   - [ ] Mass action kinetics (I have a ref for this if needed)
-     - [ ] more valid for liquid cultures
-   - [ ] Liquid cultures (paper)
+   - [X] Mass action kinetics (I have a ref for this if needed)
+     - [X] more valid for liquid cultures
+   - [X] Liquid cultures (paper)
    - [ ] Isolated spots
      - [ ] Different dimensions - Issues with diffusion limited and
        surface (Fractal kinetics may be required (ref))
