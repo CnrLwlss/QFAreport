@@ -14,38 +14,64 @@ rankings from \citet{Addinall2011} for the fastest and slowest growers
 THIS). However, there is much disagreement in the rank of other
 strains. (Could also do with the correlation plot for P15). The
 reliability of growth estimates was not improved using the competition
-model in for many strains on P15 (see
+model in for the fastest growing strains on P15 (see
 Figure~\ref{fig:comp_b_log_r_cov}). This may be due to the effect of
-noise-dominated cell observations from slow growing cultures.
-Competition model estimates were less reliable for the 10 fastest
-growing strains but generally more reliable for the other 40 strains
-on the plate. The competition model shares information between all
-cultures through plate-level parameters. All cultures on a plate are
-affected by noise-dominated slow-growing cultures, not only through
-these plate-level parameters, but through uncertainty in neighbour
-interactions. In contrast, logistic model fits using the QFA R package
-are to individual cultures. This may be why the competition model is
-less reliable for the fastest growers and more reliable for
-slower-growers. The improvement could be entirely due to collective
-fitting rather than correcting for competition.
+noise dominated cell observations from slow growing cultures on
+collectively fit parameters. The Logistic model, on the other hand,
+was fit to cultures individual. The greater reliability of estimates
+for slow growing cultures could be entirely due to collective fitting
+rather than to correcting for competition. (Could do with p-values on
+figure order of HIS3 is changed; also bold HIS3 everywhere)
+Unfortunately, the change in order for middle rankings is unlikely
+identify new genetic interactions because significance is determined
+by comparison to a neutral deletion also in this range. Similarly,
+although improved, uncertainty in estimates for the slowest growers is
+still much higher than for fastest meaning that the power to infer
+genetic reactions is not dramatically different.
+
+
+Fitting the logistic model to slower growing cultures requires
+heuristic checks to correct for confounding between \(r\) and
+\(K\). The QFA R implementation appears to have some issues. The
+strains \textit{est1\(\delta\)} and \textit{rad50\(\delta\)} have
+dramatic changes in ranking between logistic model \(r\) and \(MDR\)
+(see Figure~\ref{fig:comp_vs_log_ranking}. In independent validation
+using spot cultures (ref) these are very sick strains and I confirmed
+this in the raw QFA images by visual inspection. High \(r\) and low
+\(K\) have been fit to both strains. This is corrected for when
+converting to \(MDR\) which agrees with the competition model ranking
+and independent validation. For other cultures it appears that
+encroachment of fast growing cultures into neighbours is not being
+picked up by Colonyzer. \textit{mre11\(\delta\)} is a weak growing
+strain (ref validation) which was misclassified as healthy by the
+competition model but not the logistic model. One repeat contained
+unusual heterogeneity which may be natural or be the results of
+contamination. (Should take median value next time). It may be that
+the failure of these checks is leading to inaccurate estimates of
+fitness for many strains. Due to a lack of independent validation it
+is unclear which model to believe for the middle rankings.
+
+
+\textit{zrt3\(\delta\)} does not appear to be as fast growing as the
+logsitc model
+
+\textit{hap4\(\delta\)}
+%%
+
+Some reactions are not fit as being complete at the end of
+observations. Still in the exponential growth phase. Less nutrients in
+the agar so that the stationary phase could be reached before cultures
+started to merge.
 
 
 
 
-Fits of the logistic model to slow growing cultures require heuristic
-checks to correct for confounding between \(r\) and \(K\). This
-appears to have worked fairly well because the logistic model ranking
-is Figure~\ref{fig:}. However \textit{est1\(\delta\)} and
-\textit{rad50\(\delta\)} are notable exceptions.
 
-
-(Could do with p-values on figure order of HIS3 is chaged; also bold
-HIS3 everywhere) However, the change in order between models is
-unlikely identify new genetic interactions because significance is
-determined by comparison to a neutral deletion also in this range.
-
-
-
+% (Discussion: Recent work Herrmann and Lawless suggests
+% that direct measures of C t 0 may not be reliable due to het-
+% erogeneity between inoculated cells; many inoculated cells
+% don’t grow and only the fastest growing cells contribute sig-
+% nificantly to the final population.)
 
 
 
