@@ -399,34 +399,33 @@ Details to add
  - [ ] Discussion about differences in final cells could potentially
    go to the introduction or methods
  - [-] Validate the independent limit
-   - [ ] Assume no metabolism
-     - [ ] Could differ betweeen strains
+   - [-] Assume no metabolism
+     - [X] mentioned but not explained next 3 points in detail
+     - [ ] Could differ between strains
      - [ ] Could eat the limiting nutrient affecting reaction rate
      - [ ] Hypothetically could account entirely for difference in
        final cell density but would not cause observed interactions.
    - [X] Mass action kinetics (I have a ref for this if needed)
      - [X] more valid for liquid cultures
    - [X] Liquid cultures (paper)
-   - [ ] Isolated spots
-     - [ ] Different dimensions - Issues with diffusion limited and
+   - [-] Isolated spots
+     - [X] Different dimensions - Issues with diffusion limited and
        surface (Fractal kinetics may be required (ref))
      - [ ] Cultures not uniform (ring around outside)
-     - [ ] cultures grow differently between mediums but ok. Same
+     - [X] cultures grow differently between mediums but ok. Same
        model different parameters.
-   - [ ] Mass action may be more valid in liquid so could use the mass
-     action logistic model and \(b\) as fitness estimate.
    - [ ] Dealing with fitness: Which is more like yeast's natural
      environment? Don't think this matters. Will just reveal different
      interactions/processes/circuits.
-   - [ ] Differences between nutrient density.
+   - [-] Differences between nutrient density.
      - [ ] Logistic model -> diffusion limited inside cultures?
-     - [ ] I believe diffusion is limited in supply from agar
-       - [ ] that nutrients are not well approximated as being evenly
+     - [X] I believe diffusion is limited in supply from agar
+       - [X] that nutrients are not well approximated as being evenly
          distributed withing the spatial scales that we model.
      - [ ] Identify the limiting nutrient modecule
      - [ ] Design agar to limit a certain nutrient that is not
        metabolised.
-   - [ ] Our fits contain fairly high values of kn (fast diffusion)
+   - [X] Our fits contain fairly high values of kn (fast diffusion)
      may be inaccurate
    - [ ] Growth may stop before nutreints diffuse form neighbour.
      - [ ] Can experimentally determine this also by growing new
