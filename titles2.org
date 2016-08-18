@@ -296,25 +296,31 @@ Details to add
 
 * TODO Discussion [0/4]
 ** TODO Discuss results and place in context of other work [0/4]
- - [ ] P15
-   - [ ] Fitness rankings broadly agree
-     - [ ] I could also do with correlation plots between model r as I
+ - [-] P15
+   - [-] Qualitatively good
+     - [X] Better than logistic or generalised
+     - [ ] may be overfitting?
+   - [-] Fitness rankings
+     - [X] Agree for top and bottom ranks
+     - [X] Disagreement inbetween
+     - [X] I could also do with correlation plots between model r as I
        have for the stripes and filled fits to make a comparison
-     - [ ] Agree with validation spot data (add refs) - detail in the
+     - [X] Agree with validation spot data (add refs) - detail in the
        results.
      - [ ] (Wait untill COV to discuss differences in r and MDR of
        logistic QFA.)
-   - [ ] COV
-     - [ ] COV higher in Competition model for fastest growers
-     - [ ] COV lower in competiton model for other cultures and slowest
+   - [-] COV
+     - [X] COV higher in Competition model for fastest growers
+     - [X] COV lower in competiton model for other cultures and slowest
        growers (dominated by noise)
-     - [ ] Probably due to sharing of plate level parameters, but not
+     - [X] Probably due to sharing of plate level parameters, but not
        necessarily modelling of competition -> Must use data from
        noise dominated.
-     - [ ] QFA R reqsuires hueristic checks for slowest growers due to
+     - [X] QFA R reqsuires hueristic checks for slowest growers due to
        confounding between r and K.
-     - [ ] Still some issues - Encroachment not picked up by Colonyzer
-       of QFA R - est1 fitted with a much higher r and K
+     - [X] Still some issues - Some encroachment not dealt with picked
+       by Colonyzer of QFA R
+     - [X] - est1 fitted with a much higher r and and low K
      - [ ] Order corrected when converting to MDR creating confusion
        about which fitness estimate to use.
      - [ ] Could be corrected either experimentally, in Colonyzer, or in
@@ -345,6 +351,9 @@ Details to add
    - [ ] Conclusion: Failure to improve reliability over Addinall et
      al and slower, although probably better for slow groweres and I
      can suggest to trust MDR over r due to failing heuristic checks
+   - [ ] Less significance in fitnesses estimates for culture ranked
+     in the middle because comparison is to a neutral deletion so
+     change in order not so important
  - [ ] Stripes and Filled
    - [ ] Starts with higher inoculum so no noise-dominated cultures.
    - [ ] No heuristic checks needed for logistic when no noise dominated
@@ -358,10 +367,13 @@ Details to add
    - [ ] No repeats on this plate so cannot study COV
    - [ ] How can we determine which estimates to believe?
      - [ ] Do we lack validation data for this plate?
-     - [ ] Could do with new experiments
-       - [ ] Softer validation
+     - [ ] Could do with new experiments - FUTURE WORK
+       - [ ] Softer validation - More representative of actual
+         experiment (i.e. less drastic difference).
        - [ ] Repeat of P15 with higher C_0.
        - [ ] Ideally leave edge cultures empty
+       - [ ] Deliberately try to induce a change in rank by targeting
+         different strains with different neighbours.
  - [ ] Issues with fitting
    - [ ] Not finding global minina
    - [ ] Could try genetic algorithm or Bayesian approach of
@@ -374,15 +386,16 @@ Details to add
      make overestimates in validation so likely to be a more
      fundamental issue with the model.
  - [ ] Conclusion:
-   - [ ] Competitoin model appears to perform better and has
-     different order to logistic (poor correlation)
-   - [ ] Probablyrequires futher validation using cultures with
+   - [ ] Competitoin model appears to perform better than in p15
+     (comparable?) and has different order to logistic (poor
+     correlation)
+   - [ ] Probably requires futher validation using cultures with
      inoculated higher density, repeats, and known biology. Perhaps a
      repeat of P15.
    - [ ] In any case the competitoin model still needs improving
 
 
-** TODO Future Work [0/3]
+** TODO Future Work [0/4]
  - [ ] Discussion about differences in final cells could potentially
    go to the introduction or methods
  - [ ] Validate the independent limit
@@ -419,6 +432,7 @@ Details to add
      - [ ] Can experimentally determine this also by growing new
        cultures at distances after first culture reaches stationary
        phase.
+     - [ ] Still requires simulation to study over depth.
    - [ ] In an experiment to test the length-scale of the interaction
      could inoculate a gradient of fast to slow growing cultures
      across a plateand observe local differences in endpoint.
@@ -431,14 +445,19 @@ Details to add
        either the introduction or here.
    - [ ] May require finer grid.
    - [ ] Signal could instead/also be modelled
+     - [ ] Can be easily done using CANS by changing the raction
+       equations.
      - [ ] Ethanol or quorum sensing (ref)
    - [ ] Arrest. Sick cells may be arresting
    - [ ] Combination of effects hard to fit without extra observations
+     - [ ] May have to come up with ways to calibrate effects in
+       isolation.
  - [ ] Limitation on computation time for fitting many plates in
    high-throughput restricts possible modelling apporaches.
    - [ ] How many plates?
    - [ ] How long per fit at the moment?
-
+ - [ ] Which fitness estimates to use. Kill the generalised logistic
+   model.
 
 
 ** TODO Improvements to current code / workflow [0/4]
