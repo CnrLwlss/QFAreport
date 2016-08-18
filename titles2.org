@@ -294,18 +294,23 @@ Details to add
 
 * TODO Results [0/0]
 
-* TODO Discussion [0/0]
-** TODO Discuss results and place in context of other work [0/2]
+* TODO Discussion [0/4]
+** TODO Discuss results and place in context of other work [0/4]
  - [ ] P15
    - [ ] Fitness rankings broadly agree
      - [ ] I could also do with correlation plots between model r as I
        have for the stripes and filled fits to make a comparison
+     - [ ] Agree with validation spot data (add refs) - detail in the
+       results.
+     - [ ] (Wait untill COV to discuss differences in r and MDR of
+       logistic QFA.)
    - [ ] COV
      - [ ] COV higher in Competition model for fastest growers
      - [ ] COV lower in competiton model for other cultures and slowest
        growers (dominated by noise)
      - [ ] Probably due to sharing of plate level parameters, but not
-       necessarily modelling of competition
+       necessarily modelling of competition -> Must use data from
+       noise dominated.
      - [ ] QFA R reqsuires hueristic checks for slowest growers due to
        confounding between r and K.
      - [ ] Still some issues - Encroachment not picked up by Colonyzer
@@ -337,14 +342,88 @@ Details to add
            measurements of all cultures.
 	 - [ ] Or: Fit separately without direct measurement -> 384
            parameters
+   - [ ] Conclusion: Failure to improve reliability over Addinall et
+     al and slower, although probably better for slow groweres and I
+     can suggest to trust MDR over r due to failing heuristic checks
  - [ ] Stripes and Filled
-   - [ ] Starts with higher inoculum so no noise dominated cultures.
-   - [ ] Performance of competition model seems better. Need
-     correlation plot for P15 to compare.
+   - [ ] Starts with higher inoculum so no noise-dominated cultures.
+   - [ ] No heuristic checks needed for logistic when no noise dominated
+   - [ ] Performance of competition model improved and similar to
+     logistic model. Need correlation plot for P15 to compare.
+   - [ ] However correlation between models is now worse
+   - [ ] Validation issues with both models.
+     - [ ] Logistic does not correct at all for competition
+     - [ ] Competitoin model overcorrects
+   - [ ] No repeats on this plate so cannot study COV
+   - [ ] How can we determine which estimates to believe?
+     - [ ] Do we lack validation data for this plate?
+     - [ ] Could do with new experiments
+       - [ ] Softer validation
+       - [ ] Repeat of P15 with higher C_0.
+       - [ ] Ideally leave edge cultures empty
+ - [ ] Issues with fitting
+   - [ ] Not finding global minina
+   - [ ] Could try genetic algorithm or Bayesian approach of
+     Heyderi et al.
+     - [ ] Bayesian likely to be slower
+     - [ ] I have found that fixing plate level parameters allows
+       global minima to be found so could possibly use hierarchical ga
+       with candidates of plate level parameters. Could be faster.
+   - [ ] However, fitness rankings are similar for best fits and also
+     make overestimates in validation so likely to be a more
+     fundamental issue with the model.
+ - [ ] Conclusion:
+   - [ ] Competitoin model appears to perform better and has
+     different order to logistic (poor correlation)
+   - [ ] Probablyrequires futher validation using cultures with
+     inoculated higher density, repeats, and known biology. Perhaps a
+     repeat of P15.
+   - [ ] In any case the competitoin model still needs improving
 
-** TODO Future Work [0/0]
 
-** TODO Improvements [0/1]
+** TODO Future Work [0/3]
+ - [ ] Discussion about differences in final cells could potentially
+   go to the introduction or methods
+ - [ ] Validate the independent limit
+   - [ ] Assume no metabolism
+   - [ ] Mass action kinetics
+   - [ ] Liquid cultures (paper)
+   - [ ] Isolated spots
+     - [ ] - Issues with diffusion limited and surface
+       (Fractal kinetics may be required (ref))
+     - [ ] Cultures not uniform (ring around outside)
+   - [ ] Mass action may be more valid in liquid so could use the mass
+     action logistic model and \(b\) as fitness estimate.
+   - [ ] Dealing with fitness: Which is more like yeast's natural
+     environment? Don't think this matters. Will just reveal different
+     interactions/processes/circuits.
+   - [ ] Differences between nutrient density.
+     - [ ] Logistic model -> diffusion limited inside cultures?
+     - [ ] I believe diffusion is limited in supply from agar
+     - [ ] Identify the limiting nutrient modecule
+     - [ ] Design agar to limit a certain nutrient that is not
+       metabolised.
+   - [ ] Diffusion equation model to study point where growth is
+     limited by supply/diffusion of nutrients through agar.
+   - [ ] May require finer grid.
+   - [ ] Growth may stop before nutreints diffuse form neighbour.
+     - [ ] Can experimentally determine this also by growing new
+       cultures at distances after first culture reaches stationary
+       phase.
+   - [ ] Signal could instead/also be modelled
+     - [ ] Ethanol or quorum sensing (ref)
+   - [ ] Arrest. Sick cells may be arresting
+   - [ ] Combination of effects hard to fit without extra observations
+ - [ ] Limitation on computation time for fitting many plates in
+   high-throughput restricts possible modelling apporaches.
+   - [ ] How many plates?
+   - [ ] How long per fit at the moment?
+
+
+
+** TODO Improvements to current code / workflow [0/4]
+  - [ ] loop through b_guess in Imag neigh guessing
+  - [ ] Alternatively could use logistic model as init guess
   - [ ] Edge cultures [0/2]
     - [ ] Discussion: An alternative model could have added nutrient
       containing volumes (essentially empty cultures) outside of edge
@@ -356,7 +435,8 @@ Details to add
     - [ ] Discussion: When fitting the competition model, it would be
       better if these cultures were left empty to remove noise in cell
       density observations.
-
+  - [ ] To make development easier use smaller isolated zones inside a
+    full plate so that boudaries are easier to treat.
 * TODO Conclusion [0/0]
 * TODO Acknowlegements [0/6]
   # How do I go about acknowledge people involved in the work? / What do I need to do?
