@@ -173,53 +173,50 @@ have to develop ways to calibrate effects in isolation and use this
 information when fitting to high-throughput data. We only have
 observations for cells.
 
-
-\subsection{\thesubsection~Improvements and recommendations}
+\subsection{\thesubsection~Improvements and other recommendations}
 
 It is quicker to fit to small zones of a plate but, as these have a
 larger proportion of edge cultures, boundary conditions become
 important. Growing smaller arrays in isolation would help to speed up
-the development process. Edge cultures must be dealt included in fit
-the competition model and this may have contributed to significantly
-to error. When fitting the competition model noise might be better
-dealt with by leaving edge cultures empty. A different treatment of
-boundaries could also be used by modelling empty cultures outside
-edges rather than the approach in Section~(\ref{sec:fitting_comp}).
-
-
-
-The design of the stripes validation experiment could be
-improved. Rather than filling gaps with cultures not present on the
-stripes plate, and for which we have no \(b\) estimates, we could fill
-with repeats of the cultures already present on the stripes
-plate. (I'm not sure it makes any difference actually whether we
-validate from one direction to the other). It would also have been
-helpful to have repeats to study differences in COV between the
-competition and independent models.
-
-In order to make sure that competition effects were present in data,
-we made a dramatic change between the stripes and filled plates. We
-could have first validated the model against a smaller change, by
-varying between slower and faster growing cultures rather that none
-and very strong growing cultures. If the model works well between such
-plates it may work well for the majority of QFA experiments which
-typically have smaller differences between cultures than the data we
-study. If we did want to test the in an extreme case we could have
-inoculated fast growing cultures next certain strains and not others
-to try to induce a change in ranking for which the competition model
-might compensate better than the logistic model.
-
-
-
-
+the development process.
+\\\\
 Each culture is surrounded by a different group of neighbours. The
 imaginary neighbour guess could be improved by using a range of
 \(b_{f}\) values to fit each culture and selecting \(b\) from the best
 fit. It would also be good to compare with guesses from the logistic
 model. I suspect that a gradient method will still fail to find a
 global minimum.
-
-
+\\\\
+Edge cultures must be included when fitting the competition model and
+this may have contributed significantly to error. When fitting the
+competition model noise might be better dealt with by leaving edge
+cultures empty. A different treatment of boundaries could also be used
+by modelling empty cultures outside edges rather than the approach in
+Section~(\ref{sec:fitting_comp}).
+% The design of the stripes validation experiment could be
+% improved. Rather than filling gaps with cultures not present on the
+% stripes plate, and for which we have no \(b\) estimates, we could fill
+% with repeats of the cultures already present on the stripes
+% plate. (I'm not sure it makes any difference actually whether we
+% validate from one direction to the other). It would also have been
+% helpful to have repeats to study differences in COV between the
+% competition and independent models.
+\\\\
+In order to make sure that competition effects were present in data,
+we made a dramatic change between the stripes and filled plates. We
+could have first validated the model against a smaller change, by
+varying between slower and faster growing cultures rather that none
+and very strong growing cultures. If the model works well between such
+plates, it may work well for the majority of QFA experiments which
+typically have smaller differences between cultures than the data we
+studied. If we did want to test the in an extreme case we could have
+inoculated fast growing cultures next certain strains and not others
+to try to induce a change in ranking for which the competition model
+might compensate better than the logistic model.
+\\\\
+It is desirable to have a mechanistic model including nutrient
+dependent growth so that we can use a plate level \(N_{t_{0}}\)
+eliminate the dependence on heuristic checks.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
