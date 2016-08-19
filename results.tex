@@ -34,34 +34,17 @@
 
 \subsection{\thesubsection~Competition Model Fitting to P15}
 
-% Make landscape and take a whole page.
-\end{multicols}
-\begin{landscape}
-\graphicspath{{images/comp_fit/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
-  \captionof{figure}{\textbf{Fit of the competition model to a QFA
-      plate.} Data is for a 16x24 format plate (P15) with a background
-    mutation \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate
-    contains 6 repeats of 50 genetic strains randomly arranged across
-    the internal cultures. Repeats of a single strain are used for all
-    edge cultures (removed in the plot). Model output for state
-    variable, cell population size (blue curve), is fit to observed
-    data (black crosses). Model predictions for unobserved variable
-    (nutrient amount) are also plotted (yellow).}
-  \label{fig:comp_fit_plate}
-\end{Figure}
-\end{landscape}
-\begin{multicols}{2}
+Describe experiment
 
 \end{multicols}
 \graphicspath{{images/comp_fit/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/P15_guess_and_fit_r5_c18}
-  \captionof{figure}{\textbf{A 3x3 zone from Figure~\ref{fig:comp_fit_plate}
-      with top-left coordinate (5, 18)}.}
+  \captionof{figure}{\textbf{A zone of a fit of the competition model
+      to P15 and initial guess}. The guess was made using the
+    imaginary neighbour model fit to individual cultures. Top-left
+    coordinates from Figure~\ref{fig:comp_fit_plate} (5, 18).}
   \label{fig:comp_fit_zone}
 \end{Figure}
 \begin{multicols}{2}
@@ -83,6 +66,28 @@
   Some text Some text Some text Some text Some text Some text Some
   text Some text Some text Some text Some text Some text Some text
   Some text Some text Some text Some text.
+
+
+% Make landscape and take a whole page.
+\end{multicols}
+\begin{landscape}
+\graphicspath{{images/comp_fit/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
+  \captionof{figure}{\textbf{Fit of the competition model to a QFA
+      plate.} Data is for a 16x24 format plate (P15) with a background
+    mutation \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate
+    contains 6 repeats of 50 genetic strains randomly arranged across
+    the internal cultures. Repeats of a single strain are used for all
+    edge cultures (removed in the plot). Model output for state
+    variable, cell population size (blue curve), is fit to observed
+    data (black crosses). Model predictions for unobserved variable
+    (nutrient amount) are also plotted (yellow).}
+  \label{fig:comp_fit_plate}
+\end{Figure}
+\end{landscape}
+\begin{multicols}{2}
 
 
 \subsection{\thesubsection~Evaluating the treatment of boundaries}
