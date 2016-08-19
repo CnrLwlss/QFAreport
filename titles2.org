@@ -459,9 +459,9 @@ Details to add
    model.
 
 
-** TODO Improvements to current code / workflow [1/4]
-  - [ ] loop through b_guess in Imag neigh guessing
-  - [ ] Alternatively could use logistic model as init guess
+** TODO Improvements to current code / workflow [3/4]
+  - [X] loop through b_guess in Imag neigh guessing
+  - [X] Alternatively could use logistic model as init guess
   - [-] Edge cultures [1/2]
     - [ ] Discussion: An alternative model could have added nutrient
       containing volumes (essentially empty cultures) outside of edge
