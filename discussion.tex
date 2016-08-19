@@ -124,29 +124,95 @@ cultures where the assumption of a well stirred mixture is more valid
 and then attempt to validate for single cultures grown on agar which
 more closely resembles QFA. Growth on a surface has a lower
 dimensionality and may be diffusion limited so a fractal kinetics
-model may be required \citep{Kopelman1988,savageau1995}.
+model may be required \citep{Kopelman1988,savageau1995}. Nutrients
+(sugars, nitrogen, etc.) in QFA agars are of a standard composition,
+designed to reduce the excess of any single nutrient (check QFA paper
+and cite). It would be helpful to know and control the identity of the
+limiting nutrient using a different formula of agar. With nitrogen,
+rather than sugar, as the limiting nutrient we are less likely to have
+to model metabolism.
 
 
 Estimates of the nutrient diffusion constant \(k_{n}\) were fairly
-high such that nutrients diffused fairly readily between neighbours
-and nutrients were nearly depleted when growth stopped. It may be that
-nutrients are not well approximated as being evenly distributed
-withing the spatial scales that modelling using a finer grid would
-correct this. The distribution of nutrients at the end of growth could
-be tested experimentally by inoculating new cultures at different
-distances from mature cultures on the same plate.
+high such that nutrients diffused readily between neighbours and were
+nearly depleted when growth stopped. It may be that nutrients are not
+well approximated as being evenly distributed withing the spatial
+scales that we model and that modelling using a finer grid would
+correct this. The result would be that growth becomes limited by the
+diffusion of nutrients through agar before all nutrients are
+depleted. This could help to reduce the overcorrection seen in
+Figure~\ref{fig:stripes_validation}. A more detailed model could help
+us learn more about diffusion in QFA experiments. \citet{Reo2014} use
+the diffusion equation (with Neumann and Dirichlet boundary
+conditions) to simulate nutrient dependent growth of a single
+bacterial culture on a pertri dish in two-dimensions. They create a
+sink for nutrients from culture growth and equate the flux of
+nutrients through culture area with the rate of increase in culture
+size. They model culture area as varying and keep culture density
+constant. This model could be adapted for QFA by keeping culture area
+constant and allowing culture density to vary. A mass action kinetic
+model of reaction~(\ref{eq:reaction}) could be used for culture growth
+and the nutrient sink. It is computationally unfeasible to use such a
+detailed model to fit a whole plate.
+
+If we find that competition for nutrients is not responsible for the
+interaction between neighbours, for instance if growth becomes limited
+by diffusion of nutrients in the agar before nutrients from neighbours
+can be accessed, then we could instead model signalling by ethanol
+poisoning. This may be modelled similarly to how we are already
+modelling nutrient diffusion and much of the code could be reused.
+(Quorum sensing via the molecule amonia could also be having an effect
+(ref)).
+
+If there is any combination of competition, metabolism, signalling, or
+arrest contributing significantly to differences in the growth of
+cultures and the interaction between neighbours then it will be
+difficult to separate them when fitting a model to data. We may have
+to develop ways to calibrate effects in isolation and use this
+information when fitting to high-throughput data.
 
 
-% Softer validation
 % Repeat of P15 but better.
 
 
+It is quicker to fit to small zones of a plate but, as these have a
+larger proportion of edge cultures, boundary conditions become
+important. Growing smaller arrays in isolation would help to speed up
+the development process. When fitting the competition model noise
+might be better dealt with by leaving edge cultures empty.
+
+
+
+The design of the stripes validation experiment could be
+improved. Rather than filling gaps with cultures not present on the
+stripes plate, and for which we have no \(b\) estimates, we could fill
+with repeats of the cultures already present on the stripes
+plate. (I'm not sure it makes any difference actually whether we
+validate from one direction to the other). It would also have been
+helpful to have repeats to study differences in COV between the
+competition and independent models.
+
+In order to make sure that competition effects were present in data,
+we made a dramatic change between the stripes and filled plates. We
+could have first validated the model against a smaller change, by
+varying between slower and faster growing cultures rather that none
+and very strong growing cultures. If the model works well between such
+plates it may work well for the majority of QFA experiments which
+typically have smaller differences between cultures than the data we
+study. If we did want to test the in an extreme case we could have
+inoculated fast growing cultures next certain strains and not others
+to try to induce a change in ranking for which the competition model
+might compensate better than the logistic model.
 
 
 
 
-
-
+Each culture is surrounded by a different group of neighbours. The
+imaginary neighbour guess could be improved by using a range of
+\(b_{f}\) values to fit each culture and selecting \(b\) from the best
+fit. It would also be good to compare with guesses from the logistic
+model. I suspect that a gradient method will still fail to find a
+global minimum.
 
 
 

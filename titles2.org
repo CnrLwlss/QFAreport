@@ -427,29 +427,29 @@ Details to add
        metabolised.
    - [X] Our fits contain fairly high values of kn (fast diffusion)
      may be inaccurate
-   - [ ] Growth may stop before nutreints diffuse form neighbour.
-     - [ ] Can experimentally determine this also by growing new
+   - [X] Growth may stop before nutreints diffuse form neighbour.
+     - [X] Can experimentally determine this also by growing new
        cultures at distances after first culture reaches stationary
        phase.
-     - [ ] Still requires simulation to study over depth.
+     - [X] Still requires simulation to study over depth.
    - [ ] In an experiment to test the length-scale of the interaction
      could inoculate a gradient of fast to slow growing cultures
      across a plateand observe local differences in endpoint.
-   - [ ] Diffusion equation model to study point where growth is
+   - [X] Diffusion equation model to study point where growth is
      limited by supply/diffusion of nutrients through agar.
-     - [ ] A diffusion equation model could capture the local
+     - [X] A diffusion equation model could capture the local
        distribution of nutrients around a culture when the stationary
        phase is reached
-     - [ ] I have a good section on Reo and Korolev that should go in
+     - [X] I have a good section on Reo and Korolev that should go in
        either the introduction or here.
-   - [ ] May require finer grid.
-   - [ ] Signal could instead/also be modelled
-     - [ ] Can be easily done using CANS by changing the raction
+   - [X] May require finer grid.
+   - [X] Signal could instead/also be modelled
+     - [X] Can be easily done using CANS by changing the raction
        equations.
-     - [ ] Ethanol or quorum sensing (ref)
+     - [X] Ethanol or quorum sensing (ref)
    - [ ] Arrest. Sick cells may be arresting
-   - [ ] Combination of effects hard to fit without extra observations
-     - [ ] May have to come up with ways to calibrate effects in
+   - [X] Combination of effects hard to fit without extra observations
+     - [X] May have to come up with ways to calibrate effects in
        isolation.
  - [ ] Limitation on computation time for fitting many plates in
    high-throughput restricts possible modelling apporaches.
@@ -459,10 +459,10 @@ Details to add
    model.
 
 
-** TODO Improvements to current code / workflow [0/4]
+** TODO Improvements to current code / workflow [1/4]
   - [ ] loop through b_guess in Imag neigh guessing
   - [ ] Alternatively could use logistic model as init guess
-  - [ ] Edge cultures [0/2]
+  - [-] Edge cultures [1/2]
     - [ ] Discussion: An alternative model could have added nutrient
       containing volumes (essentially empty cultures) outside of edge
       cultures with an extra parameter for their size and included
@@ -470,10 +470,10 @@ Details to add
       this is just a correction and cell density observations from these
       cultures are very noisy, and these cultures are dominated by
       noise.
-    - [ ] Discussion: When fitting the competition model, it would be
+    - [X] Discussion: When fitting the competition model, it would be
       better if these cultures were left empty to remove noise in cell
       density observations.
-  - [ ] To make development easier use smaller isolated zones inside a
+  - [X] To make development easier use smaller isolated zones inside a
     full plate so that boudaries are easier to treat.
 * TODO Conclusion [0/0]
 * TODO Acknowlegements [0/6]
