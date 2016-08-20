@@ -499,3 +499,16 @@ Details to add
  - [ ] Could put arrows, boxes, numbers, or letters on stripes and
    filled rows
  - [ ] Decide whether I like having the Reo model in the introduction.
+ - [ ] Change kn-k and C_{t_{0}}->C(0), etc. in all figures
+
+* TODO Methods ammendments [1/6]
+ - [-] Find solving and fitting time
+   - [ ] Comp model
+   - [ ] Logistic model (Individually (minutes) and collectively (?))
+   - [X] Imag neigh guess - fitting
+ - [ ] Need to explain plates earlier and edit notes and references in
+   the text.
+ - [ ] Schematic of initial guess
+ - [ ] Derive conversion equations: Only if room.
+ - [X] Remove kn from corerction plot
+ - [ ] Draw all correction cultures on one plot. Maybe. Probably not.
