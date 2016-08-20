@@ -133,7 +133,7 @@ slow-growing cultures are dominated by noise. I did not have time to
 implement these checks for the mass action logistic model, so I
 instead fit the standard logistic model using the QFA R package. This
 is not equivalent because QFA R does not fit data collectively and
-instead uses a culture level \(C_{0}\). However, this is a useful
+instead uses a culture level \(C(0)\). However, this is a useful
 comparison with a method of analysis currently used in QFA (see
 e.g. \citet{Addinall2011}). I do not expect much disagreement of
 fitness estimates with the mass action logistic model once heuristic
@@ -144,30 +144,24 @@ comparison between the competition and logistic models in sections
 
 \subsubsection{\thesubsubsection~Data visualisation}
 
-(Do I really need this?) I created plotting functions to visualise
-fits and simulations of QFA timecourses and to compare the ranking of
-fitness estimates using the Python package matplotlib.
+I created plotting functions in CANS to visualise fits and simulations
+of QFA timecourses and to compare the ranking of fitness estimates
+using the Python package matplotlib.
 
 \subsection{\thesubsection~Parameter conversion}
 \label{sec:parameter_conversion}
 
-(Will move to the discussion: The identity of the nutrient molecule is
-unknown and it is not clear whether metabolism of the nutrient
-molecule will have a significant effect. If necessary a
-metabolism reaction could also be modelled.)\\
-
 When \(k\) is set to zero, the competition model
 (\ref{eq:competition_model}) reduces to the mass action logistic model
 which has the same sigmoidal solution as the standard logistic
-model. In this limit, it is possible to equate cells of both models
-and convert parameters using (\ref{eq:conversion}) (see Conor's blog
-for a derivation).
+model. In this limit, it is possible to equate C species of both
+models and convert parameters using,
 % Derivation or link to blog.
 \begin{subequations}
   \label{eq:conversion}
   \begin{align}
-    &r_{i} = b_{i}(C(0) + N(0))\\
-    &K = (C(0) + N(0))
+    &r_{i} = b_{i}(C(0) + N(0)),\\
+    &K = C(0) + N(0).
     % &r = b(C(0) + N(0))\\
     % &K = (C(0) + N(0))
   \end{align}
@@ -177,12 +171,10 @@ The reaction equation of the competition model (\ref{eq:reaction})
 assumes that all nutrients are converted to cells. This implies that
 all cultures starting with the same amount of nutrients reach the same
 final amount of cells. Therefore, to fit the mass action logistic
-model to QFA data, it is necessary to allow \(N(0)\) to vary for
-each culture which is not physical and, in which case, the mass action
-logistic model has the same number of parameters (769) as the standard
-logistic model. (Probably repetition: When I fit the competition model
-I collectively fit the timecourses of all cultures on a plate using a
-plate level \(N(0)\) and 387 parameters.)
+model to QFA data, it is necessary to allow \(N(0)\) to vary for each
+culture which is not physically realistic and, in which case, the mass
+action logistic model has the same number of parameters (769) as the
+standard logistic model.
 %
 Figure~\ref{fig:correction} shows fits of a single culture on a larger
 16x24 format plate using both models. This culture grew faster than
@@ -194,7 +186,7 @@ where \(N(0)\) is estimated as being approximately equal to the
 final cell amount, or carrying capacity \(K\).
 %
 Figure~\ref{fig:correction}b shows the competition model fit with a
-plate level \(N(0)\) and \(kn > 0\). Re-simulating with \(k\)
+plate level \(N(0)\) and \(k > 0\). Re-simulating with \(k\)
 set to zero gives the dashed mass action logistic model curves which
 are corrected for competition. We can therefore obtain the corrected
 logistic model \(r_{i}\) and \(K_{i}\) of these curves by converting
@@ -237,36 +229,27 @@ plates may have different \(C(0)\) and \(N(0)\).
     higher amount of starting nutrients for this culture and a
     different amount for each neighbour. The correction to the
     competition model simulates how growth would have appeared without
-    competition and allows us to return parameters \(r\) and \(K\) of
-    the logistic model.}
+    competition and, for the culture shown,
+    gives~\(r_{corrected} > r_{logistic}\)~and~\(K_{corrected} < K_{logistic}\).}
   \label{fig:correction}
 \end{Figure}
-
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "report"
-%%% End:
 
 \subsection{\thesubsection~Determining initial parameters}
 \label{sec:initial_guess}
 
-Achieving good fits of the competition model requires making a good
-initial guess. To fit the competition model to small simulated zones I
-could simply use many random parameter guesses. However, for fitting a
-full plate with 387 parameters the chance of any random guess being
-close to the ``true'' values is much smaller and more sophisticated
-guessing methods are required. I did not understand the disagreement
-between mass action logistic and competition model estimates of \(b\)
-which is only reduced when parameters are converted to logistic model
-\(r\) and \(K\) (see Section~\ref{sec:correction}). Without this
-conversion fitness rankings, using \(b\), are inverted between the two
-models. I instead assumed that there was a more fundamental
-disagreement between models and developed the ``Imaginary Neighbour
-Model'' for guessing competition model \(b\). This allowed good fits
-to be made. I did not have time to compare imaginary neighbour
-guessing with logistic model guessing so it is unclear which method is
-better.
+Fitting the competition model to a standard 384-format QFA plate is a
+formidable optimisation problem involving 384 timecourses and 387
+parameters. Achieving good fits therefore requires making a good
+initial guess. To fit small simulated zones I could simply use many
+random parameter guesses. However, for a full plate the chance of any
+random guess being close to the ``true'' values diminishes and more
+sophisticated guessing methods are required. I developed the
+\textit{Imaginary Neighbour Model} (Figure~(ref)) for guessing
+competition model \(b\) and this allowed good fits of to be made. As
+the project progressed, it became clear how to convert between fast
+logistic parameter estimates and competition model parameters (see
+Section~\ref{sec:parameter_conversion}) and this could be a valid
+alternative.
 
 \subsubsection{\thesubsubsection~Guessing initial amounts}
 \label{sec:guessing_amounts}
@@ -275,30 +258,30 @@ Recall from the competition model reaction equations
 (\ref{eq:reaction} and \ref{eq:diffusion_reaction}) that nutrients can
 only diffuse or be converted to cells. Thus, assuming that reactions
 are nearly complete at the end of cell observations and that
-\(C(0) \ll N(0)\), the total initial amount of nutrients,
+\(C(0) \ll C(\infty)\), the total initial amount of nutrients,
 \(N_{Tot}\), can be estimated using,
 \begin{equation}
   \label{eq:N_Tot}
-  N_{Tot} = n_{I}N^{I}(0) + n_{E}N^{E}(0) \approx C_{F},
+  N_{Tot} = n_{I}N_{I}(0) + n_{E}N_{E}(0) \approx C_{F},
 \end{equation}
 where \(C_{F}\) is the total of final cell measurements, \(n_{I}\) and
 \(n_{E}\) are the numbers of internal and edge cultures, and
-\(N^{I}(0)\) and \(N^{E}(0)\) are initial nutrient amounts
+\(N_{I}(0)\) and \(N_{E}(0)\) are initial nutrient amounts
 for internal and edge cultures (see
 Section~\ref{sec:fitting_comp}). Using (\ref{eq:N_Tot}) and an estimate
 for the ratio of area associated with edge cultures to area associated
 with internal cultures,
-\(A_{r} = A^{E} / A^{I} = N^{E}(0) / N^{I}(0)\), I made
-guesses of \(N^{I}(0)\) and \(N^{E}(0)\) using,
+\(A_{r} = A_{E} / A_{I} = N_{E}(0) / N_{I}(0)\), I made
+guesses of \(N_{I}(0)\) and \(N_{E}(0)\) using,
 %
 \begin{equation}
   \label{eq:N_0_guesses}
   \begin{aligned}
-    % &A_{r} = A_{E} / A_{I} = N^{E}(0) / N^{I}(0)\\
-    % &N_{Tot} = n_{I}N^{I}(0) + n_{E}N^{E}(0) \approx C_{F}\\
-    &N^{I}(0) = N_{Tot} / (n_{I} + n_{E}A_{r})\\
-    &N^{E}(0) = N_{Tot} / (n_{I}/A_{r} + n_{E}).
-    % &N^{E}(0) = (N_{Tot} - n_{I}N^{I}(0)) / n_{E}.
+    % &A_{r} = A_{E} / A_{I} = N_{E}(0) / N_{I}(0)\\
+    % &N_{Tot} = n_{I}N_{I}(0) + n_{E}N_{E}(0) \approx C_{F}\\
+    &N_{I}(0) = N_{Tot} / (n_{I} + n_{E}A_{r})\\
+    &N_{E}(0) = N_{Tot} / (n_{I}/A_{r} + n_{E}).
+    % &N_{E}(0) = (N_{Tot} - n_{I}N_{I}(0)) / n_{E}.
   \end{aligned}
 \end{equation}
 %
@@ -307,39 +290,40 @@ nutrient guess for the one initial nutrient parameter model. I used
 \(A_{r} = 1.4\).
 \\
 In QFA using dilute cultures, \(C(0)\) falls below the level of
-detection.  I did not estimate initial guesses of \(C(0)\) and
-instead ran multiple fits over a range of \(C(0)\) values in
-logspace. What was the range?
-% \\
-% (Discussion: Recent work Herrmann and Lawless suggests that direct
-% measures of \(C(0)\) may not be reliable due to heterogeneity
-% between inoculated cells; many inoculated cells don't grow and only
-% the fastest growing cells contribute significantly to the final
-% population.)
+detection. I did not estimate initial guesses of \(C(0)\) and instead
+ran multiple fits over a range of \(C(0)\) values in logspace chosen
+to encompass uncertainty in \(C(0)\) for the given experiment.
 
-\subsubsection{\boldmath \thesubsubsection~Guessing  \(b\) \unboldmath}
+% ; for P15 \(10^{-5}\) to \(10^{-3}\) times the
+% average final cell amount, for the Stripes and Filled plates
+% \(10^{-7}\) to \(10^{-1}\) times average final cell amount.
+
+
+\subsubsection{\boldmath \thesubsubsection~Guessing \(b\) \unboldmath}
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%
 
 To guess competition model \(b_{i}\) I used the imaginary neighbour
-model to quickly fit individual cultures. The model is based on the
-reaction and rate equations of the competition
+model (Figure~(ref)) to quickly fit individual cultures. The model is
+based on the reaction and rate equations of the competition
 model~(\ref{eq:reaction}--\ref{eq:diffusion_reaction}) but tries to
 replicate the diffusion of nutrients into and out of a culture using
 imaginary fast and slow growing neighbours with different nutrient
-diffusion constants \(k_{f}\) and \(k_{s}\). The growth constants
-of the fast and slow growing cultures are \(b_{f}\) and \(b_{s}\). A
-schematic of the model is drawn in Figure~(ref). To fit the model to
-QFA data, I fixed \(C(0)\) and \(N^{I}(0)\) for all cultures
-by the initial guesses (see Section~\ref{sec:guessing_amounts}); I
-fixed \(b_{f}\) at a range of different guesses, and fixed
-\(b_{s} = 0\); I allowed \(b\), \(k_{f}\), and \(k_{s}\) to
-vary. I determined the number, \(n\), of each neighbour from the guess
-of \(N^{I}(0)\) and the range of final cell amounts, such that
-the culture with the highest observed final cell density had enough
-slow growing neighbours to provide all of the nutrients necessary to
-reach this final cell density. I solved the imaginary neighbour model
-using SciPy's odeint. I fit using a gradient method as in
-Section~\ref{sec:fitting_comp}.
+diffusion constants \(k_{f}\) and \(k_{s}\). The growth constants of
+the fast and slow growing cultures are \(b_{f}\) and \(b_{s}\). A
+schematic of the model is drawn in . To fit the model to QFA data, I
+fixed \(C(0)\) and \(N_{I}(0)\) for all cultures by the initial
+guesses (see Section~\ref{sec:guessing_amounts}); I fixed \(b_{f}\) at
+a range of different guesses, and fixed \(b_{s} = 0\); I allowed
+\(b\), \(k_{f}\), and \(k_{s}\) to vary. I determined the number,
+\(n\), of each neighbour from the guess of \(N_{I}(0)\) and the range
+of final cell amounts, such that the culture with the highest observed
+final cell density had enough slow growing neighbours to provide all
+of the nutrients necessary to reach this final cell density. I solved
+the imaginary neighbour model using SciPy's odeint. I fit using a
+gradient method as in Section~\ref{sec:fitting_comp}. Fits of the
+imaginary neighbour model took several minutes which is much faster
+than fits of the full competition model [(will probably have mentioned
+time above:) which took several hours].
 
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -348,7 +332,7 @@ Section~\ref{sec:fitting_comp}.
 Simulations of the competition model using sets of \(b\) parameters
 drawn from different normal distributions have linear relationships
 between variance in final cell amount and nutrient diffusion constant
-\(k\). I simulated guessed parameters \(C_0\), \(N_0\), and
+\(k\). I simulated guessed parameters \(C(0)\), \(N(0)\), and
 \(b_{i}\) with a range of different \(k\) values and used linear
 regression to parameterise the straight line. I then took the variance
 in final cell amount for real data and guessed \(k\) from the
@@ -383,4 +367,18 @@ straight line.
 % fact inspired by this.)
 
 \subsection{\thesubsection~Model comparison using a single QFA plate}
+% cell_ratios = np.logspace(-3, -5, num=5)
+
 \subsection{\thesubsection~Cross-plate calibration and validation}
+% cell_ratios = np.logspace(-1, -7, num=10) I increased the range to
+% account for higher inoculum density and work of Herrmann.
+%
+% Results \(C(0)\), \(N_{I}(0)\), \(N_{E}(0)\), \(k\)
+% est_params Stripes [ 0.00831517,  0.08524787,  0.09564223,  1.92525936]
+% est_params Filled [ 0.00617039,  0.11660628,  0.1830217 ,  4.84354755]
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "report"
+%%% End:
