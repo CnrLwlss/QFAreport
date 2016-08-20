@@ -486,3 +486,16 @@ Details to add
   - [ ] Addinall - P15
   - [ ] Who? - Stripes and Filled
   - [ ] David - Validation spot test data
+
+* TODO Intro ammendments [0/8]
+ - [ ] Correct statements about yeast genome and growth [0/0]
+ - [ ] Reference Fisher for genetic interaction
+ - [ ] Could talk about more examples of QFA
+   - [ ] If I am having to introduce P15 and the Stripes and Filled
+     plates earlier then talk about P15
+ - [ ] Plots of r and K dists for stripes and filled
+ - [ ] Could mention quorum sensing when I menthion ethanol
+ - [ ] Sharped Plate images
+ - [ ] Could put arrows, boxes, numbers, or letters on stripes and
+   filled rows
+ - [ ] Decide whether I like having the Reo model in the introduction.
