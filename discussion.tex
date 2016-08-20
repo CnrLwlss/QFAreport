@@ -180,12 +180,18 @@ larger proportion of edge cultures, boundary conditions become
 important. Growing smaller arrays in isolation would help to speed up
 the development process.
 \\\\
-Each culture is surrounded by a different group of neighbours. The
-imaginary neighbour guess could be improved by using a range of
-\(b_{f}\) values to fit each culture and selecting \(b\) from the best
-fit. It would also be good to compare with guesses from the logistic
-model. I suspect that a gradient method will still fail to find a
-global minimum.
+Each culture is surrounded by a different group of neighbours with
+different growth constants \(b\). The imaginary neighbour guess could
+be improved by using a range of \(b_{f}\) values to fit each culture
+and selecting \(b\) from the best fit. \(k\) is the last parameter to
+be guessed. Rather than using the linear relationship between variance
+in final cell measurement and \(k\), which may not hold for large
+values of \(k\), it would be better and just as quick to guess a value
+of \(k\) by fixing all other parameters as the guesses and fitting the
+competition model to data. It would also be good to compare with
+guesses from the logistic model. Even with an improved guess, I
+suspect, based on the closeness of current fits, that a gradient
+method will fail to find a global minimum.
 \\\\
 Edge cultures must be included when fitting the competition model and
 this may have contributed significantly to error. When fitting the
