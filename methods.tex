@@ -307,23 +307,21 @@ model (Figure~(ref)) to quickly fit individual cultures. The model is
 based on the reaction and rate equations of the competition
 model~(\ref{eq:reaction}--\ref{eq:diffusion_reaction}) but tries to
 replicate the diffusion of nutrients into and out of a culture using
-imaginary fast and slow growing neighbours with different nutrient
-diffusion constants \(k_{f}\) and \(k_{s}\). The growth constants of
-the fast and slow growing cultures are \(b_{f}\) and \(b_{s}\). A
-schematic of the model is drawn in . To fit the model to QFA data, I
-fixed \(C(0)\) and \(N_{I}(0)\) for all cultures by the initial
-guesses (see Section~\ref{sec:guessing_amounts}); I fixed \(b_{f}\) at
-a range of different guesses, and fixed \(b_{s} = 0\); I allowed
-\(b\), \(k_{f}\), and \(k_{s}\) to vary. I determined the number,
-\(n\), of each neighbour from the guess of \(N_{I}(0)\) and the range
-of final cell amounts, such that the culture with the highest observed
-final cell density had enough slow growing neighbours to provide all
-of the nutrients necessary to reach this final cell density. I solved
-the imaginary neighbour model using SciPy's odeint. I fit using a
+imaginary fast and slow growing neighbours, with growth constants
+\(b_{f}\) and \(b_{s}\), and different nutrient diffusion constants
+\(k_{f}\) and \(k_{s}\). To fit the model to QFA data, I fixed
+\(C(0)\) and \(N(0)\) for all cultures by the initial guesses (see
+Section~\ref{sec:guessing_amounts}); I fixed \(b_{f}\) at a range of
+different guesses, and fixed \(b_{s} = 0\); I allowed \(b\),
+\(k_{f}\), and \(k_{s}\) to vary. I determined the number, \(n\), of
+each neighbour from the guess of \(N_{I}(0)\) and the range of final
+cell amounts, such that the culture with the highest observed final
+cell density had enough slow growing neighbours to provide all of the
+nutrients necessary to reach this final cell density. I solved the
+imaginary neighbour model using SciPy's odeint and fit using a
 gradient method as in Section~\ref{sec:fitting_comp}. Fits of the
-imaginary neighbour model took several minutes which is much faster
-than fits of the full competition model [(will probably have mentioned
-time above:) which took several hours].
+imaginary neighbour model took several minutes which is fast compared
+to fits of the competition model which took several hours.
 
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -335,8 +333,8 @@ between variance in final cell amount and nutrient diffusion constant
 \(k\). I simulated guessed parameters \(C(0)\), \(N(0)\), and
 \(b_{i}\) with a range of different \(k\) values and used linear
 regression to parameterise the straight line. I then took the variance
-in final cell amount for real data and guessed \(k\) from the
-straight line.
+in final cell amount for real data and used the regression model to
+predict \(k\).
 % \\\\
 % Don't think I need this figure. r->b and make titles bigger. Fitted
 % \(k\) was much higher so I should probably resimulate over a
