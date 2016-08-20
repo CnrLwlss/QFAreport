@@ -26,38 +26,64 @@
 
 The bacteria \textit{Eschericia Coli} and yeast \textit{Saccharomyces
   cerevisae} are unicellular organisms studied as a model prokaryote
-and eukaryote respectively. Bacteria and yeast grow in colonies, where
-cells may (be clones originating from a single cell or) belong to
-different genetic strains originating from different individual
-cells. In favourable conditions, growth is exponential and this makes
-growth rate a major component of fitness; faster growing strains
-quickly come to dominate the population. At a certain point growth
+and eukaryote respectively. Bacteria and yeast grow in colonies. In
+favourable conditions, growth is exponential and this makes growth
+rate a major component of fitness; colonies of faster growing strains
+quickly come to dominate populations. At a certain point growth
+becomes limited(, such as by lack of nutrients,) and a stationary phase
+is reached.
+
+
+For unicellular organisms, growth rate is equal to cell cycle
+progression rate and all genetic information must be copied before
+each division.
+
+
+Evolutionary pressure on growth rate may have in part led to rapidly
+dividing organisms with compact genomes of essential genes (ref
+Doolitle).
+
+Evolutionary pressure for cells to divide rapidly may have
+This may have played a part in, evolutionary pressure
+has led to rapidly dividing organisms with compact genomes of
+essential genes. This may have played a part in
+
+For unicellular organisms, growth rate is equal to cell cycle
+progression rate and all genetic information must be copied before
+each division. As a result, evolutionary pressure has led to rapidly
+dividing organisms with compact genomes of essential genes. These
+genes have been conserved in other species over billions of years of
+evolution, which is, in part, what makes \textit{E. Coli} and
+\textit{S.  cerevisae} useful as model species. The eukaryote
+\textit{S. cerevisae}, is particularly useful as a model of other
+eukaryotes such as human cells.
+
+
+The bacteria \textit{Eschericia Coli} and yeast \textit{Saccharomyces
+  cerevisae} are unicellular organisms studied as a model prokaryote
+and eukaryote respectively. Bacteria and yeast grow in colonies. In
+favourable conditions, growth is exponential and this makes growth
+rate a major component of fitness; colonies of faster growing strains
+quickly come to dominate populations. At a certain point growth
 becomes limited and a stationary phase is reached. For unicellular
 organisms, growth rate is equal to cell cycle progression rate and all
-of the genetic information must be copied before each division. As a
-result, evolutionary pressure has led to rapidly dividing organisms
-with compact genomes of essential genes. These genes have been
-conserved in other species over billions of years of evolution, which
-is, in part, what makes \textit{E. Coli} and \textit{S.  cerevisae}
-useful as model species. The eukaryote \textit{S. cerevisae}, is
-particularly useful for the study of other eukaryotes such as humans.
+genetic information must be copied before each division. As a result,
+evolutionary pressure has led to rapidly dividing organisms with
+compact genomes of essential genes. These genes have been conserved in
+other species over billions of years of evolution, which is, in part,
+what makes \textit{E. Coli} and \textit{S.  cerevisae} useful as model
+species. The eukaryote \textit{S. cerevisae}, is particularly useful
+for as a model of other eukaryotes such as human cells.
 
 The growth rate of microbial organisms is measurable and is often used
-to determine fitness. In experiments, cell cultures are commonly grown
-in two types of medium: on the surface of a nutrient rich solid agar
-and in a liquid mixture containing nutrients. (REMOVE: In spot tests
-(phenotypic array), cultures are pinned or inoculated on the surface
-of a solid agar containing nutrients. In liquid culture assays,
-cultures are mixed in a liquid medium containing nutrients.) In both
-cases cultures are incubated and growth is observed. Identical strains
-can grow differently between the two mediums and disagreement in
-fitness estimates is currently an issue \citet{Baryshnikova2010} (I
-couldn't find a paper specifically talking about this issue but they
-have a correlation plot Fig2a where correlations are worse with a
-liquid culture study by Jasnos and Korona; in fact the Baryshnikova
-paper Fig3c seems to say that they had strong correlation in their
-``high-resolution liquid growth profiling study''). I do not focus on
-this issue and exclusively study fitness screens using solid agar.
+to determine fitness. In growth experiments, cell cultures are
+commonly grown in one of two types of medium: on the surface of a
+nutrient rich solid agar or in a liquid mixture containing
+nutrients. In both cases cultures are incubated and cell density is
+measured over time. Identical strains can grow differently in these
+environments and disagreement in fitness estimates is has been
+observed \citet{Baryshnikova2010}. Here, I focus on estimating the
+fitness of microbes growing on solid agar surfaces.
 
 % Where do cells grow surfaces films.
 
@@ -89,75 +115,74 @@ this issue and exclusively study fitness screens using solid agar.
 Fitness estimates can be used to infer genetic interaction or drug
 response and high-throughput methods allow this to be conducted on a
 genome-wide scale (see e.g. \citet{Costanzo2010,Andrew2013}). In a
-typical genetic interaction screen a strain is made with a mutation in
-a query gene. Double mutants are created by introducing a second
-deletion in this strain. By comparing the growth of double mutants
-with a control containing a neutral deletion, genetic interactions can
-be inferred. If a strain is fitter than the control then the deletion
-is said to suppress the defect of the query gene. If a strain is less
-fit than the control then the deletion is said to enhance the defect
-of the query gene. Either scenario suggests that the two genes
-interact and have a related function. Due to redundancy, single
-deletions are often non-lethal. (Remove: Knock downs and conditional
-mutations can also be used.) This has allowed \citet{Costanzo2010} to
-explore genetic interactions for \(\sim\)75\% of the
-\textit{S. cerevisae} genome.
+typical genetic interaction screen a strain is made with a background
+mutation in a query gene. Double mutants are created by introducing a
+second deletion to this strain. By comparing the growth of double
+mutants with controls containing a neutral background mutation
+(effectively a single mutants), genetic interactions can be
+inferred. If a strain is fitter than predicted given the observation
+of control fitness then the deletion is said to suppress the defect of
+the query mutation. If a strain is less fit than given the observation
+of control fitness then the deletion is said to enhance the defect of
+the query mutation. Either scenario suggests that the two genes
+interact. Due to redundancy, single deletions are often
+non-lethal. (Remove: Knock downs and conditional mutations can also be
+used.) This has allowed \citet{Costanzo2010} to explore genetic
+interactions for \(\sim\)75\% of the \textit{S. cerevisae} genome.
 
 
 Synthetic Genetic Array (SGA) and Quantitative Fitness Analysis (QFA)
 are high-throughput methods for obtaining quantitative fitness
-estimates of microbial cultures grown on solid agar
-\citep{Baryshnikova2010sga,Banks2012}. Typically one query gene and
-replicates of several deletions are pinned or inoculated in a
-rectangular array on a solid agar plate. Many plates with different
-query genes and deletions are grown in high-throughput to explore
-whole genomes. I study data from QFA which refers to quantitative
-estimation of fitness by measurement and fitting of growth curves. In
-a typical QFA procedure liquid cultures are incolulated onto solid
-agar (containing nutrients (already mentioned above)) in a 16x24
-rectangular array of 384 spots. Inoculum density can be varied to
-capture more or less of the growth curve and the most dilute cultures
-are inoculated with \(\sim\)100 starting cells
-\citep{Addinall2011}. Plates are grown in incubation and removed to be
-photographed at timepoints throughout growth. Photographs are of whole
-plates and growth typically covers several days to capture both the
-exponential and stationary growth phases. Colonyzer
-\citep{Lawless2010} processes optical density measurements in
-photographs to produce a timecourse of cell density estimates for each
-culture. In pasts analysis, the logistic growth model was
-independently fit to the timecourse of each culture and fitness
-estimates were defined in terms of parameters of this model: the
-growth constant \(r\) and carrying capacity \(K\). In contrast, SGA
-typically uses a larger array of 1536 pinned cultures and a single
-endpoint assay of culture area to quantify growth. The the
-differential form and solution of the logistic model
-\citep{Verhulst1845} (probably don't need this reference) are given in
-Equations~\ref{eq:logistic_model}, where \(C\) represents cell density
-and \(C_{t_{0}}\) is cell density at time zero.
+estimates for microbial cultures grown on solid agar
+\citep{Baryshnikova2010sga,Banks2012}. Typically 100s or 1000s of
+deletions with a common background mutation are pinned or inoculated
+in a rectangular array on a solid agar plate. Many plates with
+different query genes and deletions are grown in high-throughput to
+explore whole genomes. I study data from QFA which includes
+quantitative estimation of fitness by measurement and fitting of
+growth curves. In a typical QFA procedure liquid cultures are
+incolulated onto solid agar (containing nutrients (already mentioned
+above)) in a 16x24 rectangular array of 384 spots. Inoculum density
+can be varied to capture more or less of the growth curve and the most
+dilute cultures are inoculated with \(\sim\)100 starting cells
+\citep{Addinall2011}. Plates are grown in a temperature controlled
+incubator and removed to be photographed periodically throughout the
+growth curve. Photographs are of whole plates and growth typically
+covers several days to capture both the exponential and stationary
+growth phases. Colonyzer \citep{Lawless2010} processes optical density
+measurements in photographs to produce a timecourse of cell density
+estimates for each culture. In past analysis, the logistic growth
+model was independently fit to the timecourse of each culture and
+fitness estimates were defined in terms of parameters of this model:
+the growth constant \(r\) and carrying capacity \(K\). In contrast,
+SGA typically uses a larger array of 1536 pinned cultures and a single
+endpoint assay of culture area to quantify growth. The differential
+form and solution of the logistic model \citep{Verhulst1845} are given
+in Equations~\ref{eq:logistic_model}, where \(C\) represents cell
+density and \(C(0)\) is cell density at time zero.
 % Logistic model equations
 \begin{subequations}
   \label{eq:logistic_model}
   \begin{align}
     &\dot{C} = rC\left(1 - \frac{C}{K}\right)\\
-    &C(t) = \frac{KC_{t_{0}}e^{rt}}{K + C_{t_{0}}(e^{rt}-1)}
+    &C(t) = \frac{KC(0)e^{rt}}{K + C(0)(e^{rt}-1)}
   \end{align}
 \end{subequations}
 %
 The logistic model is a simple mechanistic model describing
 self-limiting growth and has a sigmoidal solution. Growth begins
 exponentially with rate \(rC\) and curtails as the population size
-increases and cells begin to compete for space and nutrients (remove:
-or interact in some other way). Cell density reaches a final carrying
-capacity \(K\) at the stationary phase. In QFA, nutrients must diffuse
-through agar to reach cells growing on the surface. It is plausible
-that the carrying capacity \(K\) represents the point at which
-nutrients either run out or growth becomes limited by the diffusion of
-nutrients and is approximately stationary. Fitting the logistic model
-to QFA data requires plate level or culture level parameters for
-\(C_{t_{0}}\) and culture level parameters for \(r\) and \(K\) making
-769 or 1152 parameters per 384 culture plate.
+increases and cells begin to compete for some limited resource. Cell
+density reaches a final carrying capacity \(K\) at the stationary
+phase. In QFA, nutrients must diffuse through agar to reach cells
+growing on the surface. It is plausible that the carrying capacity
+\(K\) represents the point at which nutrients either run out or growth
+becomes limited by the diffusion of nutrients and is approximately
+stationary. Fitting the logistic model to QFA data requires plate
+level or culture level parameters for \(C(0)\) and culture level
+parameters for \(r\) and \(K\) making 769 or 1152 parameters per 384
+culture plate.
 
-//Could remove and just discus MDR when I get to the results//
 The growth constant \(r\) could be used as a fitness measure. However,
 \citet{Addinall2011} define a more complicated fitness measure as the
 product of Maximum Doubling Rate (MDR) and Maximum Doubling Potential
@@ -169,8 +194,8 @@ culture undergoes from inoculation to the stationary phase.
 \begin{subequations}
   \label{eq:MDR_MDP}
     \begin{align}
-      MDR &= \frac{r}{log\left(\frac{2(K-C_0)}{K-2C_0}\right)}\\
-      MDP &= \frac{log\left(\frac{K}{C_0}\right)}{log(2)}
+      MDR &= \frac{r}{log\left(\frac{2(K-C(0))}{K-2C(0)}\right)}\\
+      MDP &= \frac{log\left(\frac{K}{C(0)}\right)}{log(2)}
     \end{align}
 \end{subequations}
 %
@@ -179,21 +204,21 @@ model which requires an extra shape parameter for each
 culture. Standard and generalised logistic model \(r\) are not
 equivalent so comparison relies on MDR and MDP as fitness
 measures. The analysis of QFA data using both models is available
-through the QFA R package \citep{qfa2016}.  //Could remove and just
-discus MDR when I get to the results//
+through the QFA R package \citep{qfa2016}.
 
+%%%% up to here
 
-//Could remove//\citet{Addinall2011} used QFA and
-\textit{S. cerevisae} to screen for genes involved in telomere
-stability which is related to ageing and cancer and has implications
-for human health and disease. Hits from this study have been
-successfully followed to discover new biology
-\citep{Holstein20141259}. (To be honest I have no idea about the
-significance of what they found in this paper. We had a more general
-focus. If I have room I should probably try and sell the potential
-benefits and past successes of QFA a bit more to expand the
-motivation. Obviously I will mention the Addinall paper when I
-describe p15 in the methods.)  //Could remove//
+% //Could remove//\citet{Addinall2011} used QFA and
+% \textit{S. cerevisae} to screen for genes involved in telomere
+% stability which is related to ageing and cancer and has implications
+% for human health and disease. Hits from this study have been
+% successfully followed to discover new biology
+% \citep{Holstein20141259}. (To be honest I have no idea about the
+% significance of what they found in this paper. We had a more general
+% focus. If I have room I should probably try and sell the potential
+% benefits and past successes of QFA a bit more to expand the
+% motivation. Obviously I will mention the Addinall paper when I
+% describe p15 in the methods.)  //Could remove//
 % Example use of QFA by Addinall \citep{Addinall2011} telomeres.
 % And follow up Holstein and Clark \citep{Holstein20141259}
 
@@ -355,11 +380,11 @@ parameters of the competition model can be converted in terms of
 parameters the logistic model (see methods section)).
 %%%% could go to methods %%%%
 When the competition model is fit to QFA data, \(C_{i}\) is observed
-and \(N_{i}\) is hidden. Inoculum density, \(C_{t_{0}}\), is often
+and \(N_{i}\) is hidden. Inoculum density, \(C(0)\), is often
 below detectable levels. By assuming that incolulum density is the
 same for all cultures and that nutrients are distributed evenly
 throughout the agar at time zero, plate level initial values of cells
-and nutrients, \(C_{t_{0}}\) and \(N_{t_{0}}\), can be used. \(k_{n}\)
+and nutrients, \(C(0)\) and \(N(0)\), can be used. \(k_{n}\)
 is assumed to be constant across the plate but must be inferred. There
 is a growth constant, \(b_{i}\), for each of 384 cultures on a typical
 QFA plate making 387 parameters in total. The competition model shares
