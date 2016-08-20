@@ -511,7 +511,8 @@ Details to add
  - [ ] Schematic of initial guess
  - [ ] Derive conversion equations: Only if room.
  - [X] Remove kn from corerction plot
- - [ ] Draw all correction cultures on one plot. Maybe. Probably not.
+ - [ ] (low priority) Draw all correction cultures on one
+   plot. Probably not.
 
 
 * TODO Results ammendments [0/1]
