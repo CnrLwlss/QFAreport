@@ -201,25 +201,25 @@ Table~\ref{tab:corner}
 \end{Figure}
 
 
-\graphicspath{{images/rank/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/comp_b_log_r_trimmed}
-  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
-      of the competition and logistic model to P15.} Fitnesses of
-    genetic strains are ranked most to least fit from top to
-    bottom. Competition model \(r\) was converted from \(b\), \(N_0\),
-    and \(C_0\) from the best competition model estimate. Logistic
-    \(r\) and \(MDR\) were taken from logistic model fits using the
-    QFA R package which makes heuristic checks for slow growing
-    cultures.}
-  \label{fig:comp_vs_log_ranking2}
-\end{Figure}
+% \graphicspath{{images/rank/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/comp_b_log_r_trimmed}
+%   \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
+%       of the competition and logistic model to P15.} Fitnesses of
+%     genetic strains are ranked most to least fit from top to
+%     bottom. Competition model \(r\) was converted from \(b\), \(N_0\),
+%     and \(C_0\) from the best competition model estimate. Logistic
+%     \(r\) and \(MDR\) were taken from logistic model fits using the
+%     QFA R package which makes heuristic checks for slow growing
+%     cultures.}
+%   \label{fig:comp_vs_log_ranking2}
+% \end{Figure}
 
 \subsection{\thesubsection~Comparison of Variation in Fitness Estimates}
 
-Use repeats on plate 15 (6 per deletion) to calculate coefficient of
-variation (COV) of estimated r or MDR.
+Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
+calculate coefficient of variation (COV) of estimated r or MDR.
 
 \end{multicols}
 \graphicspath{{images/COV/}}
@@ -253,8 +253,11 @@ variation (COV) of estimated r or MDR.
     ``Filled'' plate (calibration) and set growth constant, b, to zero
     for cultures in the empty columns of the ``Stripes'' plate. I then
     simulated using these parameters to produce the dashed blue curve
-    (validation). If the model is working correctly, the dashed blue
-    curve should resemble the ``Stripes'' data (blue crosses).}
+    (validation). If the model corrects for differences in growth
+    between these experimental designs perfectly, the dashed blue
+    curves should resemble the ``Stripes'' data (blue crosses) in
+    columns one and three. The logistic model would predict no change
+    in growth between plates.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
