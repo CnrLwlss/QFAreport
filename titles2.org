@@ -292,9 +292,70 @@ Details to add
 - Splining for Stripes and Filled plates
 - Can also solve SBML in Copasi
 
-* TODO Results [0/0]
- - [ ] Try to remove mre11 repeat from data (4, 11) (with origin (0,
-   0))? - Comparison of methods so could leave in. Or just check.
+* TODO Results [0/7]
+ - [ ] Describe experiments
+   - Should probably do this in an earlier section first so that I am
+     not repeating myself.
+ - [ ] Zone fit
+   - [ ] bottom left bad fit for init guess
+   - [ ] Very good fit
+   - [ ] Nutrients in bottom right greater at all timepoints
+   - [ ] obj function value
+   - [ ] Could compare to QFA R logistic model (I have the parameters
+     to convert)
+ - [ ] Whole plate
+   - [ ] Fits well across whole plate
+   - [ ] Nutrients depleted at the end of  observations
+ - [ ] Corner
+   - [ ] Two N_0 fits a higher starting amount of nutrients
+   - [ ] Lower values of objective function are better
+   - [ ] Results in lower objective function value for internal
+     cultrures next to edge cultures and lower objective function
+     overall.
+   - [ ] Appears to be working.
+     - Due to collective fit actually greater objective function
+       values for edges. These are discarded due to noise. Appears to
+       be working as we hoped.
+   - [ ] Notable that edge cultures objective function is actaully increased
+     - [ ] Much more noise as seen in top left
+     - [ ] Fitting collectively
+     - [ ] Edges are discarded
+ - [ ] Correlation plots for best fits or just mention and give
+   Spearman's values
+ - [ ] (priority) Correlation plots for comp model and logistic model for P15
+ - [ ] Ranking
+   - [ ] Bold HIS3 and p-values
+   - [ ] Where do and don't things agree?
+   - [ ] Describe b, r, and MDR
+   - [ ] Validation (sumarise in a table?) - I think it should be ok
+     just to mention it and that it agreed.
+     - Could mention issues with temperature differences and lack of validation for some
+     - [ ] Disagreement with mre11 anomolous. Try to remove mre11
+       repeat from data (4, 11) (with origin (0, 0))? - Comparison of
+       methods so could leave in. Or just check.
+   - [ ] COV
+     - [ ] Describe process
+     - [ ] Describe results
+     - [ ] 36/50 strains more precise for the competition model.
+   - [ ] Callibration and Validation
+     - [ ] Describe process
+     - [ ] Describe results
+     - [ ] Mention inoculation error in top right
+       - Bottom left far from such errors
+     - [ ] blue crosses for middle column just noise and not fit
+       (Could remove in plots) (Also lines)
+     - [ ] logistic model no change between plates and is an
+       undercorrection.
+   - [ ] Correllation plots
+   - [ ] Towards a genetic algorithm
+     - [ ] Remove GA fit so don't have to describe
+     - [ ] Describe recovery of parameters with simulated noise and
+       potential use in genetic algorithm.
+       - [ ] I got the parameters for the best fits and simulated with noise
+       - [ ] Required several guesses
+       - [ ] This is the worst of how many?
+       - [ ] Harder to identify low b (noise)
+       - [ ]
 * TODO Discussion [0/4]
 ** TODO Discuss results and place in context of other work [1/4]
  - [-] P15
