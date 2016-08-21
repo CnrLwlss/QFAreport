@@ -324,6 +324,7 @@ Details to add
    Spearman's values
  - [ ] (priority) Correlation plots for comp model and logistic model for P15
  - [ ] Ranking
+   - [ ] I used mean - Try median
    - [ ] Bold HIS3 and p-values
    - [ ] Where do and don't things agree?
    - [ ] Describe b, r, and MDR
