@@ -83,8 +83,11 @@ The Stripes and Filled plates used a higher inoculum density and had
 very few noise-dominated cultures. Compared to P15, this would have
 reduced noise in collectively fit competition model estimates and
 would not have required heuristic checks to be employed for the
-logistic model. This may therefore be a fairer comparison than
-P15. Correlation of fitness estimates between plates in
+logistic model. This may therefore be a fairer comparison than P15. It
+would be informative to repeat P15 with an inoculum density at a
+detectable level so that the precision of competition and logistic
+model estimates can be compared in the absence of noise-dominated
+cultures. Correlation of fitness estimates between plates in
 Figure~\ref{fig:r_correlations}a was similar for both models. This is
 despite not finding global minima with the competition model. However,
 correlation between models for the same plate in
@@ -93,12 +96,11 @@ P15 correlations to compare). There are issues with validation for
 both models (see Figure~\ref{fig:stripes_validation}); the logistic
 model does not account for differences between plates at all and the
 competition model overcorrects. As I lack independent data for
-validation it is difficult to decide which to believe. (Unfortunately,
-these plates lack repeats so I could not study the reliability of
-estimates on the same plate. (I believe that we have more issues with
-accuracy than precision anyway). It would be informative to repeat P15
-with \(C(0)\) at a measurable level. In any case, it is clear that the
-competition model could be improved.
+validation it is difficult to decide which to believe.
+% (Unfortunately, the Stripes and Filled plates have few repeats so I
+% could not study the reliability of estimates on the same plate. (I
+% believe that we have more issues with accuracy than precision anyway).
+In any case, it is clear that the competition model could be improved.
 
 
 \subsection{\thesubsection~Future work}
@@ -108,17 +110,18 @@ Section~\ref{sec:fitting_comp}) to fit the competition model. I began
 work on a genetic algorithm method of solving but lacked time to
 complete this. I did however find that, with fixed plate level
 parameters, it is possible to reliably return \(b_{i}\) with a
-gradient method (see Figure~\ref{fig:comp_fit_fixed_plate_level}. This
-offers the potential to use a hierarchical genetic algorithm where
-candidate plate level parameters are fixed in gradient fits of culture
-level parameters. Alternatively, a pure hierarchical genetic algorithm
-may work (i.e. where \(b_{i}\) are also evolved). A hierarchical
-Bayesian approach to fitting the competition model, similar to that of
-\citet{Heydari2016} for the logistic model, could also return global
-minima but might be slow. Current best fits, which are different local
-minima, have well correlated fitness rankings and make similar
-overcorrections for competition. This suggests that there is a more
-fundamental issue with the model.
+gradient method (see
+Figure~\ref{fig:comp_fit_fixed_plate_level}). This offers the
+potential to use a hierarchical genetic algorithm where candidate
+plate level parameters are fixed in gradient fits of culture level
+parameters. Alternatively, a pure hierarchical genetic algorithm may
+work (i.e. where \(b_{i}\) are also evolved). A hierarchical Bayesian
+approach to fitting the competition model, similar to that of
+\citet{Heydari2016} to fit the logistic model, could also return
+global minima but might be slow. Current best fits, which are
+different local minima, have well correlated fitness rankings and make
+similar overcorrections for competition. This suggests that there is a
+more fundamental issue with the model.
 
 It would be informative to validate the independent limit of the
 competition model to determine whether a mass action approximation is
@@ -130,22 +133,22 @@ which more closely resembles QFA. Growth on a surface has a lower
 dimensionality and may be diffusion limited so a fractal kinetics
 model may be required \citep{Kopelman1988,savageau1995}. Nutrients
 (sugars, nitrogen, etc.) in QFA agars are of a standard composition,
-designed to reduce the excess of any single nutrient (check QFA paper
-and cite). It would be helpful to know and control the identity of the
-limiting nutrient using a different formula of agar. With nitrogen,
-rather than sugar, as the limiting nutrient, we are less likely to
-have to model metabolism.
+designed to reduce the excess of any single nutrient
+\citep{Addinall2011}. It would be helpful to know and control the
+identity of the limiting nutrient using a different formula of
+agar. With nitrogen, rather than sugar, as the limiting nutrient, we
+are less likely to have to model metabolism.
 
 
-Estimates of the nutrient diffusion constant \(k_{n}\) were fairly
+Estimates of the nutrient diffusion constant \(k\) were fairly
 high such that nutrients diffused readily between neighbours and were
 nearly depleted when growth stopped. It may be that growth becomes
 limited by the diffusion of nutrients through agar before all
 nutrients are depleted and that nutrients are not well approximated as
-being evenly distributed withing the spatial scales that we
+being evenly distributed across the spatial scales that we
 model. Using a finer grid could reduce the overcorrection seen in
 Figure~\ref{fig:stripes_validation}. \citet{Reo2014} use the diffusion
-equation (with Neumann and Dirichlet boundary conditions) to simulate
+equation with Neumann and Dirichlet boundary conditions to simulate
 nutrient dependent growth of a single bacterial culture on a pertri
 dish in two-dimensions. They create a sink for nutrients from culture
 growth and equate the flux of nutrients through culture area with the
@@ -153,51 +156,53 @@ rate of increase in culture size. They model culture area as varying
 and keep culture density constant. This model could be adapted for QFA
 by keeping culture area constant and allowing culture density to
 vary. A mass action kinetic model of reaction~(\ref{eq:reaction})
-could be used for culture growth and the nutrient sink. It is
-computationally unfeasible to use such a detailed model to fit a whole
-plate but simulation could be very informative.
+could be used for culture growth and the nutrient sink. It would be
+computationally challenging to use such a detailed model to fit a
+whole plate but simulation could be very informative.
 
 If we find that competition for nutrients is not responsible for the
 interaction between neighbours, for instance if growth becomes limited
 by diffusion of nutrients in the agar before nutrients from neighbours
 can be accessed, then we could instead model signalling by ethanol
-poisoning. This may be modelled similarly to how the competition model
-models nutrient diffusion and much of the code could be reused.
-(Quorum sensing via the molecule amonia could also be having an effect
-(ref)). If there is any combination of competition, metabolism,
-signalling, or arrest contributing significantly to differences in the
-growth of cultures and the interaction between neighbours then it will
-be difficult to separate them when fitting a model to data. We may
-have to develop ways to calibrate effects in isolation and use this
-information when fitting to high-throughput data. We only have
-observations for cells.
+poisoning \citep{fujita2006}. Signal diffusion may be modelled as we
+have done for nutrient diffusion
+(\ref{eq:competition_model},\ref{eq:diffusion_reaction}) so much of
+the code could be reused. If there is any combination of competition,
+metabolism, signalling, or arrest contributing significantly to
+differences in the growth of cultures and the interaction between
+neighbours, then it will be difficult to separate them when fitting a
+model to data. We may have to develop ways to calibrate effects in
+isolation and use this information when fitting to high-throughput
+data. We only have observations for cells.
 
 \subsection{\thesubsection~Improvements and other recommendations}
 
 It is quicker to fit to small zones of a plate but, as these have a
 larger proportion of edge cultures, boundary conditions become
-important. Growing smaller arrays in isolation would help to speed up
-the development process.
+important. Gathering QFA data from smaller arrays grown in isolation
+would help to speed up the development process.
 \\\\
 Each culture is surrounded by a different group of neighbours with
-different growth constants \(b\). The imaginary neighbour guess could
-be improved by using a range of \(b_{f}\) values to fit each culture
-and selecting \(b\) from the best fit. \(k\) is the last parameter to
-be guessed. Rather than using the linear relationship between variance
-in final cell measurement and \(k\), which may not hold for large
-values of \(k\), it would be better and just as quick to guess a value
-of \(k\) by fixing all other parameters as the guesses and fitting the
-competition model to data. It would also be good to compare with
-guesses from the logistic model. Even with an improved guess, I
-suspect, based on the closeness of current fits, that a gradient
-method will fail to find a global minimum.
+different growth constants \(b\).~The imaginary neighbour guess
+(Section~\ref{sec:guessing_b}) could be improved by using a range of
+\(b_{f}\) values to fit each culture and selecting \(b\) from the best
+fit. \(k\) is the last parameter to be guessed. Rather than using the
+linear relationship between variance in final cell measurement and
+\(k\), which may not hold for large values of \(k\), it would be
+better and just as quick to guess a value of \(k\) by fixing all other
+parameters as the guesses and fitting the competition model to
+data. It would also be good to compare guesses from the imaginary
+neighbour model with those from the logistic model. Even with an
+improved guess, I suspect, based on the closeness of current fits
+(Figure~\ref{fig:comp_fit_zone}), that a gradient method will still
+fail to find global minima.
 \\\\
-Edge cultures must be included when fitting the competition model and
-this may have contributed significantly to error. When fitting the
-competition model noise might be better dealt with by leaving edge
-cultures empty. A different treatment of boundaries could also be used
-by modelling empty cultures outside edges rather than the approach in
-Section~(\ref{sec:fitting_comp}).
+Edge cultures must be included in data when fitting the competition
+model and this contributed significantly to objective function values
+(see Table~\ref{tab:corner}). Noise might be better dealt with by
+leaving edge cultures empty. A different treatment of boundaries could
+also be used by modelling empty cultures outside edges rather than the
+approach in Section~(\ref{sec:fitting_comp}).
 % The design of the stripes validation experiment could be
 % improved. Rather than filling gaps with cultures not present on the
 % stripes plate, and for which we have no \(b\) estimates, we could fill
@@ -214,15 +219,17 @@ varying between slower and faster growing cultures rather that none
 and very strong growing cultures. If the model works well between such
 plates, it may work well for the majority of QFA experiments which
 typically have smaller differences between cultures than the data we
-studied. If we did want to test the in an extreme case we could have
-inoculated fast growing cultures next certain strains and not others
-to try to induce a change in ranking for which the competition model
-might compensate better than the logistic model.
+studied. We could also have calibrated and validated from the Stripes
+plate to the Filled plate (i.e. in both directions) if the same
+genotypes had been inoculated in the extra columns of the Filled
+plate. If we did want to test the in an extreme case, we could have
+inoculated fast growing cultures next to certain strains and not
+others to try to induce a change in ranking for which the competition
+model might compensate better than the logistic model.
 \\\\
 It is desirable to have a mechanistic model including nutrient
 dependent growth so that we can use a plate level \(N(0)\) and
 eliminate the dependence on heuristic checks.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
