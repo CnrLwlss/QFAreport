@@ -487,8 +487,13 @@ Details to add
   - [ ] Who? - Stripes and Filled
   - [ ] David - Validation spot test data
 
-* TODO Intro ammendments [0/8]
- - [ ] Correct statements about yeast genome and growth [0/0]
+
+* TODO Intro ammendments [0/9]
+ - [ ] Correct statements about yeast genome and growth [0/5]
+   - [ ] Orthologs Inparanoid O'Brien
+   - [ ] Do not state as Beguling (compact cells more efficient) Doolittle
+   - [ ] Streamlining theory Giovannoni
+   - [ ] life with 6000 genes (yeast genome)
  - [ ] Reference Fisher for genetic interaction
  - [ ] Could talk about more examples of QFA
    - [ ] If I am having to introduce P15 and the Stripes and Filled
@@ -513,7 +518,6 @@ Details to add
  - [X] Remove kn from corerction plot
  - [ ] (low priority) Draw all correction cultures on one
    plot. Probably not.
-
 
 * TODO Results ammendments [0/1]
 - [ ] (low priority) Could remove middle data in validation plot for
