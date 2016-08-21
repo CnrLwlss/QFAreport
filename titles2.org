@@ -293,7 +293,8 @@ Details to add
 - Can also solve SBML in Copasi
 
 * TODO Results [0/0]
-
+ - [ ] Try to remove mre11 repeat from data (4, 11) (with origin (0,
+   0))? - Comparison of methods so could leave in. Or just check.
 * TODO Discussion [0/4]
 ** TODO Discuss results and place in context of other work [1/4]
  - [-] P15
