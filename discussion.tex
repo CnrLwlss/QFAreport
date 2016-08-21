@@ -5,31 +5,30 @@
 
 Fits of the competition model (see Figures~\ref{fig:comp_fit_plate}
 and \ref{fig:comp_fit_zone}) use less parameters and are qualitatively
-better than fits of either the logistic or generalised logistic model
-from the QFA R package \citep{Addinall2011,qfa2016}. Competition model
-ranking of growth estimates for repeats on P15 (see
-Figure~\ref{fig:comp_vs_log_ranking}) agree with the logistic model
-rankings from \citet{Addinall2011} for the fastest and slowest growers
-(and with rankings from independent spot tests (refs) CHECK
-THIS). However, there is much disagreement in the rank of other
+better (NEED EVIDENCE) than fits of either the logistic or generalised
+logistic model from the QFA R package
+\citep{Addinall2011,qfa2016}. Competition model ranking of growth
+estimates for repeats on P15 (see
+Figure~\ref{fig:comp_vs_log_ranking}) agree with the published
+logistic model rankings from \citet{Addinall2011} for the fastest and
+slowest growers (and with rankings from independent spot tests (refs)
+CHECK THIS). However, there is much disagreement in the rank of other
 strains. (Could also do with the correlation plot for P15). The
-reliability of growth estimates was not improved using the competition
+precision of growth estimates was not improved using the competition
 model for the fastest growing strains on P15 (see
 Figure~\ref{fig:comp_b_log_r_cov}). This may be due to the effect of
 noise dominated cell observations from slow growing cultures on
 collectively fit parameters. This did not affect the the logistic
-model which fit to cultures individual. The greater reliability of
+model which fit to individual cultures. The greater reliability of
 estimates for slow growing cultures could be entirely due to
 collective fitting rather than to correcting for competition. (Could
 do with p-values on figure; also bold HIS3 everywhere) Unfortunately,
 the change in order for middle rankings is unlikely to identify new
-genetic interactions because significance is determined by comparison
-to a neutral deletion also in this range. Although improved,
-uncertainty in estimates for the slowest growers is still much higher
-than for the fastest meaning that the power to infer genetic reactions
-is not dramatically improved. (HIS3 has about half the variance for
-the competition model and this could be
-significant.)
+genetic interactions. Although improved, uncertainty in estimates for
+the slowest growers is still much higher than for the fastest meaning
+that the power to infer genetic reactions is not dramatically
+improved. (HIS3 has about half the variance for the competition model
+and this could be significant.)
 
 Fitting the logistic model to slower growing cultures requires
 heuristic checks to correct for confounding between \(r\) and
@@ -49,8 +48,8 @@ estimates made by Colonyzer \citep{Lawless2010}. In logistic fits some
 growth curves are still in the exponential phase at the end of
 observations and this may be another fitting issue. If repeated, the
 plate from \citet{Addinall2011} should be run with a lower
-concentration of nutrients in the agar so that the stationary phase
-can be reached before cultures start to merge.
+concentration of nutrients in the agar so that the stationary phase is
+reached before cultures start to merge.
 
 I looked at plate images from QFA and Colonyzer to investigate other
 discrepancies.~\textit{mre11\(\Delta\)} is a weak growing strain (ref
@@ -58,25 +57,25 @@ validation) which was misclassified as healthy by the competition
 model but not the logistic model. One repeat contained unusual
 heterogeneity, which may be natural or the results of contamination,
 and may explain the discrepancy. (Should take median value next
-time). \textit{hap4\(\Delta\)} appears to be much healthier
-than \textit{zrt3\(\Delta\)} which agrees with the competition model
-but not the logistic model. Although the precision of estimates is
-similar for both models, the competition model appears to be more
-accurate. Unfortunately, I lack independent data for validation of the
-middle strains.
+time). \textit{hap4\(\Delta\)} appears to be much healthier than
+\textit{zrt3\(\Delta\)} which agrees with the competition model but
+not the logistic model. Although the precision of estimates is similar
+for both models, the competition model appears to be more
+accurate. Unfortunately, independent data for validation of the middle
+strains are not available.
 
-Recent work Herrmann and Lawless suggests that direct measures of
-\(C(0)\) may not be reliable due to heterogeneity between cells
-in the same inoculum; many cells do not grow and only the fastest
-growing cells contribute significantly to the final population. A
-plate level \(C(0)\) also seems inappropriate but having extra
-parameters for the staring cell density of each culture is
-undesirable. Only a small amount of nutrients is used when cultures
-are small. Therefore, cultures could be grown for a short time before
-making direct cell density measurements that may be more accurate. QFA
-inocula use cells taken from the stationary phase where there might be
-more heterogeneity (ref). It may be possible to increase the
-reliability of fitness estimates by taking inocula from the
+Recent work Herrmann and Lawless suggests that direct measurements of
+\(C(0)\) may not be reliable due to heterogeneity between cells in the
+same inoculum; many cells do not grow and only the fastest growing
+cells contribute significantly to the final population. A plate level
+\(C(0)\) also seems inappropriate but having extra parameters for the
+starting cell density of each culture is undesirable. Only a small
+amount of nutrients is used when cultures are small. Therefore, early
+timepoints could be discarded and \(C(0)\) could be measured when
+populations have already undergone several divisions. QFA inocula use
+cells taken from the stationary phase where there might be more
+heterogeneity \citep{bergkessel2016}. It may be possible to increase
+the precision of fitness estimates by taking inocula from the
 exponential growth phase or using a higher starting density to average
 out effects.
 
@@ -86,19 +85,19 @@ reduced noise in collectively fit competition model estimates and
 would not have required heuristic checks to be employed for the
 logistic model. This may therefore be a fairer comparison than
 P15. Correlation of fitness estimates between plates in
-Figure~\ref{fig:}a was similar for both models. This is despite not
-finding global minima with the competition model. However, correlation
-between models for the same plate in Figure~\ref{fig:r_correlations}b
-is poor. (Could definitely do with P15 correlations to compare). There
-are issues with validation for both models (see
-Figure~\ref{fig:stripes_validation}); the logistic model does not
-account for differences between plates at all and the competition
-model overcorrects. As I lack independent data for validation it is
-difficult to decide which to believe. (Unfortunately, these plates
-lack repeats so I could not study the reliability of estimates on the
-same plate. (I believe that we have more issues with accuracy than
-precision anyway). It would be informative to repeat P15 with
-\(C(0)\) at a measurable level. In any case, it is clear that the
+Figure~\ref{fig:r_correlations}a was similar for both models. This is
+despite not finding global minima with the competition model. However,
+correlation between models for the same plate in
+Figure~\ref{fig:r_correlations}b is poor. (Could definitely do with
+P15 correlations to compare). There are issues with validation for
+both models (see Figure~\ref{fig:stripes_validation}); the logistic
+model does not account for differences between plates at all and the
+competition model overcorrects. As I lack independent data for
+validation it is difficult to decide which to believe. (Unfortunately,
+these plates lack repeats so I could not study the reliability of
+estimates on the same plate. (I believe that we have more issues with
+accuracy than precision anyway). It would be informative to repeat P15
+with \(C(0)\) at a measurable level. In any case, it is clear that the
 competition model could be improved.
 
 
