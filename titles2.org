@@ -493,7 +493,10 @@ Details to add
    - [ ] Orthologs Inparanoid O'Brien
    - [ ] Do not state as Beguling (compact cells more efficient) Doolittle
    - [ ] Streamlining theory Giovannoni
+   - [ ] Deth 2007 - "Performance of the translational apparatus
+     varies with the ecological strategies of bacteria"
    - [ ] life with 6000 genes (yeast genome)
+   - [ ] Growth in colonies
  - [ ] Reference Fisher for genetic interaction
  - [ ] Could talk about more examples of QFA
    - [ ] If I am having to introduce P15 and the Stripes and Filled
