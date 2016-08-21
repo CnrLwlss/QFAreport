@@ -526,5 +526,7 @@ Details to add
    plot. Probably not.
 
 * TODO Results ammendments [0/1]
-- [ ] (low priority) Could remove middle data in validation plot for
+ - [ ] (low priority) Could remove middle data in validation plot for
    stripes and plot the logistic fit as well.
+* TODO Discussion [0/1]
+ - [ ]
