@@ -528,5 +528,9 @@ Details to add
 * TODO Results ammendments [0/1]
  - [ ] (low priority) Could remove middle data in validation plot for
    stripes and plot the logistic fit as well.
-* TODO Discussion [0/1]
- - [ ]
+* TODO Discussion [0/4]
+ - [ ] (Priority) Compare least squares of comp and logistic model or plot the
+   fits
+ - [ ] (Priority) Sort validation refs and check agreement
+ - [ ] p-values on figure
+ - [ ] (Priority) r correlations for P15
