@@ -488,26 +488,29 @@ Details to add
   - [ ] David - Validation spot test data
 
 
-* TODO Intro ammendments [0/9]
- - [ ] Correct statements about yeast genome and growth [0/5]
-   - [ ] Orthologs Inparanoid O'Brien
-   - [ ] Do not state as Beguling (compact cells more efficient) Doolittle
-   - [ ] Streamlining theory Giovannoni
-   - [ ] Deth 2007 - "Performance of the translational apparatus
-     varies with the ecological strategies of bacteria"
-   - [ ] life with 6000 genes (yeast genome)
-   - [ ] Growth in colonies
- - [ ] Reference Fisher for genetic interaction
+* TODO Intro ammendments [1/9]
+ - [ ] (Proirity 1) Sharped Plate images
+ - [ ] (Priority) Decide whether I like having the Reo model in the introduction.
+ - [ ] Reference Fisher for genetic interaction (Not going to)
  - [ ] Could talk about more examples of QFA
    - [ ] If I am having to introduce P15 and the Stripes and Filled
      plates earlier then talk about P15
- - [ ] Plots of r and K dists for stripes and filled
+ - [-] Correct statements about yeast genome and growth [4/7]
+   - [ ] Not really certain that this is why they have small
+     genomes. Unless I can think of another evolutionary pressure this
+     will have to do though.
+   - [X] Orthologs Inparanoid O'Brien
+   - [ ] Do not state as Beguling (compact cells more efficient) Doolittle
+   - [X] Streamlining theory Giovannoni
+   - [X] Deth 2007 - "Performance of the translational apparatus
+     varies with the ecological strategies of bacteria"
+   - [X] life with 6000 genes (yeast genome)
+ - [ ] (Good but low priority) Plots of r and K dists for stripes and
+   filled
  - [ ] Could mention quorum sensing when I menthion ethanol
- - [ ] Sharped Plate images
  - [ ] Could put arrows, boxes, numbers, or letters on stripes and
    filled rows
- - [ ] Decide whether I like having the Reo model in the introduction.
- - [ ] Change kn-k and C_{t_{0}}->C(0), etc. in all figures
+ - [X] Change kn-k and C_{t_{0}}->C(0), etc. in all figures
 
 * TODO Methods ammendments [1/6]
  - [-] Find solving and fitting time
