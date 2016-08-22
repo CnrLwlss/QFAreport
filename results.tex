@@ -50,14 +50,60 @@ Describe experiment
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{final/P15_r_correlations_median}
-  \captionof{figure}{\textbf{Correlations of r estimate between
-      logistic and competition model}. Correlations are shown for
-    culture locations (black) and for median values for each gene
-    (red).}
+  \includegraphics[width=\linewidth]{final/P15_r_correlations_median_rho_and_rs}
+  \captionof{figure}{\textbf{Correlation between logistic and
+      competition model r estimates for P15}. Correlations are plotted
+    between r estimates for cultures (black) and between the medians
+    of r estimates for each deletion (red). There were six repeats in
+    random locations per deletion (except for the neutral deletion
+    \textit{his3\(\Delta\)} which had 14). Logistic fits used the QFA
+    R package. The Pearson correlation coefficient, \(\rho\), and
+    Spearman rank correlation coefficient, \(r_{s}\), are shown for
+    each distribution. The line y = x is also plotted.}
   \label{fig:P15_correlations}
 \end{Figure}
 
+
+% \columnbreak
+% \begin{center}
+%   \captionof{table}{\textbf{Pearson correlation coefficient and
+%       Spearman rank correlation coefficient for logistic model and
+%       competition model estimates of \(\bm{r}\) and \(\bm{MDR}\) for
+%       P15.} Correlation coefficients compare logistic and competition
+%     model estimates of parameters \(r\) and \(MDR\). Correlations are
+%     shown between estimates for each culture and between median and
+%     mean estimates for each deletion.}
+% \begin{tabular}{ |c|c|c|c| }
+% \cline{3-4}
+% \multicolumn{2}{c|}{} & \(r\) & \(MDR\)  \\ \hline
+%   \multirow{3}{*}{Pearson~\(\rho\)} & Cultures & 0.712 & 0.752 \\
+% & Median & 0.708 & 0.791 \\
+% & Mean   & 0.763 & 0.885 \\ \hline
+%   \multirow{3}{*}{Spearman~\(r_{s}\)} & Cultures & 0.731 & 0.754\\
+% & Median & 0.497 & 0.635 \\
+% & Mean   & 0.594 & 0.732 \\ \hline
+% \end{tabular}
+% \end{center}
+
+
+\columnbreak
+\begin{center}
+  \captionof{table}{\textbf{Correlation coefficients between logistic
+      and competition model estimates of parameters for P15.} Pearson
+    correlation coefficient \(\bm{\rho}\) and Spearman rank
+    correlation coefficient \(\bm{r_{s}}\) are shown. Correlation
+    coefficients compare between logistic and competition model
+    estimates of both \(r\) and \(MDR\). Correlations are shown
+    between estimates for each culture and between median and mean
+    estimates for each deletion.}
+\begin{tabular}{ |c|c|c|c|c| } \cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{2}{c|}{\(r\)} & \multicolumn{2}{c|}{\(MDR\)}\\ \hline %\cline{2-5}
+\multicolumn{1}{|c|}{Estimate} & \(\rho\) & \(r_{s}\) & \(\rho\) & \(r_{s}\) \\ \hline
+Culture & 0.712 & 0.731 & 0.752 & 0.754 \\
+Median & 0.708 & 0.497 & 0.791 & 0.635 \\
+Mean   & 0.763 & 0.594 & 0.885 & 0.732 \\ \hline
+\end{tabular}
+\end{center}
 
 % \end{multicols}
 % \graphicspath{{images/comp_fit/}}
@@ -162,7 +208,6 @@ Describe experiment
   \end{tabular}
   \label{tab:corner}
 \end{center}
-%\end{table}
 
 Table~\ref{tab:corner}
 
@@ -288,7 +333,7 @@ calculate coefficient of variation (COV) of estimated r or MDR.
 %     Figure~\ref{fig:stripes_images}. I converted competition model b
 %     to logistic model r. I only used data for cultures that were
 %     common between the two plates common and removed edge
-%     cultures. The Pearson correlation coefficient, \(\rho\), is shown
+%     cultures. Pearson correlation coefficients, \(\rho\), are shown
 %     in the legends. The line \(y=x\) is also plotted.}
 %   \label{fig:r_correlations_v2}
 % \end{Figure}
@@ -305,8 +350,8 @@ calculate coefficient of variation (COV) of estimated r or MDR.
     Figure~\ref{fig:stripes_images}. I converted competition model b
     to logistic model r. I only used data for cultures that were
     common between the two plates common and removed edge
-    cultures. The Pearson correlation coefficient, \(\rho\), is shown
-    in the legends. The line \(y=x\) is also plotted.}
+    cultures. Pearson correlation coefficients, \(\rho\), are shown in
+    the legends. The line \(y=x\) is also plotted.}
   \label{fig:r_correlations}
 \end{Figure}
 
