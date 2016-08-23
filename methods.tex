@@ -76,7 +76,7 @@ Stripes details)). I set bounds according to
 Table~\ref{tab:p15_bounds} and checked that best fits had no
 parameters at a boundary.
 %
-\columnbreak
+
 \begin{center}
   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
     competition model to P15 and the Stripes and Filled plates. Bounds
@@ -302,6 +302,37 @@ to encompass uncertainty in \(C(0)\) for the given experiment.
 \subsubsection{\boldmath \thesubsubsection~Guessing \(b\) \unboldmath}
 \label{sec:guessing_b}
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{images/imag_neigh_schematic/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/imag_neigh_schematic_2}
+  \captionof{figure}{\textbf{Schematic of the imaginary neighbour
+      model.} I developed this model to make quick guesses of
+    competition model \(b_{i}\) by fitting single cultures. A real
+    culture (red) with cell observations, \(C_{obs}\), is modelled as
+    growing alongside imagined slow and fast growing neighbours (blue)
+    with growth constants \(b_{s}\) and \(b_{f}\) (for slow and
+    fast). The model uses the competition model rate equations
+    (\ref{eq:competition_model}), with \(C_{i}\) and \(N_{i}\) for
+    each culture, but with separate nutrient diffusion constants
+    \(k_{s}\) and \(k_{f}\) for slow and fast growing neighbours
+    rather than a single parameter \(k\). Each culture is modelled as
+    having the same \(C(0)\) and \(N(0)\). \(k_{s}\), \(k_{f}\), and
+    the growth constant \(b_{i}\) of the ``real'' are estimated by
+    fitting the model to \(C_{obs}\) with all other parameters
+    fixed. \(b_{i}\) is kept as an initial guess for fitting of the
+    competition model. \(n\) of each neighbour are chosen to try to
+    replicate the different configurations of neighbours that might be
+    present on the real plate. \(C(0)\) and \(N(0)\) are fixed using
+    previous guesses (see Section~\ref{sec:guessing_amounts}).}
+  \label{fig:imag_neigh_schematic}
+\end{Figure}
+
+% The model aims to approximate the diffusion of nutrients into and out
+% of a culture using an configuration of imagined fast and slow growing
+% neighbours. Cell observations for a culture can be fit to get
+% estimates of growth constants \(b_{i}\).\\
 
 To guess competition model \(b_{i}\) I used the imaginary neighbour
 model (Figure~(ref)) to quickly fit individual cultures. The model is
