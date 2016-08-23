@@ -40,12 +40,37 @@ Describe experiment
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun}
-  \captionof{figure}{\textbf{A zone of a fit of the competition model
-      to P15 and initial guess}. The guess was made using the
-    imaginary neighbour model fit to individual cultures. Top-left
-    coordinates from Figure~\ref{fig:comp_fit_plate} (5, 18).}
+  \captionof{figure}{\textbf{Comparison of competition and logistic
+      model fits to a zone of P15}. The logistic model was fit with
+    the QFA R package and uses almost three times as many
+    parameters. The initial guess for the competition model (dashes)
+    was made from fits of the imaginary neighbour model to individual
+    cultures. The zone has top-left coordinates (5, 18) and is boxed
+    in red in Figure~\ref{fig:comp_fit_plate}. Objective function
+    values for each culture (Obj.) were scaled by \(10^{4}\).}
   \label{fig:comp_fit_zone}
 \end{Figure}
+
+
+\columnbreak
+\begin{center}
+  \captionof{table}{\textbf{Objective function values for fits to
+      P15.} ``Internal'' is the total objective function value for
+    cultures not at an edge. ``All'' is the total objective function
+    value for all cultures on the plate. Observations of edge culture
+    are noisy due to reflections from plate walls and estimates are
+    usually discarded.}
+  \begin{tabular}{l l l}
+    \hline
+    Cultures     & Competition & Logistic \\
+    \hline
+    Internal     & 0.194    & 0.155\\
+    All          & 0.465    & 0.345\\
+    \hline
+  \end{tabular}
+  \label{tab:P15_obj_fun}
+\end{center}
+
 
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
