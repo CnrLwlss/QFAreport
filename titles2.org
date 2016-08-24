@@ -637,3 +637,19 @@ Details to add
  - [X] The left most column is all HIS3
  - [X] Temperature 27C
  - [X] How many timepoints over what time ~50 timepoints over ~4 days
+
+* TODO p15 results
+  - [ ] Describe how the plate was fit
+    - [ ] I ran multiple fits of the competiton model to P15.
+    - [ ] Each used the imaginary neighbour model as an inital guess.
+    - [ ] Initial parameters supplied to imag neighbour guess
+    - [ ] Using 5 guesses of C_0 from N_0*10-3 to N_0*10-5 in
+      logspace.
+    - [ ]
+    - [ ] Used 14 initial parameters for \(b\) for the guesser. Guessed \(b_{i}\) for imaginary guessing model from (35, 40, ..., 100).
+    - [ ] The best used \(b\) = 35 and \(C_0\) = 10-4*N_0
+    - [ ] Did not find local minimum but top five fits were correlated
+      each other with Spearmans rank order correlation coefficient of
+      (0.968 - 0.994)
+    - [ ] Table parameter values for best two fits.
+    - [ ]
