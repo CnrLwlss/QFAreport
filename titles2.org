@@ -651,9 +651,9 @@ Details to add
       each other with Spearmans rank order correlation coefficient of
       (0.968 - 0.994)
     - [X] Table parameter values for best two fits.
-  - [-] Describe and compare the fits
+  - [X] Describe and compare the fits
     - [X] Comp fit to full plate appears good accross the plate
-    - [-] Zone
+    - [X] Zone
       - [X] Guess is typical for the plate with some cultures disagreeing
       - [X] Could also have spearmans correlation coefficient of b
         with the best guess. Could put parameter values in a table.
@@ -670,3 +670,20 @@ Details to add
         average for the plate. comp obj = 44.06; log obj = 68.38.
       - [X] Likely more competition in this zone.
       - [X] The logistic model is probalby fitting other areas better.
+  - [ ] Treatment of boundary conditions (may leave out) [0/6]
+    - [ ] I also fit the one initial nutrient parameter model to P15
+      using the exact same method.
+    - [ ] plot shows the fits to the top left corner of P15 for both
+      - [ ] Fits appear very similar in quality.
+      - [ ] But look at table
+    - [ ] Error in cultures next to the edge was reduced with the two parameter model
+    - [ ] Internal cultures were fit better overall with the
+    - [ ] Interestingly fits of the edge cultures were actaully worse
+      - [ ] These are dominated by noise
+      - [ ] Must be fit in the competitin model
+    - [ ] Model is working correctly and fitting the cultures collectivly
+  - [ ] Correlation of r estimats [0/1]
+    - [ ] Converted competition model parameters to r as in section
+  - [ ] Comparison of ranking
+    - [ ] b rank is equivalent to r rank
+    - [ ] Validation data
