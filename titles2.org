@@ -639,17 +639,34 @@ Details to add
  - [X] How many timepoints over what time ~50 timepoints over ~4 days
 
 * TODO p15 results
-  - [ ] Describe how the plate was fit
-    - [ ] I ran multiple fits of the competiton model to P15.
-    - [ ] Each used the imaginary neighbour model as an inital guess.
-    - [ ] Initial parameters supplied to imag neighbour guess
-    - [ ] Using 5 guesses of C_0 from N_0*10-3 to N_0*10-5 in
+  - [-] Describe how the plate was fit
+    - [X] I ran multiple fits of the competiton model to P15.
+    - [X] Each used the imaginary neighbour model as an inital guess.
+    - [X] Initial parameters supplied to imag neighbour guess
+    - [X] Using 5 guesses of C_0 from N_0*10-3 to N_0*10-5 in
       logspace.
-    - [ ]
-    - [ ] Used 14 initial parameters for \(b\) for the guesser. Guessed \(b_{i}\) for imaginary guessing model from (35, 40, ..., 100).
+    - [X] Used 14 initial parameters for \(b\) for the guesser. Guessed \(b_{i}\) for imaginary guessing model from (35, 40, ..., 100).
     - [ ] The best used \(b\) = 35 and \(C_0\) = 10-4*N_0
-    - [ ] Did not find local minimum but top five fits were correlated
+    - [X] Did not find local minimum but top five fits were correlated
       each other with Spearmans rank order correlation coefficient of
       (0.968 - 0.994)
-    - [ ] Table parameter values for best two fits.
-    - [ ]
+    - [X] Table parameter values for best two fits.
+  - [-] Describe and compare the fits
+    - [X] Comp fit to full plate appears good accross the plate
+    - [-] Zone
+      - [X] Guess is typical for the plate with some cultures disagreeing
+      - [X] Could also have spearmans correlation coefficient of b
+        with the best guess. Could put parameter values in a table.
+      - [X] Logistic model used QFA R package
+      - [X] Point to table
+	- [X] Objective function values similar but logistic model
+          beats the competition model.
+	- [X] (Dicussion?) The QFA R logistic fit uses 1152 parameters
+          competition model uses 387.
+      - [X] objective funstion for most cultures are similar.
+      - [X] However, the competiton model fits much better to the
+        central and center-right fast growing cultures.
+      - [X] This zone contains more large growing cultures than is
+        average for the plate. comp obj = 44.06; log obj = 68.38.
+      - [X] Likely more competition in this zone.
+      - [X] The logistic model is probalby fitting other areas better.
