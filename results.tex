@@ -41,34 +41,17 @@ used five initial values of \(C(0)\) ranging from
 (\(N(0)\) is approximately equal to final cells) and a range of 14
 different values for \(b\) as described in
 Section~\ref{sec:guessing_b}. This made a total of 70 fits. I show
-estimated competition model parameters for the two best fits in
-Table~\ref{tab:P15_best_fit_params}. Estimated initial nutrient
-amounts agree fairly well between but there is disagreement in
-estimates of \(C(0)\) and (nutrient diffusion constant) \(k\). It
-appears that the gradient method is not finding a global
-minimum. However, \(b_{i}\) estimates were correlated with Spearman's
-rank correlation coefficient, \(\rho_{S} = 0.989\), and had average
-mean absolute deviation, \(MAD = 1.56\). The mean of \(b_{i}\)
-estimates for the best fit was 44.4.
-
-\begin{center}
-  \captionof{table}{\textbf{Estimated parameter values for the best
-      two competition model fits to P15.} Spearman's rank correlation
-    coefficient between \(b_{i}\) estimates, \(\rho_{S}\) =
-    0.989. Mean absolute deviation between \(b_{i}\) estimates, MAD =
-    1.56. The total objective function value for internal cultures is
-    shown in the last column.}
-  \begin{tabular}{l l l l l l}
-    \hline
-    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
-    \hline
-    1st     & 9.1\(\times\)10\(^{-5}\)    & 0.064      & 0.090       & 6.7  & 0.194 \\
-    2nd     & 13.9\(\times\)10\(^{-5}\)   & 0.062      & 0.097       & 8.3  & 0.196 \\
-    \hline
-  \end{tabular}
-  \label{tab:P15_best_fit_params}
-\end{center}
-
+estimated competition model parameters for the top two fits in
+Table~\ref{tab:P15_best_fit_params}. (I selected the best fit based on
+the fit to only the internal cultures.) Estimated initial nutrient
+amounts agree fairly well between the top two fits but there is
+disagreement in estimates of \(C(0)\) and (nutrient diffusion
+constant) \(k\). It appears that the gradient method is not finding a
+global minimum. However, \(b_{i}\) estimates were correlated with
+Spearman's rank correlation coefficient, \(\rho_{S} = 0.989\), and had
+average mean absolute deviation, \(MAD = 1.56\). The mean value of
+\(b_{i}\) for the best fit was 44.4 so the disagreement is fairly
+small.
 
 For all comparisons between the top four fits \(\rho_{S}\) ranges from
 0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I discarded the
@@ -81,44 +64,26 @@ each other to make meaningful comparison with logistic model
 estimates.
 
 
+\begin{center}
+  \captionof{table}{\textbf{Estimated parameter values for the best
+      two competition model fits to P15.} Spearman's rank correlation
+    coefficient between \(b_{i}\) estimates, \(\rho_{S}\) =
+    0.989. Mean absolute deviation between \(b_{i}\) estimates, MAD =
+    1.56. The total objective function value for internal cultures is
+    shown in the last column (lower is better).}
+  \begin{tabular}{l l l l l l}
+    \hline
+    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
+    \hline
+    1st     & 9.1\(\times\)10\(^{-5}\)    & 0.064      & 0.090       & 6.7  & 0.194 \\
+    2nd     & 13.9\(\times\)10\(^{-5}\)   & 0.062      & 0.097       & 8.3  & 0.196 \\
+    \hline
+  \end{tabular}
+  \label{tab:P15_best_fit_params}
+\end{center}
+
+
 %%%%
-
-The best fit of the competition model to P15 is shown in
-Figure~\ref{fig:comp_fit_plate}. The estimated cell amounts (blue)
-match the data well across the entire plate. Fits of the competition
-model (solid), imaginary neighbour guess (dashed), and logistic model
-(red) are plotted for a 3x3 zone in Figure~\ref{fig:P15_zone_fit}.
-% could have a table with initial guess
-The logistic model was fit using the QFA R package \citep{qfa2016}.
-The fit of the initial guess is typical for the plate. Some culture,
-such as the bottom-left, are not well fit (and Spearman's \(\rho_{s}\)
-for the imaginary neighbour guess and competition model \(b_{i}\)
-estimates is 0.63). However, the guess fulfils its purpose by leading
-to a good fit when used to initialise parameters of the competition
-model. Over the plate, the logistic model fits slightly better than
-competition model (Table\ref{tab:P15_obj_fun}). The total objective
-function for internal cultures is 0.155 for the logistic model and
-0.194 for the competition model (smaller values are better). (However,
-the logistic model used 1152 parameters whereas the competition model
-only used 387.) The zone in Figure~Figure~\ref{fig:P15_zone_fit}
-contains more fast growing cultures than is typical for the plate (and
-may contain more competition effects). The objective function of the
-logistic and competition model fit is similar for most
-cultures. However, the competition model fits the centre and
-centre-right fast growing cultures much better than the logistic
-model. The total objective function value for the zone is lower for
-the competition model: 44.06 vs 68.38 (values scaled by
-\(10^{4}\)). The logistic model must provide the better fit for other
-areas of the plate.
-
-
-% For the I discard Observations of edge culture are noisy due to reflections from plate
-% walls and estimates are usually discarded.
-
-
-
-
-
 \graphicspath{{images/p15_fits/}}
 \begin{Figure}
   \centering
@@ -130,10 +95,45 @@ areas of the plate.
     was made from fits of the imaginary neighbour model to individual
     cultures. The zone has top-left coordinates (5, 18) and is boxed
     in red in Figure~\ref{fig:comp_fit_plate}. Objective function
-    values for each culture (Obj.) were scaled by \(10^{4}\). Smaller
-    values are better.}
+    values for each culture (Obj.) were scaled by \(10^{4}\) (smaller
+    values are better)}
   \label{fig:P15_zone_fit}
 \end{Figure}
+
+
+For the best fit of the competition model to P15, estimated cell
+amounts (blue) match the data well across the entire plate
+(Figure~\ref{fig:comp_fit_plate}). A high nutrient diffusion constant,
+\(k\), is fit, such that nutrients diffuse readily and nutrient
+timecourses are similar for cultures close to each other. Fits of the
+competition model (solid), imaginary neighbour guess (dashed), and
+logistic model (red) are plotted for a 3x3 zone in
+Figure~\ref{fig:P15_zone_fit}. The logistic model was fit using the
+QFA R package \citep{qfa2016}. The fit of the initial guess is typical
+for the plate. Some culture, such as the bottom-left, are not well fit
+(and Spearman's \(\rho_{s}\) for the imaginary neighbour guess and
+competition model \(b_{i}\) estimates is 0.63). However, the guess
+fulfils its purpose by leading to a good fit when used to initialise
+parameters of the competition model. Over the plate, the logistic
+model fits slightly better than competition model
+(Table\ref{tab:P15_obj_fun}). The total objective function for
+internal cultures is 0.155 for the logistic model and 0.194 for the
+competition model (smaller values are better). I discard edge cultures
+which have higher noise. (However, the logistic model used 1152
+parameters whereas the competition model only used 387.) The zone in
+Figure~Figure~\ref{fig:P15_zone_fit} contains more fast growing
+cultures than is typical for the plate (and may contain more
+competition effects). The objective function of the logistic and
+competition model fit is similar for most cultures. However, the
+competition model fits the centre and centre-right fast growing
+cultures much better than the logistic model. The total objective
+function value for the zone is lower for the competition model: 44.06
+vs 68.38 (values scaled by \(10^{4}\)). The logistic model must
+provide the better fit for other areas of the plate.
+
+
+
+
 
 
 
@@ -152,6 +152,62 @@ areas of the plate.
   \end{tabular}
   \label{tab:P15_obj_fun}
 \end{center}
+
+
+\subsection{\thesubsection~Evaluating the treatment of boundaries}
+
+Some text
+
+\graphicspath{{images/corners/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/top_left_new_aspect}
+  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
+      of the competition model.} The top left corner of a 16x24 QFA
+    plate fitted with two versions of the competition model, the first
+    has a single initial nutrient amount for all cultures, the second
+    has a separate initial nutrient amount for edge cultures.}
+  \label{fig:P15_corner}
+\end{Figure}
+
+% Alternate version with legend in separate image
+% \graphicspath{{images/corners/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/top_left_new_aspect_sans_legend}
+%   \includegraphics[width=\linewidth]{final/legend}
+%   \captionof{figure}{\textbf{Treatment of boundary conditions in fits
+%       of the competition model.} The top left corner of a 16x24 QFA
+%     plate fitted with two versions of the competition model, the first
+%     has a single initial nutrient amount for all cultures, the second
+%     has a separate initial nutrient amount for edge cultures.}
+%   \label{fig:P15_corner_2}
+% \end{Figure}
+
+
+\begin{center}
+  \captionof{table}{\textbf{Average objective function value for one a
+      two \(\bm{N(0)}\) parameter competition models.} Values are for
+    the same fits as in Figure~\ref{fig:P15_corner} and have been
+    scaled by \(10^{4}\). Averages are for cultures belonging to the
+    areas indicated by the column ``Cultures''. ``Next to edge''
+    refers to cultures one in from the edge. ``Internal'' refers to
+    all cultures but the edge.}
+  \begin{tabular}{l l l}
+    \hline
+    Cultures     & One \(N(0)\)  & Two \(N(0)\) \\
+    \hline
+    Edge         & 35.9    & 36.5\\
+    Next to edge & 9.54    & 7.98\\
+    Internal     & 6.67    & 6.30\\
+    All          & 12.4    & 12.2\\
+    \hline
+  \end{tabular}
+  \label{tab:corner}
+\end{center}
+
+Table~\ref{tab:corner}
+
 
 
 \graphicspath{{images/p15_correlations/}}
@@ -203,23 +259,6 @@ areas of the plate.
 % \end{Figure}
 % \begin{multicols}{2}
 
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text.
 
 
 % Make landscape and take a whole page.
@@ -244,57 +283,6 @@ areas of the plate.
 \begin{multicols}{2}
 
 
-\subsection{\thesubsection~Evaluating the treatment of boundaries}
-
-\graphicspath{{images/corners/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/top_left_new_aspect}
-  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
-      of the competition model.} The top left corner of a 16x24 QFA
-    plate fitted with two versions of the competition model, the first
-    has a single initial nutrient amount for all cultures, the second
-    has a separate initial nutrient amount for edge cultures.}
-  \label{fig:P15_corner}
-\end{Figure}
-
-% Alternate version with legend in separate image
-% \graphicspath{{images/corners/}}
-% \begin{Figure}
-%   \centering
-%   \includegraphics[width=\linewidth]{final/top_left_new_aspect_sans_legend}
-%   \includegraphics[width=\linewidth]{final/legend}
-%   \captionof{figure}{\textbf{Treatment of boundary conditions in fits
-%       of the competition model.} The top left corner of a 16x24 QFA
-%     plate fitted with two versions of the competition model, the first
-%     has a single initial nutrient amount for all cultures, the second
-%     has a separate initial nutrient amount for edge cultures.}
-%   \label{fig:P15_corner_2}
-% \end{Figure}
-
-
-\begin{center}
-  \captionof{table}{\textbf{Average objective function value for one a
-      two \(\bm{N(0)}\) parameter competition models.} Values are for
-    the same fits as in Figure~\ref{fig:P15_corner} and have been
-    scaled by \(10^{4}\). Averages are for cultures belonging to the
-    areas indicated by the column ``Cultures''. ``Next to edge''
-    refers to cultures one in from the edge. ``Internal'' refers to
-    all cultures but the edge.}
-  \begin{tabular}{l l l}
-    \hline
-    Cultures     & One \(N(0)\)  & Two \(N(0)\) \\
-    \hline
-    Edge         & 35.9    & 36.5\\
-    Next to edge & 9.54    & 7.98\\
-    Internal     & 6.67    & 6.30\\
-    All          & 12.4    & 12.2\\
-    \hline
-  \end{tabular}
-  \label{tab:corner}
-\end{center}
-
-Table~\ref{tab:corner}
 
   Some text Some text Some text Some text Some text Some text Some
   text Some text Some text Some text Some text Some text Some text
