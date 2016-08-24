@@ -597,3 +597,41 @@ Details to add
  - [ ] (Priority) Sort validation refs and check agreement
  - [ ] p-values on figure
  - [ ] (Priority) r correlations for P15
+* TODO Describe P15 [0/11]
+ - [ ] Plate 15 from a standard library
+ - [ ] From Addinall et al 2011
+ - [ ] Dilute cultures of ~100 cells - not detectablen
+ - [ ] Deletions of genes relevant to telomere stability
+ - [ ] HIS3 is neutral deletion 14 repeats
+ - [ ] All other deletions have 6 repeats
+ - [ ] HIS3 is grown in edge locations and results are discarded
+ - [ ] cdc13-1 is a conditional mutant
+   - [ ] What does cdc13 do? - telomere stability
+ - [ ] plate is incubated at 27 C where cdc13-1 starts to have loss of function
+ - [ ] How many timepoints over what time? 10 over ~4 days
+ - [ ] Why choose this plate - see presentation
+   - [ ] Lots of replicates
+   - [ ] Large variation in fitness of strains - hope to induce
+     competition.
+   - [ ] There is validation data for some of the strains from
+     independent spot tests. Visual inspecition of serial diluted spot
+     tests with few replicates. Qualitative observations or relative
+     final cell densities. Slightly different temperatures. Doesn't
+     cover most of the deletions on the plate
+
+* TODO Describe Stripes and Filled plates [0/10]
+ - [ ] Experiment designed to detect competiton effects Eva Holstein
+   (personal communications April 2016)
+ - [ ] Grown on two plates
+   - [ ] Stripes: Strains are inoculated in every other column
+   - [ ] Filled: The same strains are inoculated in the same positions
+     as in the Stripes plate. Gaps are now filled in with new
+     cultures. Each new culture is a variation of the strian to the left.
+ - [ ] More concentrated (~10000 of cells) - detectable
+ - [ ] Inocculated from the same liquid cultures.
+ - [ ] What are the deletions?
+ - [ ] No repeats for most strains
+ - [ ] Background mutation cdc13-1 and rad57
+ - [ ] The left most column is all HIS3
+ - [ ] Temperature 27C
+ - [ ] How many timepoints over what time ~50 timepoints over ~4 days
