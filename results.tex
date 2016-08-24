@@ -30,32 +30,55 @@
 
 \subsection{\thesubsection~Competition Model Fitting to P15}
 
-Parameters of best two fits
+I ran multiple fits of the competition model to P15. Each fit used the
+imaginary neighbour model to make initial parameter guesses (see
+Section~\ref{sec:guessing_b}. The imaginary neighbour model itself
+requires initial parameters and fits looped over combinations of
+values for initial cell density \(C(0)\) and growth constant \(b\). I
+used five initial values of \(C(0)\) ranging from
+\(N(0)\times\)10\(^{-5}\) to \(N(0)\times\)10\(^{-3}\) in logspace
+(\(N(0)\) is approximately equal to final cells) and a range of 14
+different values for \(b\) as described in
+Section~\ref{sec:guessing_b}. This made a total of 70 fits. I show
+estimated competition model parameters for the two best fits in
+Table~\ref{tab:P15_best_fit_params}. Estimated initial nutrient
+amounts agree fairly well between but there is disagreement in
+estimates of \(C(0)\) and (nutrient diffusion constant) \(k\). It
+appears that the gradient method is not finding a global
+minimum. However, \(b_{i}\) estimates were correlated with Spearman's
+rank correlation coefficient, \(\rho_{S} = 0.989\), and had average
+mean absolute deviation, \(MAD = 1.56\). The mean of \(b_{i}\)
+estimates for the best fit was 44.4.
+
+For all comparisons between the top four fits \(\rho_{S}\) ranges from
+0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I discarded the
+5th best fit, which has less agreement, because, unlike the other
+fits, it estimated \(N_{I}(0)\) > \(N_{E}(0)\). When comparing to the
+top four fits, \(\rho_{S}\) was above 0.930 but \(b\) values were more
+affected with a maximum MAD of 13.29.
+
+Despite not finding a global minimum, the best competition model
+estimates agree well enough with each other to make meaningful
+comparison with logistic model estimates.
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       two competition model fits to P15.} Spearman's rank correlation
     coefficient between \(b_{i}\) estimates, \(\rho_{S}\) =
     0.989. Mean absolute deviation between \(b_{i}\) estimates MAD =
-    1.56.}
-  \begin{tabular}{l l l l l}
+    1.56. The total objective function value for internal cultures is
+    shown in the last column.}
+  \begin{tabular}{l l l l l l}
     \hline
-    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\)\\
+    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
     \hline
-    1st     & 9.13\(\times\)10\(^{-5}\)    & 0.0641      & 0.0895       & 6.67\\
-    2nd     & 13.87\(\times\)10\(^{-5}\)   & 0.0618      & 0.0974       & 8.31\\
+    1st     & 9.1\(\times\)10\(^{-5}\)    & 0.064      & 0.090       & 6.7  & 0.194 \\
+    2nd     & 13.9\(\times\)10\(^{-5}\)   & 0.062      & 0.097       & 8.3  & 0.196 \\
     \hline
   \end{tabular}
   \label{tab:P15_best_fit_params}
 \end{center}
 
-
-
-
-Spearman's rank correlation coefficient for the best 5 fits (0.922 - 0.996)
-MAD in \(b\) estimate for the bets five fits was ( 13.30
-b MAD for top for fits
-I have discarded the 5th best fit as it fit NE0 < N0 and shows more disagreement.
 
 \graphicspath{{images/p15_fits/}}
 \begin{Figure}
