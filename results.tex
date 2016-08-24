@@ -91,15 +91,26 @@ model (solid), imaginary neighbour guess (dashed), and logistic model
 % could have a table with initial guess
 The logistic model was fit using the QFA R package \citep{qfa2016}.
 The fit of the initial guess is typical for the plate. Some culture,
-such as the bottom-left, are not well fit. However, Spearman's
-\(\rho_{s}\) for the imaginary neighbour guess and competition model
-\(b_{i}\) estimates is (fill ) and the guess leads to a good fit when
-used to initialise parameters of the competition model. Over the
-plate, the logistic model and competition model perform similarly
-(Table\ref{tab:P15_obj_fun}) .
+such as the bottom-left, are not well fit (and Spearman's \(\rho_{s}\)
+for the imaginary neighbour guess and competition model \(b_{i}\)
+estimates is 0.63). However, the guess fulfils its purpose by leading
+to a good fit when used to initialise parameters of the competition
+model. Over the plate, the logistic model fits slightly better than
+competition model (Table\ref{tab:P15_obj_fun}). The total objective
+function for internal cultures is 0.155 for the logistic model and
+0.194 for the competition model (smaller values are better). (However,
+the logistic model used 1152 parameters whereas the competition model
+only used 387.) The zone in Figure~Figure~\ref{fig:P15_zone_fit}
+contains more fast growing cultures than is typical for the plate (and
+may contain more competition effects). The objective function of the
+logistic and competition model fit is similar for most
+cultures. However, the competition model fits the centre and
+centre-right fast growing cultures much better than the logistic
+model. The total objective function value for the zone is lower for
+the competition model: 44.06 vs 68.38 (values scaled by
+\(10^{4}\)). The logistic model must provide the better fit for other
+areas of the plate.
 
-the zone contains more fast growing cultures than is average for the
-plate.
 
 % For the I discard Observations of edge culture are noisy due to reflections from plate
 % walls and estimates are usually discarded.
@@ -115,11 +126,12 @@ plate.
   \captionof{figure}{\textbf{Comparison of competition and logistic
       model fits to a zone of P15}. The logistic model was fit with
     the QFA R package and uses almost three times as many
-    parameters. The initial guess for the competition model (dashes)
+    parameters. The initial guess (dashes) for the competition model
     was made from fits of the imaginary neighbour model to individual
     cultures. The zone has top-left coordinates (5, 18) and is boxed
     in red in Figure~\ref{fig:comp_fit_plate}. Objective function
-    values for each culture (Obj.) were scaled by \(10^{4}\).}
+    values for each culture (Obj.) were scaled by \(10^{4}\). Smaller
+    values are better.}
   \label{fig:P15_zone_fit}
 \end{Figure}
 
@@ -129,7 +141,7 @@ plate.
   \captionof{table}{\textbf{Objective function values for fits to
       P15.} ``Internal'' is the total objective function value for
     cultures not at an edge. ``All'' is the total objective function
-    value for all cultures on the plate.}
+    value for all cultures on the plate. Smaller values are better.}
   \begin{tabular}{l l l}
     \hline
     Cultures     & Competition & Logistic \\
