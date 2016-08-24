@@ -29,6 +29,7 @@
 % for b-guess in [35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 95, 100, 150]:
 
 \subsection{\thesubsection~Model comparison using P15}
+\label{sec:P15_fit}
 
 I ran multiple fits of the competition model to P15 (see
 Section~\ref{sec:P15_description}). Each fit used the imaginary
@@ -131,12 +132,6 @@ function value for the zone is lower for the competition model: 44.06
 vs 68.38 (values scaled by \(10^{4}\)). The logistic model must
 provide the better fit for other areas of the plate.
 
-
-
-
-
-
-
 \begin{center}
   \captionof{table}{\textbf{Objective function values for fits to
       P15.} ``Internal'' is the total objective function value for
@@ -153,10 +148,23 @@ provide the better fit for other areas of the plate.
   \label{tab:P15_obj_fun}
 \end{center}
 
-
 \subsection{\thesubsection~Evaluating the treatment of boundaries}
 
-Some text
+I also fit the one \(N(0)\) parameter competition model to P15 using
+the same method as for the two \(N(0)\) parameter model (see
+Section~\ref{sec:P15_fit}.) Fits appear similar in quality for both
+models (Figure~\ref{fig:P15_corner}) and objective function values for
+the entire plate are very similar (Table~\ref{tab:corner}). Objective
+function values for cultures next to an edge culture are improved with
+the two \(N(0)\) model and internal cultures were better fit
+overall. Interestingly, fits of the edge cultures are actually worse
+in the two \(N(0)\) model. These cultures are dominated by noise due
+to reflections from plate walls which is why they are discarded from
+final estimates. However, the edge cultures must be included in the
+objective function when fitting the competition model. Despite this
+deficit, the two \(N(0)\) model has increased the goodness of fit to
+internal cultures by collectively fitting all cultures.
+
 
 \graphicspath{{images/corners/}}
 \begin{Figure}
@@ -192,7 +200,7 @@ Some text
     scaled by \(10^{4}\). Averages are for cultures belonging to the
     areas indicated by the column ``Cultures''. ``Next to edge''
     refers to cultures one in from the edge. ``Internal'' refers to
-    all cultures but the edge.}
+    all cultures but the edge. Lower values are better.}
   \begin{tabular}{l l l}
     \hline
     Cultures     & One \(N(0)\)  & Two \(N(0)\) \\

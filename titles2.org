@@ -639,7 +639,7 @@ Details to add
  - [X] How many timepoints over what time ~50 timepoints over ~4 days
 
 * TODO p15 results
-  - [-] Describe how the plate was fit
+  - [-] Describe how the plate was fit [7/8]
     - [X] I ran multiple fits of the competiton model to P15.
     - [X] Each used the imaginary neighbour model as an inital guess.
     - [X] Initial parameters supplied to imag neighbour guess
@@ -651,9 +651,9 @@ Details to add
       each other with Spearmans rank order correlation coefficient of
       (0.968 - 0.994)
     - [X] Table parameter values for best two fits.
-  - [X] Describe and compare the fits
+  - [X] Describe and compare the fits [2/2]
     - [X] Comp fit to full plate appears good accross the plate
-    - [X] Zone
+    - [X] Zone [9/9]
       - [X] Guess is typical for the plate with some cultures disagreeing
       - [X] Could also have spearmans correlation coefficient of b
         with the best guess. Could put parameter values in a table.
@@ -670,18 +670,18 @@ Details to add
         average for the plate. comp obj = 44.06; log obj = 68.38.
       - [X] Likely more competition in this zone.
       - [X] The logistic model is probalby fitting other areas better.
-  - [ ] Treatment of boundary conditions (may leave out) [0/6]
-    - [ ] I also fit the one initial nutrient parameter model to P15
+  - [X] Treatment of boundary conditions (may leave out) [6/6]
+    - [X] I also fit the one initial nutrient parameter model to P15
       using the exact same method.
-    - [ ] plot shows the fits to the top left corner of P15 for both
-      - [ ] Fits appear very similar in quality.
-      - [ ] But look at table
-    - [ ] Error in cultures next to the edge was reduced with the two parameter model
-    - [ ] Internal cultures were fit better overall with the
-    - [ ] Interestingly fits of the edge cultures were actaully worse
-      - [ ] These are dominated by noise
-      - [ ] Must be fit in the competitin model
-    - [ ] Model is working correctly and fitting the cultures collectivly
+    - [X] plot shows the fits to the top left corner of P15 for both
+      - [X] Fits appear very similar in quality.
+      - [X] But look at table
+    - [X] Error in cultures next to the edge was reduced with the two parameter model
+    - [X] Internal cultures were fit better overall with the
+    - [X] Interestingly fits of the edge cultures were actaully worse
+      - [X] These are dominated by noise
+      - [X] Must be fit in the competitin model
+    - [X] Model is working correctly and fitting the cultures collectivly
   - [ ] Correlation of r estimats [0/1]
     - [ ] Converted competition model parameters to r as in section
   - [ ] Comparison of ranking
