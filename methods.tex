@@ -83,8 +83,6 @@ calibration and validation of the competition model by simulating
 timecourses for the Stripes plate using parameters estimated by
 fitting the Filled plate.
 
-
-
 \subsection{\thesubsection~Solving and fitting}
 
 \subsubsection{\thesubsubsection~Solving}
@@ -355,7 +353,7 @@ guesses of \(N_{I}(0)\) and \(N_{E}(0)\) using,
 %
 When \(A_{r} = 1\), (\ref{eq:N_0_guesses}) reduces to the initial
 nutrient guess for the one initial nutrient parameter model. I used
-\(A_{r} = 1.4\).
+\(A_{r} = 1.5\).
 \\
 In QFA using dilute cultures, \(C(0)\) falls below the level of
 detection. I did not estimate initial guesses of \(C(0)\) and instead
@@ -411,17 +409,22 @@ imaginary fast and slow growing neighbours, with growth constants
 \(b_{f}\) and \(b_{s}\), and different nutrient diffusion constants
 \(k_{f}\) and \(k_{s}\). To fit the model to QFA data, I fixed
 \(C(0)\) and \(N(0)\) for all cultures by the initial guesses (see
-Section~\ref{sec:guessing_amounts}); I fixed \(b_{f}\) at a range of
-different guesses, and fixed \(b_{s} = 0\); I allowed \(b\),
-\(k_{f}\), and \(k_{s}\) to vary. I determined the number, \(n\), of
-each neighbour from the guess of \(N_{I}(0)\) and the range of final
-cell amounts, such that the culture with the highest observed final
-cell density had enough slow growing neighbours to provide all of the
-nutrients necessary to reach this final cell density. I solved the
-imaginary neighbour model using SciPy's odeint and fit using a
-gradient method as in Section~\ref{sec:fitting_comp}. Fits of the
-imaginary neighbour model took several minutes which is fast compared
-to fits of the competition model which took several hours.
+Section~\ref{sec:guessing_amounts}), I fixed \(b_{f}\) at a range of
+different guesses, and fixed \(b_{s} = 0\), I allowed \(b\),
+\(k_{f}\), and \(k_{s}\) to vary with lower bound zero and no upper
+bound. I used initial values of zero for \(k_{f}\) and \(k_{s}\). I
+carried out multiple fits of the imaginary neighbour model for each
+value of \(C_{0}\) with the initial value for \(b\) from the range
+(35, 40, ..., 100) and \(b_{f}\) as 1.5 times this value. I chose
+guesses. I determined the number, \(n\), of each neighbour from the
+guess of \(N_{I}(0)\) and the range of final cell amounts, such that
+the culture with the highest observed final cell density had enough
+slow growing neighbours to provide all of the nutrients necessary to
+reach this final cell density. I solved the imaginary neighbour model
+using SciPy's odeint and fit using a gradient method as in
+Section~\ref{sec:fitting_comp}. Fits of the imaginary neighbour model
+took several minutes which is fast compared to fits of the competition
+model which took several hours.
 
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
