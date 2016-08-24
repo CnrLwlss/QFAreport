@@ -605,8 +605,9 @@ Details to add
  - [ ] HIS3 is neutral deletion 14 repeats
  - [ ] All other deletions have 6 repeats
  - [ ] HIS3 is grown in edge locations and results are discarded
- - [ ] cdc13-1 is a conditional mutant
-   - [ ] What does cdc13 do? - telomere stability
+ - [ ] cdc13-1 is a temperature conditional mutant
+   - [ ] What does \textit{CDC13} do? - is a gene important for
+     telomere stability
  - [ ] plate is incubated at 27 C where cdc13-1 starts to have loss of function
  - [ ] How many timepoints over what time? 10 over ~4 days
  - [ ] Why choose this plate - see presentation
