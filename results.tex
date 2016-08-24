@@ -28,10 +28,11 @@
 
 % for b-guess in [35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 95, 100, 150]:
 
-\subsection{\thesubsection~Competition Model Fitting to P15}
+\subsection{\thesubsection~Model comparison using P15}
 
-I ran multiple fits of the competition model to P15. Each fit used the
-imaginary neighbour model to make initial parameter guesses (see
+I ran multiple fits of the competition model to P15 (see
+Section~\ref{sec:P15_description}). Each fit used the imaginary
+neighbour model to make initial parameter guesses (see
 Section~\ref{sec:guessing_b}. The imaginary neighbour model itself
 requires initial parameters and fits looped over combinations of
 values for initial cell density \(C(0)\) and growth constant \(b\). I
@@ -50,22 +51,11 @@ rank correlation coefficient, \(\rho_{S} = 0.989\), and had average
 mean absolute deviation, \(MAD = 1.56\). The mean of \(b_{i}\)
 estimates for the best fit was 44.4.
 
-For all comparisons between the top four fits \(\rho_{S}\) ranges from
-0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I discarded the
-5th best fit, which has less agreement, because, unlike the other
-fits, it estimated \(N_{I}(0)\) > \(N_{E}(0)\). When comparing to the
-top four fits, \(\rho_{S}\) was above 0.930 but \(b\) values were more
-affected with a maximum MAD of 13.29.
-
-Despite not finding a global minimum, the best competition model
-estimates agree well enough with each other to make meaningful
-comparison with logistic model estimates.
-
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       two competition model fits to P15.} Spearman's rank correlation
     coefficient between \(b_{i}\) estimates, \(\rho_{S}\) =
-    0.989. Mean absolute deviation between \(b_{i}\) estimates MAD =
+    0.989. Mean absolute deviation between \(b_{i}\) estimates, MAD =
     1.56. The total objective function value for internal cultures is
     shown in the last column.}
   \begin{tabular}{l l l l l l}
@@ -80,6 +70,44 @@ comparison with logistic model estimates.
 \end{center}
 
 
+For all comparisons between the top four fits \(\rho_{S}\) ranges from
+0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I discarded the
+5th best fit, which has less agreement, because, unlike the other
+fits, it estimated \(N_{I}(0)\) > \(N_{E}(0)\). When comparing to the
+top four fits, \(\rho_{S}\) was above 0.930 but \(b\) values were more
+affected with a maximum MAD of 13.29. Despite not finding a global
+minimum, the best competition model estimates agree well enough with
+each other to make meaningful comparison with logistic model
+estimates.
+
+
+%%%%
+
+The best fit of the competition model to P15 is shown in
+Figure~\ref{fig:comp_fit_plate}. The estimated cell amounts (blue)
+match the data well across the entire plate. Fits of the competition
+model (solid), imaginary neighbour guess (dashed), and logistic model
+(red) are plotted for a 3x3 zone in Figure~\ref{fig:P15_zone_fit}.
+% could have a table with initial guess
+The logistic model was fit using the QFA R package \citep{qfa2016}.
+The fit of the initial guess is typical for the plate. Some culture,
+such as the bottom-left, are not well fit. However, Spearman's
+\(\rho_{s}\) for the imaginary neighbour guess and competition model
+\(b_{i}\) estimates is (fill ) and the guess leads to a good fit when
+used to initialise parameters of the competition model. Over the
+plate, the logistic model and competition model perform similarly
+(Table\ref{tab:P15_obj_fun}) .
+
+the zone contains more fast growing cultures than is average for the
+plate.
+
+% For the I discard Observations of edge culture are noisy due to reflections from plate
+% walls and estimates are usually discarded.
+
+
+
+
+
 \graphicspath{{images/p15_fits/}}
 \begin{Figure}
   \centering
@@ -92,7 +120,7 @@ comparison with logistic model estimates.
     cultures. The zone has top-left coordinates (5, 18) and is boxed
     in red in Figure~\ref{fig:comp_fit_plate}. Objective function
     values for each culture (Obj.) were scaled by \(10^{4}\).}
-  \label{fig:comp_fit_zone}
+  \label{fig:P15_zone_fit}
 \end{Figure}
 
 
@@ -101,9 +129,7 @@ comparison with logistic model estimates.
   \captionof{table}{\textbf{Objective function values for fits to
       P15.} ``Internal'' is the total objective function value for
     cultures not at an edge. ``All'' is the total objective function
-    value for all cultures on the plate. Observations of edge culture
-    are noisy due to reflections from plate walls and estimates are
-    usually discarded.}
+    value for all cultures on the plate.}
   \begin{tabular}{l l l}
     \hline
     Cultures     & Competition & Logistic \\
@@ -191,11 +217,11 @@ comparison with logistic model estimates.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
-  \captionof{figure}{\textbf{Fit of the competition model to a QFA
-      plate.} Data is for a 16x24 format plate (P15) with a background
-    mutation \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate
-    contains 6 repeats of 50 genetic strains randomly arranged across
-    the internal cultures. Repeats of a single strain are used for all
+  \captionof{figure}{\textbf{Fit of the competition model to P15.}
+    Data is for a 16x24 format plate (P15) with a background mutation
+    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+    6 repeats of 50 genetic strains randomly arranged across the
+    internal cultures. Repeats of a single strain are used for all
     edge cultures (removed in the plot). Model output for state
     variable, cell population size (blue curve), is fit to observed
     data (black crosses). Model predictions for unobserved variable
