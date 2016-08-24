@@ -18,24 +18,25 @@ is available at
 \href{https://github.com/lwlss/CANS}{https://github.com/lwlss/CANS}.
 
 
-\subsection{\thesubsection~Description of datasets}
+% \subsection{\thesubsection~Description of datasets}
 
-\subsubsection{\thesubsubsection~P15}
+\subsection{\thesubsection~The P15 dataset}
+\label{sec:P15_description}
 
 I compared logistic and competition model performance by fitting both
 models to QFA data for a single plate, ``P15''
 (Figure~\ref{fig:p15_section}), from a study by
-\citet{Addinall2011}. P15 is plate-15 from a standard deletion library
-in \textit{S. Cerevisiae} with background mutation
-\textit{cdc13-1}. \textit{cdc13-1} is a temperature dependent
-conditional mutatation in a gene involved in telomere
-stability. Internal cultures consist of 6 repeats of each of 49
-different double mutants with deletions in genes thought to be
-relevant to telomere function and 14 repeats of a strain with a
-neutral deletion, \textit{his3}\(\Delta\). Edge cultures are also
-inoculated with repeats of \textit{his3}\(\Delta\) but estimates from
-these cultures are discarded due to noise in cell density estimates
-caused by reflections from plate walls. Cultures were inoculated with
+\citet{Addinall2011}. P15 is a 384-culture QFA plate using deletions
+from plate-15, a standard deletion library in \textit{S. Cerevisiae},
+with background mutation \textit{cdc13-1}. \textit{cdc13-1} is a
+temperature dependent conditional mutatation in a gene involved in
+telomere stability. Internal cultures consist of 6 repeats of each of
+49 different mutants with deletions in genes thought to be relevant to
+telomere function and 14 repeats of a strain with a neutral deletion,
+\textit{his3}\(\Delta\). Edge cultures are also inoculated with
+repeats of \textit{his3}\(\Delta\) but estimates from these cultures
+are discarded due to noise in cell density estimates caused by
+reflections from plate walls. Cultures were inoculated with
 \(\sim\)100 cells which is below levels of detection. P15 was
 incubated at 27\(^{\circ}\)C where \textit{cdc13-1} starts to
 experience loss of function. Each culture has cell density estimates
@@ -43,12 +44,44 @@ taken at 10 timepoints over 4 days. I elected to study P15 because of
 the large variation in fitness between strains which may induce
 competition effects. There are also many repeats of each strain with
 which to calculate statistics. Furthermore, independent validation
-data exists for several strains in published studies using spot tests
+data, from spot tests, exists in published studies for several strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 
-\subsubsection{Stripes and Filled plates}
+\subsection{\thesubsection~The Stripes and Filled plate datasets}
+\label{sec:stripes_description}
 
+The Stripes and Filled plates (Figure~\ref{fig:stripes_images}) are a
+QFA experiment designed to study competition (personal communications
+E. Holstein (April 2016)). On the Stripes plate
+(Figure~\ref{fig:stripes_images}a) strains are inoculated in every
+other column leaving gaps. Strains have a background mutation of
+\textit{cdc13-1} and a deletion in a second gene. There are more
+deletions than for P15 (Section~\ref{sec:P15_description}) and most
+cultures have no repeats. The same strains as in the Stripes plate are
+inoculated in the same positions on the Filled plate. These are
+inoculated from the same liquid culture to try to reduce variation. In
+the Filled plate, gaps are now filled with new cultures. Each deletion
+in a new column is a transposition of the strain immediately to the
+left but with a different background mutation,
+\textit{rad75}\(\Delta\). The left most column is filled with the same
+neutral deletion, \textit{his3}\(\Delta\). The new strains with
+\textit{rad75}\(\Delta\) are generally fitter than the shared strains
+with \textit{cdc13-1}. I higher inoculum denstiy (\(\sim\)10,000
+cells) was used compared to P15 and this was detectable at time
+zero. Both plates were incubated at 27\(^{\circ}\)C, where
+\textit{cdc13-1} starts to experience loss of function, and
+photographed at \(\sim\)50 timepoints over 4 days - around five times
+more often than for P15.
 
+The experiment is designed to exhibit differences in growth between
+the same strains of different plates; cultures on the Stripes plate
+should have access to more nutrients because they grow next to empty
+locations; cultures on the Filled plate should have access to less
+nutrients and experience more competition due to the extra
+neighbours. I used the data from the Stipes and Filled plate for
+cross-plate calibration and validation of the competition model by
+simulating timecourses for the Stripes plate using parameters
+estimated by fitting the Filled plate.
 
 
 
@@ -424,17 +457,17 @@ predict \(k\).
 %   \label{fig:kn_guessing}
 % \end{Figure}
 
-\subsection{\thesubsection~Development of a genetic algorithm}
+% \subsection{\thesubsection~Development of a genetic algorithm}
 
 % I began work on a hierarchical genetic algorithm method of parameter
 % inference inspired by the hierarchical Bayesian analysis of QFA data
 % by \citet{Heydari2016}. (I'm not sure that it is too similar or was in
 % fact inspired by this.)
 
-\subsection{\thesubsection~Model comparison using a single QFA plate}
+% p15 cell ratios
 % cell_ratios = np.logspace(-3, -5, num=5)
 
-\subsection{\thesubsection~Cross-plate calibration and validation}
+% stripes and filled cell ratios
 % cell_ratios = np.logspace(-1, -7, num=10) I increased the range to
 % account for higher inoculum density and work of Herrmann.
 %
