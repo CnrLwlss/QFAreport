@@ -684,6 +684,6 @@ Details to add
     - [X] Model is working correctly and fitting the cultures collectivly
   - [ ] Correlation of r estimats [0/1]
     - [ ] Converted competition model parameters to r as in section
-  - [ ] Comparison of ranking
+  - [ ] Comparison of ranking [0/2]
     - [ ] b rank is equivalent to r rank
     - [ ] Validation data
