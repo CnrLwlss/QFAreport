@@ -621,19 +621,19 @@ Details to add
  - [X] Validations references
 
 
-* TODO Describe Stripes and Filled plates [0/10]
- - [ ] Experiment designed to detect competiton effects Eva Holstein
+* TODO Describe Stripes and Filled plates [10/10]
+ - [X] Experiment designed to detect competiton effects Eva Holstein
    (personal communications April 2016)
- - [ ] Grown on two plates
-   - [ ] Stripes: Strains are inoculated in every other column
-   - [ ] Filled: The same strains are inoculated in the same positions
+ - [X] Grown on two plates
+   - [X] Stripes: Strains are inoculated in every other column
+   - [X] Filled: The same strains are inoculated in the same positions
      as in the Stripes plate. Gaps are now filled in with new
      cultures. Each new culture is a variation of the strian to the left.
- - [ ] More concentrated (~10000 of cells) - detectable
- - [ ] Inocculated from the same liquid cultures.
- - [ ] What are the deletions?
- - [ ] No repeats for most strains
- - [ ] Background mutation cdc13-1 and rad57
- - [ ] The left most column is all HIS3
- - [ ] Temperature 27C
- - [ ] How many timepoints over what time ~50 timepoints over ~4 days
+ - [X] More concentrated (~10000 of cells) - detectable
+ - [X] Inocculated from the same liquid cultures.
+ - [X] What are the deletions?
+ - [X] No repeats for most strains
+ - [X] Background mutation cdc13-1 and rad57
+ - [X] The left most column is all HIS3
+ - [X] Temperature 27C
+ - [X] How many timepoints over what time ~50 timepoints over ~4 days
