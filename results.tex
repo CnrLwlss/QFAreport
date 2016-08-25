@@ -650,13 +650,14 @@ the best estimates was worse still for the Stripes plate (not shown).
 Due to the disagreement between competition model estimates for the
 same plates, I was motivated to explore alternative strategies for
 fitting that might return global minima. To test the viability of
-using a genetic algorithm to evolve plate-level parameter candidates,
-I took parameter estimates from the five best fits for P15, and
-simulated full plate timecoureses of cell observations with 15
-timepoints. I added a small amount of random noise to each timecourse
-to replicate real data. I then fixed the plate level parameters to the
-true values and fit the competition model just for
-\(b_{i}\). \(b_{i}\) were recovered well even in the worst instance
+using a genetic algorithm to evolve plate-level parameter candidates
+and evaluating these using a gradient method, I took parameter
+estimates from the five best fits for P15, and simulated full plate
+timecoureses of cell observations with 15 timepoints. I added a small
+amount of random noise to each timecourse to replicate real data. I
+then fixed the plate level parameters to the true values and fit the
+competition model just for \(b_{i}\). \(b_{i}\) were recovered well
+even in the worst instance
 (\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for slow
 growing cultures which are more affected by noise.
 
