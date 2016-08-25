@@ -117,11 +117,14 @@ competition model \(b_{i}\) estimates is 0.63). However, the guess
 fulfils its purpose by leading to a good fit when used to initialise
 parameters of the competition model. Over the plate, the logistic
 model fits slightly better than competition model
-(Table\ref{tab:P15_obj_fun}). The total objective function for
-internal cultures is 0.155 for the logistic model and 0.194 for the
-competition model (smaller values are better). I discard edge cultures
-which have higher noise. (However, the logistic model used 1152
-parameters whereas the competition model only used 387.) The zone in
+(Table\ref{tab:P15_obj_fun}). To make objective function comparisons
+fair, I converted logistic model parameters to competition model
+parameters (\ref{eq:conversion}) and resimulated both models using
+CANS. I discarded edge cultures which have higher noise. The total
+objective function for internal cultures is 0.155 for the logistic
+model and 0.194 for the competition model (smaller values are
+better). (However, the logistic model used 1152 parameters whereas the
+competition model only used 387.) The zone in
 Figure~Figure~\ref{fig:P15_zone_fit} contains more fast growing
 cultures than is typical for the plate (and may contain more
 competition effects). The objective function of the logistic and
@@ -202,6 +205,26 @@ internal cultures by collectively fitting all cultures.
 
 \subsection{\thesubsection~Correlation or r estimates between models}
 
+
+
+
+I converted competition model estimates of \(b_{i}\) to logistic model
+\(r_{i}\) using (\ref{eq:conversion}). I took the median \(r\) for
+each deletion for both the competition and logistic model. I took the
+median, rather than mean, to reduce the effect of outliers that may
+results from cross-contamination of strains or inoculation with dead
+cells. Figure~\ref{fig:P15_correlations} shows correlations, between
+models, of estimates for each culture (black) and of median estimates
+for each deletion (red). The distribution for cultures is split into
+two distinct correlated groups. This is due to a gap in the
+distribution of logistic model \(r\) at around \(r\) = 4. There is no
+such gap in the distribution of competition model \(r\). The groups
+only overlap for medium values of competition model \(r\)
+estimates. The larger group, with lower logistic model \(r\), is
+correlated with competition model \(r\) with gradient close to
+one. However, competition model estimates were lower for almost all
+cultures. In the outlying group, competition model \(r\) varies more
+steeply with logistic model \(r\).
 
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
