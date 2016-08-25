@@ -694,53 +694,53 @@ Details to add
     - [-] describe plot
       - [X] Plotted correlations between cultures (black) and between
         median values for each deletion (red) in figure.
-      - [ ] First I will look at the correlation between estiamtes for
+      - [X] First I look at the correlation between estiamtes for
         each culture (black).
-      - [-] There distribution is split into two distinct correlated
+      - [X] There distribution is split into two distinct correlated
         groups.
 	- [X] This is due to a gap in distribution of logistic model
           at around r = 4.
 	- [X] In contrast there is no such gap in the distribution of
           competition model estimates.
-	- [ ] The groups only overlap for middle values of competitoin
-          model \(r\)
+	- [X] The groups only overlap for meduim values of competitoin
+          model r
       - [X] For the main group there is a linear correlation with
         gradient close to one. However, logistic model estimates were
         hihger for almost all cultures in this group.
       - [X] Competiton model r varies more steeply with logistic model
         r for the outlying group.
-      - [ ] Extreme Outliers
-	- [ ] QFA R package has heuristic checks to correct for
+      - [-] Extreme Outliers
+	- [X] QFA R package has heuristic checks to correct for
           confounding between r and K for slow growing cultures. These
           are required becuase cultures are fit individually and slow
           growing cultures contain more noise.
-	- [ ] Outliers that were fit with r = 0 for the logistic model
+	- [X] Outliers that were fit with r = 0 for the logistic model
           but higher values for the competiton model. Due to heuristic
           checks setting values to zero.
-	- [ ] Two outliers that were fit with very high r but very low K
+	- [X] Two outliers that were fit with very high r but very low K
           for the logistic model. This is a failure of the heruistic
           checks. Furthest is rad50 and other is est1
 	- [ ] Competition model fits all cultures collectively using
           fewer parameters and does not require heuristic checks for
           slow growing cultures.
-      - [ ] Now describe distribution on medians
-	- [ ] Most median values fall inside the main group of cultures with lower logistic r
-	- [ ] However there are several that have both high
+      - [X] Now describe distribution on medians
+	- [X] Most median values fall inside the main group of cultures with lower logistic r
+	- [X] However there are several that have both high
           competitoin and logistic model r that fall inside the
           outlying group.
-	- [ ] A significant number of r estimates fall between the two
+	- [X] A significant number of r estimates fall between the two
           groups. This must mean that for many cultures repeats are
           split between the two black groups.
-	- [ ] This significantly worsens the correlation of r ranks
+	- [X] This significantly worsens the correlation of r ranks
           between models.
-	- [ ] Spearman's rho measures the correlation between rank
+	- [X] Spearman's rho measures the correlation between rank
           orders of two varaibles (i.e. a measure of how close to
           monotonical a relationship between two variables is). A
           perfectly monotonical distribution has a value of 1 or
           -1. Other correlations fall between these values.
-	- [ ] Between cultures Spearman's rho is 0.731; between
+	- [X] Between cultures Spearman's rho is 0.731; between
           medians for each deletion Spearman's rho is 0.497.
-	- [ ] Spearman's rho is imporved when comparing competiton
+	- [X] Spearman's rho is imporved when comparing competiton
           model \(b\) (or equivalently \(r\)) with logistic model MDR see Figure rank.
   - [ ] Comparison of ranking [0/5]
     - [ ] b rank is equivalent to r and MDR rank for the competitino model.

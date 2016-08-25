@@ -189,12 +189,12 @@ in the region between the two groups meaning that repeats of these
 cultures are split between the two groups. This worsens the
 correlation of \(r\) ranks between deletions compared to cultures.
 Spearman's rank correlation coefficient, \(\rho_{S}\), measures the
-correlation between rank orders of two varaibles. A monotonic function
+correlation between rank orders of two variables. A monotonic function
 has a value of 1 or -1. Other correlations fall between these
 values. For cultures \(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\)
-= 0.497.
-
-
+= 0.497. (\(\rho_{S}\) is improved when comparing competition model
+\(b\), or equivalently \(MDR\), with logistic model \(MDR\) (see
+Figure~\ref{fig:comp_vs_log_ranking}).)
 
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
@@ -210,6 +210,48 @@ values. For cultures \(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\)
     is shown for each distribution. The line y = x is also plotted.}
   \label{fig:P15_correlations}
 \end{Figure}
+
+\subsection{\thesubsection~Comparison of fitness ranking}
+
+%%%% Write here
+Competition model \(b\), \(r\), and \(MDR\) rank are equivalent (see
+Section~\ref{sec:parameter_conversion}) is equivalent to logistic
+model \(r\)
+
+
+
+\graphicspath{{images/rank/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/median_ranks_comp_b_log_r_MDR}
+  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
+      of the competition and logistic model to P15.} Rankings are
+    determined from median parameter estimates for repeats of each
+    deletion. Competition model \(r\) was converted from \(b\),
+    \(N_0\), and \(C_0\) from the best competition model
+    estimate. Logistic \(r\) was taken from fits using the QFA R
+    package which makes heuristic checks for slow growing cultures.
+    For competition \(b\) and logistic \(r\), \(\rho_{S} = 0.497\);
+    for competition \(b\) and logistic \(MDR\), \(\rho_{S} = 0.635\).}
+  \label{fig:comp_vs_log_ranking}
+\end{Figure}
+
+
+% \graphicspath{{images/rank/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/comp_b_log_r_trimmed}
+%   \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
+%       of the competition and logistic model to P15.} Fitnesses of
+%     genetic strains are ranked most to least fit from top to
+%     bottom. Competition model \(r\) was converted from \(b\), \(N_0\),
+%     and \(C_0\) from the best competition model estimate. Logistic
+%     \(r\) and \(MDR\) were taken from logistic model fits using the
+%     QFA R package which makes heuristic checks for slow growing
+%     cultures.}
+%   \label{fig:comp_vs_log_ranking2}
+% \end{Figure}
+
 
 
 % Complicated correlation coefficient table
@@ -246,6 +288,9 @@ values. For cultures \(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\)
 % \begin{multicols}{2}
 
 
+
+
+
 % Make landscape and take a whole page.
 \end{multicols}
 \begin{landscape}
@@ -266,6 +311,8 @@ values. For cultures \(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\)
 \end{Figure}
 \end{landscape}
 \begin{multicols}{2}
+
+
 
 \subsection{\thesubsection~Evaluating the treatment of boundaries}
 
@@ -335,39 +382,6 @@ internal cultures by collectively fitting all cultures.
 %   \label{fig:comp_b_ranking}
 % \end{Figure}
 
-\subsection{\thesubsection~Comparison of fitness ranking}
-
-\graphicspath{{images/rank/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/median_ranks_comp_b_log_r_MDR}
-  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
-      of the competition and logistic model to P15.} Rankings are
-    determined from median parameter estimates for repeats of each
-    deletion. Competition model \(r\) was converted from \(b\),
-    \(N_0\), and \(C_0\) from the best competition model
-    estimate. Logistic \(r\) was taken from fits using the QFA R
-    package which makes heuristic checks for slow growing cultures.
-    For competition \(b\) and logistic \(r\), \(\rho_{S} = 0.497\);
-    for competition \(b\) and logistic \(MDR\), \(\rho_{S} = 0.635\).}
-  \label{fig:comp_vs_log_ranking}
-\end{Figure}
-
-
-% \graphicspath{{images/rank/}}
-% \begin{Figure}
-%   \centering
-%   \includegraphics[width=\linewidth]{final/comp_b_log_r_trimmed}
-%   \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
-%       of the competition and logistic model to P15.} Fitnesses of
-%     genetic strains are ranked most to least fit from top to
-%     bottom. Competition model \(r\) was converted from \(b\), \(N_0\),
-%     and \(C_0\) from the best competition model estimate. Logistic
-%     \(r\) and \(MDR\) were taken from logistic model fits using the
-%     QFA R package which makes heuristic checks for slow growing
-%     cultures.}
-%   \label{fig:comp_vs_log_ranking2}
-% \end{Figure}
 
 \subsection{\thesubsection~Comparison of Variation in Fitness Estimates}
 
