@@ -682,8 +682,45 @@ Details to add
       - [X] These are dominated by noise
       - [X] Must be fit in the competitin model
     - [X] Model is working correctly and fitting the cultures collectivly
-  - [ ] Correlation of r estimats [0/1]
+  - [ ] Correlation of r estimats [0/6]
     - [ ] Converted competition model parameters to r as in section
+    - [ ] Took the median of \(r\) estiamtes for each deletion
+    - [ ] Plotted correlation of \(r\) for individual cultures (black)
+    - [ ] and for the medians (red)
+    - [ ] and calculated Spearman's rank correlation coefficient for
+      both correlations.
+    - [ ] describe plot
+      - [ ] Plotted correlations between cultures (black) and between
+        median values for each deletion (red).
+      - [ ] First I will look at the correlation between estiamtes for
+        each culture (black).
+      - [ ] There distribution is split into two distinct correlated
+        groups of cultures.
+	- [ ] This is due to a gap in distribution of logistic model
+          at around r = 4
+	- [ ] In contrast there is no such gap in the distribution of
+          competition model estimates.
+            slow growing cultures.
+      - [ ] For the main group there is a linear correlation with
+        gradient close to one. However, logistic model estimates were
+        hihger for almost all cultures.
+      - [ ] The gradient of the main group is
+        close to one.
+      - [ ] Competiton model r varies more steeply with logistic model
+        r for the smaller group.
+      - [ ] Outliers
+	- [ ] QFA R package has heuristic checks to correct for
+          confounding between r and K for slow growing cultures. These
+          are required becuase cultures are fit individually and slow
+          growing cultures contain more noise.
+	- [ ] Outliers that were fit with r = 0 for the logistic model
+          but higher values for the competiton model. Due to heuristic
+          checks setting values to zero.
+	- [ ] Two outliers that were fit with very high r but very low K
+          for the logistic model. This is a failure of the heruistic
+          checks. Furthest is rad50 and other is est1
+	- [ ] Competition model fits all cultures collectively using
+          fewer parameters and does not require heuristic checks for
   - [ ] Comparison of ranking [0/2]
     - [ ] b rank is equivalent to r rank
     - [ ] Validation data
