@@ -151,6 +151,122 @@ provide the better fit for other areas of the plate.
   \label{tab:P15_obj_fun}
 \end{center}
 
+\subsection{\boldmath \thesubsection~Correlation or \(r\) estimates between models \unboldmath}
+
+I converted competition model estimates of \(b_{i}\) to logistic model
+\(r_{i}\) using (\ref{eq:conversion}). I took the median \(r\) for
+each deletion for both the competition and logistic model. I took the
+median, rather than mean, to reduce the effect of outliers that may
+results from cross-contamination of strains or inoculation with dead
+cells. Figure~\ref{fig:P15_correlations} shows correlations, between
+models, of estimates for each culture (black) and of median estimates
+for each deletion (red). The distribution for cultures is split into
+two distinct correlated groups. This is due to a gap in the
+distribution of logistic model \(r\) at around \(r\) = 4. There is no
+such gap in the distribution of competition model \(r\). The groups
+only overlap for medium values of competition model \(r\)
+estimates. The larger group, with lower logistic model \(r\), is
+correlated with competition model \(r\) with gradient close to
+one. However, competition model estimates were lower for almost all
+cultures. In the outlying group, competition model \(r\) varies more
+steeply with logistic model \(r\).
+
+There are several extreme outliers in the correlation between
+cultures. The QFA R package uses heuristic checks to correct for
+confounding between \(r\) and \(K\) estimates for slow growing
+cultures. These are required becuase cultures are fit individually and
+slow growing cultures contain more noise. For the eight outliers on
+the left axis, the checks set \(r\) = 0. The two outliers with very
+high logistic \(r\) are repeats of \textit{rad50\(\Delta\)} and
+\textit{est1\(\Delta\)}. They have escaped the heuristic checks and
+exhibit the confounding effect between \(r\) and \(K\).
+
+In the distribution of the medians (red), most deletions fall inside
+the main group of cultures with lower logistic \(r\). There are also
+several deletions with high competition model \(r\) that fall inside
+the outlying group (top-right). A significant number of deletions lie
+in the region between the two groups meaning that repeats of these
+cultures are split between the two groups. This worsens the
+correlation of \(r\) ranks between deletions compared to cultures.
+Spearman's rank correlation coefficient, \(\rho_{S}\), measures the
+correlation between rank orders of two varaibles. A monotonic function
+has a value of 1 or -1. Other correlations fall between these
+values. For cultures \(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\)
+= 0.497.
+
+
+
+\graphicspath{{images/p15_correlations/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/r_correlations_median_spearmans_trimmed}
+  \captionof{figure}{\textbf{Correlation between logistic and
+      competition model r estimates for P15}. Correlations are plotted
+    between r estimates for each culture (black) and between medians
+    of r estimates for each deletion (red). There were six repeats in
+    random locations per deletion (except for the neutral deletion
+    \textit{his3\(\Delta\)} which had 14). Logistic fits used the QFA
+    R package. Spearman's rank correlation coefficient, \(\rho_{s}\),
+    is shown for each distribution. The line y = x is also plotted.}
+  \label{fig:P15_correlations}
+\end{Figure}
+
+
+% Complicated correlation coefficient table
+% \columnbreak
+% \begin{center}
+%   \captionof{table}{\textbf{Correlation coefficients between logistic
+%       and competition model estimates of parameters for P15.} Pearson
+%     correlation coefficient \(\rho\) and Spearman rank correlation
+%     coefficient \(r_{s}\) are shown. Correlation coefficients compare
+%     between logistic and competition model estimates for both \(r\)
+%     and \(MDR\). Correlations are shown between estimates for each
+%     culture and between median and mean estimates for each deletion.}
+% \begin{tabular}{ |c|c|c|c|c| } \cline{2-5}
+% \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{\(r\)} & \multicolumn{2}{c|}{\(MDR\)}\\ \hline
+% \multicolumn{1}{|c|}{Estimates} & \(\rho\) & \(r_{s}\) & \(\rho\) & \(r_{s}\)\\ \hline
+% Culture & 0.712 & 0.731 & 0.752 & 0.754\\
+% Median & 0.708 & 0.497 & 0.791 & 0.635\\
+% Mean   & 0.763 & 0.594 & 0.885 & 0.732\\ \hline
+% \end{tabular}
+% \end{center}
+
+% Just a fit of a zone
+% \end{multicols}
+% \graphicspath{{images/comp_fit/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/P15_guess_and_fit_r5_c18}
+%   \captionof{figure}{\textbf{A zone of a fit of the competition model
+%       to P15 and initial guess}. The guess was made using the
+%     imaginary neighbour model fit to individual cultures. Top-left
+%     coordinates from Figure~\ref{fig:comp_fit_plate} (5, 18).}
+%   \label{fig:comp_fit_zone_old}
+% \end{Figure}
+% \begin{multicols}{2}
+
+
+% Make landscape and take a whole page.
+\end{multicols}
+\begin{landscape}
+\graphicspath{{images/comp_fit/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
+  \captionof{figure}{\textbf{Fit of the competition model to P15.}
+    Data is for a 16x24 format plate (P15) with a background mutation
+    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+    6 repeats of 50 genetic strains randomly arranged across the
+    internal cultures. Repeats of a single strain are used for all
+    edge cultures (removed in the plot). Model output for state
+    variable, cell population size (blue curve), is fit to observed
+    data (black crosses). Model predictions for unobserved variable
+    (nutrient amount) are also plotted (yellow).}
+  \label{fig:comp_fit_plate}
+\end{Figure}
+\end{landscape}
+\begin{multicols}{2}
+
 \subsection{\thesubsection~Evaluating the treatment of boundaries}
 
 I also fit the one \(N(0)\) parameter competition model to P15 using
@@ -203,140 +319,12 @@ internal cultures by collectively fitting all cultures.
   \label{tab:corner}
 \end{center}
 
-\subsection{\thesubsection~Correlation or r estimates between models}
 
 
+% \subsection{\thesubsection~Agreement of b rankings}
 
-
-I converted competition model estimates of \(b_{i}\) to logistic model
-\(r_{i}\) using (\ref{eq:conversion}). I took the median \(r\) for
-each deletion for both the competition and logistic model. I took the
-median, rather than mean, to reduce the effect of outliers that may
-results from cross-contamination of strains or inoculation with dead
-cells. Figure~\ref{fig:P15_correlations} shows correlations, between
-models, of estimates for each culture (black) and of median estimates
-for each deletion (red). The distribution for cultures is split into
-two distinct correlated groups. This is due to a gap in the
-distribution of logistic model \(r\) at around \(r\) = 4. There is no
-such gap in the distribution of competition model \(r\). The groups
-only overlap for medium values of competition model \(r\)
-estimates. The larger group, with lower logistic model \(r\), is
-correlated with competition model \(r\) with gradient close to
-one. However, competition model estimates were lower for almost all
-cultures. In the outlying group, competition model \(r\) varies more
-steeply with logistic model \(r\).
-
-\graphicspath{{images/p15_correlations/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/r_correlations_median_spearmans_trimmed}
-  \captionof{figure}{\textbf{Correlation between logistic and
-      competition model r estimates for P15}. Correlations are plotted
-    between r estimates for each culture (black) and between medians
-    of r estimates for each deletion (red). There were six repeats in
-    random locations per deletion (except for the neutral deletion
-    \textit{his3\(\Delta\)} which had 14). Logistic fits used the QFA
-    R package. Spearman's rank correlation coefficient, \(\rho_{s}\),
-    is shown for each distribution. The line y = x is also plotted.}
-  \label{fig:P15_correlations}
-\end{Figure}
-
-
-% Complicated correlation coefficient table
-% \columnbreak
-% \begin{center}
-%   \captionof{table}{\textbf{Correlation coefficients between logistic
-%       and competition model estimates of parameters for P15.} Pearson
-%     correlation coefficient \(\rho\) and Spearman rank correlation
-%     coefficient \(r_{s}\) are shown. Correlation coefficients compare
-%     between logistic and competition model estimates for both \(r\)
-%     and \(MDR\). Correlations are shown between estimates for each
-%     culture and between median and mean estimates for each deletion.}
-% \begin{tabular}{ |c|c|c|c|c| } \cline{2-5}
-% \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{\(r\)} & \multicolumn{2}{c|}{\(MDR\)}\\ \hline
-% \multicolumn{1}{|c|}{Estimates} & \(\rho\) & \(r_{s}\) & \(\rho\) & \(r_{s}\)\\ \hline
-% Culture & 0.712 & 0.731 & 0.752 & 0.754\\
-% Median & 0.708 & 0.497 & 0.791 & 0.635\\
-% Mean   & 0.763 & 0.594 & 0.885 & 0.732\\ \hline
-% \end{tabular}
-% \end{center}
-
-% Just a fit of a zone
-% \end{multicols}
-% \graphicspath{{images/comp_fit/}}
-% \begin{Figure}
-%   \centering
-%   \includegraphics[width=\linewidth]{final/P15_guess_and_fit_r5_c18}
-%   \captionof{figure}{\textbf{A zone of a fit of the competition model
-%       to P15 and initial guess}. The guess was made using the
-%     imaginary neighbour model fit to individual cultures. Top-left
-%     coordinates from Figure~\ref{fig:comp_fit_plate} (5, 18).}
-%   \label{fig:comp_fit_zone_old}
-% \end{Figure}
-% \begin{multicols}{2}
-
-
-
-% Make landscape and take a whole page.
-\end{multicols}
-\begin{landscape}
-\graphicspath{{images/comp_fit/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
-  \captionof{figure}{\textbf{Fit of the competition model to P15.}
-    Data is for a 16x24 format plate (P15) with a background mutation
-    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
-    6 repeats of 50 genetic strains randomly arranged across the
-    internal cultures. Repeats of a single strain are used for all
-    edge cultures (removed in the plot). Model output for state
-    variable, cell population size (blue curve), is fit to observed
-    data (black crosses). Model predictions for unobserved variable
-    (nutrient amount) are also plotted (yellow).}
-  \label{fig:comp_fit_plate}
-\end{Figure}
-\end{landscape}
-\begin{multicols}{2}
-
-
-
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text.
-
-\subsection{\thesubsection~Agreement of b rankings}
-
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text Some text Some text Some
-  text Some text Some text Some text Some text Some text Some text
-  Some text Some text Some text Some text.
+%   text Some text Some text Some text Some text Some text Some text
+%   Some text Some text Some text Some text.
 % \graphicspath{{images/rank/}}
 % \begin{Figure}
 %   \centering
