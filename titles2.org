@@ -756,8 +756,34 @@ Details to add
       - [X] Disagreement in the order of middle rankings
       - [X] 13 places between his3\Delta for b and MDR
     - [ ] Discussion: Validation data
-  - [ ] COV [0/1]
-    - [ ] Chose to compare b and r because both are gorwth constants in the competiton and logistic models respectively
+  - [-] COV [3/4]
+    - [X] I calculated the coeffifienct of variation between repeats
+      of each deletion for competiton model esitmates of b and
+      logistic model estimates of r.
+    - [X] Chose to compare b and r because they both represent growth
+      constants in the competiton and logistic models respectively
+    - [X] In any case, COVs for MDR (not shown) are very similar to
+      COVs for r.
+    - [-] COVs are plotted for both models in Figure~\ref{fig:}
+      - [X] Arranged from fittest to least fit from left to right by
+        competiton model \(b\) ranking.
+      - [X] Why study COV?
+	- [X] biological variation of strains small
+	- [X] Should get smilar estimates for strains regardless of
+          location on the plate.
+      - [X] Competitoin model had less COV for 36/50 strains
+      - [X] Logistic model had least COV for top growers
+	- [X] These are the upper right culture in correlation plot
+          where there is no overlap in between the groups of cultures.
+      - [ ] Neutral deletion his3 is shown in bold and COV in b is
+        about half that in r.
+      - [ ] For many deletions of medium fitness, logistic model \(r\)
+        estimates of repeats are split across a distiance in logistic
+        r between the two groups, separated. -> explaining why COV is
+        higher in medium cultures.
+      - [ ] The heuristic checks for the slowest growers creates the
+        outliers which also have larger variation in r than b. -> Slow
+        growers have higer variance.
 
 * TODO COV 2
   - [ ]
@@ -770,3 +796,6 @@ Details to add
       - [ ] Validation of gap in distribution
       - [ ] Possible effect on genetic interaction scores
 	- [ ]
+
+
+* TODO Towards a genetic algorithm [/]
