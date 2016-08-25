@@ -742,14 +742,25 @@ Details to add
           medians for each deletion Spearman's rho is 0.497.
 	- [X] Spearman's rho is imporved when comparing competiton
           model \(b\) (or equivalently \(r\)) with logistic model MDR see Figure rank.
-  - [ ] Comparison of ranking [0/5]
-    - [ ] b rank is equivalent to r and MDR rank for the competitino model.
-    - [ ] I therefore compare competitoin model rankings of b with
-      both types of fitness estimate for the logistic model.
-    - [ ] How do fitness rankings between competition model and logistic model comparePu
+  - [-] Comparison of ranking [4/10]
+    - [X] b rank is equivalent to r and MDR rank for the competitino model.
+    - [X] I compare ranking of deletions by competitoin model \(b\)
+      rank with both types of fitness estimate for the logistic model.
+    - [X] Used the median of parameter estimates from repeats of each deletion
+    - [-] Compare logistic ranks
+      - [X] est1 and rad50 are the outliers in correlation plot.
+      - [X] MDR corrects and agrees with competition model
+      - [ ] Spearmans rho for competito model and MDR much better than
+    - [ ] disagree on the position of the neutral deletion HIS 3for r.
+    - [X] How do fitness rankings between competition model and logistic model comparePu
+      - [X] Agreement at the extremes
+      - [X] Disagreement in the order of middle rankings
+      - [X] 13 places between his3\Delta
     - [ ] The two outliers with very high logistic \(r\) in
       Figure(prev) where repeats of rad50delta and est1delta.
-    - [ ] Validation data
+    - [ ] Order is corrected when MDR is calculated and matches the competition model.
+    - [ ] disagree on the position of the neutral deletion HIS 3.
+    - [ ] Discussion: Validation data
   - [ ] Cov [0/3]
     - [ ] makes sense for logistic COV to be higher if estimates for
       reapeats of the same deletion are split between the two groups

@@ -214,10 +214,31 @@ Figure~\ref{fig:comp_vs_log_ranking}).)
 \subsection{\thesubsection~Comparison of fitness ranking}
 
 %%%% Write here
-Competition model \(b\), \(r\), and \(MDR\) rank are equivalent (see
-Section~\ref{sec:parameter_conversion}) is equivalent to logistic
-model \(r\)
 
+In Figure~\ref{fig:comp_vs_log_ranking}, I compare deletions on P15
+ranked by competition model \(b\), logistic model \(r\), and logistic
+model \(MDR\). The fittest deletions are at the topT. For each fitness
+measure, I took the median estimate from repeats of each deletion. I
+used the QFA R package to infer logistic model \(r\) and \(MDR\) and
+\(b\) from the best fit of the competition model. Competition model
+\(b\), \(r\), and \(MDR\) rank are equivalent (see
+Section~\ref{sec:parameter_conversion}) so it is not necessary to
+convert \(b\) to comparing rankings.
+
+Logistic model \(r\) and \(MDR\) rankings agree for all but two
+deletions: \textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. These
+are the same deletions as the two outliers with high logistic model
+\(r\) values in Figure~\ref{fig:P15_correlations}. When \(MDR\) is
+calculated (\ref{eq:MDR_MDP}a), the confounding between \(r\) and
+\(K\) is corrected for and the rank of these deletions agrees well
+with competition model \(b\) rank. As a result, Spearman's
+\(\rho_{S}\) is higher for competition model \(b\) and logistic model
+\(MDR\) (0.635) than it was for competition model \(b\) and logistic
+model \(r\) (0.497). When comparing competition model \(b\) rank with
+logistic model \(MDR\) rank, there is good agreement between the
+extreme rankings but middle rankings appear almost inverted. There is
+also a disagreement of 13 places in the rank of the neutral deletion
+\textit{his3\(\Delta\)}.
 
 
 \graphicspath{{images/rank/}}
@@ -227,12 +248,12 @@ model \(r\)
   \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
       of the competition and logistic model to P15.} Rankings are
     determined from median parameter estimates for repeats of each
-    deletion. Competition model \(r\) was converted from \(b\),
-    \(N_0\), and \(C_0\) from the best competition model
-    estimate. Logistic \(r\) was taken from fits using the QFA R
+    deletion. Logistic \(r\) and \(MDR\) were inferred using the QFA R
     package which makes heuristic checks for slow growing cultures.
-    For competition \(b\) and logistic \(r\), \(\rho_{S} = 0.497\);
-    for competition \(b\) and logistic \(MDR\), \(\rho_{S} = 0.635\).}
+    For competition \(b\) and logistic \(r\), Spearman's
+    \(\rho_{S} = 0.497\); for competition \(b\) and logistic \(MDR\),
+    Spearman's \(\rho_{S} = 0.635\). \textit{his3\(\Delta\)} (bold) is
+    a neutral deletion.}
   \label{fig:comp_vs_log_ranking}
 \end{Figure}
 
