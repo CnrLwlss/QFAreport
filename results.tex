@@ -382,6 +382,23 @@ calculate coefficient of variation (COV) of estimated r or MDR.
 
 \subsection{\thesubsection~Cross-plate validation}
 
+\begin{center}
+  \captionof{table}{\textbf{Estimated parameter values for the best
+      two competition model fits to P15.} Spearman's rank correlation
+    coefficient between common \(b_{i}\) estimates, \(\rho_{S}\) =
+    . Mean absolute deviation between \(b_{i}\) estimates, MAD = .}
+  \begin{tabular}{l l l l l l}
+    \hline
+    Plate     & \(C(0)\)                   & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & \(b\) (mean)\\
+    \hline
+    Stripes   & 8.32\(\times\)10\(^{-3}\)   & 0.085      & 0.096       & 1.9  & 39.5\\
+    Filled    & 6.17\(\times\)10\(^{-3}\)   & 0.116      & 0.183       & 4.8  & 27.9\\
+    \hline
+  \end{tabular}
+  \label{tab:P15_best_fit_params}
+\end{center}
+
+
 \end{multicols}
 \graphicspath{{images/stripes/}}
 \begin{Figure}
@@ -471,6 +488,11 @@ calculate coefficient of variation (COV) of estimated r or MDR.
     plot shows the worst case from the five sets of values.}
   \label{fig:comp_fit_fixed_plate_level}
 \end{Figure}
+
+% (Currently only have comp obj funs using different cultures (Stripes
+% obj fun 0.66) (Filled obj fun 0.76).)
+
+
 %\begin{multicols}{2}
 
 %%% Local Variables:
