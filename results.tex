@@ -405,8 +405,36 @@ internal cultures by collectively fitting all cultures.
 
 \subsection{\thesubsection~Comparison of Variation in Fitness Estimates}
 
-Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
-calculate coefficient of variation (COV) of estimated r or MDR.
+
+% Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
+% calculate coefficient of variation (COV) of estimated r or MDR.
+
+In Figure~\ref{fig:COV}, I compare coefficients of variation (COVs)
+for competition model estimates of \(b\) and logistic model estimates
+of \(r\) between repeats of each deletion on P15. I chose to compare
+\(b\) and \(r\), rather than \(b\) and \(MDR\), because both
+parameters are growth constants in the competition and logistic models
+respectively. Regardless, COVs for \(MDR\) (not shown) are very
+similar to COVs for \(r\). The precision of fitness estimates is of
+interest both as a test of the model and because it affects the power
+to infer genetic interactions. If we assume that biological variation
+in fitness between repeats of the same strain is small, then the
+better model should return more similar fitness estimates for repeats
+of the same strain, regardless of where they grown on the plate.
+
+Deletions in Figure~\ref{fig:COV} are arranged from left to right
+according to competition model\(b\) ranking, with the fittest deletion
+at the left. The competition model has smaller COV in 36 out of 50
+deletions. The logistic model has a smaller COV for the 11 fittest
+deletions (according to \(b\) ranking). Comparing with
+Figure~\ref{fig:P15_correlations} these deletions (medians) appear in
+the upper right of both groups and not in the gap inbetween. \(b\) COV
+becomes the lower than \(r\) at smaller values of \(b\), where repeats
+are likely divided between the groups. This is indicated by the
+positions medians inbetween groups. The slowest growers tend to have
+greater COV for both models which is likely due to the greater effect
+of noise in these cultures.
+
 
 \end{multicols}
 \graphicspath{{images/COV/}}
@@ -421,7 +449,7 @@ calculate coefficient of variation (COV) of estimated r or MDR.
     left to right along the horizontal axis by highest to lowest
     competition model \(b\) ranking. Logistic fits used the QFA R
     package.}
-  \label{fig:comp_b_log_r}
+  \label{fig:COV}
 \end{Figure}
 \begin{multicols}{2}
 
