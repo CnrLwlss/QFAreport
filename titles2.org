@@ -682,32 +682,32 @@ Details to add
       - [X] These are dominated by noise
       - [X] Must be fit in the competitin model
     - [X] Model is working correctly and fitting the cultures collectivly
-  - [ ] Correlation of r estimats [0/6]
-    - [ ] Converted competition model parameters to r as in section
-    - [ ] Took the median of \(r\) estiamtes for each deletion
-      - [ ] Took median rather than mean to reduce the effect of
+  - [-] Correlation of r estimats [2/3]
+    - [X] Converted competition model parameters to r as in section
+    - [X] Took the median of \(r\) estiamtes for each deletion
+      - [X] Took median rather than mean to reduce the effect of
         outliers (might be caused by cross-contamination of cultures,
         pinning errors, or inocculation with dead
         cultures. (Biological variation could be another cause).)
-    - [ ] Plotted correlation of \(r\) for individual cultures (black)
-    - [ ] and for the medians (red)
-    - [ ] and calculated Spearman's rank correlation coefficient for
-      both correlations.
-    - [ ] describe plot
-      - [ ] Plotted correlations between cultures (black) and between
+    # - [ ] and calculated Spearman's rank correlation coefficient for
+    #   both correlations.
+    - [-] describe plot
+      - [X] Plotted correlations between cultures (black) and between
         median values for each deletion (red) in figure.
       - [ ] First I will look at the correlation between estiamtes for
         each culture (black).
-      - [ ] There distribution is split into two distinct correlated
+      - [-] There distribution is split into two distinct correlated
         groups.
-	- [ ] This is due to a gap in distribution of logistic model
+	- [X] This is due to a gap in distribution of logistic model
           at around r = 4.
-	- [ ] In contrast there is no such gap in the distribution of
+	- [X] In contrast there is no such gap in the distribution of
           competition model estimates.
-      - [ ] For the main group there is a linear correlation with
+	- [ ] The groups only overlap for middle values of competitoin
+          model \(r\)
+      - [X] For the main group there is a linear correlation with
         gradient close to one. However, logistic model estimates were
         hihger for almost all cultures in this group.
-      - [ ] Competiton model r varies more steeply with logistic model
+      - [X] Competiton model r varies more steeply with logistic model
         r for the outlying group.
       - [ ] Extreme Outliers
 	- [ ] QFA R package has heuristic checks to correct for
@@ -742,12 +742,21 @@ Details to add
           medians for each deletion Spearman's rho is 0.497.
 	- [ ] Spearman's rho is imporved when comparing competiton
           model \(b\) (or equivalently \(r\)) with logistic model MDR see Figure rank.
-
   - [ ] Comparison of ranking [0/5]
     - [ ] b rank is equivalent to r and MDR rank for the competitino model.
     - [ ] I therefore compare competitoin model rankings of b with
       both types of fitness estimate for the logistic model.
-    - [ ] How do fitness rankings between competition model and logistic model compare
+    - [ ] How do fitness rankings between competition model and logistic model comparePu
     - [ ] The two outliers with very high logistic \(r\) in
       Figure(prev) where repeats of rad50delta and est1delta.
     - [ ] Validation data
+  - [ ] Cov [0/3]
+    - [ ] makes sense for logistic COV to be higher if estimates for
+      reapeats of the same deletion are split between the two groups
+      in correlation plot.
+    - [ ] Lower variance may be explained by the. Faster growing
+      cultures are fit more precisely but less accurately.
+    - [ ] Discussion
+      - [ ] Validation of gap in distribution
+      - [ ] Possible effect on genetic interaction scores
+	- [ ]
