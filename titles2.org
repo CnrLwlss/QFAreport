@@ -785,17 +785,44 @@ Details to add
         outliers which also have larger variation in r than b. -> Slow
         growers have higer variance.
 
-* TODO COV 2
-  - [ ]
-    - [ ] makes sense for logistic COV to be higher if estimates for
-      reapeats of the same deletion are split between the two groups
-      in correlation plot.
-    - [ ] Lower variance may be explained by the. Faster growing
-      cultures are fit more precisely but less accurately.
-    - [ ] Discussion
-      - [ ] Validation of gap in distribution
-      - [ ] Possible effect on genetic interaction scores
-	- [ ]
+* TODO Stripes Results [0/16]
+ - [ ] I fit the stripes and filled plates (link images) with the competition model.
+ - [ ] The experiment is designed to test for conpeitotn see methods for a description of the data
+ - [ ] Data courtesty of Eva holstein. Can go in acknowledgements
+ - [ ] I took a Spline and take 15 timpoints
+   (as described in fitting seciton).
+ - [ ] Used a different range of C(0)
+ - [ ] I compared fits with the
+ - [ ] There was less agreement between the top five fits of both the
+   Stipes and Filled plates than there was P15.
+ - [ ] Top 5 Stripes Spearmans 0.988 - 0.998; top 3 b MAD 1.99-26.8
+ - [ ] Filled Spearmans 0.97-0.998; b MAD 0.767-18.86
+ - [ ] Not confident I was finding global minima
+ - [ ] Despite having very different parameters for C(0), k, a
+ - [ ] N(0) was well estimated
+ - [ ] Callibration may not be working because I was not finding a
+   global minimun.
+ - [ ] Could use a genetic algorithm
+   - [ ] With fixed plate level parameters and simulated noise can
+     return \(b\)
 
+
+   - [ ] Callibration and  Validation
+     - [ ] Describe process
+     - [ ] Describe results
+     - [ ] Mention inoculation error in top right
+       - Bottom left far from such errors
+     - [ ] blue crosses for middle column just noise and not fit
+       (Could remove in plots) (Also lines)
+     - [ ] logistic model no change between plates and is an
+       undercorrection.
+   - [ ] Towards a genetic algorithm
+     - [ ] Remove GA fit so don't have to describe
+     - [ ] Describe recovery of parameters with simulated noise and
+       potential use in genetic algorithm.
+       - [ ] I got the parameters for the best fits and simulated with noise
+       - [ ] Required several guesses
+       - [ ] This is the worst of how many?
+       - [ ] Harder to identify low b (noise)
 
 * TODO Towards a genetic algorithm [/]
