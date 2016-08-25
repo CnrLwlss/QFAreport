@@ -11,26 +11,28 @@ noisy edge cultures, which contribute disproportionately to the
 objective function, in collective fits (see Table~). Despite this, the
 fit of the competition model is of similar quality to fit of the
 logistic model over a whole plate and better in the 3x3 zone studies
-(see Tables~\ref{tab:} and \ref{tab:}). In particular, the competition
-model provided a much better fit to the fast growing cultures in
+(see Table~\ref{tab:P15_obj_fun} and
+Figure~\ref{fig:P15_zone_fit}). In particular, the competition model
+provided a much better fit to the fast growing cultures in
 Figure~\ref{fig:comp_fit_zone}.
 
-In Figure~\ref{fig:}, there is a split in the distribution of logistic
-model \(r\) estimates, but not competition model \(r\) estimates. It
-is possible that the distribution of \(r\) for strains (not for each
-strain) in the study of \citet{Addinall2011} does have such a split
-distribution. However, repeats of many individual strains fall in
-either group but not in the gap. This is evidenced by the positions of
-medians in the gap (red). It seems unlikely that the same split exists
-in the different distributions of \(r\) for different strains and at
-the same value. It is possible that the split is either an artefact of
-the heuristic checks conducted by QFA R \citep{qfa2016} for slow
-growing strains, or caused by an acceleration of faster growing
-strains and deceleration of slower growing strains due to competition
-between neighbours. If the latter case is true, the competition model
-appears to correct for it. It is important to investigate the cause of
-the split distribution because it will affect the significance given
-to genetic interactions.
+In the correlation of logistic and competition model \(r\) estimates for
+P15 (Figure~\ref{fig:P15_correlations}), there is a split in the
+distribution of logistic model \(r\) estimates, but not competition
+model \(r\) estimates. It is possible that the distribution of \(r\)
+for strains (not for each strain) in the study of \citet{Addinall2011}
+does have such a split distribution. However, repeats of many
+individual strains fall in either group but not in the gap. This is
+evidenced by the positions of medians in the gap (red). It seems
+unlikely that the same split exists in the different distributions of
+\(r\) for different strains and at the same value. It is possible that
+the split is either an artefact of the heuristic checks conducted by
+QFA R \citep{qfa2016} for slow growing strains, or caused by an
+acceleration of faster growing strains and deceleration of slower
+growing strains due to competition between neighbours. If the latter
+case is true, the competition model appears to correct for it. It is
+important to investigate the cause of the split distribution because
+it will affect the significance given to genetic interactions.
 
 Competition model ranking of growth estimates for repeats on P15 (see
 Figure~\ref{fig:comp_vs_log_ranking}) agree with the published
@@ -137,16 +139,17 @@ In any case, it is clear that the competition model could be improved.
 
 
 The split in the distribution of logistic model \(r\)
-(Figure~\ref{fig:}) provides an useful way to the compare the logistic
-and competition models. Firstly, P15 could be repeated using a higher
-inoculum density to eliminate the possibility that the heuristic
-checks of the QFA R package are responsible for the split. If the
-split still exists and models still disagree, then the strains could
-be grown in independent conditions, either isolated on solid agar or
-in liquid cultures, where the models are equivalent. If the split does
-not exist in the independent distribution then we may favour the
-competition model for QFA plates. This will also depend on how well
-competition model estimates agree between the two conditions.
+(Figure~\ref{fig:P15_correlations}) may offer a useful way to the
+compare the logistic and competition models. Firstly, P15 could be
+repeated using a higher inoculum density to eliminate the possibility
+that the heuristic checks of the QFA R package are responsible for the
+split. If the split still exists in only the logistic model, then the
+strains could be grown in independent conditions, either isolated on
+solid agar (diffusion still an issue) or in liquid cultures, where the
+models are equivalent. If the split does not exist in the independent
+distribution then we may favour the competition model for QFA
+plates. This will also depend on how well competition model estimates
+agree between the two conditions.
 
 For the Stripes and Filled plates, the competition model was fit to 15
 cell measurement values taken from a spline, whereas the logistic
