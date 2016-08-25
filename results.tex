@@ -500,7 +500,7 @@ with 14 different initial \(b\) guesses for each \(C(0)\) guess. This
 made a total of 140 fits to each plate.
 
 The experiment is designed to test for competition effects. The
-strains in the Stripes plate are inoculated in the same postitions on
+strains in the Stripes plate are inoculated in the same positions on
 the Filled plate. I took the parameter estimates for the Filled plate,
 simulated the Stripes plate by setting \(b\) to zero in empty
 locations, and compared timecourses
@@ -511,26 +511,19 @@ data (blue crosses). I found that the competition model overcorrects
 for competition; simulated cell densities are higher than observations
 across the plate. In contrast, the logistic model makes no adjustment
 between plates and would underestimate observed cell densities by a
-similar amount.
-
-
-
-
-Discuss issues with validation plate.
-
+similar amount. There are some issues with the data set. For instance,
+the top right culture in Figure~\ref{fig:stripes_validation} does not
+grow and may have been inoculated with dead cells. However, these
+mistakes are unlikely to have caused the systematic overcorrection.
 
 The inferred parameters for the best competition model fits to both
 plates are shown in Table~\ref{tab:Stripes_and_Filled_params}. Data
 for empty cultures on the Stripes plate is just noise and I excluded
-these timecourses from the objective function when fitting. The
-experiment used the same inoculum density and formula of agar between
-plates so I do not expect plate level parameters vary between
-plates. However, there is significant disagreement in all parameters.
-
-
-
-
-
+these timecourses from the objective function when fitting. Both
+plates used the same inoculum density and formula of agar so I do not
+expect plate level parameters vary between plates. However, there is
+significant disagreement in all parameters indicating that the
+competition model is not working correctly.
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -548,14 +541,13 @@ plates. However, there is significant disagreement in all parameters.
   \label{tab:Stripes_and_Filled_params}
 \end{center}
 
-
 There was more disagreement in the top fits for each plate than was
 the case for P15, which used a lower inoculum density. Estimates for
 the five best fits to the Filled plate
-(Table~\ref{tab:Stripes_and_f}). Despite this, the estimates from the
-top five Filled plate fits all exhibited the same behaviour of
-overestimating growth in used to simulate the Stripes plate.
-
+(Table~\ref{tab:Stripes_and_Filled_params}) are only consistent for
+initial nutrient densities. Despite this, they all overestimated
+growth when used to simulate the Stripes plate. Disagreement between
+the best estimates was worse still for the Stripes plate (not shown).
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -655,6 +647,18 @@ overestimating growth in used to simulate the Stripes plate.
 % \end{Figure}
 % %\begin{multicols}{2}
 
+Due to the disagreement between competition model estimates for the
+same plates, I was motivated to explore alternative strategies for
+fitting that might return global minima. To test the viability of
+using a genetic algorithm to evolve plate-level parameter candidates,
+I took parameter estimates from the five best fits for P15, and
+simulated full plate timecoureses of cell observations with 15
+timepoints. I added a small amount of random noise to each timecourse
+to replicate real data. I then fixed the plate level parameters to the
+true values and fit the competition model just for
+\(b_{i}\). \(b_{i}\) were recovered well even in the worst instance
+(\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for slow
+growing cultures which are more affected by noise.
 
 %\end{multicols}
 \graphicspath{{images/genetic_algorithm/}}
