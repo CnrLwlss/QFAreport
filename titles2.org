@@ -785,14 +785,22 @@ Details to add
         outliers which also have larger variation in r than b. -> Slow
         growers have higer variance.
 
-* TODO Stripes Results [0/16]
- - [ ] I fit the stripes and filled plates (link images) with the competition model.
- - [ ] The experiment is designed to test for conpeitotn see methods for a description of the data
- - [ ] Data courtesty of Eva holstein. Can go in acknowledgements
- - [ ] I took a Spline and take 15 timpoints
+* TODO Stripes Results [5/17]
+ - [X] I fit the stripes and filled plates (link images) with the competition model.
+ - [X] Data courtesty of Eva holstein. Can go in acknowledgements
+ - [X] As for P15 but used different range of C(0)
+ - [X] I took a Spline and take 15 timpoints
    (as described in fitting seciton).
  - [ ] Used a different range of C(0)
- - [ ] I compared fits with the
+   - [ ] higher inoulum density
+   - [ ] heterogeneity
+ - [X] The experiment is designed to test for conpeitotn see methods for a description of the data
+   - [X] The strains on the Filled plate are contained in the same positions on the Filled plate
+   - [X] Can therfore estimate parameters on the filled plate, and
+     simulate the Stripes plate by setting \(b\) for empty cultures
+     zero for the empty cultures.
+ - [ ] The competition model overcorrects for compeition; cell
+   densities are higher than observed cells across the plate.
  - [ ] There was less agreement between the top five fits of both the
    Stipes and Filled plates than there was P15.
  - [ ] Top 5 Stripes Spearmans 0.988 - 0.998; top 3 b MAD 1.99-26.8
