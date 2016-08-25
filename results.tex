@@ -34,7 +34,7 @@
 I ran multiple fits of the competition model to P15 (see
 Section~\ref{sec:P15_description}). Each fit used the imaginary
 neighbour model to make initial parameter guesses (see
-Section~\ref{sec:guessing_b}. The imaginary neighbour model itself
+Section~\ref{sec:guessing_b}). The imaginary neighbour model itself
 requires initial parameters and fits looped over combinations of
 values for initial cell density \(C(0)\) and growth constant \(b\). I
 used five initial values of \(C(0)\) ranging from
@@ -479,7 +479,44 @@ deletions.
 
 \subsection{\thesubsection~Cross-plate validation}
 
-%% write here
+I used the Stripes and Filled plates (see
+Section~\ref{sec:stripes_description}) to conduct cross plate
+calibration and validation of the competition model. As for P15, I ran
+multiple fits of the competition model to each plate. Due to the
+greater number of timepoints in the data, I fit to cell densities at
+15 evenly spaced timepoints taken from a spline of the observed data
+(see Section~\ref{sec:solving_comp}). I used a greater range of
+\(C(0)\) guesses than for P15, this time 10 values ranging from
+\(N(0)\times\)10\(^{-7}\) to \(N(0)\times\)10\(^{-1}\) in
+logspace. Again, each fit used the imaginary neighbour model to make
+initial parameter guesses (see Section~\ref{sec:guessing_b}) with 14
+different initial \(b\) guesses for each \(C(0)\) guess. This made a
+total of 140 fits to each plate.
+
+
+
+Point to Figure~\ref{fig:stripes_validation}.
+
+
+The inferred parameters for the best competition model fits to both
+plates are shown in Table~\ref{tab:Stripes_and_Filled_params}. There
+is significant disagreement in all parameters. To produce Figure~\ref{fig:}, I took the parameter estimates from
+
+
+There was more disagreement in the top fits for each plate. What were
+objective function values Can table params and wouldn't take too long
+to put objective function values from file. Despite this, the
+estimates from the top five Filled plate fits all exhibited the same
+behaviour of overestimating growth in used to simulate the Stripes
+plate.
+
+
+
+I have plotted data for empty cultures on the Stripes plate in
+Figure~\ref{fig:stripes_validation}. However, this is just noise and
+when fitting the I excluded timecourses for empty cultures from the
+objective function.
+
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -494,10 +531,53 @@ deletions.
     Filled    & 6.2\(\times\)10\(^{-3}\)   & 0.116      & 0.183       & 4.8  & 27.9\\
     \hline
   \end{tabular}
-  \label{tab:P15_best_fit_params}
+  \label{tab:Stripes_and_Filled_params}
 \end{center}
 
 
+\begin{center}
+  \captionof{table}{\textbf{Estimated parameter values for the best
+      five competition model fits to the Filled plate.} Estimates are
+    Ordered by objective function values (Obj.) where lower values are
+    better. The column MAD \(b\) gives the mean absolute deviation of
+    growth constants \(b\) with those of the best fit (row one).}
+  \begin{tabular}{l l l l l l}
+    \hline
+    Obj.  & \(C(0)\)                  & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & MAD \(b\)\\
+    \hline
+    0.76  & 6.2\(\times\)10\(^{-3}\)   & 0.116       & 0.183    & 4.8  & -    \\
+    0.85  & 5.6\(\times\)10\(^{-3}\)   & 0.119       & 0.175    & 3.1  & 0.77 \\
+    0.88  & 5.0\(\times\)10\(^{-3}\)   & 0.119       & 0.175    & 2.9  & 1.65 \\
+    0.93  & 15.4\(\times\)10\(^{-3}\)  & 0.114       & 0.171    & 4.7  & 11.1 \\
+    0.97  & 3.2\(\times\)10\(^{-3}\)   & 0.118       & 0.179    & 3.8  & 7.80 \\
+    \hline
+  \end{tabular}
+  \label{tab:Filled_best_fits}
+\end% {center}
+
+
+
+
+% \begin{center}
+%   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
+%     competition model to P15 and the Stripes and Filled plates. Bounds
+%     on \(N(0)\) were applied to both \(N^{I}(0)\) and
+%     \(N^{E}(0)\) for internal and edge cultures. ``guess'' refers
+%     to the initial guess (see Section~\ref{sec:initial_guess}).}
+%   \begin{tabular}{| c | c c |}
+%     \hline
+%     Parameter        & Stripes  & Filled \\
+%     \hline
+%     Spearman's \(C(0)\)     & guess x \(10^{-3}\)  & guess x \(10^{3}\)\\
+%     \(N(0)\)     & guess / \(2\)  & guess x \(2\)\\
+%     % \(N^{I}(0)\) \& \(N^{E}(0)\) & guess / \(2\)  & guess x \(2\)\\\\
+%     \(k\)        & 0.0    & 10.0\\
+%     % \(b\) (all cultures)           & 0.0    & \(\infty\) \\
+%     \(b\)           & 0.0    & None \\
+%     \hline
+%   \end{tabular}
+%   \label{tab:stipes_agreements}
+% \end{center}
 
 
 % \graphicspath{{images/stripes/}}
@@ -520,21 +600,21 @@ deletions.
 % \end{Figure}
 
 
-\graphicspath{{images/stripes/correlations/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/r_correlations_between_plates}
-  \includegraphics[width=\linewidth]{final/r_correlations_between_models}
-  \captionof{figure}{\textbf{Correlation of r estimates for
-      ``Stripes'' and ``Filled'' plates.}~I fit the competition model
-    and independent model to the ``Stripes'' and ``Filled'' plates in
-    Figure~\ref{fig:stripes_images}. I converted competition model b
-    to logistic model r. I only used data for cultures that were
-    common between the two plates common and removed edge
-    cultures. Pearson correlation coefficients, \(\rho\), are shown in
-    the legends. The line \(y=x\) is also plotted.}
-  \label{fig:r_correlations}
-\end{Figure}
+% \graphicspath{{images/stripes/correlations/}}
+% \begin{Figure}
+%   \centering
+%   \includegraphics[width=\linewidth]{final/r_correlations_between_plates}
+%   \includegraphics[width=\linewidth]{final/r_correlations_between_models}
+%   \captionof{figure}{\textbf{Correlation of r estimates for
+%       ``Stripes'' and ``Filled'' plates.}~I fit the competition model
+%     and independent model to the ``Stripes'' and ``Filled'' plates in
+%     Figure~\ref{fig:stripes_images}. I converted competition model b
+%     to logistic model r. I only used data for cultures that were
+%     common between the two plates common and removed edge
+%     cultures. Pearson correlation coefficients, \(\rho\), are shown in
+%     the legends. The line \(y=x\) is also plotted.}
+%   \label{fig:r_correlations}
+% \end{Figure}
 
 
 \subsection{\thesubsection~Towards a genetic algorithm}
