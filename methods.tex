@@ -1,9 +1,9 @@
 \graphicspath{{images/}}
 
-\section{\thesection~Methods}
+\section{Methods}
 \label{sec:methods}
 
-\subsection{\thesubsection~CANS}
+\subsection{CANS}
 
 To analyse QFA data using the competition model I developed the Python
 package CANS which can be used for model composition, model
@@ -20,7 +20,7 @@ is available at
 
 % \subsection{\thesubsection~Description of datasets}
 
-\subsection{\thesubsection~The P15 dataset}
+\subsection{The P15 dataset}
 \label{sec:P15_description}
 
 I compared logistic and competition model performance by fitting both
@@ -48,7 +48,7 @@ statistics. Furthermore, independent validation data from spot tests
 exists in published studies for several strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 
-\subsection{\thesubsection~The Stripes and Filled plate datasets}
+\subsection{The Stripes and Filled plate datasets}
 \label{sec:stripes_description}
 
 The Stripes and Filled plates (Figure~\ref{fig:stripes_images}) are
@@ -85,9 +85,9 @@ calibration and validation of the competition model by simulating
 timecourses for the Stripes plate using parameters estimated by
 fitting the Filled plate.
 
-\subsection{\thesubsection~Solving and fitting}
+\subsection{Solving and fitting}
 
-\subsubsection{\thesubsubsection~Solving}
+\subsubsection{Solving}
 \label{sec:solving_comp}
 % [Only keep if I remove the CANS overview above: To analyse QFA data I
 % created a Python package (``CANS'') for model composition, model
@@ -127,7 +127,7 @@ plate using a spline with 15 timepoints takes \(\sim\)1 hour.
 \\\\
 
 % Fitting
-\subsubsection{\thesubsubsection~Fitting the competition model}
+\subsubsection{Fitting the competition model}
 \label{sec:fitting_comp}
 
 I use QFA data after processing with Colonyzer \citep{Lawless2010}.
@@ -197,7 +197,7 @@ on only the fit to internal cultures.
 % \(b\) to zero for these cultures and removed them from fitting.
 %%%% End Empties %%%%%
 
-\subsubsection{\thesubsubsection~Fitting the logistic model}
+\subsubsection{Fitting the logistic model}
 
 Fitting the mass action logistic model requires using culture level
 \(N(0)\) and creating 383 extra parameters. The QFA R package
@@ -216,13 +216,13 @@ model, noisy data from edge cultures can be discarded before fitting.
 % I conduct model comparison between the competition and logistic
 % models in sections (Results sections).
 
-\subsubsection{\thesubsubsection~Data visualisation}
+\subsubsection{Data visualisation}
 
 I created plotting functions in CANS to visualise fits and simulations
 of QFA timecourses and to compare the ranking of fitness estimates
 using the Python package matplotlib.
 
-\subsection{\thesubsection~Parameter conversion}
+\subsection{Parameter conversion}
 \label{sec:parameter_conversion}
 
 When \(k\) is set to zero, the competition model
@@ -309,7 +309,7 @@ different \(C(0)\) and \(N(0)\).
   \label{fig:correction}
 \end{Figure}
 
-\subsection{\thesubsection~Determining initial parameters}
+\subsection{Determining initial parameters}
 \label{sec:initial_guess}
 
 Collectively fitting the competition model to a standard 384-format
@@ -327,7 +327,7 @@ parameter estimates and competition model parameters (see
 Section~\ref{sec:parameter_conversion}) and this could be a valid
 alternative.
 
-\subsubsection{\thesubsubsection~Guessing initial amounts}
+\subsubsection{Guessing initial amounts}
 \label{sec:guessing_amounts}
 
 Recall from the competition model reaction equations
@@ -377,7 +377,7 @@ nutrient guess \(N(0)_{I}\).
 % \(10^{-7}\) to \(10^{-1}\) times average final cell amount.
 
 
-\subsubsection{\boldmath \thesubsubsection~Guessing \(b\) \unboldmath}
+\subsubsection{\boldmath Guessing \(b\) \unboldmath}
 \label{sec:guessing_b}
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%
 
@@ -435,7 +435,7 @@ to fits of the competition model which take on the order of hours.
 
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{\boldmath \thesubsubsection~Guessing \(k\) \unboldmath}
+\subsubsection{\boldmath Guessing \(k\) \unboldmath}
 
 Simulations of the competition model using sets of \(b\) parameters
 drawn from different normal distributions have linear relationships
