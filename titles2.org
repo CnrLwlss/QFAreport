@@ -1,3 +1,79 @@
+* TODO Abstract [0/17]
+ - [ ] I find that a mass action kinetic model of nutreint dependent
+   growth and diffusion... fits cell density timecourse from a
+   384-format QFA plate inoculated with dilute cultures with similar
+   accuracy to (a model currently used in QFA which assumes cultures
+   grow independently) a model currently used in QFA, which assume
+   that culture grow independently,( of the logistic growth model
+   )using far fewer parameters (387 vs 1152).
+ - [ ] The logistic growth model has
+   previously been used to fit QFA data and assumes that cultures grow
+   independetly.
+ - [ ] I use a gradient method to collectively fit a mass action
+   kinetic model of nutreint dependent growth and diffusion to cell
+   density timecourses from a 384-format QFA plate inoculated with
+   dilute cultures. I find that the model fits timecourses with
+   similar accuracy to independent fits of the logistic growth model,
+   which assume cultures grow independently, which assumes using far
+   fewer parameters (387 vs 1152).
+
+ - [ ] Fits of this model are of a similar quality to fits of a
+   model currently used in QFA that assumes cultures grow
+   independently and use far fewer parameters (387 vs 1152).
+ - [ ] Fits of this model are similar in quality to fits of a
+   model currently used in QFA that assumes cultures grow
+   independently and use far fewer parameters (387 vs 1152).
+
+  - [ ] Fits of this model are similar in quality to fits of the
+   logistic growth model, which assumes cultures grow indenpendently,
+   currently used in QFA.  and use far fewer parameters (387 vs 1152).
+
+
+ - [ ] Fits of this model are similar in quality to fits using a
+   current QFA model that assume cultures grow indenpendently and use
+   far fewer parameters (387 vs 1152).
+
+ - [ ] Using far fewer parameters (387 vs 1152), this model fits
+   timecourses with a similar accuracy to a previous QFA model which assumed cultures grow independently.
+ assuming that
+   cultures grow indenpendently which was previously used to fit QFA
+   data, that assumes cultures grow indenpendently, and use far fewer
+   parameters (387 vs 1152).
+
+ - [ ] I use a gradient method to collectively fit a mass action
+   kinetic model of nutreint dependent growth and diffusion to cell
+   density timecourses from a 384-format QFA plate inoculated with
+   dilute cultures.
+ - [ ] Using far fewer parameters (387 vs 1152), the model fits
+   timecourses with a similar accuracy to a (current QFA) model which
+   assumes that cultures grow independently. Accuracy is improved for
+   fast growing strains.
+ - [ ] Fitness rankings of diffrent strains on the same plate agree
+   with a previous QFA study and independent experiments in the
+   positions of the fastest and slowest growing strains, but disagree
+   for medium growing strains.
+ - [ ]  Estimates are less presise for the fastest growing strains,
+   but more precise for 36 out of 50 strains.
+ - [ ] In cross plate callibration and validation, using plates with a
+   higher inoculum density, the model overcorrects for competiton
+   effects to a similar degree that current models undercorrect.
+ - [ ] A different method of fitting will be required to find globally
+   optimatal solutions.
+
+
+ - [ ] model currently used in QFA which assume that
+   cultures grow independently while using far fewer parameters (387
+   vs 1152)
+
+ - [ ] A more mechanistic model of nutrient dependentcorrecting for competition for
+   nutrients between neighbouring cultures fits cell density
+   timecourse from a QFA plate inoculated with dilute cultures with
+   similar accuracy to the logistic growth model.
+ - [ ] Inferred Timecourses fit data with a similar quality as the
+   logistiac growth model despite using around 3x fewer parameters.
+ - [ ] a plate with an objective function value quality inferred
+   Inferred
+*
 * TODO Introduction [9/13]
   - [X] Describe yeast/bacterial growth
   - [X] Model organism can tell us about other species (humans)
