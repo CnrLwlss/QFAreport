@@ -3,36 +3,40 @@
 \section{\thesection~Discussion}
 \label{sec:discussion}
 
-Fits of the competition model (see Figures~\ref{fig:comp_fit_plate}
-and \ref{fig:P15_zone_fit}) use less parameters than fits of either
-the logistic or generalised logistic model from the QFA R package
-\citep{Addinall2011,qfa2016}. The competition model must also include
-noisy edge cultures, which contribute disproportionately to the
-objective function, in collective fits (see Table~). Despite this, the
-fit of the competition model is of similar quality to fit of the
-logistic model over a whole plate and better in the 3x3 zone studies
-(see Table~\ref{tab:P15_obj_fun} and
-Figure~\ref{fig:P15_zone_fit}). In particular, the competition model
+Fits of the competition model (Figures~\ref{fig:comp_fit_plate} and
+\ref{fig:P15_zone_fit}) use less parameters than fits of either the
+logistic or generalised logistic model from the QFA R package
+\citep{qfa2016}. The competition model must also include noisy edge
+cultures, which contribute disproportionately to the objective
+function, in collective fits
+(Section~\ref{sec:treatment_of_boundaries}). Despite this, the fit of
+the competition model is of similar quality to fit of the logistic
+model over a whole plate and better in the 3x3 zone studied
+(Figure~\ref{fig:P15_zone_fit}). In particular, the competition model
 provided a much better fit to the fast growing cultures in
-Figure~\ref{fig:P15_zone_fit}.
+Figure~\ref{fig:P15_zone_fit}. If the source of competition is
+nutrient diffusion between fast and slow growing cultures, competition
+effects are likely to be greater for these cultures. The competition
+model may be correcting for this.
 
-In the correlation of logistic and competition model \(r\) estimates for
-P15 (Figure~\ref{fig:P15_correlations}), there is a split in the
+In the correlation of logistic and competition model \(r\) estimates
+for P15 (Figure~\ref{fig:P15_correlations}), there is a split in the
 distribution of logistic model \(r\) estimates, but not competition
-model \(r\) estimates. It is possible that the distribution of \(r\)
-for strains (not for each strain) in the study of \citet{Addinall2011}
-does have such a split distribution. However, repeats of many
-individual strains fall in either group but not in the gap. This is
-evidenced by the positions of medians in the gap (red). It seems
-unlikely that the same split exists in the different distributions of
-\(r\) for different strains and at the same value. It is possible that
-the split is either an artefact of the heuristic checks conducted by
-QFA R \citep{qfa2016} for slow growing strains, or caused by an
-acceleration of faster growing strains and deceleration of slower
-growing strains due to competition between neighbours. If the latter
-case is true, the competition model appears to correct for it. It is
-important to investigate the cause of the split distribution because
-it will affect the significance given to genetic interactions.
+model \(r\) estimates. It is possible that the distribution of median
+\(r\) for strains selected by \citet{Addinall2011} does have such a
+split distribution. However, repeats of many individual strains fall
+in either group but not in the gap. This is evidenced by the positions
+of medians in the gap (red). It seems unlikely that the same split
+exists in the distributions of \(r\) for repeats of each strain and at
+the same value. It is possible that the split is either an artefact of
+the heuristic checks conducted by QFA R fits of the logistic model for
+slow growing strains \citep{qfa2016}, or caused by a relative
+acceleration and deceleration of fast and slow growing cultures due to
+competition between neighbours. If the latter case is true, the
+competition model appears to correct for it. It is important to
+investigate the cause of the split distribution because it will affect
+the significance given to genetic interactions in QFA studies (see
+e.g. \citet{Addinall2011}).
 
 Competition model ranking of growth estimates for repeats on P15 (see
 Figure~\ref{fig:comp_vs_log_ranking}) agree with the published
@@ -41,60 +45,61 @@ slowest growers. Both models also agree with rankings from independent
 spot tests for these strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}. However,
 there is much disagreement in the ranking of middle cultures and
-Spearman's \(\rho_{S}\) for \(MDR\) estimates is 0.635). The precision
+Spearman's \(\rho_{S}\) for \(MDR\) estimates is 0.635. The precision
 of growth estimates was not improved using the competition model for
-the fastest growing strains on P15 (see
-Figure~\ref{fig:comp_b_log_r_cov}). A couple of factors may contribute
-to this. Firstly, if fast growing cultures are accelerated relative to
-slower cultures due to competition this might produce more precise but
-less accurate logistic model estimates. Secondly, this may be due to
-the effect of noise dominated cell observations from slow growing
-cultures on collectively fit parameters. This does not affect the
-logistic model which fit to individual cultures. The greater
-reliability of estimates for slow growing cultures in the competition
-model could be entirely due to collective fitting rather than to
-correcting for competition. (Unfortunately, the change in order for
-middle rankings is unlikely to identify new genetic interactions if
-the fitness of fast growing cultures is estimated less precisely.)
-Although improved, uncertainty in estimates for the slowest growers is
-still much higher than for the fastest, meaning that the power to
-infer genetic reactions is not dramatically improved.
+the fastest growing strains on P15 (see Figure~\ref{fig:COV}). A
+couple of factors may contribute to this. Firstly, if fast growing
+cultures are accelerated relative to slower cultures due to
+competition, this might produce more precise but less accurate
+logistic model estimates. Secondly, noise dominated cell observations
+from slow growing cultures will affect collectively fit competition
+model parameters. This does not affect logistic model estimates
+because cultures are fit individually. The greater reliability of
+estimates for slow growing cultures in the competition model could be
+entirely due to collective fitting rather than to correcting for
+competition. Although improved, uncertainty in estimates for the
+slowest growers is still much higher than for the fastest, meaning
+that the power to infer genetic reactions would not be dramatically
+improved.
 
 Fitting the logistic model to slower growing cultures requires
 heuristic checks to correct for confounding between \(r\) and
 \(K\). The QFA R implementation appears to have some issues. The
 strains \textit{est1\(\Delta\)} and \textit{rad50\(\Delta\)} and are
-outliers in Figure~\ref{fig:15_correlations} and this causes a
+outliers in Figure~\ref{fig:P15_correlations} and this causes a
 dramatic change in ranking between logistic model \(r\) and \(MDR\)
-(see Figure~\ref{fig:comp_vs_log_ranking}). I confirmed by visual
-inspection of the raw QFA images that these were weak growing
-strains. High \(r\) and low \(K\) have been erroneously fit to
-both. This is corrected for when converting to \(MDR\) which agrees
-with the competition model ranking and independent validation for
+(Figure~\ref{fig:comp_vs_log_ranking}). I confirmed that these were
+weak growing strains by visual inspection of the raw QFA images. High
+\(r\) and low \(K\) have been erroneously fit to both. This is
+corrected for when converting to \(MDR\) which agrees with the
+competition model ranking and independent validation for
 \textit{rad50\(\Delta\)} \citep{zubko2004exo1}. \(MDR\) is more
 similar to the fitness measure (\(MDR \times MDP\)) used in the
-original analysis by \citet{Addinall2011}. For other cultures it
-appears that encroachment of fast growing cultures into neighbours is
-affecting cell density estimates made by Colonyzer
-\citep{Lawless2010}. In logistic fits some growth curves are still in
-the exponential phase at the end of observations and this may be
-another fitting issue. If repeated, the plate from
-\citet{Addinall2011} should be run with a lower concentration of
-nutrients in the agar so that the stationary phase is reached before
-cultures start to merge.
+original analysis by \citet{Addinall2011} so this is unlikely to have
+affected their results. For other cultures it appears that
+encroachment of fast growing cultures into neighbours is affecting
+cell density estimates made by Colonyzer \citep{Lawless2010}. If
+repeated, the plate from \citet{Addinall2011} should be run with a
+lower concentration of nutrients in the agar so that the stationary
+phase is reached before cultures start to merge.
 
-I looked at plate images from QFA and Colonyzer to investigate other
-discrepancies.~\textit{mre11\(\Delta\)} is a weak growing strain (ref
-validation) which was misclassified as healthy by the competition
-model but not the logistic model. One repeat contained unusual
-heterogeneity, which may be natural or the results of contamination,
-and may explain the discrepancy. (Should take median value next
-time). \textit{hap4\(\Delta\)} appears to be much healthier than
-\textit{zrt3\(\Delta\)} which agrees with the competition model but
-not the logistic model. Although the precision of estimates is similar
-for both models, the competition model appears to be more
-accurate. Unfortunately, independent data for validation of the middle
-strains are not available.
+I looked at plate images of P15 to investigate other discrepancies.
+%  ~\textit{mre11\(\Delta\)} is a weak growing strain
+% \citep{zubko2004exo1,Addinall2011} which was misclassified as healthy
+% by the competition model when I was using mean values (not shown) but
+% not the logistic model. One repeat contained unusual heterogeneity,
+% which may be natural or the results of contamination, and may explain
+% the discrepancy. I corrected for this by taking median values in Figure~\ref{fig:comp_vs_log_rankinkgsattempted to correct for this issue by taking the median with partian
+% nmedian rather than mean values.
+\textit{hap4\(\Delta\)} appears to be much healthier than
+\textit{zrt3\(\Delta\)}, which agrees with the competition model but
+not the logistic model (Figure~\ref{fig:comp_vs_log_ranking}). The
+estimate for \textit{zrt3\(\Delta\)} is more precise for the logistic
+model than for the competition model (Figure~\ref{fig:COV}). However,
+this does not confer greater accuracy to either model because the
+opposite is true for \textit{hap4\(\Delta\)} estimates. Unfortunately,
+independent data for validation of the middle strains is not available
+so it is difficult to draw conclusions.
 
 Recent work Herrmann and Lawless suggests that direct measurements of
 \(C(0)\) may not be reliable due to heterogeneity between cells in the
@@ -112,23 +117,27 @@ exponential growth phase or using a higher starting density to average
 out effects.
 
 The Stripes and Filled plates used a higher inoculum density and had
-very few noise-dominated cultures. Compared to P15, this would have
+very few noise dominated cultures. Compared to P15, this would have
 reduced noise in collectively fit competition model estimates and
 would not have required heuristic checks to be employed for the
 logistic model. This may therefore be a fairer comparison than P15. It
 would be informative to repeat P15 with an inoculum density at a
 detectable level so that the precision of competition and logistic
-model estimates can be compared in the absence of noise-dominated
-cultures. Correlation of fitness estimates between plates in
-Figure~\ref{fig:r_correlations}a was similar for both models. This is
-despite not finding global minima with the competition model. However,
-correlation between models for the same plate in
-Figure~\ref{fig:r_correlations}b is poor. (Could definitely do with
-P15 correlations to compare). There are issues with validation for
-both models (see Figure~\ref{fig:stripes_validation}); the logistic
-model does not account for differences between plates at all and the
-competition model overcorrects. As I lack independent data for
-validation it is difficult to decide which to believe.
+model estimates can be compared in the absence of noise dominated
+cultures. However the competition model struggled to find a global
+minimum for the Stripes and Filled plates, which had higher inoculum
+densities. Therefore, fitting would first need to be improved.
+% Correlation of fitness estimates between plates in
+% Figure~\ref{fig:r_correlations}a was similar for both models. This is
+% despite not finding global minima with the competition model. However,
+% correlation between models for the same plate in
+% Figure~\ref{fig:r_correlations}b is poor. (Could definitely do with
+% P15 correlations to compare).
+There are issues with validation of both models
+(Figure~\ref{fig:stripes_validation}); the logistic model does not
+account for differences between plates at all and the competition
+model overcorrects. As I lack independent data for validation it is
+difficult to decide which to believe.
 % (Unfortunately, the Stripes and Filled plates have few repeats so I
 % could not study the reliability of estimates on the same plate. (I
 % believe that we have more issues with accuracy than precision anyway).
@@ -136,7 +145,6 @@ In any case, it is clear that the competition model could be improved.
 
 
 \subsection{\thesubsection~Future work}
-
 
 The split in the distribution of logistic model \(r\)
 (Figure~\ref{fig:P15_correlations}) may offer a useful way to the
@@ -147,56 +155,58 @@ split. If the split still exists in only the logistic model, then the
 strains could be grown in independent conditions, either isolated on
 solid agar (diffusion still an issue) or in liquid cultures, where the
 models are equivalent. If the split does not exist in the independent
-distribution then we may favour the competition model for QFA
+distribution, then we may favour the competition model for QFA
 plates. This will also depend on how well competition model estimates
 agree between the two conditions.
 
-For the Stripes and Filled plates, the competition model was fit to 15
-cell measurement values taken from a spline, whereas the logistic
-model was fit to all timepoints. A little more work is required to
-compare the quaility of fits at these higher inoculum densities; I
-need to resimulate both models using estimated parameters and compare
-to the observed timepoints using the same objective function. With
-fewer noise-dominated cultures than in P15, the competition model fit
-may have improved.
+% For the Stripes and Filled plates, the competition model was fit to 15
+% cell measurement values taken from a spline, whereas the logistic
+% model was fit to all timepoints. A little more work is required to
+% compare the quaility of fits at these higher inoculum densities; I
+% need to resimulate both models using estimated parameters and compare
+% to the observed timepoints using the same objective function. With
+% fewer noise-dominated cultures than in P15, the competition model fit
+% may have improved.
 
-I was unable to find global minima using a gradient method (see
-Section~\ref{sec:fitting_comp}) to fit the competition model. I began
-work on a genetic algorithm method of solving but lacked time to
-complete this. I did however find that, with fixed plate level
-parameters, it is possible to reliably return \(b_{i}\) with a
-gradient method (see
-Figure~\ref{fig:comp_fit_fixed_plate_level}). This offers the
+I was unable to find global minima using a gradient method to fit the
+competition model (Sections~\ref{sec:P15_fit} and
+\ref{sec:cross_plate_val_results}). I began work on a genetic
+algorithm method of solving but lacked time to complete this. I did
+however find that, with fixed plate level parameters, it is possible
+to reliably return \(b_{i}\) with a gradient method
+(Figure~\ref{fig:comp_fit_fixed_plate_level}). This offers the
 potential to use a hierarchical genetic algorithm where candidate
 plate level parameters are fixed in gradient fits of culture level
-parameters. Alternatively, a pure hierarchical genetic algorithm may
-work (i.e. where \(b_{i}\) are also evolved). A hierarchical Bayesian
-approach to fitting the competition model, similar to that of
-\citet{Heydari2016} to fit the logistic model, could also return
-global minima but might be slow. Current best fits, which are
-different local minima, have well correlated fitness rankings and make
-similar overcorrections for competition. This suggests that there is a
+parameters \(b_{i}\). Alternatively, a pure hierarchical genetic
+algorithm may work (i.e. where \(b_{i}\) are also evolved). A
+hierarchical Bayesian approach to fitting the competition model,
+similar to that of \citet{Heydari2016}, used to fit the logistic
+model, could also return global minima but might be slow. Current best
+fits, which are different local minima, have well correlated fitness
+rankings (Table~\ref{tab:Filled_best_fits}) and make similar
+overcorrections for competition
+(Figure~\ref{fig:stripes_validation}). This suggests that there is a
 more fundamental issue with the model.
 
 It would be informative to validate the independent limit of the
 competition model to determine whether a mass action approximation is
 valid and whether it is correct to ignore the effect of metabolism on
-nutrient and final cell density. I suggest to validate first in liquid
-cultures, where the assumption of a well stirred mixture is more
-valid, and then attempt to validate for single cultures grown on agar,
-which more closely resembles QFA. Growth on a surface has a lower
-dimensionality and may be diffusion limited so a fractal kinetics
-model may be required \citep{Kopelman1988,savageau1995}. Nutrients
-(sugars, nitrogen, etc.) in QFA agars are of a standard composition,
-designed to reduce the excess of any single nutrient
-\citep{Addinall2011}. It would be helpful to know and control the
-identity of the limiting nutrient using a different formula of
-agar. With nitrogen, rather than sugar, as the limiting nutrient, we
-are less likely to have to model metabolism.
+nutrient density. I suggest to validate first in liquid cultures,
+where the assumption of a well stirred mixture is more valid, and then
+attempt to validate for single cultures grown on agar, which more
+closely resembles QFA. Growth on a surface has a lower dimensionality
+and may be diffusion limited so a fractal kinetics model may be
+required \citep{Kopelman1988,savageau1995}. Nutrients (sugars,
+nitrogen, etc.) in QFA agars are of a standard composition, designed
+to reduce the excess of any single nutrient \citep{Addinall2011}. It
+would be helpful to know and control the identity of the limiting
+nutrient using a different formula of agar. With nitrogen, rather than
+sugar, as the limiting nutrient, we are less likely to have to model
+metabolism.
 
 
-Estimates of the nutrient diffusion constant \(k\) were fairly
-high such that nutrients diffused readily between neighbours and were
+Estimates of the nutrient diffusion constant \(k\) were fairly high,
+such that nutrients diffused readily between neighbours and were
 nearly depleted when growth stopped. It may be that growth becomes
 limited by the diffusion of nutrients through agar before all
 nutrients are depleted and that nutrients are not well approximated as
@@ -238,7 +248,8 @@ important. Gathering QFA data from smaller arrays grown in isolation
 would help to speed up the development process.
 \\\\
 Each culture is surrounded by a different group of neighbours with
-different growth constants \(b\).~The imaginary neighbour guess
+different growth constants \(b_{j} \in \delta_{i}\)
+(Figure~\ref{fig:comp_model_schematic}). The imaginary neighbour guess
 (Section~\ref{sec:guessing_b}) could be improved by using a range of
 \(b_{f}\) values to fit each culture and selecting \(b\) from the best
 fit. \(k\) is the last parameter to be guessed. Rather than using the
@@ -249,7 +260,7 @@ parameters as the guesses and fitting the competition model to
 data. It would also be good to compare guesses from the imaginary
 neighbour model with those from the logistic model. Even with an
 improved guess, I suspect, based on the closeness of current fits
-(Figure~\ref{fig:comp_fit_zone}), that a gradient method will still
+(Figure~\ref{fig:P15_zone_fit}), that a gradient method will still
 fail to find global minima.
 \\\\
 Edge cultures must be included in data when fitting the competition
