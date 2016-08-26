@@ -31,20 +31,21 @@ from plate-15, a standard deletion library in \textit{S. Cerevisiae},
 with background mutation \textit{cdc13-1}. \textit{cdc13-1} is a
 temperature dependent conditional mutatation in a gene involved in
 telomere stability. Internal cultures consist of 6 repeats of each of
-49 different mutants with deletions in genes thought to be relevant to
-telomere function and 14 repeats of a strain with a neutral deletion,
-\textit{his3}\(\Delta\). Edge cultures are also inoculated with
-repeats of \textit{his3}\(\Delta\) but estimates from these cultures
-are discarded due to noise in cell density estimates caused by
-reflections from plate walls. Cultures were inoculated with
-\(\sim\)100 cells which is below levels of detection. P15 was
-incubated at 27\(^{\circ}\)C where \textit{cdc13-1} starts to
-experience loss of function. Each culture has cell density estimates
-taken at 10 timepoints over 4 days. I elected to study P15 because of
-the large variation in fitness between strains which may induce
-competition effects. There are also many repeats of each strain with
-which to calculate statistics. Furthermore, independent validation
-data, from spot tests, exists in published studies for several strains
+49 different strains with a deletion in a second gene thought to be
+relevant to telomere function. There are also 14 repeats of a strain
+with a neutral deletion, \textit{his3}\(\Delta\). Edge cultures are
+also inoculated with repeats of \textit{his3}\(\Delta\), but estimates
+from these cultures are discarded due to noise in cell density
+estimates caused by reflections from plate walls. Cultures were
+inoculated with \(\sim\)100 cells which is below levels of
+detection. P15 was incubated at 27\(^{\circ}\)C, where
+\textit{cdc13-1} starts to experience loss of function. Each culture
+has cell density estimates taken at 10 timepoints over 4 days. I
+elected to study P15 because of the large variation in fitness between
+strains, which may induce competition effects. There are also many
+repeats of each strain with which to calculate
+statistics. Furthermore, independent validation data from spot tests
+exists in published studies for several strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 
 \subsection{\thesubsection~The Stripes and Filled plate datasets}
@@ -53,25 +54,26 @@ data, from spot tests, exists in published studies for several strains
 The Stripes and Filled plates (Figure~\ref{fig:stripes_images}) are
 from a QFA experiment designed to study competition (personal
 communications E. Holstein (April 2016)). On the Stripes plate
-(Figure~\ref{fig:stripes_images}a) strains are inoculated in every
-other column leaving gaps. Strains have a background mutation of
-\textit{cdc13-1} and a deletion in a second gene. There are more
-deletions than for P15 (Section~\ref{sec:P15_description}) and most
-cultures have no repeats. The same strains as in the Stripes plate are
-inoculated in the same positions on the Filled plate
-(Figure~\ref{fig:stripes_images}b). These are inoculated from the same
-liquid culture to try to reduce variation. In the Filled plate, gaps
-are now filled with new cultures. Each deletion in a new column is a
-transposition of the strain immediately to the left but with a
-different background mutation, \textit{rad75}\(\Delta\). The left most
-column is filled with the same neutral deletion,
-\textit{his3}\(\Delta\). The new strains with \textit{rad75}\(\Delta\)
-are generally fitter than the shared strains with \textit{cdc13-1}. I
-higher inoculum denstiy (\(\sim\)10,000 cells) was used compared to
-P15 and this was detectable at time zero. Both plates were incubated
-at 27\(^{\circ}\)C, where \textit{cdc13-1} starts to experience loss
-of function, and photographed at \(\sim\)50 timepoints over 4 days -
-around five times more often than for P15.
+(Figure~\ref{fig:stripes_images}a), strains are inoculated in every
+other column, leaving gaps. As for P15
+(Section~\ref{sec:P15_description}), strains have a background
+mutation \textit{cdc13-1} and a deletion in a second gene. There are
+more strains than for P15 and most cultures have no repeats. The same
+strains as in the Stripes plate were inoculated in the same positions
+on the Filled plate (Figure~\ref{fig:stripes_images}b). These were
+inoculated from the same liquid culture to try to reduce variation. In
+the Filled plate, gaps are now filled with new cultures. Each deletion
+in a new column is a transposition of the strain immediately to the
+left but with a different background mutation,
+\textit{rad75}\(\Delta\). The left most column is filled with the same
+neutral deletion, \textit{his3}\(\Delta\). The new strains with
+\textit{rad75}\(\Delta\) are generally fitter than the common strains
+with \textit{cdc13-1}. A higher inoculum denstiy (\(\sim\)10,000
+cells) was used compared to P15 and this was detectable at time
+zero. Both plates were incubated at 27\(^{\circ}\)C, where
+\textit{cdc13-1} starts to experience loss of function, and
+photographed at \(\sim\)50 timepoints over 4 days: around five times
+more often than for P15.
 
 The experiment is designed to exhibit differences in growth between
 the same strains on each plate; cultures on the Stripes plate should
@@ -98,29 +100,29 @@ slower and uses SciPy's integrate.odeint to solve models written in
 Python at user supplied timepoints. I vectorised code using NumPy to
 optimise solving of the competition model by this method. For solving
 a plate of 384 cultures with cell density observations at 10 unevenly
-spaced time points, I found that using the Python bindings for
-libRoadRunner, solving time decreased from tenths to hundredths of a
-second (10 times faster). libRoadRunner requires models to be written
-in SBML so I wrote code using the libSBML Python API to automatically
-generate SBML versions of the competition model for any size plate.
+spaced time points, I found that solving time decreased from tenths to
+hundredths of a second (10 times faster) using the Python bindings for
+libRoadRunner. libRoadRunner requires models to be written in SBML so
+I wrote code using the libSBML Python API to automatically generate
+SBML versions of the competition model for any size plate.
 % //I could go into more detail about how models are defined// but
 % maybe this is not needed.
 Unlike SciPy's odeint, libRoadRunner only simulates at uniformly
 spaced timepoints. To fit QFA cell observations, which are not made at
 fixed time intervals, requires simulated cell amounts at the observed
-timepoints. For the analysis in (P15 section), where each timecourse
-has only 10 timepoints, I simulated sequentially between (pairs of)
-timepoints. This method was slower for the analysis in (Stripes
-section) where each timecourse had around 50 timepoints. To increase
-speed I used SciPy's interpolate.splrep to make a 5th order B-spline
-of cell density timecourses with smoothing condition \(s=1.0\). I
-evaluated the spline for cell density using SciPy's interpolate.splev
-at 15 evenly spaced intervals from time zero to the time of the last
-QFA observation. I then solved these
-timecourses with one call to RoadRunner.simulate.
+timepoints. For the analysis of P15, where each timecourse has only 10
+timepoints, I simulated sequentially between pairs of timepoints. This
+method was slower for the analysis of the Stripes and Filled plates
+where each timecourse had around 50 timepoints. To increase speed, I
+used SciPy's interpolate.splrep to make a 5th order B-spline of cell
+density timecourses with smoothing condition \(s=1.0\). I evaluated
+the spline for cell density using SciPy's interpolate.splev at 15
+evenly spaced timepoints from time zero to the time of the last QFA
+observation. I then solved these timecourses with one call to
+RoadRunner.simulate.
 
 When using RoadRunner on a modern CPU, fitting a full plate with 10
-unevenly spaced timepoints takes \(\sim\)3 hours and fitting a full
+unevenly spaced timepoints takes \(\sim\)3 hours; fitting a full
 plate using a spline with 15 timepoints takes \(\sim\)1 hour.
 \\\\
 
@@ -140,14 +142,13 @@ SciPy's integrate package.
 I determined stopping criteria so that parameters of full-plate
 simulated data sets, with a small amount of simulated noise, were
 recovered with high precision. To help the minimizer, I scaled
-\(C(0)\) values by a factor of \(10^{5}\) to make parameter
-values closer in order of magnitude. I ran repeated fits using
-different parameter guesses for each plate (see Section~(P15 and
-Stripes details)). I set bounds according to
+\(C(0)\) values by a factor of \(10^{5}\) to make parameter values
+closer in order of magnitude. I ran repeated fits using different
+parameter guesses for each plate (see Sections~\ref{sec:P15_fit} and
+\ref{sec:cross_plate_validation}). I set bounds according to
 Table~\ref{tab:p15_bounds} and checked that best fits had no
 parameters at a boundary.
 %
-
 \begin{center}
   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
     competition model to P15 and the Stripes and Filled plates. Bounds
@@ -172,26 +173,29 @@ parameters at a boundary.
 %%%% Boundary conditions Two N_0 %%%%%
 Cultures at the edge of a plate have an advantage because they have
 access to a greater area of nutrients. I corrected for this using a
-separate parameter \(N^{E}(0)\) representing a higher initial
-amount of nutrients in edge cultures. In rate equations involving edge
+separate parameter \(N^{E}(0)\) representing a higher initial amount
+of nutrients in edge cultures. In rate equations involving edge
 cultures, I scaled edge culture nutrient amount \(N_{i}\) by the ratio
-\(N^{I}(0)/N^{E}(0)\), where \(N^{I}(0)\) is the amount
-of nutrients in internal cultures. The physical interpretation of this
-correction is that edge cultures have an extra supply of nutrients
-that can diffuse instantly into the reaction volume. This treatment
-reduced the error in cell density estimates for cultures one row or
-column inside the edge and resulted in better fits to internal
-cultures overall (see Table~\ref{tab:corner} or Section). Cell density
-measurements from edge cultures contain more noise due to reflections
-from plate walls \citep{Lawless2010}. I collectively fit to all
-cultures and selected best fits based on only the fit to internal
-cultures.
+\(N^{I}(0)/N^{E}(0)\), where \(N^{I}(0)\) is the amount of nutrients
+in internal cultures. The physical interpretation of this correction
+is that edge cultures have an extra supply of nutrients that can
+diffuse instantly into the reaction volume. This treatment reduced the
+error in cell density estimates for cultures one row or column inside
+the edge and resulted in better fits to internal cultures overall (see
+Table~\ref{tab:corner} in
+Section~\ref{sec:treatment_of_boundaries}).
 
-%%%% Empties %%%%%
-(Can go to results section or Stripes method section:) QFA data for
-the Stripes plate contained observations for cultures that were known
-to be empty. When fitting the competition model, I set growth constant
-\(b\) to zero for these cultures and removed them from fitting.
+Cell density measurements from edge cultures contain more noise due to
+reflections from plate walls \citep{Lawless2010}. For the competition
+model, I collectively fit to all cultures and selected best fits based
+on only the fit to internal cultures. When fitting the logistic model
+these cultures can simply be discarded.
+
+% %%%% Empties %%%%%
+% (Can go to results section or Stripes method section:) QFA data for
+% the Stripes plate contained observations for cultures that were known
+% to be empty. When fitting the competition model, I set growth constant
+% \(b\) to zero for these cultures and removed them from fitting.
 %%%% End Empties %%%%%
 
 \subsubsection{\thesubsubsection~Fitting the logistic model}
