@@ -68,10 +68,10 @@ estimates.
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       two competition model fits to P15.} Spearman's rank correlation
-    coefficient between \(b_{i}\) estimates, \(\rho_{S}\) =
-    0.989. Mean absolute deviation between \(b_{i}\) estimates, MAD =
-    1.56. The total objective function value for internal cultures is
-    shown in the last column (lower is better).}
+    coefficient (\(\rho_{S}\)) between \(b\) estimates is 0.989. Mean
+    absolute deviation (MAD) between \(b\) estimates is 1.56. The
+    total objective function value for internal cultures is shown in
+    the last column (smaller values are better).}
   \begin{tabular}{l l l l l l}
     \hline
     Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
@@ -90,14 +90,15 @@ estimates.
   \centering
   \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun}
   \captionof{figure}{\textbf{Comparison of competition and logistic
-      model fits to a zone of P15}. The logistic model was fit with
-    the QFA R package and uses almost three times as many
-    parameters. The initial guess (dashes) for the competition model
-    was made from fits of the imaginary neighbour model to individual
-    cultures. The zone has top-left coordinates (5, 18) and is boxed
-    in red in Figure~\ref{fig:comp_fit_plate}. Objective function
-    values for each culture (Obj.) were scaled by \(10^{4}\) (smaller
-    values are better)}
+      model fits to a 3x3 zone of P15}. The logistic model (red) was
+    fit with the QFA R package and uses almost three times as many
+    parameters as the competition model (solid lines). The initial
+    guess (dashes) for the competition model was made from fits of the
+    imaginary neighbour model to individual cultures. The zone has
+    top-left coordinates (5, 18) and is boxed in red in
+    Figure~\ref{fig:comp_fit_plate}. Objective function values (Obj.)
+    for each culture were scaled by \(10^{4}\) (smaller values are
+    better).}
   \label{fig:P15_zone_fit}
 \end{Figure}
 
@@ -244,15 +245,14 @@ a disagreement of 13 places in the rank of the neutral deletion
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/median_ranks_comp_b_log_r_MDR}
-  \captionof{figure}{\textbf{Comparison of \(\bm{r}\) ranking for fits
-      of the competition and logistic model to P15.} Rankings are
-    determined from median parameter estimates for repeats of each
+  \captionof{figure}{\textbf{Comparison of fitness ranking for fits of
+      the competition and logistic model to P15.} Rankings are
+    determined from median parameter estimates for six repeats of each
     deletion. Logistic \(r\) and \(MDR\) were inferred using the QFA R
-    package which makes heuristic checks for slow growing cultures.
-    For competition \(b\) and logistic \(r\), Spearman's
+    package. For competition \(b\) and logistic \(r\), Spearman's
     \(\rho_{S} = 0.497\); for competition \(b\) and logistic \(MDR\),
     Spearman's \(\rho_{S} = 0.635\). \textit{his3\(\Delta\)} (bold) is
-    a neutral deletion.}
+    a neutral deletion which had 14 replicates.}
   \label{fig:comp_vs_log_ranking}
 \end{Figure}
 
@@ -317,16 +317,18 @@ a disagreement of 13 places in the rank of the neutral deletion
 \graphicspath{{images/comp_fit/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20}
+  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
   \captionof{figure}{\textbf{Fit of the competition model to P15.}
-    Data is for a 16x24 format plate (P15) with a background mutation
+    Data is for a 16x24 format plate (P15) with background mutation
     \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
     6 repeats of 50 genetic strains randomly arranged across the
     internal cultures. Repeats of a single strain are used for all
     edge cultures (removed in the plot). Model output for state
     variable, cell population size (blue curve), is fit to observed
     data (black crosses). Model predictions for unobserved variable
-    (nutrient amount) are also plotted (yellow).}
+    (nutrient amount) are also plotted (yellow). The outer two rows
+    and columns have been removed. See Figure~\ref{fig:P15_zone_fit}
+    for a larger plot of the boxed zone.}
   \label{fig:comp_fit_plate}
 \end{Figure}
 \end{landscape}
@@ -358,9 +360,9 @@ internal cultures by collectively fitting all cultures.
   \includegraphics[width=\linewidth]{final/top_left_new_aspect}
   \captionof{figure}{\textbf{Treatment of boundary conditions in fits
       of the competition model.} The top left corner of a 16x24 QFA
-    plate fitted with two versions of the competition model, the first
-    has a single initial nutrient amount for all cultures, the second
-    has a separate initial nutrient amount for edge cultures.}
+    plate (P15) fitted with two versions of the competition model: the
+    first with a single initial nutrient amount for all cultures, the
+    second with a separate initial nutrient amount for edge cultures.}
   \label{fig:P15_corner}
 \end{Figure}
 
@@ -441,14 +443,14 @@ deletions.
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/comp_b_log_r_median_rank_his3_bold}
-  \captionof{figure}{\textbf{Coefficient of variation (COV) for growth
-      estimates from P15.} COVs are shown for competition model \(b\)
-    and logistic model \(r\) for repeats of each deletion. COVs of
-    competition model \(b\) and \(r\) are equivalent (see
-    Section~\ref{sec:parameter_conversion}). Deletions are ordered
-    left to right along the horizontal axis by highest to lowest
-    competition model \(b\) ranking. Logistic fits used the QFA R
-    package.}
+  \captionof{figure}{\textbf{Coefficients of variation (COVs) for
+      growth estimates from P15.} COVs are shown for competition model
+    \(b\) and logistic model \(r\) estimates for repeats of each
+    deletion. COVs of competition model \(b\) and \(r\) are equivalent
+    (see Section~\ref{sec:parameter_conversion}). Deletions are
+    ordered left to right along the horizontal axis from highest to
+    lowest competition model \(b\) ranking. Logistic fits used the QFA
+    R package.}
   \label{fig:COV}
 \end{Figure}
 \begin{multicols}{2}
@@ -461,18 +463,18 @@ deletions.
   \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
   \captionof{figure}{\textbf{Calibration and validation of the
       competition model.} I fit the competition model to the 16x24
-    format ``Stripes'' and ``Filled'' plates in
-    Figure~\ref{fig:stripes_images}. The plot shows cell measurements
-    and estimates for both plates for a 3x3 section with top left
-    coordinates (R9, C10). I took the parameters estimates for the
-    ``Filled'' plate (calibration) and set growth constant, b, to zero
-    for cultures in the empty columns of the ``Stripes'' plate. I then
-    simulated using these parameters to produce the dashed blue curve
-    (validation). If the model corrects for differences in growth
-    between these experimental designs perfectly, the dashed blue
-    curves should resemble the ``Stripes'' data (blue crosses) in
-    columns one and three. The logistic model would predict no change
-    in growth between plates.}
+    format ``Stripes'' and ``Filled'' plates
+    (Section~\ref{sec:stripes_description}). The plot shows cell
+    measurements and estimates for both plates for a 3x3 section with
+    top left coordinates (R9, C10). I took the parameters estimates
+    for the ``Filled'' plate (calibration) and set growth constants,
+    \(b_{i}\), to zero for cultures in the empty columns of the
+    ``Stripes'' plate. I then simulated using these parameters to
+    produce the dashed blue curve (validation). If the model corrects
+    for differences in growth between these experimental designs
+    perfectly, the dashed blue curves should resemble the ``Stripes''
+    data (blue crosses) in columns one and three. The logistic model
+    would predict no change in growth between plates.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
@@ -528,8 +530,8 @@ competition model is not working correctly.
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       two competition model fits to P15.} Spearman's rank correlation
-    coefficient for \(b\) estimates of the cultures in common,
-    \(\rho_{S}\) = 0.787.}
+    coefficient (\(\rho_{s}\)) for \(b\) estimates of the cultures in
+    common is 0.787.}
   \begin{tabular}{l l l l l l}
     \hline
     Plate     & \(C(0)\)                   & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & \(b\) (mean)\\
@@ -552,10 +554,10 @@ the best estimates was worse still for the Stripes plate (not shown).
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       five competition model fits to the Filled plate.} Estimates are
-    Ordered by objective function values (Obj.) where lower values are
-    better. The column MAD \(b\) is the mean absolute deviation of
-    growth constants \(b\) with those of the best fit (row one). Mean
-    \(b\) for the best fit was 27.9.}
+    ordered by objective function values (Obj.) of the fits where
+    lower values are better. The column MAD \(b\) is the mean absolute
+    deviation of growth constants \(b_{i}\) with those of the best fit
+    (row one). Mean \(b\) for the best fit was 27.9.}
   \begin{tabular}{l l l l l l}
     \hline
     Obj.  & \(C(0)\)                  & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & MAD \(b\)\\
@@ -658,19 +660,21 @@ amount of random noise to each timecourse to replicate real data. I
 then fixed the plate level parameters to the true values and fit the
 competition model just for \(b_{i}\). \(b_{i}\) were recovered well
 even in the worst instance
-(\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for slow
-growing cultures which are more affected by noise.
+(Figure~\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for
+slow growing cultures which are more affected by noise.
 
 %\end{multicols}
 \graphicspath{{images/genetic_algorithm/}}
 \begin{Figure}
   \centering
-  \includegraphics[width=\linewidth]{final/est_b_vs_true_b_imag_neigh_guess_sim_1_trimmed}
-  \captionof{figure}{Recovery of true b values from a gradient method
-    with fixed plate level parameters. I simulated timecourses from
-    the best five competition model fits to p15, fixed the true plate
-    level parameters, and used a gradient method to recover b. This
-    plot shows the worst case from the five sets of values.}
+  \includegraphics[width=\linewidth]{final/est_b_vs_true_b}
+  \captionof{figure}{\textbf{Recovery of true \(b\) values from a
+      gradient fit to simulated date using fixed plate level
+      parameters.} I simulated timecourses from the best five
+    competition model fits to p15, added a small amount of noise, and
+    used a gradient method to recover b given the true plate level
+    parameters. This plot shows the worst case from the five sets of
+    values.}
   \label{fig:comp_fit_fixed_plate_level}
 \end{Figure}
 
