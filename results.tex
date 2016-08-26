@@ -34,25 +34,27 @@
 I ran multiple fits of the competition model to P15
 (Section~\ref{sec:P15_description}). Each fit used a fit of the
 imaginary neighbour model (Figure~\ref{fig:imag_neigh_schematic}) to
-make initial parameter guesses for \(b_{i}\). Other parameters were
-guesses as described in Section~\ref{sec:initial_guess}. The imaginary
-neighbour model itself requires initial parameters and fits looped
-over combinations of values for initial cell density \(C(0)\) and
-growth constant \(b\). I used five initial values of \(C(0)\) ranging
-from \(N(0)\times\)10\(^{-5}\) to \(N(0)\times\)10\(^{-3}\) in
-logspace (\(N(0)\) is approximately equal to final cells) and a range
-of 14 different values for \(b\) and \(b_{f}\) as described in
-Section~\ref{sec:guessing_b}. This made a total of 70 fits. I show
-estimated competition model parameters for the top two fits in
-Table~\ref{tab:P15_best_fit_params}. I selected the best fits based on
-the fit to only internal cultures. Estimated initial nutrient
-amounts agree fairly well between the top two fits but there is
-disagreement in estimates of \(C(0)\) and nutrient diffusion constant
-\(k\). It appears that the gradient method is not finding a global
-minimum. However, \(b_{i}\) estimates were correlated with Spearman's
-rank correlation coefficient, \(\rho_{S} = 0.989\), and had average
-mean absolute deviation, \(MAD = 1.56\). The mean value of \(b\)
-for the best fit was 44.4 so this disagreement is relatively small.
+make initial guesses of \(b_{i}\). I guessed other parameters as
+described in Section~\ref{sec:initial_guess} and used separate
+parameters for the initial amount of nutrients in edge and internal
+cultures. The imaginary neighbour model itself requires initial
+parameters and fits looped over combinations of values for initial
+cell density \(C(0)\) and growth constant \(b\). I used five initial
+values of \(C(0)\) ranging from \(N(0)\times\)10\(^{-5}\) to
+\(N(0)\times\)10\(^{-3}\) in logspace (\(N(0)\) is approximately equal
+to final cells) and a range of 14 different values for \(b\) and
+\(b_{f}\) as described in Section~\ref{sec:guessing_b}. This made a
+total of 70 fits. I show estimated competition model parameters for
+the top two fits in Table~\ref{tab:P15_best_fit_params}. I selected
+the best fits based on the fit to only internal cultures. Estimated
+initial nutrient amounts agree fairly well between the top two fits
+but there is disagreement in estimates of \(C(0)\) and nutrient
+diffusion constant \(k\). It appears that the gradient method is not
+finding a global minimum. However, \(b_{i}\) estimates were correlated
+with Spearman's rank correlation coefficient, \(\rho_{S} = 0.989\),
+and had average mean absolute deviation, \(MAD = 1.56\). The mean
+value of \(b\) for the best fit was 44.4 so this disagreement is
+relatively small.
 
 For all comparisons between the top four fits, \(\rho_{S}\) ranges
 from 0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I
@@ -434,16 +436,16 @@ regardless of where repeats are grown on the plate.
 Deletions in Figure~\ref{fig:COV} are arranged from left to right
 according to competition model \(b\) ranking, with the fastest growing
 deletion on the left. The competition model has a smaller COV for 36
-out of 50 deletions. The logistic model has a smaller COV for the 11
-fastest growers (according to \(b\) ranking). Comparing with
+out of 50 deletions. However, the logistic model has a smaller COV for
+the 11 fastest growers (according to \(b\) ranking). Comparing with
 Figure~\ref{fig:P15_correlations}, median values for these deletions
 (red) appear in the upper right of both groups of cultures (black),
-not in the gap inbetween. \(b\) COV becomes smaller than \(r\) COV at
-smaller values of \(b\), where repeats are likely to divided between
-the groups, as indicated by the positions medians in inbetween
-groups. The slowest growers tend to have greater COV for both models,
-which is likely due to the greater effect of noise in repeats of these
-deletions.
+not in the gap inbetween. \(b\) COV tends to be smaller than \(r\) COV
+at smaller values of \(b\), where repeats are likely to divided
+between the groups (as indicated by the positions of medians inbetween
+groups). The slowest growers tend to have greater COV for both models,
+which is likely due to the greater effect of noise on cell density
+estimates in repeats of these deletions.
 
 \end{multicols}
 \graphicspath{{images/COV/}}
@@ -488,34 +490,41 @@ deletions.
 
 \subsection{\thesubsection~Cross-plate validation}
 
-I used the Stripes and Filled plates experiment (see
-Figure~\ref{fig:stripes_images} and
-Section~\ref{sec:stripes_description}) to conduct cross plate
-calibration and validation of the competition model. As for P15, I ran
-multiple fits of the competition model to each plate. Due to the
-greater number of timepoints in the data, I fit to cell densities at
-15 evenly spaced timepoints taken from a spline of the observed data
-(see Section~\ref{sec:solving_comp}) to increase the speed of
-fitting. I used a greater range of \(C(0)\) guesses than for P15: 10
-values ranging from \(N(0)\times\)10\(^{-7}\) to
-\(N(0)\times\)10\(^{-1}\) in logspace. I made this decision due to the
-higher inoculum densities used in these plates and as a result of
-discussion with Herrmann and Lawless, who had suggested, based on
-recent work, that heterogeneity exists within individual cultures such
-that only a small number of cell lines contribute significantly to
-final population. Again, each fit used the imaginary neighbour model
-to make initial parameter guesses (see Section~\ref{sec:guessing_b})
-with 14 different initial \(b\) guesses for each \(C(0)\) guess. This
-made a total of 140 fits to each plate.
+I used the Stripes and Filled plates experiment
+(Figure~\ref{fig:stripes_images}) to conduct cross plate calibration
+and validation of the competition model. As for P15
+(Section~\ref{sec:P15_fit}), I ran multiple fits of the competition
+model for each plate. Due to the greater number of timepoints in the
+data, I fit to cell densities at 15 evenly spaced timepoints taken
+from a spline of the observed data to increase the speed of fitting
+(see Section~\ref{sec:solving_comp}). I used a greater range of
+\(C(0)\) guesses than for P15: 10 values ranging from
+\(N(0)\times\)10\(^{-7}\) to \(N(0)\times\)10\(^{-1}\) in logspace. I
+made this decision due to the higher inoculum densities used in these
+plates and as a result of discussion with Herrmann and Lawless, who
+had suggested, based on recent work, that heterogeneity exists within
+individual cultures such that only a small number of cell lines
+contribute significantly to final populations. Again, each fit used
+the imaginary neighbour model to make initial guesses of \(b_{i}\)
+with 14 different initial \(b\) guesses for each \(C(0)\) guess
+(Section~\ref{sec:guessing_b}). This made a total of 140 fits to each
+plate. I guessed other parameters as described in
+Section~\ref{sec:initial_guess} and used separate parameters for the
+initial amount of nutrients in edge and internal cultures.
 
-The experiment is designed to test for competition effects. The
-strains in the Stripes plate are inoculated in the same positions on
-the Filled plate. I took the parameter estimates for the Filled plate,
-simulated the Stripes plate by setting \(b\) to zero in empty
-locations, and compared timecourses
+The experiment, described in detail in
+Section~\ref{sec:stripes_description}, is designed to test for
+competition effects. I received the data from E. Holstein (April 2016)
+in personal communications. The strains in the Stripes plate
+(Figure~\ref{fig:stripes_images}a) are inoculated in the same
+positions on the Filled plate (Figure~\ref{fig:stripes_images}b). I
+took the competition model parameter estimates for the Filled plate
+and simulated the Stripes plate by setting \(b\) to zero for locations
+in the gaps on this plate. I compared the resulting timecourses with
+the Stripes cell observations
 (Figure~\ref{fig:stripes_validation}). If the competition model
-corrects for differences between the plates perfectly then the
-simulated timecourse (blue dashes) should fit closely to the Stripes
+corrects for differences between the plates perfectly, then the
+simulated timecourses (blue dashes) should fit closely to the Stripes
 data (blue crosses). I found that the competition model overcorrects
 for competition; simulated cell densities are higher than observations
 across the plate. In contrast, the logistic model makes no adjustment
@@ -523,16 +532,10 @@ between plates and would underestimate observed cell densities by a
 similar amount. There are some issues with the data set. For instance,
 the top right culture in Figure~\ref{fig:stripes_validation} does not
 grow and may have been inoculated with dead cells. However, these
-mistakes are unlikely to have caused the systematic overcorrection.
-
-The inferred parameters for the best competition model fits to both
-plates are shown in Table~\ref{tab:Stripes_and_Filled_params}. Data
-for empty cultures on the Stripes plate is just noise and I excluded
-these timecourses from the objective function when fitting. Both
-plates used the same inoculum density and formula of agar so I do not
-expect plate level parameters vary between plates. However, there is
-significant disagreement in all parameters indicating that the
-competition model is not working correctly.
+mistakes are unlikely to have caused the systematic overcorrection
+that is observed. Data for empty cultures on the Stripes plate (blue
+crosses, middle column) is just noise and I excluded these timecourses
+from the objective function when fitting.
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -550,13 +553,19 @@ competition model is not working correctly.
   \label{tab:Stripes_and_Filled_params}
 \end{center}
 
-There was more disagreement in the top fits for each plate than was
-the case for P15, which used a lower inoculum density. Estimates for
-the five best fits to the Filled plate
-(Table~\ref{tab:Stripes_and_Filled_params}) are only consistent for
-initial nutrient densities. Despite this, they all overestimated
-growth when used to simulate the Stripes plate. Disagreement between
-the best estimates was worse still for the Stripes plate (not shown).
+The inferred parameters for the best competition model fits to both
+plates are shown in Table~\ref{tab:Stripes_and_Filled_params}. Both
+plates used the same inoculum density and formula of agar so I did not
+expect plate level parameters to vary between plates. However, there
+is significant disagreement in all parameters, indicating that the
+competition model is not working correctly. There was also more
+disagreement in the top fits for each plate than was the case for P15,
+which used a lower inoculum density. Estimates for the five best fits
+to the Filled plate (Table~\ref{tab:Stripes_and_Filled_params}) are
+only consistent for initial nutrient densities. Despite this, they all
+overestimated growth when used to simulate the Stripes
+plate. Disagreement between the best estimates was worse still for the
+Stripes plate (not shown).
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -578,10 +587,6 @@ the best estimates was worse still for the Stripes plate (not shown).
   \end{tabular}
   \label{tab:Filled_best_fits}
 \end{center}
-
-
-
-
 % \begin{center}
 %   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
 %     competition model to P15 and the Stripes and Filled plates. Bounds
@@ -602,8 +607,6 @@ the best estimates was worse still for the Stripes plate (not shown).
 %   \end{tabular}
 %   \label{tab:stipes_agreements}
 % \end{center}
-
-
 % \graphicspath{{images/stripes/}}
 % \begin{Figure}
 %   \centering
@@ -622,8 +625,6 @@ the best estimates was worse still for the Stripes plate (not shown).
 %     in the legends. The line \(y=x\) is also plotted.}
 %   \label{fig:r_correlations_v2}
 % \end{Figure}
-
-
 % \graphicspath{{images/stripes/correlations/}}
 % \begin{Figure}
 %   \centering
@@ -640,7 +641,6 @@ the best estimates was worse still for the Stripes plate (not shown).
 %   \label{fig:r_correlations}
 % \end{Figure}
 
-
 \subsection{\thesubsection~Towards a genetic algorithm}
 
 % %\end{multicols}
@@ -655,21 +655,6 @@ the best estimates was worse still for the Stripes plate (not shown).
 %   \label{fig:3x3_genetic_algorithm_comp_fit_fixed_plate_level}
 % \end{Figure}
 % %\begin{multicols}{2}
-
-Due to the disagreement between competition model estimates for the
-same plates, I was motivated to explore alternative strategies for
-fitting that might return global minima. To test the viability of
-using a genetic algorithm to evolve plate-level parameter candidates
-and evaluating these using a gradient method, I took parameter
-estimates from the five best fits for P15, and simulated full plate
-timecoureses of cell observations with 15 timepoints. I added a small
-amount of random noise to each timecourse to replicate real data. I
-then fixed the plate level parameters to the true values and fit the
-competition model just for \(b_{i}\). \(b_{i}\) were recovered well
-even in the worst instance
-(Figure~\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for
-slow growing cultures which are more affected by noise.
-
 %\end{multicols}
 \graphicspath{{images/genetic_algorithm/}}
 \begin{Figure}
@@ -684,6 +669,21 @@ slow growing cultures which are more affected by noise.
     values.}
   \label{fig:comp_fit_fixed_plate_level}
 \end{Figure}
+
+% Due to the disagreement between competition model estimates for the
+% same plates, I was motivated to explore alternative strategies for
+% fitting that might return global minima.
+To test the viability of using a genetic algorithm to evolve
+plate-level parameter candidates and evaluating these using a gradient
+method, I took parameter estimates from the five best fits for P15,
+and simulated full plate timecoureses of cell observations with 15
+timepoints. I added a small amount of random noise to each timecourse
+to replicate real data. I then fixed the plate level parameters to the
+true values and fit the competition model just for
+\(b_{i}\). \(b_{i}\) were recovered well even in the worst instance
+(Figure~\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for
+slow growing cultures which are more affected by noise.
+
 
 % (Currently only have comp obj funs using different cultures (Stripes
 % obj fun 0.66) (Filled obj fun 0.76).)
