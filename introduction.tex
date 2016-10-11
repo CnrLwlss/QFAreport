@@ -151,8 +151,6 @@ not equivalent, so comparison relies on MDR and MDP as fitness
 measures. Either model can be fit using the QFA \textsf{R} package
 \citep{qfa2016}.
 
-% 2 %
-
 % //Could remove//\citet{Addinall2011} used QFA and
 % \textit{S. cerevisiae} to screen for genes involved in telomere
 % stability which is related to ageing and cancer and has implications
@@ -167,63 +165,68 @@ measures. Either model can be fit using the QFA \textsf{R} package
 % Example use of QFA by Addinall \citep{Addinall2011} telomeres.
 % And follow up Holstein and Clark \citep{Holstein20141259}
 
-Since QFA aims to determine differences in the fitness of microbial
-strains from measurements of differences in growth, fast and slow
-growing cultures are often grown
-side-by-side. Figure~\ref{fig:p15_section} shows a section of a QFA
-plate from a study by \citet{Addinall2011} where this is the
-case. Cultures were inoculated with approximately equal cell density
-but have grown at different rates and to visibly different sizes after
-\(\sim\)2.5 days. Despite starting with the same amount of nutrients
-and growing at different rates, there is a characteristic timescale
-for the cessation of growth. This suggests a global growth-limiting
-effect, which I believe to be caused by an interaction between
-cultures. I test the hypothesis that the interaction is a competition
-effect due to the diffusion of nutrients along gradients formed
-between fast and slow growing neighbours. This has implications for
-growth estimates; competition will cause growth to appear faster or
-slower for each neighbour than would be observed if they grew
-independently. The experiment shown in Figure~\ref{fig:stripes_images}
-provides further support for a nutrient competition effect. The same
-cultures were grown in alternate columns on two separate plates but
-with cultures added or removed from the neighbouring columns
-inbetween. Cultures in Figure~\ref{fig:stripes_images}a, where
-neighbours were removed, grew larger
-%(how much? I can look at the data myself) **
-than the same cultures in Figure~\ref{fig:stripes_images}b, where
-neighbours were added. This suggests that an interaction between
-neighbours is present and may be affecting fitness estimates. Current
-QFA analysis using the logistic model assumes that cultures grow
-independently and ignores possible competition effects between
-neighbours. The sigmoidal curve of the logistic model poorly fits QFA
-data in many cases
-%% evidence? **
-and this may be due to competition effects. I aim to fit a network
-model of nutrient dependent growth and diffusion to QFA data to try to
-correct for competition, to increase the accuracy and precision of
-fitness estimates, and to improve the fit of individual growth curves.
-
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{p15_section/p15_section_4x5_5_18}
   \captionof{figure}{\textbf{4x5 section of a QFA plate (P15).}
     Cropped from a 16x24 format solid agar plate inoculated with
-    dilute \textit{S. cerevisiae} cultures. Image captured at
-    \(\sim\)2.5d after inoculation and incubation at 27\(^{\circ}C\).}
+    dilute \textit{S. cerevisiae} cultures. Image captured after
+    \(\sim\)2.5 days incubation at 27\(^{\circ}C\).}
   \label{fig:p15_section}
 \end{Figure}
+
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{stripes/final/striped_A}
   \includegraphics[width=\linewidth]{stripes/final/filled_B}
-  \captionof{figure}{\textbf{A QFA experiment designed to examine
-      competition.}  A) ``Stripes'' QFA plate inocluated with a more
-    concentrated \textit{S. Cerevisiae} inoculum (no cells inocluated
-    on alternate columns). B) ``Filled'' plate: Same as in A, but with
-    strains of similar growth rate inoculated in the positions missing
-    in A.}
+  \captionof{figure}{\textbf{Plates from a QFA experiment designed to
+      examine competition.}  A) ``Stripes'' plate; B) ``Filled''
+    plate. Identical strains are repeated in the same postition on
+    each plate, except for in every 2nd column in A, where locations
+    are left empty. The extra columns in B are a transposition of the
+    columns to the left, but with a different query mutation. The
+    leftmost column in B contains repeats of a control with a neutral
+    deletion. Cultures were inoculated with a higher cell density than
+    in Figure~\ref{fig:p15_section}.
+    % A) The ``Stripes'' plate inocluated with a more concentrated
+    % \textit{S. Cerevisiae} inoculum (no cells inocluated on alternate
+    % columns). B) ``Filled'' plate: Same as in A, but with strains of
+    % similar growth rate inoculated in the positions missing in A.
+  }
   \label{fig:stripes_images}
 \end{Figure}
+
+Since QFA aims to differentiate strains by fitness, many different
+strains are grown on one plate, and fast and slow growing strains
+often grow side-by-side. This is exemplified in
+Figure~\ref{fig:p15_section}, which shows a section of a QFA plate
+from \citet{Addinall2011}. Cultures were inoculated with approximately
+equal cell density, but grew to different sizes, at different
+rates. In timecourses from this plate, all cultures appear to reach
+the stationary phase at a similar timepoint, despite starting with the
+same amount of nutrients and growing at different rates. This suggests
+a global growth-limiting effect, which might be caused by an
+interaction between cultures. I test whether the interaction is a
+competition effect, caused by diffusion of nutrients along gradients
+formed between fast and slow growing neighbours. Competition has
+implications for growth estimates; growth will appear faster or slower
+for each neighbour, than it would if cultures grew independently. The
+experiment in Figure~\ref{fig:stripes_images} provides further
+evidence of an interaction between neighbours. Identical strains were
+repeated in the same positions on two plates, but on one plate every
+second column was left empty. Cultures in
+Figure~\ref{fig:stripes_images}a, with fewer neighbours, grew larger
+%(how much? I can look at the data myself) **
+than the same cultures in Figure~\ref{fig:stripes_images}b.
+
+Neighbour interactions might be affecting fitness estimates. Current
+QFA analysis, using the logistic model, assumes that cultures grow
+independently. A sigmoidal curve fits QFA data poorly in many cases.
+%% evidence? **
+I aim to correct for competition using a network model of nutrient
+diffusion and nutrient-dependent growth, to improve the fit of
+individual growth curves, and increase the accuracy and precision of
+fitness estimates.
 
 Competition effects could be dealt with experimentally by randomising
 the location of cultures on repeated plates. This does not require
