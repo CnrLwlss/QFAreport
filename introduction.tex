@@ -77,38 +77,35 @@ that the two genes interact. Due to redundancy, single deletions are
 often non-lethal. This allowed \citet{Costanzo2010} to explore genetic
 interactions for \(\sim\)75\% of the \textit{S. cerevisiae} genome.
 
-
-%% Here %%
+% One %
 
 Synthetic Genetic Array (SGA) and Quantitative Fitness Analysis (QFA)
-are high-throughput methods for obtaining quantitative fitness
-estimates for microbial cultures grown on solid agar
-\citep{Baryshnikova2010sga,Banks2012}. Typically 100s or 1000s of
-deletions with a common background mutation are pinned or inoculated
-in a rectangular array on a solid agar plate. Many plates with
-different query genes and deletions are grown in high-throughput to
-explore whole genomes. I study data from QFA, which includes
-quantitative estimation of fitness by measurement and fitting of
-growth curves. In a typical QFA procedure, liquid cultures are
-incolulated onto solid agar in a 16x24 rectangular array of 384
-spots. Inoculum density can be varied to capture more or less of the
-growth curve and the most dilute cultures are inoculated with
-\(\sim\)100 starting cells \citep{Addinall2011}. Plates are grown in a
-temperature controlled incubator and removed to be photographed
-periodically throughout the growth curve. Photographs are of whole
-plates and growth typically covers several days to capture both the
-exponential and stationary growth phases. Colonyzer
-\citep{Lawless2010} processes optical density measurements in
-photographs to produce a timecourse of cell density estimates for each
-culture. In past analysis, the logistic growth model was independently
-fit to the timecourse of each culture and fitness estimates were
-defined in terms of parameters of this model, namely the growth
-constant \(r\) and carrying capacity \(K\). In contrast, SGA typically
-uses a larger array of 1536 pinned cultures and a single endpoint
-assay of culture area to quantify growth. The differential form and
-solution of the logistic model \citep{Verhulst1845} are given in
-(\ref{eq:logistic_model}), where \(C\) represents cell density and
-\(C(0)\) is cell density at time zero.
+are high-throughput fitness-screening methods, which use solid agar,
+and make quantitative estimates of microbial fitness
+\citep{Baryshnikova2010sga,Banks2012}. In SGA, cultures are pinned
+onto plates. Typically, in QFA, dilute liquid cultures are inoculated
+onto plates. In both procedures, cultures are arranged in rectangular
+arrays. Each culture is a single strain and each plate my may contain
+100s or 1000s of different strains. Whole genomes can be explored
+using different combinations of query genes and deletions. I study
+QFA, in which a model is fit to growth curves, and fitness estimates
+are defined in terms of model parameters. Typical QFA procedures use
+16x24 arrays (384 spots). In contrast, SGA procedures use a single
+endpoint assay of culture area to quantify growth, and, typically, use
+larger 32x48 arrays (1536 dots). In QFA, inoculum density may be
+varied to capture more or less of the growth curve; the most dilute
+cultures are inoculated with \(\sim\)100 starting cells
+\citep{Addinall2011}. Plates are incubated at a controlled temperature
+and periodically removed for whole plate photographs to be
+taken. Incubation lasts several days, to capture both the exponential
+and stationary growth phases. The software Colonyzer
+\citep{Lawless2010} converts optical density measurements in
+photographs to cell density timecourses for each culture. Past
+analysis fit the logistic growth model (\ref{eq:logistic_model}). The
+differential form and solution of the logistic model
+\citep{Verhulst1845} are given in (\ref{eq:logistic_model}), where
+\(C\) is cell density, \(r\) is a growth constant, and \(K\) is a
+carrying capacity.
 % Logistic model equations
 \begin{subequations}
   \label{eq:logistic_model}
@@ -120,25 +117,24 @@ solution of the logistic model \citep{Verhulst1845} are given in
 %
 The logistic model is a simple mechanistic model describing
 self-limiting growth and has a sigmoidal solution. Growth begins
-exponentially with rate \(rC\) and curtails as the population size
+exponentially, with rate \(rC\), and curtails as the population size
 increases and cells begin to compete for some limited resource. Cell
-density reaches a final carrying capacity \(K\) at the stationary
+density reaches a final carrying capacity, \(K\), at the stationary
 phase. In QFA, nutrients must diffuse through agar to reach cells
-growing on the surface. It is plausible that the carrying capacity
-\(K\) represents the point at which nutrients either run out or growth
-becomes limited by the diffusion of nutrients and is approximately
-stationary. Fitting the logistic model to QFA data requires plate
-level or culture level parameters for \(C(0)\) and culture level
-parameters for \(r\) and \(K\) making 769 or 1152 parameters per 384
-culture plate.
+growing on the surface. \(K\) might be reached when nutrients run out,
+or growth becomes diffusion limited and is approximately
+stationary. Fitting the logistic model to a 384 culture plate,
+requires culture level parameters for \(r\) and \(K\), and either
+plate or culture level parameters for \(C(0)\), making a total of 769
+or 1152 parameters.
 
-The growth constant \(r\) could be used as a fitness measure. However,
-\citet{Addinall2011} define a more complicated fitness measure as the
-product of Maximum Doubling Rate (MDR) and Maximum Doubling Potential
-(MDP) which they calculate from logistic model parameters. MDR measures
-the doubling rate at the beginning of the exponential growth phase,
-when growth is fastest, and MDP is the number of divisions which a
-culture undergoes from inoculation to the stationary phase.
+The growth constant \(r\) could be used as a fitness measure.
+\citet{Addinall2011}, however, define a more complicated fitness
+measure as the product of Maximum Doubling Rate (MDR) and Maximum
+Doubling Potential (MDP), which they calculate from logistic model
+parameters. MDR is the doubling rate at the beginning of the
+exponential growth phase. MDP is the average number of cell divisions
+between inoculation and stationary phase.
 %
 \begin{subequations}
   \label{eq:MDR_MDP}
@@ -151,11 +147,11 @@ culture undergoes from inoculation to the stationary phase.
 To improve the quality of fits, QFA now uses the generalised logistic
 model which requires an extra shape parameter for each culture
 \citep{Banks2012}. Standard and generalised logistic model \(r\) are
-not equivalent so comparison relies on MDR and MDP as fitness
-measures. The analysis of QFA data using both models is available
-through the QFA R package \citep{qfa2016}.
+not equivalent, so comparison relies on MDR and MDP as fitness
+measures. Either model can be fit using the QFA \textsf{R} package
+\citep{qfa2016}.
 
-%%%% up to here
+% 2 %
 
 % //Could remove//\citet{Addinall2011} used QFA and
 % \textit{S. cerevisiae} to screen for genes involved in telomere
