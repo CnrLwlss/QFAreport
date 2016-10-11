@@ -175,27 +175,6 @@ measures. Either model can be fit using the QFA \textsf{R} package
   \label{fig:p15_section}
 \end{Figure}
 
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{stripes/final/striped_A}
-  \includegraphics[width=\linewidth]{stripes/final/filled_B}
-  \captionof{figure}{\textbf{Plates from a QFA experiment designed to
-      examine competition.}  A) ``Stripes'' plate; B) ``Filled''
-    plate. Identical strains are repeated in the same postition on
-    each plate, except for in every 2nd column in A, where locations
-    are left empty. The extra columns in B are a transposition of the
-    columns to the left, but with a different query mutation. The
-    leftmost column in B contains repeats of a control with a neutral
-    deletion. Cultures were inoculated with a higher cell density than
-    in Figure~\ref{fig:p15_section}.
-    % A) The ``Stripes'' plate inocluated with a more concentrated
-    % \textit{S. Cerevisiae} inoculum (no cells inocluated on alternate
-    % columns). B) ``Filled'' plate: Same as in A, but with strains of
-    % similar growth rate inoculated in the positions missing in A.
-  }
-  \label{fig:stripes_images}
-\end{Figure}
-
 Since QFA aims to differentiate strains by fitness, many different
 strains are grown on one plate, and fast and slow growing strains
 often grow side-by-side. This is exemplified in
@@ -228,36 +207,57 @@ diffusion and nutrient-dependent growth, to improve the fit of
 individual growth curves, and increase the accuracy and precision of
 fitness estimates.
 
-Competition effects could be dealt with experimentally by randomising
-the location of cultures on repeated plates. This does not require
-explicit knowledge or modelling of the source of interaction but
-reduces throughput, so, if possible, a modelling approach is
-desirable. Poisoning of cultures by a signal molecule such as ethanol,
-which \textit{S. cerevisiae} produces in the metabolism of sugars by
-fermentation, is another possible source of interaction.
+
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{stripes/final/striped_A}
+  \includegraphics[width=\linewidth]{stripes/final/filled_B}
+  \captionof{figure}{\textbf{Plates from a QFA experiment designed to
+      examine competition.}  A) ``Stripes'' plate; B) ``Filled''
+    plate. Identical strains are repeated in the same postition on
+    each plate, except for in every 2nd column in A, where locations
+    are left empty. The extra columns in B are a transposition of the
+    columns to the left, but with a different query mutation. The
+    leftmost column in B contains repeats of a control with a neutral
+    deletion. Cultures were inoculated with a higher cell density than
+    in Figure~\ref{fig:p15_section}.
+    % A) The ``Stripes'' plate inocluated with a more concentrated
+    % \textit{S. Cerevisiae} inoculum (no cells inocluated on alternate
+    % columns). B) ``Filled'' plate: Same as in A, but with strains of
+    % similar growth rate inoculated in the positions missing in A.
+  }
+  \label{fig:stripes_images}
+\end{Figure}
+
+
+There have been attempts to reduce and correct for competition effects
+experimentally and statistically. This does not require explicit
+knowledge or modelling of the source of interaction. QFA data for edge
+cultures is noisy due to reflections from plate edges. This is only
+partially corrected for by Colonyzer \citep{Lawless2010}. As a result,
+data for edge cultures is usually discarded. \citet{Addinall2011} grow
+repeats of a neutral deletion in edge locations, rather than leaving
+them empty, because of concerns about competition. Plates could also
+be repeated with randomised culture positions. However, this is
+unlikely to remove all bias; for instance, the fastest growing strains
+would always have slower growing neighbours. In an SGA study,
+\citet{Baryshnikova2010} use various statistical techniques to improve
+the correlation between repeats of the same strain in different
+positions. I expect that an explicit model of competition, fit to
+whole growth curves, will provide a better correction and improve
+fitness estimates, without requiring extra repeats. Furthermore,
+modelling may identify and explain the source of
+competition. Simulations of a successful model could also be used to
+compare experimental designs, and predict ways to reduce
+competition. Poisoning of cultures by a signal molecule such as
+ethanol, which \textit{S. cerevisiae} produces in the metabolism of
+sugars by fermentation, is another possible source of interaction.
 %%%% Quorum Sensing %%%%
 QFA does not measure nutrients or signal, so if more than one source
-of interaction exists, it becomes very difficult to fit a model and
-randomisation may be the best approach. QFA data for edge cultures is
-noisy due to reflections from plate edges. This is only partially
-corrected for by Colonyzer \citep{Lawless2010} and, as a result, data
-for edge cultures is usually discarded. \citet{Addinall2011} grow
-repeats of a neutral deletion in edge locations, rather than leaving
-them empty, because of concerns about competition. In an SGA study,
-\citet{Baryshnikova2010} use statistical techniques to correct for
-competition between fast and slow growing neighbours in end-point
-assays of culture area. I expect that modelling competition for
-nutrients explicitly will provide a better correction using fewer
-repeats. QFA uses more information than SGA by fitting whole growth
-curves, rather than a single endpoint assay, so a modelling approach
-also promises to be more powerful. Furthermore, modelling may identify
-and explain the source of competition. Simulations from an accurate
-model will allow assessment of alternative of experimental designs and
-prediction of ways to reduce competition effects.
+of interaction exists, it will be very difficult to fit a model, and
+experimental methods might be the best approach.
 
-% Could also talk about ethanol and quorum sensing and amonia when I get
-% to competition.
-
+% Here %
 
 % //Diffusion Equation: I am probably going to have to repeat this
 % when I get to the discussion so I could just leave until then.//
