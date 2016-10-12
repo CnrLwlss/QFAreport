@@ -381,12 +381,11 @@ densities, \(C_{i}(0)\), are often below detectable levels. When
 fitting the competition model, I assume that inoculum density is the
 same for all cultures, nutrients are evenly distributed throughout the
 agar at time zero, and \(k\) is constant across the plate. I can
-therefore infer \(C(0)\), \(N(0)\), and \(k\) at the plate
-level. There are also growth constants, \(b_{i}\), for each of 384
-cultures on a typical plate. This makes 387 parameters in total. The
-competition model shares more information between cultures and has
-less than half the number of parameters of either the standard, or
-generalised logistic model \citep{Banks2012,qfa2016}.
+therefore infer \(C(0)\), \(N(0)\), and \(k\) at the plate level. With
+growth constants, \(b_{i}\), for each of 384 cultures on a typical
+plate, this makes 387 parameters in total. The competition model has
+roughly half as many parameters as the standard logistic model, and a
+third as many as the generalised logistic model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{Figure}
   \centering
@@ -401,6 +400,12 @@ generalised logistic model \citep{Banks2012,qfa2016}.
     are the closest neighbours of the red culture, \(i\).}
   \label{fig:comp_model_schematic}
 \end{Figure}
+
+% Now I am justifying some assumptions %%
+
+The competition model makes several approximations.
+
+
 In QFA, populations begin with \(\sim\)100 cells and quickly grow to
 reach thousands of cells so the continuum approximation of a
 deterministic model appears valid. Mass action kinetics applies to
