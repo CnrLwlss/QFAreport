@@ -229,7 +229,6 @@ fitness estimates.
   \label{fig:stripes_images}
 \end{Figure}
 
-
 There have been attempts to reduce and correct for competition effects
 experimentally and statistically. This does not require explicit
 knowledge or modelling of the source of interaction. QFA data for edge
@@ -274,29 +273,28 @@ to a full QFA plate in three-dimensions, especially if the model is to
 be used to analyse many plates from high-throughput
 experiments. Therefore, a simpler model of nutrient diffusion is
 required.
-%//Diffusion Equation//
+%//Diffusion Equation//P
 
-Lawless proposed a model of nutrient dependent growth and
-competition (\ref{eq:reaction},\ref{eq:competition_model}),
-hereinafter the competition model, using mass action kinetics and
-network diffusion (Figure~\ref{fig:comp_model_schematic}). He
-represents the nutrient dependent division of cells with the reaction
+Lawless proposes a network model of nutrient diffusion and
+nutrient-dependent growth (Figure~\ref{fig:comp_model_schematic}),
+hereinafter the competition model, which uses reaction equations and a
+mass action kinetic approximation.
+% (\ref{eq:reaction},\ref{eq:competition_model})
+Nutrient-dependent division of cells is represented by the reaction
 equation,
 \begin{equation}
   \label{eq:reaction}
     C + N \xrightarrow[]{b} 2C,
 \end{equation}
-where \(C\) is a cell, \(N\) is the amount of nutrient required for
-one cell division, and \(b\) is a rate constant for the reaction. (The
-identity of the limiting nutrient \(N\) is unknown but possible
-candidates are sugar and nitrogen.) He defines separate reactions
-(\ref{eq:reaction}) with growth constant \(b_{i}\) for each culture,
-indexed \(i\), on a plate and uses mass action kinetics to derive rate
-equations for the amount of cells and nutrients associated with each
-culture, \(C_{i}\) and \(N_{i}\). This gives the rate equation for
-\(C_{i}\) (\ref{eq:competition_model}a) and the first term in the rate
-equation for \(N_{i}\) (\ref{eq:competition_model}b).
-
+where \(C\) is a cell, \(N\) is the amount of some limiting nutrient
+required for one cell division, and \(b\) is a rate constant for the
+reaction. The identity of \(N\) is unknown, but possible candidates
+are sugar and nitrogen. Each culture, indexed i, has a separate
+reaction (3) with growth constant \(b_{i}\). Mass action kinetics
+gives the rate equation (\ref{eq:competition_model}a) for the amount
+of cells, \(C_{i}\), in a culture, and the first term in the rate
+equation (\ref{eq:competition_model}b) for the amount of nutrients,
+\(N_{i}\), associated with a culture.
 \begin{subequations}
   \label{eq:competition_model}
   \begin{align}
@@ -308,72 +306,106 @@ equation for \(N_{i}\) (\ref{eq:competition_model}b).
       % \right\ Hello
       % \qquad
 \end{subequations}
-
-
-To arrive at the full competition model, he models the diffusion of
-nutrients along gradients between a culture \(i\) and its closest
-neighbours \(\delta_{i}\) by the second term in
-(\ref{eq:competition_model}b), where \(k\) is a nutrient diffusion
-constant. This can also be expressed as a series of reversible
-first-order reactions of the form
+To arrive at the full competition model, the diffusion of nutrients
+along gradients between a culture and its closest neighbours,
+\(\delta_{i}\), is modelled by reactions of the form,
 \begin{equation}
   \label{eq:diffusion_reaction}
   \left.\begin{aligned}
-  &N_{i} \xrightarrow[]{k} N_{j}\\
-  &N_{j} \xrightarrow[]{k} N_{i}
+  &N_{i} \xrightarrow[]{k} N_{j}
        \end{aligned}
  \right.
  \qquad \forall~j \in \delta_{i},
   % \begin{align}
   % \end{align}
 \end{equation}
+where \(k\) is a nutrient diffusion constant which is independent on
+culture location. Using mass action kinetics, the sum of diffusion
+reactions between a culture and its neighbours gives the second term
+in (\ref{eq:competition_model}b).
+
+
+% To arrive at the full competition model, the diffusion of nutrients
+% along gradients between a culture and its closest neighbours,
+% \(\delta_{i}\), is modelled by reactions of the form,
 % \begin{equation}
 %   \label{eq:diffusion_reaction}
-%   \left.
-%     N_{i} \xrightleftarrow[k]{k} N_{j}\\
-%  \right.\qquad
-%     \forall~j \in \delta_{i},
+%   \left.\begin{aligned}
+%   &N_{i} \xrightarrow[]{k} N_{j}\\
+%   &N_{j} \xrightarrow[]{k} N_{i}
+%        \end{aligned}
+%  \right.
+%  \qquad \forall~j \in \delta_{i},
 %   % \begin{align}
 %   % \end{align}
 % \end{equation}
-and modelled with mass action kinetics. Unlike the logistic
-model~(\ref{eq:logistic_model}), the competition model has no
-analytical solution, and must instead be solved numerically. If \(k\)
-is set to zero, the competition model reduces to the mass action
-equivalent of the logistic model, hereinafter the mass-action logistic
-model, and has the same sigmoidal solution. In this limit, parameters
-of the competition model can be converted in terms of parameters the
-logistic model (see Section~\ref{sec:parameter_conversion}).
+% where \(k\) is a nutrient diffusion constant.
+
+% is represented by the second term in
+% (\ref{eq:competition_model}b), where \(k\) is a nutrient diffusion
+% constant. This can also be expressed a series of reversible
+% first-order reactions,
+% \begin{equation}
+%   \label{eq:diffusion_reaction}
+%   \left.\begin{aligned}
+%   &N_{i} \xrightarrow[]{k} N_{j}\\
+%   &N_{j} \xrightarrow[]{k} N_{i}
+%        \end{aligned}
+%  \right.
+%  \qquad \forall~j \in \delta_{i},
+%   % \begin{align}
+%   % \end{align}
+% \end{equation}
+% % \begin{equation}
+% %   \label{eq:diffusion_reaction}
+% %   \left.
+% %     N_{i} \xrightleftarrow[k]{k} N_{j}\\
+% %  \right.\qquad
+% %     \forall~j \in \delta_{i},
+% %   % \begin{align}
+% %   % \end{align}
+% % \end{equation}
+% and modelled with mass action kinetics.
+Unlike the logistic model~(\ref{eq:logistic_model}), the competition
+model has no analytical solution; instead, it must be solved
+numerically. When \(k\) is set to zero, however, the competition model
+reduces to the mass action equivalent of the logistic model,
+hereinafter the mass-action logistic model, and has the same sigmoidal
+solution. In this limit, parameters of the competition model can be
+expressed in terms of parameters the logistic model (see
+Section~\ref{sec:parameter_conversion}).
+
 %%%% could go to methods %%%%
-When the competition model is fit to QFA data, \(C_{i}\) is observed
-and \(N_{i}\) is hidden. Inoculum density, \(C(0)\), is often below
-detectable levels. By assuming that incolulum density is the same for
-all cultures and that nutrients are distributed evenly throughout the
-agar at time zero, initial values of cells and nutrients, \(C(0)\) and
-\(N(0)\), can be inferred at the plate level. \(k\) is assumed to be
-constant across the plate but must be inferred. There is a growth
-constant, \(b_{i}\), for each of 384 cultures on a typical QFA plate
-making 387 parameters in total. The competition model shares more
-information between cultures and has less than half the number of
-parameters of either the standard or generalised logistic model
-\citep{Banks2012,qfa2016}.
+In QFA, \(C_{i}\) are observed and \(N_{i}\) are hidden. Inoculum
+densities, \(C_{i}(0)\), are often below detectable levels. When
+fitting the competition model, I assume that inoculum density is the
+same for all cultures, nutrients are evenly distributed throughout the
+agar at time zero, and \(k\) is constant across the plate. I can
+therefore infer \(C(0)\), \(N(0)\), and \(k\) at the plate
+level. There are also growth constants, \(b_{i}\), for each of 384
+cultures on a typical plate. This makes 387 parameters in total. The
+competition model shares more information between cultures and has
+less than half the number of parameters of either the standard, or
+generalised logistic model \citep{Banks2012,qfa2016}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{comp_model/comp_model_schematic2}
   \captionof{figure}{\textbf{Schematic of the competition model.}
-    Each circle represents a culture, indexed \(i\), growing in a
-    rectangular array on the surface of solid agar containing
-    nutrients. Arrows represent a network of nutrient diffusion along
-    gradients between cultures. Darker blue circles \(\delta_{i}\) are
-    the closest neighbours of culture i (red).}
+    Cultures, represented by circles indexed i, grow in a rectangular
+    array on the surface of a nutrient containing solid agar. The agar
+    is divided into equal areas surrounding each culture. Each culture
+    has an amount of cells, \(C_{i}\), and is associated with an
+    amount of nutrients, \(N_{i}\). Arrows represent diffusion of
+    nutrients between cultures. Darker blue circles, \(\delta_{i}\),
+    are the closest neighbours of the red culture, \(i\).}
   \label{fig:comp_model_schematic}
 \end{Figure}
-%
 In QFA, populations begin with \(\sim\)100 cells and quickly grow to
 reach thousands of cells so the continuum approximation of a
 deterministic model appears valid. Mass action kinetics applies to
 reactions in a well stirred mixture and is perhaps less valid for
+
 cultures growing on solid agar. However, a mass action approximation
 has been successful in other situations where this assumption is
 questionable: in the Lotka-Volterra model of predator-prey dynamics
