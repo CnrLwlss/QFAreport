@@ -45,42 +45,39 @@ independent spot tests have been published and may be used for
 validation
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 
-\subsection{The Stripes and Filled plate datasets}
+\subsection{The Stripes and Filled datasets}
 \label{sec:stripes_description}
 
-The Stripes and Filled plates (Figure~\ref{fig:stripes_images}) are
-from a QFA experiment designed to study competition (personal
-communications E. Holstein (April 2016)). On the Stripes plate
-(Figure~\ref{fig:stripes_images}a), strains are inoculated in every
-other column, leaving gaps. As for P15
-(Section~\ref{sec:P15_description}), strains have a background
-mutation \textit{cdc13-1} and a deletion in a second gene. There are
-more strains than for P15 and most cultures have no repeats. The same
-strains as in the Stripes plate were inoculated in the same positions
-on the Filled plate (Figure~\ref{fig:stripes_images}b). These were
-inoculated from the same liquid culture to try to reduce variation. In
-the Filled plate, gaps are now filled with new cultures. Each deletion
-in a new column is a transposition of the strain immediately to the
-left but with a different background mutation,
-\textit{rad75}\(\Delta\). The left most column is filled with the same
-neutral deletion, \textit{his3}\(\Delta\). The new strains with
-\textit{rad75}\(\Delta\) are generally fitter than the common strains
-with \textit{cdc13-1}. A higher inoculum denstiy (\(\sim\)10,000
-cells) was used compared to P15 and this was detectable at time
-zero. Both plates were incubated at 27\(^{\circ}\)C, where
-\textit{cdc13-1} starts to experience loss of function, and
-photographed at \(\sim\)50 timepoints over 4 days: around five times
-more often than for P15.
+I used a two-plate QFA experiment (E. Holstein, personal
+communication, April 2016) to validate the competition model. Images
+of the plates, termed the ``Stripes'' and ``Filled'' plates, are shown
+in Figure~\ref{fig:stripes_images}. As for P15, the experiment uses
+strains of \textit{S. Cerevisiae} with a background mutation, and a
+deletion in a gene relevant to telomere function. In contrast to P15,
+there are more deletions per plate and no repeats for most
+strains. Identical strains are repeated in the same positions on each
+plate, except in every second column in the Stripes plate, where
+locations are left empty. The common cultures have background mutation
+\textit{cdc13-1}, as used in P15, and identical strains are inoculated
+from the same liquid culture to reduce genetic variation. The extra
+columns in the Filled plate are a transposition of the columns to the
+left, but with a different query mutation
+\textit{rad75}\(\Delta\). The leftmost column in the Filled plate
+contains repeats of the neutral deletion,
+\textit{his3}\(\Delta\). Inoculum density is \(\sim\)10,000 cells,
+which is much higher than that used in P15, and detectable at time
+zero. The plates were incubated together at 27\(^{\circ}\)C, where the
+defect of \textit{cdc13-1} is larger than that of
+\textit{rad75}\(\Delta\).  Each culture has a cell density timecourse
+with \(\sim\)50 timepoints covering four days. This is about five
+times as many timepoints as collected for P15.
 
-The experiment is designed to exhibit differences in growth between
-the same strains on each plate; cultures on the Stripes plate should
-have access to more nutrients because they grow next to empty
-locations; cultures on the Filled plate should have access to less
-nutrients and experience more competition due to the extra
-neighbours. I used the QFA data from both plates for cross-plate
-calibration and validation of the competition model by simulating
-timecourses for the Stripes plate using parameters estimated by
-fitting the Filled plate.
+% This might get repeated in the results.
+The different neighbour configurations cause identical strains to grow
+differently between the two plates. To validate the competition model,
+I calibrate parameters on the Filled plate and validate by simulating
+timecourses for the Stripes plate. This is possible because the Filled
+plate contains all of the strains present on the Stripes plate.
 
 \subsection{Solving and fitting}
 
