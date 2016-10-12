@@ -236,7 +236,7 @@ knowledge or modelling of the source of interaction. QFA data for edge
 cultures is noisy due to reflections from plate edges. This is only
 partially corrected for by Colonyzer \citep{Lawless2010}. As a result,
 data for edge cultures is usually discarded. \citet{Addinall2011} grow
-repeats of a neutral deletion in edge locations, rather than leaving
+repeats of a neutral deletion in edge locations, rather than leave
 them empty, because of concerns about competition. Plates could also
 be repeated with randomised culture positions. However, this is
 unlikely to remove all bias; for instance, the fastest growing strains
@@ -245,33 +245,33 @@ would always have slower growing neighbours. In an SGA study,
 the correlation between repeats of the same strain in different
 positions. I expect that an explicit model of competition, fit to
 whole growth curves, will provide a better correction and improve
-fitness estimates, without requiring extra repeats. Furthermore,
-modelling may identify and explain the source of
-competition. Simulations of a successful model could also be used to
-compare experimental designs, and predict ways to reduce
-competition. Poisoning of cultures by a signal molecule such as
-ethanol, which \textit{S. cerevisiae} produces in the metabolism of
-sugars by fermentation, is another possible source of interaction.
+fitness estimates, without requiring extra repeats. Furthermore, a
+model might identify and explain the source of
+competition. Simulations of a successful model could be used, not only
+to analyse existing data, but to compare experimental designs, and
+predict ways to reduce competition experimentally. Poisoning of
+cultures by a signal molecule, such as ethanol, which
+\textit{S. cerevisiae} produces in the metabolism of sugars by
+fermentation, is another possible source of interaction.
 %%%% Quorum Sensing %%%%
-QFA does not measure nutrients or signal, so if more than one source
-of interaction exists, it will be very difficult to fit a model, and
-experimental methods might be the best approach.
-
-% Here %
+QFA does not measure nutrients or signal, so, if more than one type of
+interaction is significant, it will be very difficult to fit a
+model. In such circumstances, experimental and statistical methods
+might be the best approach.
 
 % //Diffusion Equation: I am probably going to have to repeat this
 % when I get to the discussion so I could just leave until then.//
 % Previous model of nutrient diffusion.
-\citet{Reo2014} use a diffusion equation model to simulate nutrient
-dependent growth of a single bacterial culture on a pertri dish in
-two-dimensions. They create a sink for nutrients from culture growth
-and equate the flux of nutrients through culture area with the rate of
-increase in culture size. They model culture area as varying and keep
-culture density constant. This model could be adapted for QFA by
-approximating culture area as constant and allowing culture density to
-vary. However, it would be too computationally intensive to fit a
-similar model to a full QFA plate in three-dimensions, especially if
-the model is to be used to process many plates from high-throughput
+\citet{Reo2014} use a 2D diffusion equation model to simulate nutrient
+dependent growth of a single bacterial culture on a pertri dish. They
+create a sink for nutrients from culture growth, and equate the flux
+of nutrients through culture area with the rate of increase in culture
+size. They keep culture density constant and allow culture area to
+vary. This model could be adapted for QFA, if instead, culture area is
+approximated as constant and culture density is allowed to vary. It
+would, however, be too computationally intensive to fit such a model
+to a full QFA plate in three-dimensions, especially if the model is to
+be used to analyse many plates from high-throughput
 experiments. Therefore, a simpler model of nutrient diffusion is
 required.
 %//Diffusion Equation//
