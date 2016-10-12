@@ -402,36 +402,33 @@ third as many as the generalised logistic model.
 \end{Figure}
 
 % Now I am justifying some assumptions %%
-
-The competition model makes several approximations.
-
-
-In QFA, populations begin with \(\sim\)100 cells and quickly grow to
-reach thousands of cells so the continuum approximation of a
-deterministic model appears valid. Mass action kinetics applies to
-reactions in a well stirred mixture and is perhaps less valid for
-
-cultures growing on solid agar. However, a mass action approximation
-has been successful in other situations where this assumption is
-questionable: in the Lotka-Volterra model of predator-prey dynamics
+The competition model makes many other approximations. It is a
+deterministic model which uses a continuum approximation for numbers
+of reactant species. In QFA, populations begin with \(\sim\)100 cells,
+but quickly grow to reach thousands of cells, so this approximation
+appears valid. Mass action kinetics applies to reactions in a well
+stirred mixture, and is, perhaps, less valid for cultures growing on
+solid agar. A mass action approximation has, nevertheless, been
+successful in other situations where this assumption is questionable:
+in the Lotka-Volterra model of predator-prey dynamics
 \citep{Berryman1992} and in signalling and reaction models inside
 cells \citep{Aldridge2006,Chen2010}. The order of a reaction also
-affects the rate equation, however, the identity and quantity of the
-nutrient molecule in (\ref{eq:reaction}) is unknown. Reaction
-(\ref{eq:reaction}) also assumes that all nutrients are converted to
-cells and includes no model of metabolism. I justify the use of the
-competition model because in the independent limit it has the same
-solution as the logistic model which has long been used to model
+affects the rate equation, but the identity, and quantity of the
+nutrient molecule is unknown. Reactions also assume that all nutrients
+are converted to cells and include no model of metabolism. I justify
+the use of the competition model because in the independent limit it
+has the same solution as the logistic model, long used to model
 microbial growth. Furthermore, collectively fitting the competition
-model involves a large number of parameters and data points and will
-require many simulations to be run. This necessitates the use of an
-approximate model for computational feasibility. It is hoped that even
-an approximate model will be able to more accurately and precisely
-measure growth parameters and better estimate fitness. This will
-increase the power to infer genetic interaction and drug response
-which could lead to further discoveries. (For an example of a
-successful QFA study and follow up using the logistic model see
-\citet{Addinall2011} and \citet{Holstein20141259}).
+model involves a large number of parameters and data points, and will
+require many simulations to be run. Computational feasibility
+necessitates the use of many approximations.
+
+% The competition model might estimate more accurate and precise growth
+% parameters and fitnesses. Doing so will increase the power to infer
+% genetic interaction and drug response which could lead to further
+% discoveries. For an example of a successful QFA study and follow up
+% using the logistic model see \citet{Addinall2011} and
+% \citet{Holstein20141259}.
 
 % Comment on all nutrients go to cells can wait until methods
 % % Fractal kinetics can wait until the discussion.
