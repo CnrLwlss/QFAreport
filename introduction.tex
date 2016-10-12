@@ -150,7 +150,6 @@ model which requires an extra shape parameter for each culture
 not equivalent, so comparison relies on MDR and MDP as fitness
 measures. Either model can be fit using the QFA \textsf{R} package
 \citep{qfa2016}.
-
 % //Could remove//\citet{Addinall2011} used QFA and
 % \textit{S. cerevisiae} to screen for genes involved in telomere
 % stability which is related to ageing and cancer and has implications
@@ -164,7 +163,7 @@ measures. Either model can be fit using the QFA \textsf{R} package
 % describe p15 in the methods.)  //Could remove//
 % Example use of QFA by Addinall \citep{Addinall2011} telomeres.
 % And follow up Holstein and Clark \citep{Holstein20141259}
-
+%
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{p15_section/p15_section_4x5_5_18}
@@ -174,7 +173,7 @@ measures. Either model can be fit using the QFA \textsf{R} package
     \(\sim\)2.5 days incubation at 27\(^{\circ}C\).}
   \label{fig:p15_section}
 \end{Figure}
-
+%
 Since QFA aims to differentiate strains by fitness, many different
 strains are grown on one plate, and fast and slow growing strains
 often grow side-by-side. This is exemplified in
@@ -206,8 +205,6 @@ I aim to correct for competition using a network model of nutrient
 diffusion and nutrient-dependent growth, to improve the fit of
 individual growth curves, and increase the accuracy and precision of
 fitness estimates.
-
-
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{stripes/final/striped_A}
@@ -228,7 +225,7 @@ fitness estimates.
   }
   \label{fig:stripes_images}
 \end{Figure}
-
+%
 There have been attempts to reduce and correct for competition effects
 experimentally and statistically. This does not require explicit
 knowledge or modelling of the source of interaction. QFA data for edge
@@ -381,11 +378,11 @@ densities, \(C_{i}(0)\), are often below detectable levels. When
 fitting the competition model, I assume that inoculum density is the
 same for all cultures, nutrients are evenly distributed throughout the
 agar at time zero, and \(k\) is constant across the plate. I can
-therefore infer \(C(0)\), \(N(0)\), and \(k\) at the plate level. With
-growth constants, \(b_{i}\), for each of 384 cultures on a typical
-plate, this makes 387 parameters in total. The competition model has
-roughly half as many parameters as the standard logistic model, and a
-third as many as the generalised logistic model.
+therefore infer \(C(0)\), \(N(0)\), and \(k\) at the plate
+level. Including growth constants, \(b_{i}\), for each of 384 cultures
+on a typical plate, makes 387 parameters in total. The competition
+model has roughly half as many parameters as the standard logistic
+model, and a third as many as the generalised logistic model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{Figure}
   \centering
