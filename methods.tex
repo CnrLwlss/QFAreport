@@ -111,7 +111,6 @@ hours; fitting a full plate with 15 evenly spaced timepoints takes
 \subsubsection{Fitting the competition model}
 \label{sec:fitting_comp}
 
-
 I processed raw QFA data using Colonyzer \citep{Lawless2010} to
 produce cell density timecourses.
 % I use QFA data after processing with Colonyzer \citep{Lawless2010}.
@@ -209,53 +208,70 @@ compare the ranking of fitness estimates.
 \subsection{Parameter conversion}
 \label{sec:parameter_conversion}
 
-When \(k\) is set to zero, the competition model
-(\ref{eq:competition_model}) reduces to the mass action logistic model
-which has the same sigmoidal solution as the standard logistic
-model. In this limit, it is possible to equate C species of both
-models and convert parameters using,
+In the independent limit (\(k=0\)), it is possible to equate \(C\) of
+the competition and logistic model. Parameters can then be converted
+as follows:
+% When \(k\) is set to zero, the competition model
+% (\ref{eq:competition_model}) reduces to the mass action logistic model
+% which has the same sigmoidal solution as the standard logistic
+% model. In this limit, it is possible to equate C species of both
+% models and convert parameters using,
 % Derivation or link to blog.
 \begin{subequations}
   \label{eq:conversion}
   \begin{align}
-    &r_{i} = b_{i}(C(0) + N(0)),\\
+    &r = b(C(0) + N(0)),\\
     &K = C(0) + N(0).
     % &r = b(C(0) + N(0))\\
     % &K = (C(0) + N(0))
   \end{align}
 \end{subequations}
 %
-The reaction equation of the competition model (\ref{eq:reaction})
-assumes that all nutrients are converted to cells. This implies that
-all cultures starting with the same amount of nutrients reach the same
-final amount of cells. Therefore, to fit the mass action logistic
-model to QFA data, it is necessary to allow \(N(0)\) to vary for each
-culture which is not physically realistic and, in which case, the mass
-action logistic model has the same number of parameters (769) as the
-standard logistic model.
-%
-Figure~\ref{fig:correction} shows fits of a single culture on a larger
-16x24 format plate using both models. This culture grew faster than
-its neighbours (not shown) and, according to the competition model,
-competed for more nutrients.
-%
-Figure~\ref{fig:correction}a shows the mass action logistic model fit
-where \(N(0)\) is estimated as being approximately equal to the final
-cell amount, or equivalently, carrying capacity \(K\).
-%
-Figure~\ref{fig:correction}b shows the competition model fit with a
-plate level \(N(0)\) and \(k > 0\). Re-simulating with \(k\)
-set to zero gives the dashed mass action logistic model curves which
-are corrected for competition. We can therefore obtain the corrected
-logistic model \(r_{i}\) and \(K_{i}\) of these curves by converting
-from competition model estimates of \(b_{i}\), \(C(0)\), and
-\(N(0)\). N.B. \(b\) is the same for both the solid and dashed
-curves in Figure~\ref{fig:correction}b.
+The competition model assumes that all nutrients are converted to
+cells, implying that all cultures starting with the same amount of
+nutrients reach the same final amount of cells. As final cell amounts
+generally differ, it is, therefore, necessary to allow \(N(0)\) to
+vary for each culture when fitting the mass action logistic
+model. This is not realistic; the competition model already assumes
+\(k>0\). It is, nevertheless, possible to disregard our interpretation
+of the competition model, fit the mass action logistic model, and
+convert parameters to those of the standard logistic model. This is
+illustrated in Figure~\ref{fig:correction}a showing a single culture
+from a 16x24 format plate. This culture grew faster than its
+neighbours (not shown) and reached a higher final cell amount. Notice
+that estimated \(N(0)\) is approximately equal to final cells. The
+conversion equations can also be used to return corrected \(r\) and
+\(K\), for growth in independent conditions, after first fitting the
+full competition model. This is illustrated in
+Figure~\ref{fig:correction}b, in a fit to the same culture, where
+dashed lines represent the corrected fit.
+% resimulated with \(k=0\)
+Notice that corrected values of \(r\) and \(K\) differ from those in
+Figure~\ref{fig:correction}a.
 
+
+% Figure~\ref{fig:correction} shows fits of a single culture on a larger
+% 16x24 format plate using both models. This culture grew faster than
+% its neighbours (not shown) and, according to the competition model,
+% competed for more nutrients.
+% %
+% Figure~\ref{fig:correction}a shows the mass action logistic model fit
+% where \(N(0)\) is estimated as being approximately equal to the final
+% cell amount, or equivalently, carrying capacity \(K\).
+% %
+% Figure~\ref{fig:correction}b shows the competition model fit with a
+% plate level \(N(0)\) and \(k > 0\). Re-simulating with \(k\)
+% set to zero gives the dashed mass action logistic model curves which
+% are corrected for competition. We can therefore obtain the corrected
+% logistic model \(r_{i}\) and \(K_{i}\) of these curves by converting
+% from competition model estimates of \(b_{i}\), \(C(0)\), and
+% \(N(0)\).
+% N.B. \(b\) is the same for both the solid and dashed
+% curves in Figure~\ref{fig:correction}b.
 % This produces the correction in \(r\) and \(K\) between the two fits
 % (see Figures~\ref{fig:correction}) and allows direct comparison
 % between competition and logistic model estimates.
-%
+
 
 Competition model \(C(0)\) and \(N(0)\) are the same for all cultures
 on a plate. Therefore, by the conversion equations
