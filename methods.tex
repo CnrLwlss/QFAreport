@@ -83,44 +83,32 @@ plate contains all of the strains present on the Stripes plate.
 
 \subsubsection{Solving}
 \label{sec:solving_comp}
-% [Only keep if I remove the CANS overview above: To analyse QFA data I
-% created a Python package (``CANS'') for model composition, model
-% simulation, parameter inference, and visualisation of results. CANS
-% accepts timecourse data of cell density for any size rectangulare
-% array.]\\
 
-CANS numerically solves models using one of two methods. The first is
-slower and uses SciPy's integrate.odeint to solve models written in
-Python at user supplied timepoints. I vectorised code using NumPy to
-optimise solving of the competition model by this method. For solving
-a plate of 384 cultures with cell density observations at 10 unevenly
-spaced time points, I found that solving time decreased from tenths to
-hundredths of a second (10 times faster) using the Python bindings for
-libRoadRunner. libRoadRunner requires models to be written in SBML so
-I wrote code using the libSBML Python API to automatically generate
-SBML versions of the competition model for any size plate.
-% //I could go into more detail about how models are defined// but
-% maybe this is not needed.
-Unlike SciPy's odeint, libRoadRunner only simulates at uniformly
-spaced timepoints. To fit QFA cell observations, which are not made at
-fixed time intervals, requires simulated cell amounts at the observed
-timepoints. For the analysis of P15, where each timecourse has only 10
-timepoints, I simulated sequentially between pairs of timepoints. This
-method was slower for the analysis of the Stripes and Filled plates
-where each timecourse had around 50 timepoints. To increase speed, I
-used SciPy's interpolate.splrep to make a 5th order B-spline of cell
-density timecourses with smoothing condition \(s=1.0\). I evaluated
-the spline for cell density using SciPy's interpolate.splev at 15
-evenly spaced timepoints from time zero to the time of the last QFA
-observation. I then solved these timecourses with one call to
-RoadRunner.simulate.
+CANS solves ODE models numerically using one of two packages:
+integrate from SciPy, and libRoadRunner. The method integrate.odeint
+solves ODEs written in Python, at user supplied timepoints. I used
+NumPy to vectorise competition model ODEs to optimise solving by this
+method. libRoadRunner is implemented in C++ and solves ODEs for models
+written in SBML. I access libRoadRunner through its Python API, and
+use the libSBML Python API to automatically generate SBML versions of
+the competition model for any size plate. For a 16x24 culture plate
+with cell density observations at 10 evenly spaced timepoints,
+libRoadRunner is approximately 10 times faster than SciPy's integrate,
+solving in hundredths rather than tenths of a second. Unlike SciPys's
+integrate.odeint, libRoadRunner solves only at evenly spaced
+timepoints. To fit P15, where each timecourse has 10 unevenly spaced
+timepoints, I simulate sequentially between adjacent timepoints. For
+the Stripes and Filled plates, which have \(\sim\)50 unevenly spaced
+timepoints, I sample 15 evenly spaced timepoints from a spline. I use
+SciPy's interpolate.splrep to make a 5th order B-spline with smoothing
+condition \(s=1.0\), and SciPy's interpolate.splev to evaluate. The
+sampled timepoints range from time zero to the time of last
+observation. Solving then requires just one call to libRoadRunner's
+RoadRunner.simulate. Using libRoadRunner on a modern CPU, fitting a
+16x24 format plate with 10 unevenly spaced timepoints takes \(\sim\)3
+hours; fitting a full plate with 15 evenly spaced timepoints takes
+\(\sim\)1 hour.
 
-When using RoadRunner on a modern CPU, fitting a full plate with 10
-unevenly spaced timepoints takes \(\sim\)3 hours; fitting a full
-plate using a spline with 15 timepoints takes \(\sim\)1 hour.
-\\\\
-
-% Fitting
 \subsubsection{Fitting the competition model}
 \label{sec:fitting_comp}
 
