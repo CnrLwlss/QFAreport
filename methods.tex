@@ -272,22 +272,34 @@ Figure~\ref{fig:correction}a.
 % (see Figures~\ref{fig:correction}) and allows direct comparison
 % between competition and logistic model estimates.
 
+It is easy to compare competition model \(b\) with logistic model
+parameters, because \(C(0)\) and \(N(0)\) are fit collectively for
+each plate. This leads to \(b \propto r \propto MDR\) (see
+Equations~\ref{eq:MDR_MDP} and \ref{eq:conversion}). Note also that
+all cultures have the same \(K\) and \(MDP\). \(b\) is therefore
+equivalent to several common QFA fitness measures: \(r\), \(MDR\), and
+\(MDR*MDP\) \citep{Addinall2011}. This makes \(b\) a very convenient
+fitness measure; we need not convert to logistic model parameters to
+compare the fitness rankings of cultures on the same plate. To compare
+fitness rankings between different plates we can of course use
+\(b\). This is not, however, equivalent to comparing \(r\) or \(MDR\)
+as different plates may have different \(C(0)\) and \(N(0)\).
 
-Competition model \(C(0)\) and \(N(0)\) are the same for all cultures
-on a plate. Therefore, by the conversion equations
-(\ref{eq:conversion}), all cultures on a plate have the same carrying
-capacity \(K\) and all \(b_{i} \propto r_{i}\) by the same
-factor. Similarly, \(MDP\) is the same for all cultures and all
-\(b_{i} \propto MDR_{i}\) by the same factor (see
-Equation~\ref{eq:MDR_MDP}). Therefore, \(b\) is equivalent to common
-QFA fitness measures, \(r\), \(MDR\), and \(MDR*MDP\) (see
-e.g. \citet{Addinall2011}). This makes \(b\) a very convenient fitness
-measure for the competition model; we need not convert to logistic
-model parameters to compare the fitness rankings of cultures on the
-same plate. To compare competition model fitness rankings between
-different plates we can of course use \(b\). However, this is not
-equivalent to comparing \(r\) or \(MDR\) as different plates may have
-different \(C(0)\) and \(N(0)\).
+% Competition model \(C(0)\) and \(N(0)\) are the same for all cultures
+% on a plate. Therefore, by the conversion equations
+% (\ref{eq:conversion}), all cultures on a plate have the same carrying
+% capacity \(K\) and all \(b_{i} \propto r_{i}\) by the same
+% factor. Similarly, \(MDP\) is the same for all cultures and all
+% \(b_{i} \propto MDR_{i}\) by the same factor (see
+% Equation~\ref{eq:MDR_MDP}). Therefore, \(b\) is equivalent to common
+% QFA fitness measures, \(r\), \(MDR\), and \(MDR*MDP\) (see
+% e.g. \citet{Addinall2011}). This makes \(b\) a very convenient fitness
+% measure for the competition model; we need not convert to logistic
+% model parameters to compare the fitness rankings of cultures on the
+% same plate. To compare competition model fitness rankings between
+% different plates we can of course use \(b\). However, this is not
+% equivalent to comparing \(r\) or \(MDR\) as different plates may have
+% different \(C(0)\) and \(N(0)\).
 
 \begin{Figure}
   \centering
