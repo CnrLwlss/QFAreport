@@ -163,17 +163,7 @@ measures. Either model can be fit using the QFA \textsf{R} package
 % describe p15 in the methods.)  //Could remove//
 % Example use of QFA by Addinall \citep{Addinall2011} telomeres.
 % And follow up Holstein and Clark \citep{Holstein20141259}
-%
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{p15_section/p15_section_4x5_5_18}
-  \captionof{figure}{\textbf{4x5 section of a QFA plate (P15).}
-    Cropped from a 16x24 format solid agar plate inoculated with
-    dilute \textit{S. cerevisiae} cultures. Image captured after
-    \(\sim\)2.5 days incubation at 27\(^{\circ}C\).}
-  \label{fig:p15_section}
-\end{Figure}
-%
+
 Since QFA aims to differentiate strains by fitness, many different
 strains are grown on one plate, and fast and slow growing strains
 often grow side-by-side. This is exemplified in
@@ -197,6 +187,16 @@ Figure~\ref{fig:stripes_images}a, with fewer neighbours, grew larger
 %(how much? I can look at the data myself) **
 than the same cultures in Figure~\ref{fig:stripes_images}b.
 
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{p15_section/p15_section_4x5_5_18}
+  \captionof{figure}{\textbf{4x5 section of a QFA plate (P15).}
+    Cropped from a 16x24 format solid agar plate inoculated with
+    dilute \textit{S. cerevisiae} cultures. Image captured after
+    \(\sim\)2.5 days incubation at 27\(^{\circ}C\).}
+  \label{fig:p15_section}
+\end{Figure}
+
 Neighbour interactions might be affecting fitness estimates. Current
 QFA analysis, using the logistic model, assumes that cultures grow
 independently. A sigmoidal curve fits QFA data poorly in many cases.
@@ -205,27 +205,7 @@ I aim to correct for competition using a network model of nutrient
 diffusion and nutrient-dependent growth, to improve the fit of
 individual growth curves, and increase the accuracy and precision of
 fitness estimates.
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{stripes/final/striped_A}
-  \includegraphics[width=\linewidth]{stripes/final/filled_B}
-  \captionof{figure}{\textbf{Plates from a QFA experiment designed to
-      examine competition.}  A) ``Stripes'' plate; B) ``Filled''
-    plate. Identical strains are repeated in the same positions on
-    each plate, except in every second column in A, where locations
-    are left empty. The extra columns in B are a transposition of the
-    columns to the left, but with a different query mutation. The
-    leftmost column in B contains repeats of a control with a neutral
-    deletion. Cultures were inoculated with a higher cell density than
-    in Figure~\ref{fig:p15_section}.
-    % A) The ``Stripes'' plate inocluated with a more concentrated
-    % \textit{S. Cerevisiae} inoculum (no cells inocluated on alternate
-    % columns). B) ``Filled'' plate: Same as in A, but with strains of
-    % similar growth rate inoculated in the positions missing in A.
-  }
-  \label{fig:stripes_images}
-\end{Figure}
-%
+
 There have been attempts to reduce and correct for competition effects
 experimentally and statistically. This does not require explicit
 knowledge or modelling of the source of interaction. QFA data for edge
@@ -254,6 +234,27 @@ QFA does not measure nutrients or signal, so, if more than one type of
 interaction is significant, it will be very difficult to fit a
 model. In such circumstances, experimental and statistical methods
 might be the best approach.
+
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{stripes/final/striped_A}
+  \includegraphics[width=\linewidth]{stripes/final/filled_B}
+  \captionof{figure}{\textbf{Plates from a QFA experiment designed to
+      examine competition.}  A) ``Stripes'' plate; B) ``Filled''
+    plate. Identical strains are repeated in the same positions on
+    each plate, except in every second column in A, where locations
+    are left empty. The extra columns in B are a transposition of the
+    columns to the left, but with a different query mutation. The
+    leftmost column in B contains repeats of a control with a neutral
+    deletion. Cultures were inoculated with a higher cell density than
+    in Figure~\ref{fig:p15_section}.
+    % A) The ``Stripes'' plate inocluated with a more concentrated
+    % \textit{S. Cerevisiae} inoculum (no cells inocluated on alternate
+    % columns). B) ``Filled'' plate: Same as in A, but with strains of
+    % similar growth rate inoculated in the positions missing in A.
+  }
+  \label{fig:stripes_images}
+\end{Figure}
 
 % //Diffusion Equation: I am probably going to have to repeat this
 % when I get to the discussion so I could just leave until then.//
@@ -363,6 +364,22 @@ in (\ref{eq:competition_model}b).
 % %   % \end{align}
 % % \end{equation}
 % and modelled with mass action kinetics.
+
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{comp_model/comp_model_schematic2}
+  \captionof{figure}{\textbf{Schematic of the competition model.}
+    Cultures, represented by circles indexed i, grow in a rectangular
+    array on the surface of a nutrient containing solid agar. The agar
+    is divided into equal areas surrounding each culture. Each culture
+    has an amount of cells, \(C_{i}\), and is associated with an
+    amount of nutrients, \(N_{i}\). Arrows represent diffusion of
+    nutrients between cultures. Darker blue circles, \(\delta_{i}\),
+    are the closest neighbours of the red culture, \(i\).}
+  \label{fig:comp_model_schematic}
+\end{Figure}
+
+
 Unlike the logistic model~(\ref{eq:logistic_model}), the competition
 model has no analytical solution; instead, it must be solved
 numerically. When \(k\) is set to zero, however, the competition model
@@ -384,19 +401,6 @@ on a typical plate, makes 387 parameters in total. The competition
 model has roughly half as many parameters as the standard logistic
 model, and a third as many as the generalised logistic model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{comp_model/comp_model_schematic2}
-  \captionof{figure}{\textbf{Schematic of the competition model.}
-    Cultures, represented by circles indexed i, grow in a rectangular
-    array on the surface of a nutrient containing solid agar. The agar
-    is divided into equal areas surrounding each culture. Each culture
-    has an amount of cells, \(C_{i}\), and is associated with an
-    amount of nutrients, \(N_{i}\). Arrows represent diffusion of
-    nutrients between cultures. Darker blue circles, \(\delta_{i}\),
-    are the closest neighbours of the red culture, \(i\).}
-  \label{fig:comp_model_schematic}
-\end{Figure}
 
 % Now I am justifying some assumptions %%
 The competition model makes many other approximations. It is a
