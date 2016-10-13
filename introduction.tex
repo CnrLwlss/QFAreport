@@ -197,9 +197,10 @@ than the same cultures in Figure~\ref{fig:stripes_images}b.
   \label{fig:p15_section}
 \end{Figure}
 
-Neighbour interactions might be affecting fitness estimates. Current
-QFA analysis, using the logistic model, assumes that cultures grow
-independently. A sigmoidal curve fits QFA data poorly in many cases.
+% Neighbour interactions might be affecting fitness estimates.
+Current QFA analysis, using the logistic model, assumes that cultures
+grow independently. A sigmoidal curve fits QFA data poorly in many
+cases.
 %% evidence? **
 I aim to correct for competition using a network model of nutrient
 diffusion and nutrient-dependent growth, to improve the fit of
@@ -208,27 +209,29 @@ fitness estimates.
 
 There have been attempts to reduce and correct for competition effects
 experimentally and statistically. This does not require explicit
-knowledge or modelling of the source of interaction. QFA data for edge
-cultures is noisy due to reflections from plate edges. This is only
-partially corrected for by Colonyzer \citep{Lawless2010}. As a result,
-data for edge cultures is usually discarded. \citet{Addinall2011} grow
-repeats of a neutral deletion in edge locations, rather than leave
-them empty, because of concerns about competition. Plates could also
-be repeated with randomised culture positions. However, this is
-unlikely to remove all bias; for instance, the fastest growing strains
-would always have slower growing neighbours. In an SGA study,
-\citet{Baryshnikova2010} use various statistical techniques to improve
-the correlation between repeats of the same strain in different
-positions. I expect that an explicit model of competition, fit to
-whole growth curves, will provide a better correction and improve
-fitness estimates, without requiring extra repeats. Furthermore, a
-model might identify and explain the source of
-competition. Simulations of a successful model could be used, not only
-to analyse existing data, but to compare experimental designs, and
-predict ways to reduce competition experimentally. Poisoning of
-cultures by a signal molecule, such as ethanol, which
-\textit{S. cerevisiae} produces in the metabolism of sugars by
-fermentation, is another possible source of interaction.
+knowledge or modelling of the source of interaction.
+% QFA data for edge cultures is noisy due to reflections from plate
+% edges. This is only partially corrected for by Colonyzer
+% \citep{Lawless2010}. As a result, data for edge cultures is usually
+% discarded.
+For example, QFA data for edge cultures is usually discarded because
+of noise, but \citet{Addinall2011} grow repeats of a neutral deletion
+in edge locations, rather than leave them empty, because of concerns
+about competition. Plates could also be repeated with randomised
+culture positions. However, this is unlikely to remove all bias; for
+instance, the fastest growing strains would always have slower growing
+neighbours. In an SGA study, \citet{Baryshnikova2010} use various
+statistical techniques to improve the correlation between repeats of
+the same strain in different positions. I expect that an explicit
+model of competition, fit to whole growth curves, will provide a
+better correction and improve fitness estimates, without requiring
+extra repeats. Furthermore, a model might identify and explain the
+source of competition. Simulations of a successful model could be
+used, not only to analyse existing data, but to compare experimental
+designs, and predict ways to reduce competition
+experimentally. Poisoning of cultures by a signal molecule, such as
+ethanol, which \textit{S. cerevisiae} produces in the metabolism of
+sugars by fermentation, is another possible source of interaction.
 %%%% Quorum Sensing %%%%
 QFA does not measure nutrients or signal, so, if more than one type of
 interaction is significant, it will be very difficult to fit a
