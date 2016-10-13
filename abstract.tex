@@ -3,27 +3,36 @@
 
 
 \textbf{Motivation:}~Growth rate is a major component of the
-evolutionary fitness of microbial organisms; when nutrients are
-plentiful, faster-growing strains come to dominate populations,
-whereas slower-growing strains are wiped out. Maintaining a high
-growth rate is, therefore, a priority for cell lineages, making growth
-rate an excellent surrogate for cell health. When measured in
-different genetic backgrounds or environments, cell health can inform
-about genetic interaction and drug sensitivity. In the high-throughput
-procedures QFA and SGA, microbial cultures are inoculated in an array
-on solid agar, and growth is measured to obtain quantitative estimates
-of culture fitness. Neighbouring cultures, which are often different
-genetic strains, grow at different rates, and consume nutrients at
-different rates, creating gradients in nutrient density between
-cultures. We believe that diffusion of nutrients between cultures
-affects growth. Current analysis does not account for this; instead,
+evolutionary fitness of microbial organisms making it an excellent
+surrogate for cell health.
+% ; when nutrients are
+% plentiful, faster-growing strains come to dominate populations,
+% whereas slower-growing strains are wiped out.
+% Maintaining a high growth rate is, therefore, a priority for cell
+% lineages, making it an excellent surrogate for cell health.
+% How cells grow in different genetic backgrounds or environments can
+% inform about genetic interaction and drug sensitivity.
+% When measured in different genetic backgrounds or environments, cell
+% health can inform about genetic interaction and drug sensitivity.
+In the high-throughput procedures QFA and SGA, microbial cultures are
+inoculated in an array on solid agar, and growth is measured to obtain
+quantitative fitness estimates.
+%
+% In different genetic backgrounds or environments this can inform about
+% genetic interaction and drug sensitivity.
+%
+Neighbouring cultures, which are often different genetic strains,
+consume nutrients at different rates, creating gradients in nutrient
+density. We believe that diffusion of nutrients between cultures is
+affecting growth. Current analysis does not account for this; instead,
 it is assumed that cultures grow independently. I use a network model
 of nutrient diffusion and nutrient-dependent growth, to correct for
-competition, to try to improve the accuracy and precision of growth
-and fitness estimates. I test the model against QFA data from
-experiments on \textit{Saccharomyces cerevisiae}. Ultimately, the
-model might be used to estimate genetic interaction and drug
-sensitivity with higher accuracy and precision.
+competition, to try to improve the accuracy and precision of fitness
+estimates. I test the model against QFA data from experiments on
+\textit{Saccharomyces cerevisiae}. Ultimately, the model might be used
+to improve the reliability of studies on genetic interaction and drug
+sensitivity.
+%estimate genetic interaction and drug sensitivity.
 \\
 %Original
 % \textbf{Motivation:}~Growth rate is a major component of the
@@ -48,22 +57,25 @@ sensitivity with higher accuracy and precision.
 % drug screens.
 % \\
 \textbf{Results:}~I fit the competition model to a plate from a
-previous QFA publication. The plate is inoculated with dilute
-cultures; strains have deletions in genes relevant to telomere
-function. The competition model fits timecourses with similar
-closeness to the previous model. It does so using far fewer parameters
-(387 vs 1152). The fit is much closer for at least some fast growing
-strains. Fitness estimates are less precise for the fastest growing
-strains, but more precise for the majority of strains (36 out of
-50). Fitness rankings agree in the positions of the fastest and
-slowest growing strains, but disagree in the middle positions. The
-positions of the fastest and slowest growing strains also agree with
-independent spot tests in published papers. Independent data is not
-available to resolve the disagreement in middle rankings. In
-cross-plate calibration and validation using QFA plates with a higher
-inoculum density, the model overcorrects for competition to a similar
-degree as previous models undercorrect. A different method of fitting
-is required to find globally optimal solutions.
+previous QFA publication.
+% The plate is inoculated with dilute cultures
+% and strains have deletions in genes relevant to telomere function.
+Using far fewer parameters (387 vs 1152), it fits timecourses with
+similar closeness to the previous model.
+% The fit is much closer for at least some fast growing strains.
+Fitness estimates are less precise for the fastest growing strains,
+but more precise for the majority of strains (36 out of 50). Fitness
+rankings agree in the positions of the fastest and slowest growing
+strains, but disagree in the middle positions.
+% The positions of the fastest and slowest growing strains also agree
+% with independent spot tests in published papers. Independent data is
+% not available to resolve the disagreement in middle rankings.
+In a cross-plate validation experiment,
+% using QFA plates with a higher inoculum density,
+the model overcorrects for competition to a similar degree as the
+previous model undercorrects. A different method of fitting is
+required to find globally optimal solutions which might improve
+reliability further.
 \\
 % Original
 % \textbf{Results:}~Using far fewer parameters (387 vs 1152), the
