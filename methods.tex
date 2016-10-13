@@ -292,20 +292,25 @@ different \(C(0)\) and \(N(0)\).
 \begin{Figure}
   \centering
   \graphicspath{{images/correction/}}
-  \includegraphics[width=\linewidth]{final/logistic}
-  \includegraphics[width=\linewidth]{final/competition}
-  \captionof{figure}{\textbf{Using the competition model to correct
-      for competition.} Fits are to culture (R10, C3) of P15 which
-    grew faster and reached a higher final cell density than its
-    neighbours (not shown). According to the competition model, this
-    is because this culture competed for more nutrients. To reach the
-    same final cell density, the mass action logistic model requires a
-    higher amount of starting nutrients for this culture and a
-    different amount for each neighbour. The correction to the
-    competition model simulates how growth would have appeared without
-    competition and, for the culture shown,
-    gives~\(r_{corrected} >
-    r_{logistic}\)~and~\(K_{corrected} < K_{logistic}\).}
+  \includegraphics[width=\linewidth]{final/logisticA}
+  \includegraphics[width=\linewidth]{final/competitionB}
+  \captionof{figure}{\textbf{Using the competition model to return
+      logistic model parameters.} \textbf{A)} Fit of the mass action
+    kinetic model displaying \textbf{converted} logistic model
+    parameters. \textbf{B)} Fit of the full competition model (solid;
+    \(k=6.7\)), and simulation of independent growth (dashed; \(k=0\))
+    displaying \textbf{corrected} logistic model parameters. Both fits
+    are to culture (R10, C3) of P15 which grew faster and reached a
+    higher final cell density than its neighbours (not shown).}
+    % According to the competition model, this is because this
+    % culture competed for more nutrients. To reach the same final cell
+    % density, the mass action logistic model requires a higher amount
+    % of starting nutrients for this culture and a different amount for
+    % each neighbour. The correction to the competition model simulates
+    % how growth would have appeared without competition and, for the
+    % culture shown,
+    % gives~\(r_{corrected} >
+    % r_{logistic}\)~and~\(K_{corrected} < K_{logistic}\).
   \label{fig:correction}
 \end{Figure}
 
