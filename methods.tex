@@ -180,28 +180,31 @@ fits based on only the closeness of fit to internal cultures.
 
 \subsubsection{Fitting the logistic model}
 
-Fitting the mass action logistic model requires using culture level
-\(N(0)\) and creating 383 extra parameters. The QFA R package
-\citep{qfa2016} can fit the standard logistic model and has heuristic
-checks to correct a confounding of parameters that occurs when
-slow-growing cultures are dominated by noise. I did not have time to
-implement these checks for the mass action logistic model, so I
-instead fit using the QFA R package. This is not equivalent because
-QFA R does not fit data collectively and instead uses a culture level
-\(C(0)\) (1152 total parameters). However, this is a useful comparison
-with a method of analysis previously used in QFA, including for the
-analysis of P15 \citep{Addinall2011}. I do not expect much
-disagreement of fitness estimates with the mass action logistic model
-once heuristic checks are implemented. In contrast to the competition
-model, noisy data from edge cultures can be discarded before fitting.
-% I conduct model comparison between the competition and logistic
-% models in sections (Results sections).
+Fitting the mass action logistic model requires a culture level
+\(N(0)\), creating 383 extra parameters. The QFA R package
+\citep{qfa2016} can fit the standard logistic model, and has heuristic
+checks to correct a confounding of \(r\) and \(K\) parameters that
+occurs when slow-growing cultures are dominated by noise. I did not
+have time to implement these checks for the mass action logistic
+model, so I instead fit using the QFA R package. This is not
+equivalent to the competition model fit because the QFA R package uses
+a culture level \(C(0)\), i.e.,~there is no collective fitting. This
+makes 1152 total parameters, rather than the 769 that we would have
+using the mass action logistic model. It is, nevertheless, useful to
+compare fitting of the competition model with the standard logistic
+model from the QFA R package, because the latter has been used in
+previous QFA papers, including \citet{Addinall2011} from which we take
+P15.
+% I do not expect much disagreement of fitness estimates with the mass
+% action logistic model once heuristic checks are implemented.
+In contrast to the competition model, noisy data from edge cultures
+can be discarded prior to fitting the logistic model.
 
 \subsubsection{Data visualisation}
 
-I created plotting functions in CANS to visualise fits and simulations
-of QFA timecourses and to compare the ranking of fitness estimates
-using the Python package matplotlib.
+I used the Python package matplotlib to create plotting functions in
+CANS to visualise fits and simulations of QFA timecourses and to
+compare the ranking of fitness estimates.
 
 \subsection{Parameter conversion}
 \label{sec:parameter_conversion}
