@@ -32,17 +32,16 @@ library containing 49 different deletions thought to affect telomere
 function. There are 6 repeats of each of these deletions. There are
 also 14 repeats of a strain with a neutral deletion,
 \textit{his3}\(\Delta\). Edge cultures are inoculated with extra
-repeats of the neutral deletion, but cell density estimates are
-discarded due to noise from reflections off plate walls. Inoculum
-density is \(\sim\)100 cells, which is below the level of
-detection. P15 was incubated at 27\(^{\circ}\)C, at which point
-\textit{cdc13-1} starts to experience loss of function. Each culture
-has a cell density timecourse with 10 timepoints covering 4
-days. Several features make P15 a good test case. Strains vary greatly
-in fitness, so competition should be present. Repeats of each strain
-increase statistical power. Furthermore, for several strains,
-independent spot tests have been published and may be used for
-validation
+repeats of the neutral deletion, but results are discarded due to
+noise from reflections off plate walls. Inoculum density is
+\(\sim\)100 cells, which is below the level of detection. P15 was
+incubated at 27\(^{\circ}\)C, at which point \textit{cdc13-1} starts
+to experience loss of function. Each culture has a cell density
+timecourse with 10 timepoints covering 4 days. Several features make
+P15 a good test case. Strains vary greatly in fitness, so competition
+should be present. Repeats of each strain increase statistical
+power. Furthermore, for several strains, independent spot tests have
+been published and may be used for validation
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 
 \subsection{The Stripes and Filled datasets}
@@ -97,10 +96,10 @@ libRoadRunner is approximately 10 times faster than SciPy's integrate,
 solving in hundredths rather than tenths of a second. Unlike SciPys's
 integrate.odeint, libRoadRunner solves only at evenly spaced
 timepoints. To fit P15, where each timecourse has 10 unevenly spaced
-timepoints, I simulate sequentially between adjacent timepoints. For
+timepoints, I simulated sequentially between adjacent timepoints. For
 the Stripes and Filled plates, which have \(\sim\)50 unevenly spaced
-timepoints, I sample 15 evenly spaced timepoints from a spline. I use
-SciPy's interpolate.splrep to make a 5th order B-spline with smoothing
+timepoints, I sampled 15 evenly spaced timepoints from a spline. I use
+SciPy's interpolate.splrep to make 5th order B-splines with smoothing
 condition \(s=1.0\), and SciPy's interpolate.splev to evaluate. The
 sampled timepoints range from time zero to the time of last
 observation. Solving then requires just one call to libRoadRunner's
@@ -112,31 +111,34 @@ hours; fitting a full plate with 15 evenly spaced timepoints takes
 \subsubsection{Fitting the competition model}
 \label{sec:fitting_comp}
 
-I use QFA data after processing with Colonyzer \citep{Lawless2010}.
-Colonyzer uses integrated optical density measurements in whole plate
-images as a proxy for cell density. I used timecourse cell density
-estimates, which have arbitrary units, throughout my analysis. I fit
-the competition model using a gradient method and made maximum
-likelihood estimates of parameters using a normal model of measurement
-error. For constrained minimisation I used the L-BFGS-B algorithm from
-SciPy's integrate package.
 
-I determined stopping criteria so that parameters of full-plate
-simulated data sets, with a small amount of simulated noise, were
-recovered with high precision. To help the minimizer, I scaled
-\(C(0)\) values by a factor of \(10^{5}\) to make parameter values
-closer in order of magnitude. I ran repeated fits using different
-parameter guesses for each plate (see Sections~\ref{sec:P15_fit} and
-\ref{sec:cross_plate_val_results}). I set bounds according to
-Table~\ref{tab:p15_bounds} and checked that best fits had no
-parameters at a boundary.
-%
+I processed raw QFA data using Colonyzer \citep{Lawless2010} to
+produce cell density timecourses.
+% I use QFA data after processing with Colonyzer \citep{Lawless2010}.
+% Colonyzer uses integrated optical density measurements in whole plate
+% images as a proxy for cell density. I used timecourse cell density
+% estimates, which have arbitrary units, throughout my analysis.
+To these, I fit the competition model, using a gradient method, and
+normal model of measurement error, to make maximum likelihood
+estimates of parameters. The particular gradient method was a
+constrained minimisation: the L-BFGS-B algorithm from SciPy's
+integrate package. I determined stopping criteria so that parameters
+of simulated full-plate data sets, with a small amount of simulated
+noise, were recovered with high precision. To help the minimizer, I
+scaled \(C(0)\) values by a factor of \(10^{5}\) to make them closer
+to other parameter values. For each plate, I ran many fits with
+different initial parameters to try to find a global minimum (see
+Sections~\ref{sec:P15_fit} and \ref{sec:cross_plate_val_results}). I
+set parameter bounds according to Table~\ref{tab:p15_bounds}, and
+checked that best fits had no parameters at a boundary.
+
 \begin{center}
-  \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
-    competition model to P15 and the Stripes and Filled plates. Bounds
-    on \(N(0)\) were applied to both \(N_{I}(0)\) and \(N_{E}(0)\) for
-    internal and edge cultures. ``guess'' refers to the initial guess
-    of each parameter (see Section~\ref{sec:initial_guess}).}
+  \captionof{table}{\textbf{Parameter bounds for fitting the
+      competition model to P15 and the Stripes and Filled plates.}
+    The same bounds on \(N(0)\) were used for both internal and edge
+    cultures. Bounds on \(C(0)\) and \(N(0)\) were set using initial
+    conditions: ``guess'' refers to the initial guess of each
+    parameter (see Section~\ref{sec:initial_guess}).}
   \begin{tabular}{| c | c c |}
     \hline
     Parameter        & Lower Bound  & Upper Bound \\
@@ -151,26 +153,23 @@ parameters at a boundary.
   \end{tabular}
   \label{tab:p15_bounds}
 \end{center}
-%
-%%%% Boundary conditions Two N_0 %%%%%
-Cultures at the edge of a plate have an advantage because they have
-access to a greater area of nutrients. I corrected for this using a
-separate parameter \(N^{E}(0)\) representing a higher initial amount
-of nutrients in edge cultures. In rate equations involving edge
-cultures, I scaled edge culture nutrient amount \(N_{i}\) by the ratio
-\(N^{I}(0)/N^{E}(0)\), where \(N^{I}(0)\) is the amount of nutrients
-in internal cultures. The physical interpretation of this correction
-is that edge cultures have an extra supply of nutrients that can
-diffuse instantly into the reaction volume. This treatment reduced the
-error in cell density estimates for cultures one row or column inside
-the edge and resulted in better fits to internal cultures overall (see
-Table~\ref{tab:corner} in
-Section~\ref{sec:treatment_of_boundaries}).
 
-Cell density measurements from edge cultures contain more noise due to
-reflections from plate walls \citep{Lawless2010}. For the competition
-model, I collectively fit to all cultures and selected best fits based
-on only the fit to internal cultures.
+Cultures at the edge of a plate gain an advantage from accessing a
+greater area of nutrients. I corrected for this using separate
+parameters, \(N_{I}(0)\) and \(N_{E}(0)\), for the initial amount of
+nutrients in internal and edge cultures. In rate equations involving
+edge cultures, I scaled edge culture nutrient amount by the ratio
+\(N_{I}(0)/N_{E}(0)\). The physical interpretation of this correction
+is that edge cultures have an extra supply of nutrients that can
+diffuse instantly into the reaction volume. This treatment increased
+the closeness of fit to cultures one row or column inside the edge,
+and to internal cultures overall (see Table~\ref{tab:corner} in
+Section~\ref{sec:treatment_of_boundaries}). Cell density measurements
+from edge cultures contain extra noise due to reflections from plate
+walls \citep{Lawless2010}. For the competition model, unlike the
+logistic model, these cannot simply be discarded prior to
+fitting. Instead, I collectively fit to all cultures and selected best
+fits based on only the closeness of fit to internal cultures.
 
 % %%%% Empties %%%%%
 % (Can go to results section or Stripes method section:) QFA data for
