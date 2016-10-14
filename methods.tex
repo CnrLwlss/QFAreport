@@ -345,12 +345,12 @@ made.
   \includegraphics[width=\linewidth]{final/imag_neigh_schematic_2}
   \captionof{figure}{\textbf{Schematic of the imaginary neighbour
       model.} A real culture (red) with cell observations,
-    \(C_{obs}\), is modelled growing alongside imagined slow and fast
-    growing neighbours (blue) with growth constants \(b_{s}\) and
-    \(b_{f}\) (for slow and fast). Rather than a single parameter, the
-    model uses separate nutrient diffusion constants, \(k_{s}\) and
-    \(k_{f}\), for slow and fast growing neighbours. \(k_{s}\),
-    \(k_{f}\), and the growth constant, \(b_{i}\), of the real culture
+    \(C_{obs}\), is modelled growing alongside imagined fast and slow
+    growing neighbours (blue) with growth constants \(b_{f}\) and
+    \(b_{s}\) (for fast and slow). Rather than a single parameter, the
+    model uses separate nutrient diffusion constants, \(k_{f}\) and
+    \(k_{s}\), for the fast and slow growing neighbours. \(k_{f}\),
+    \(k_{s}\), and the growth constant, \(b_{i}\), of the real culture
     are estimated by fitting the model to \(C_{obs}\) with all other
     parameters fixed. \(b_{i}\) are then taken as initial guesses for
     the competition model. Different numbers of each neighbour can be
@@ -403,9 +403,9 @@ guessed \(N_{I}(0)\) and \(N_{E}(0)\) as follows:
 When \(A_{r} = 1\), \(N_{I}(0) = N_{E}(0)\) and we loose a
 parameter. I estimated \(A_{r} = 1.5\) for plates in this paper.
 
-When using dilute cultures, \(C(0)\) cannot be detected. Rather than
-estimate a single initial guesses, I used a range of values in
-logspace and made a fit for each. The range was chosen to encompass
+When using dilute cultures, \(C(0)\) cannot be detected. I used a
+range of values in logspace and made a fit for each, rather than
+estimate a single initial guesses. The range was chosen to encompass
 uncertainty in \(C(0)\) for the given experiment.
 
 
@@ -462,13 +462,13 @@ the competition model.
 The last parameter left to guess is nutrient diffusion constant
 \(k\). I observed that simulations of the competition model using
 \(b_{i}\) drawn from normal distributions have linear relationships
-between variance in final cells, \(\sigma_{C}\), and \(k\). Setting
+between variance in final cells, \({\sigma_{C}}^{2}\), and \(k\). Setting
 other parameters as the guesses above, I simulated the competition
 model
 % guessed parameters \(C(0)\), \(N(0)\), and \(b_{i}\)
-over a range of \(k\) and fit a straight line to \(\sigma_{C}\) vs
-\(k\) using simple linear regression. I then took measured
-\(\sigma_{C}\) and used the line to predict \(k\).
+over a range of \(k\) and fit a straight line to \({\sigma_{C}}^{2}\)
+vs \(k\) using simple linear regression. I then took measured
+\({\sigma_{C}}^{2}\) and used the line to predict \(k\).
 % \\\\
 % Don't think I need this figure. r->b and make titles bigger. Fitted
 % \(k\) was much higher so I should probably resimulate over a
