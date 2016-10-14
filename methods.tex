@@ -329,43 +329,65 @@ as different plates may have different \(C(0)\) and \(N(0)\).
 \subsection{Determining initial parameters}
 \label{sec:initial_guess}
 
-Collectively fitting the competition model to a standard 384-format
-QFA plate is a formidable optimisation problem involving 384
-timecourses and 387 parameters. Achieving good fits therefore requires
-making a good initial guess. To fit small simulated zones I could
-simply use many random parameter guesses. However, for a full plate
-the chance of any random guess being close to the ``true'' values
-diminishes and more sophisticated guessing methods are required. I
-developed the \textit{Imaginary Neighbour Model}
-(Figure~\ref{fig:imag_neigh_schematic}) for guessing competition model
-\(b_{i}\) and this allowed good fits of to be made. As the project
-progressed, it became clear how to convert between fast logistic
-parameter estimates and competition model parameters (see
-Section~\ref{sec:parameter_conversion}) and this could be a valid
-alternative.
+Fitting the competition model to a full plate with 387 parameters is a
+formidable optimisation problem with potentially many local
+minima. Achieving a good fit therefore requires a good initial
+guess. To fit small simulated zones, I simply used many random
+parameter guesses. For a full plate, more sophisticated guessing
+methods are required because the chance of any random guess being
+close to optimal values diminishes. I developed the \textit{Imaginary
+  Neighbour Model} (Figure~\ref{fig:imag_neigh_schematic}) for
+guessing competition model \(b\) and this allowed good fits to be
+made.
+\graphicspath{{images/imag_neigh_schematic/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/imag_neigh_schematic_2}
+  \captionof{figure}{\textbf{Schematic of the imaginary neighbour
+      model.} A real culture (red) with cell observations,
+    \(C_{obs}\), is modelled growing alongside imagined slow and fast
+    growing neighbours (blue) with growth constants \(b_{s}\) and
+    \(b_{f}\) (for slow and fast). Rather than a single parameter, the
+    model uses separate nutrient diffusion constants, \(k_{s}\) and
+    \(k_{f}\), for slow and fast growing neighbours. \(k_{s}\),
+    \(k_{f}\), and the growth constant, \(b_{i}\), of the real culture
+    are estimated by fitting the model to \(C_{obs}\) with all other
+    parameters fixed. \(b_{i}\) are then taken as initial guesses for
+    the competition model. Different numbers of each neighbour can be
+    chosen to replicate different configurations of neighbours that
+    might be present on a real plate.}
+  \label{fig:imag_neigh_schematic}
+\end{Figure}
+
+
+% To discussion I think. %
+% As the project progressed, it became clear
+% how to convert between fast logistic parameter estimates and
+% competition model parameters (see
+% Section~\ref{sec:parameter_conversion}) and this could be a valid
+% alternative.
 
 \subsubsection{Guessing initial amounts}
 \label{sec:guessing_amounts}
 
-Recall from the competition model reaction equations
+To fit the imaginary neighbour model, it is first necessary to guess
+initial amounts. Recall from the competition model reaction equations
 (\ref{eq:reaction} and \ref{eq:diffusion_reaction}) that nutrients can
 only diffuse or be converted to cells. Thus, assuming that reactions
-are nearly complete at the end of cell observations and that
-\(C(0) \ll C(\infty)\), the total initial amount of nutrients,
-\(N_{Tot}\), can be estimated using,
+are nearly complete at the end of cell observations, and that
+\(C(0) \ll C(\infty)\), total initial nutrients, \(N_{Tot}\), can be
+estimated as,
 \begin{equation}
   \label{eq:N_Tot}
   N_{Tot} = n_{I}N_{I}(0) + n_{E}N_{E}(0) \approx C_{F},
 \end{equation}
-where \(C_{F}\) is the total of final cell measurements, \(n_{I}\) and
-\(n_{E}\) are the numbers of internal and edge cultures, and
-\(N_{I}(0)\) and \(N_{E}(0)\) are initial nutrient amounts
-for internal and edge cultures (see
-Section~\ref{sec:fitting_comp}). Using (\ref{eq:N_Tot}), and an estimate
-for the ratio of area associated with edge cultures to area associated
-with internal cultures,
-\(A_{r} = A_{E} / A_{I} = N_{E}(0) / N_{I}(0)\), I made
-guesses of \(N_{I}(0)\) and \(N_{E}(0)\) using,
+where \(C_{F}\) is total final cells, \(n_{I}\) and \(n_{E}\) are the
+numbers of internal and edge cultures, and \(N_{I}(0)\) and
+\(N_{E}(0)\) are initial nutrient amounts for internal and edge
+cultures. Using this equation, and an estimate for the ratio of the
+area associated with edge cultures to the area associated with
+internal cultures, \(A_{r} = A_{E} / A_{I} = N_{E}(0) / N_{I}(0)\), I
+guessed \(N_{I}(0)\) and \(N_{E}(0)\) as follows:
 %
 \begin{equation}
   \label{eq:N_0_guesses}
@@ -378,16 +400,20 @@ guesses of \(N_{I}(0)\) and \(N_{E}(0)\) using,
   \end{aligned}
 \end{equation}
 %
-When \(A_{r} = 1\), (\ref{eq:N_0_guesses}) reduces to the initial
-nutrient guess for the one initial nutrient parameter model. I used
-\(A_{r} = 1.5\).
+When \(A_{r} = 1\), \(N_{I}(0) = N_{E}(0)\) and we loose a
+parameter. I estimated \(A_{r} = 1.5\) for plates in this paper.
 
-In QFA using dilute cultures, \(C(0)\) falls below the level of
-detection. I did not estimate initial guesses of \(C(0)\) and instead
-ran multiple fits over a range of \(C(0)\) values in logspace chosen
-to encompass uncertainty in \(C(0)\) for the given experiment. I
-expressed this as a ratio, \(C_{r}\), multiplied by the initial
-nutrient guess \(N(0)_{I}\).
+When using dilute cultures, \(C(0)\) cannot be detected. Rather than
+estimate a single initial guesses, I used a range of values in
+logspace and made a fit for each. The range was chosen to encompass
+uncertainty in \(C(0)\) for the given experiment.
+
+
+% and instead ran multiple fits
+% over a range of \(C(0)\) values in logspace chosen to encompass
+% uncertainty in \(C(0)\) for the given experiment. I expressed this as
+% a ratio, \(C_{r}\), multiplied by the initial nutrient guess
+% \(N(0)_{I}\).
 
 % ; for P15 \(10^{-5}\) to \(10^{-3}\) times the
 % average final cell amount, for the Stripes and Filled plates
@@ -397,27 +423,6 @@ nutrient guess \(N(0)_{I}\).
 \subsubsection{\boldmath Guessing \(b\) \unboldmath}
 \label{sec:guessing_b}
 %%%%%%%%%%%%%%% Imag neigh %%%%%%%%%%%%%%%%%%%
-
-\graphicspath{{images/imag_neigh_schematic/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/imag_neigh_schematic_2}
-  \captionof{figure}{\textbf{Schematic of the imaginary neighbour
-      model.} I developed this model to make quick guesses of
-    competition model \(b_{i}\) by fitting single cultures. A real
-    culture (red) with cell observations, \(C_{obs}\), is modelled as
-    growing alongside imagined slow and fast growing neighbours (blue)
-    with growth constants \(b_{s}\) and \(b_{f}\) (for slow and
-    fast). The model uses separate nutrient diffusion constants
-    \(k_{s}\) and \(k_{f}\) for slow and fast growing neighbours
-    rather than a single parameter \(k\). \(k_{s}\), \(k_{f}\), and
-    the growth constant \(b_{i}\) of the real culture are estimated by
-    fitting the model to \(C_{obs}\) with all other parameters
-    fixed. Different numbers of each neighbour can be chosen to
-    replicate different configurations of neighbours that might be
-    present on a real plate.}
-  \label{fig:imag_neigh_schematic}
-\end{Figure}
 
 % The model aims to approximate the diffusion of nutrients into and out
 % of a culture using an configuration of imagined fast and slow growing
