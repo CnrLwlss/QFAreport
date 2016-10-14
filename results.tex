@@ -29,8 +29,9 @@
 
 \subsection{Model comparison using P15}
 \label{sec:P15_fit}
+\subsubsection{Quality of fit}
 
-I compared the competition and logistic model by fitting both to P15
+I compared the competition and logistic models by fitting both to P15
 (data described in Section~\ref{sec:P15_description}). For the
 competition model, I used five values of \(C(0)\) over the range
 \(N(0)\times\)10\(^{-5} < C(0) < N(0)\times\)10\(^{-3}\) to make
@@ -51,8 +52,25 @@ estimates are correlated with Spearman's rank correlation coefficient,
 \(\rho_{S} = 0.989\), and have average mean absolute deviation,
 \(MAD = 1.56\). The mean value of \(b\) for the best fit is 44.4, so
 agreement between \(b_{i}\) are good. This is important because \(b\)
-is to be used as a fitness estimate to compare with the logistic model
-(see Section~\ref{sec:parameter_conversion}).
+is to be used as a fitness estimate to compare with the logistic
+model.
+\begin{center}
+  \captionof{table}{\textbf{Estimated parameters for the two best
+      competition model fits to P15.} Spearman's rank correlation
+    coefficient (\(\rho_{S}\)) between \(b\) estimates is 0.989. Mean
+    absolute deviation (MAD) between \(b\) estimates is 1.56. Obj.~is
+    the total objective function value for internal cultures (smaller
+    values are better).}
+  \begin{tabular}{l l l l l l}
+    \hline
+    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
+    \hline
+    1st     & 9.1\(\times\)10\(^{-5}\)    & 0.064      & 0.090       & 6.7  & 0.194 \\
+    2nd     & 13.9\(\times\)10\(^{-5}\)   & 0.062      & 0.097       & 8.3  & 0.196 \\
+    \hline
+  \end{tabular}
+  \label{tab:P15_best_fit_params}
+\end{center}
 
 % For all comparisons between the top four fits, \(\rho_{S}\) ranges
 % from 0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I
@@ -65,78 +83,49 @@ is to be used as a fitness estimate to compare with the logistic model
 % meaningful comparison with logistic model parameter estimates.
 
 The boxed 3x3 zone in Figure~\ref{fig:comp_fit_plate} is replotted in
-Figure~\ref{fig:P15_zone_fit}, with fits of the competition model
-(solid), imaginary neighbour guess (dashed), and logistic model
-(red). The zone contains more fast growing cultures than is typical
-for the plate, so competition effects might be greater than
-average. The logistic model was fit using the QFA R package
-\citep{qfa2016}. The fit of the initial guess is typical for the
-plate; timecourses for some cultures, such as the bottom-left, are not
-well fit. However, the guess fulfils its purpose by allowing a good
-fit to be made when used to initialise parameters of the competition
-model. The objective function of the logistic and competition model
-fit is similar for most cultures in the zone. However, for the centre
-and centre-right fast growing cultures, the competition model has much
-lower objective function values and appears to fit much better than
-the logistic model. The total objective function value for the zone is
-lowest for the competition model: 44.06 vs 68.38 (values scaled by
-\(10^{4}\)). The logistic model must provide the better fit for other
-areas of the plate. Overall, the quality of fit is similar for both
-models.
+Figure~\ref{fig:P15_zone_fit} with fits of the competition model
+(solid blue and yellow), initial guess (dashed blue and yellow), and
+logistic model (solid red). The zone contains more fast growing
+cultures than is typical for the plate, so competition effects might
+be greater than average.
+% The logistic model was fit using the QFA R package \citep{qfa2016}.
+The fit of the initial guess is typical for the plate: timecourses for
+some cultures, such as the bottom-left, are poor. Nevertheless, the
+guess fulfils its purpose by allowing a good fit of the competition
+model to be made. Objective function values for the logistic and
+competition model are similar for most cultures in the zone. For the
+centre and centre-right fast growing cultures, however, the
+competition model has much lower objective function values and fits
+are closer. The total objective function value for the zone is lower
+for the competition model: 44.06 vs 68.38 (values scaled by
+\(10^{4}\)). This is not typical for the plate; objective function
+values are on average slightly better for the logistic model (see
+Table~\ref{tab:P15_obj_fun}). Recall that only internal objective
+function values are used to assess the fit. Overall, the competition
+model performed well considering that it used far fewer parameters
+(387 vs 1152).
 
-When comparing objective function values for internal cultures, used
-to determine best fits, the logistic model is slightly better (see
-Table~\ref{tab:P15_obj_fun}).
-% The total objective function value for internal cultures is also
-% slightly better for the logistic model (0.155) compared to the
-% competition model (0.194).
-The competition model performs well considering that it used far fewer
-parameters (387 vs 1152).
-% Methods or here or to top of paragraph?
-N.B. To make objective function comparisons fair, I converted logistic
-model parameters to competition model parameters by
-(\ref{eq:conversion}) and resimulated both models using CANS.
-
-\begin{center}
-  \captionof{table}{\textbf{Estimated parameter values for the best
-      two competition model fits to P15.} Spearman's rank correlation
-    coefficient (\(\rho_{S}\)) between \(b\) estimates is 0.989. Mean
-    absolute deviation (MAD) between \(b\) estimates is 1.56. The
-    total objective function value for internal cultures is shown in
-    the last column (smaller values are better).}
-  \begin{tabular}{l l l l l l}
-    \hline
-    Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
-    \hline
-    1st     & 9.1\(\times\)10\(^{-5}\)    & 0.064      & 0.090       & 6.7  & 0.194 \\
-    2nd     & 13.9\(\times\)10\(^{-5}\)   & 0.062      & 0.097       & 8.3  & 0.196 \\
-    \hline
-  \end{tabular}
-  \label{tab:P15_best_fit_params}
-\end{center}
 
 \graphicspath{{images/p15_fits/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun_2}
-  \captionof{figure}{\textbf{Comparison of competition and logistic
-      model fits to a 3x3 zone of P15}. The logistic model (red) was
-    fit with the QFA R package and uses almost three times as many
-    parameters as the competition model (solid lines). The initial
-    guess (dashes) for the competition model was made from fits of the
-    imaginary neighbour model to individual cultures. The zone has
-    top-left coordinates (5, 18) and is boxed in red in
-    Figure~\ref{fig:comp_fit_plate}. Objective function values (Obj.)
-    for each culture were scaled by \(10^{4}\) (smaller values are
-    better).}
+  \captionof{figure}{\textbf{A 3x3 zone of P15 showing fits of the
+      competition and logistic models}. The zone has top-left
+    coordinates (5, 18) and is boxed in red in
+    Figure~\ref{fig:comp_fit_plate}. This is a zoom on a whole plate
+    fit, not just a fit to the zone. Fits are for the competition
+    model (blue and yellow solid); logistic model (solid red), and
+    initial guess (blue and yellow dashed). Objective function values
+    (Obj.), scaled by \(10^{4}\), are displayed for each culture
+    (smaller values are better).}
   \label{fig:P15_zone_fit}
 \end{Figure}
-
-
 \begin{center}
-  \captionof{table}{\textbf{Objective function values for fits to
-      P15.} ``Internal'' is the total objective function value for
-    cultures not at an edge. ``All'' is the total objective function
+  \captionof{table}{\textbf{Objective function values for competition
+      and logistic model fits to P15.} ``Internal'' is the total
+    objective function value for cultures not at an edge and is used
+    to select the best fit. ``All'' is the total objective function
     value for all cultures on the plate. Smaller values are better.}
   \begin{tabular}{l l l}
     \hline
@@ -149,7 +138,7 @@ model parameters to competition model parameters by
   \label{tab:P15_obj_fun}
 \end{center}
 
-\subsection{\boldmath Correlation or \(r\) estimates between models \unboldmath}
+\subsubsection{\boldmath Correlation of fitness estimates \unboldmath}
 
 To compare model estimates, I converted competition model \(b_{i}\) to
 logistic model \(r_{i}\) using (\ref{eq:conversion}). I took the
@@ -210,7 +199,7 @@ of 1 or -1. Other correlations fall between these values. For cultures
   \label{fig:P15_correlations}
 \end{Figure}
 
-\subsection{Comparison of fitness ranking}
+\subsubsection{Comparison of fitness rankings}
 
 %%%% Write here
 
@@ -335,7 +324,7 @@ also a disagreement of 13 places in the rank of the neutral deletion
 
 
 
-\subsection{Evaluating the treatment of boundaries}
+\subsubsection{Evaluating the treatment of boundaries}
 \label{sec:treatment_of_boundaries}
 
 I had seen that objective function values were large for edge cultures
@@ -407,7 +396,7 @@ fitting all cultures.
 % \end{Figure}
 
 
-\subsection{Comparison of Variation in Fitness Estimates}
+\subsubsection{Precision of fitness estimates}
 \label{sec:cross_plate_validation}
 
 % Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
