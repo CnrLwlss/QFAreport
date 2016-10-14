@@ -197,7 +197,10 @@ P15.
 % I do not expect much disagreement of fitness estimates with the mass
 % action logistic model once heuristic checks are implemented.
 In contrast to the competition model, noisy data from edge cultures
-can be discarded prior to fitting the logistic model.
+can be discarded prior to fitting the logistic model. To remove bias
+in objective function comparison, I converted estimated logistic model
+parameters to competition model parameters (see
+Section~\ref{sec:parameter_conversion}) and reevaluated using CANS.
 
 \subsubsection{Data visualisation}
 
