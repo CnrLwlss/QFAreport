@@ -382,35 +382,30 @@ estimates in repeats of these deletions.
   \subsubsection{Evaluating the treatment of boundaries}
 \label{sec:treatment_of_boundaries}
 
-I had seen that objective function values were large for edge cultures
-compared to internal cultures (Table~\ref{tab:P15_obj_fun}). To
-evaluate the treatment of boundaries, I also fit the one \(N(0)\)
-parameter competition model to P15 using the same method as for the
-two \(N(0)\) parameter model (see Section~\ref{sec:P15_fit}). Fits
-appear similar in quality for both models
-(Figure~\ref{fig:P15_corner}) and average objective function values
-for the entire plate are very similar
-(Table~\ref{tab:corner}). Objective function values for cultures next
-to an edge culture are improved with the two \(N(0)\) model and
-internal cultures were better fit overall. Interestingly, fits of the
-edge cultures are actually worse in the two \(N(0)\) model. These
-cultures are dominated by noise due to reflections from plate walls
-which is why they are discarded from final estimates. However, the
-edge cultures must be included in the objective function when fitting
-the competition model. Despite this deficit, the two \(N(0)\) model
-has increased the goodness of fit to internal cultures by collectively
-fitting all cultures.
-
+To evaluate how I treat boundaries, I again fit the competition model
+to P15, this time without a separate parameter for the initial amount
+of nutrients in edge cultures. Recall that edge cultures must be
+included when fitting the competition model, despite being discarded
+from results due to noise. The quality of fit appears similar for both
+the one and two \(N(0)\) models (Figure~\ref{fig:P15_corner}); the
+average objective function values for the entire plate are similar but
+slightly better for the two \(N(0)\) model
+(Table~\ref{tab:corner}). Surprisingly, objective function values for
+edge cultures are worse for this model. Nevertheless, the fit is
+improved for cultures next to an edge, and, importantly, for internal
+cultures overall. The two \(N(0)\) model takes a deficit from edge
+cultures to improve the overall fit.
 
 \graphicspath{{images/corners/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/top_left_new_aspect_2}
-  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
-      of the competition model.} The top left corner of a 16x24 QFA
-    plate (P15) fitted with two versions of the competition model: the
-    first with a single initial nutrient amount for all cultures, the
-    second with a separate initial nutrient amount for edge cultures.}
+  \captionof{figure}{\textbf{Fits of one and two initial nutrient
+      parameter competition models to P15.} The top left corner of a
+    16x24 QFA plate (P15) fit with two versions of the competition
+    model: the first (solid) with a single initial nutrient amount for
+    all cultures, the second (dashed) with a separate initial nutrient
+    amount for edge cultures.}
   \label{fig:P15_corner}
 \end{Figure}
 
