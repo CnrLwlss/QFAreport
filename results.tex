@@ -140,49 +140,39 @@ model performed well considering that it used far fewer parameters
 
 \subsubsection{\boldmath Correlation of fitness estimates \unboldmath}
 
-To compare model estimates, I converted competition model \(b_{i}\) to
-logistic model \(r_{i}\) using (\ref{eq:conversion}). I took the
-median \(r\) for each deletion for both the competition and logistic
-model. I took the median, rather than mean, to reduce the effect of
-outliers that may results from cross-contamination of strains or
-inoculation of dead cells. Figure~\ref{fig:P15_correlations} shows
-correlations, between models, of \(r_{i}\) estimates for each culture
-(black) and of median \(r\) estimates for each deletion (red). The
-distribution for cultures is split into two distinct correlated
-groups. This is due to a gap in the distribution of logistic model
-\(r\) at around \(r\) = 4. There is no such gap in the distribution of
-competition model \(r\). The groups only overlap for medium values of
-competition model \(r\). The larger group, with lower logistic model
-\(r\), is correlated with competition model \(r\) with gradient close
-to one. However, competition model estimates were lower for almost all
-cultures. In the outlying group, competition model \(r\) varies more
-steeply with logistic model \(r\).
+To compare estimates between models, I converted competition model
+\(b\) to logistic model \(r\) using (\ref{eq:conversion}).
+% I took the median \(r\) for each deletion for both the competition
+% and logistic model. I took the median, rather than mean, to reduce
+% the effect of outliers that may results from cross-contamination of
+% strains or inoculation of dead cells.
+I plotted correlation between \(r\) estimates for each culture (black)
+and between median \(r\) estimates for each deletion (red)
+(Figure~\ref{fig:P15_correlations}).
+% competiton model r is corrected to independent conditions.
+For individual cultures, the competition model distribution is
+unimodal, the logistic model distribution bimodal with minimum at
+\(r \approx 4\). This creates two distinct correlated groups: the
+first with lower \(r\) and gradient close to one, the second with
+higher \(r\) and a steeper gradient. Cultures from the middle of the
+competition model distribution, but not the tails, are split between
+groups. Competition model \(r\) was lower than logistic model \(r\)
+for almost all cultures. There are several outlying cultures (black)
+caused by failures of heuristic checks from the QFA R package. For the
+eight outliers on the left axis, checks set \(r\) = 0. The two
+outliers with very high logistic \(r\) are repeats of
+\textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. They have
+escaped the heuristic checks and exhibit a confounding effect between
+\(r\) and \(K\).
 
-There are several extreme outlying cultures (black). The QFA R package
-uses heuristic checks to correct for confounding between \(r\) and
-\(K\) estimates for slow growing cultures. These are required because
-cultures are fit individually and slow growing cultures contain more
-noise. For the eight slow growing outliers on the left axis, the
-checks set \(r\) = 0. The two outliers with very high logistic \(r\)
-are repeats of \textit{rad50\(\Delta\)} and
-\textit{est1\(\Delta\)}. They have escaped the heuristic checks and
-exhibit the confounding effect between \(r\) and \(K\).
-
-In the distribution of the medians (red), most deletions fall inside
-the main group of cultures with lower logistic \(r\). There are also
-several deletions with high competition model \(r\) that fall inside
-the outlying group (top-right). A significant number of deletions lie
-in the region between the two groups, meaning that repeats of these
-cultures are split between the groups. This worsens the correlation of
-\(r\) ranks between deletions compared to cultures.  Spearman's rank
-correlation coefficient, \(\rho_{S}\), measures the correlation
-between rank orders of two variables. A monotonic function has a value
-of 1 or -1. Other correlations fall between these values. For cultures
-\(\rho_{S}\) = 0.731, for deletions \(\rho_{S}\) =
-0.497.
-% (\(\rho_{S}\) is improved when comparing competition model
-% \(b\), or equivalently \(MDR\), with logistic model \(MDR\)
-% (Figure~\ref{fig:comp_vs_log_ranking}).)
+In the distribution of medians (red), most deletions fall inside the
+denser group of cultures with lower logistic \(r\). Several deletions,
+with high competition model \(r\), fall inside the second group
+(top-right). A significant number of deletions, however, lie in the
+region between the two groups, meaning that repeats of these cultures
+are split between the groups. Correlation, measured by Spearman's rank
+correlation coefficient, \(\rho_{S}\), is lower between medians
+(0.497) than between cultures (0.731).
 
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
