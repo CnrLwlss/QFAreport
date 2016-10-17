@@ -1,5 +1,27 @@
 \graphicspath{{images/}}
 
+% Make landscape and take a whole page.
+\end{multicols}
+\begin{landscape}
+\graphicspath{{images/comp_fit/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
+  \captionof{figure}{\textbf{Fit of the competition model to P15.}
+    Data are for a 16x24 format plate (P15) with background mutation
+    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+    6 repeats of 50 genetic strains arranged randomly across internal
+    cultures. The outer two rows and columns have been removed from
+    the image to better fit the page. Model output for state variable,
+    cell population size (blue curve), is fit to observed data (black
+    crosses). Model predictions for unobserved variable (nutrient
+    amount) are also plotted (yellow). The boxed zone is plotted at a
+    larger size in Figure~\ref{fig:P15_zone_fit}.}
+  \label{fig:comp_fit_plate}
+\end{Figure}
+\end{landscape}
+\begin{multicols}{2}
+
 \section{Results}
 \label{sec:results}
 
@@ -71,7 +93,6 @@ model.
   \end{tabular}
   \label{tab:P15_best_fit_params}
 \end{center}
-
 % For all comparisons between the top four fits, \(\rho_{S}\) ranges
 % from 0.922 to 0.995 and \(b\) MAD ranges from 1.56 to 6.90. I
 % discarded the 5th best fit, which has less agreement, because, unlike
@@ -81,6 +102,21 @@ model.
 % 13.29. Despite not finding a global minimum, the best competition
 % model estimates of \(b_{i}\) agree well enough with each to allow
 % meaningful comparison with logistic model parameter estimates.
+\graphicspath{{images/p15_fits/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun_2}
+  \captionof{figure}{\textbf{A 3x3 zone of P15 showing fits of the
+      competition and logistic models}. The zone has top-left
+    coordinates (5, 18) and is boxed in red in
+    Figure~\ref{fig:comp_fit_plate}. This is a zoom on a whole plate
+    fit, not just a fit to the zone. Fits are for the competition
+    model (blue and yellow solid); logistic model (solid red), and
+    initial guess (blue and yellow dashed). Objective function values
+    (Obj.), scaled by \(10^{4}\), are displayed for each culture
+    (smaller values are better).}
+  \label{fig:P15_zone_fit}
+\end{Figure}
 
 The boxed 3x3 zone in Figure~\ref{fig:comp_fit_plate} is replotted in
 Figure~\ref{fig:P15_zone_fit} with fits of the competition model
@@ -104,23 +140,6 @@ Table~\ref{tab:P15_obj_fun}). Recall that only internal objective
 function values are used to assess the fit. Overall, the competition
 model performed well considering that it used far fewer parameters
 (387 vs 1152).
-
-
-\graphicspath{{images/p15_fits/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun_2}
-  \captionof{figure}{\textbf{A 3x3 zone of P15 showing fits of the
-      competition and logistic models}. The zone has top-left
-    coordinates (5, 18) and is boxed in red in
-    Figure~\ref{fig:comp_fit_plate}. This is a zoom on a whole plate
-    fit, not just a fit to the zone. Fits are for the competition
-    model (blue and yellow solid); logistic model (solid red), and
-    initial guess (blue and yellow dashed). Objective function values
-    (Obj.), scaled by \(10^{4}\), are displayed for each culture
-    (smaller values are better).}
-  \label{fig:P15_zone_fit}
-\end{Figure}
 \begin{center}
   \captionof{table}{\textbf{Objective function values for competition
       and logistic model fits to P15.} ``Internal'' is the total
@@ -206,13 +225,13 @@ with logistic model \(r\) and \(MDR\).
 % \(b\), \(r\), and \(MDR\) rank are equivalent (see
 % Section~\ref{sec:parameter_conversion}) so it is not necessary to
 % convert \(b\) to compare rankings.
-The logistic rankings agree in the order of all but two deletions:
+The latter agree in the order of all but two deletions:
 \textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. These deletions
-each have explained outliers with unrealistically high \(r\) and low
+each have an explained outlier with unrealistically high \(r\) and low
 \(K\) (Section~\ref{sec:correlation}). This appears to have been
 corrected for when \(MDR\) was calculated (\ref{eq:MDR_MDP}a), and
-\(MDR\) rank agrees much better with competition model. Spearman's Rho
-is therefore higher between competition \(b\) and logistic \(MDR\)
+\(MDR\) rank agrees much better with the competition model. Spearman's
+Rho is therefore higher between competition \(b\) and logistic \(MDR\)
 (0.635) than between competition \(b\) and logistic \(r\)
 (0.497). Between models, there is good agreement in extreme positions,
 but middle positions are almost inverted. The positions of the neutral
@@ -282,35 +301,6 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 %   \label{fig:comp_fit_zone_old}
 % \end{Figure}
 % \begin{multicols}{2}
-
-
-
-
-
-% Make landscape and take a whole page.
-\end{multicols}
-\begin{landscape}
-\graphicspath{{images/comp_fit/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
-  \captionof{figure}{\textbf{Fit of the competition model to P15.}
-    Data is for a 16x24 format plate (P15) with background mutation
-    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
-    6 repeats of 50 genetic strains randomly arranged across the
-    internal cultures. Repeats of a single strain are used for all
-    edge cultures (removed in the plot). Model output for state
-    variable, cell population size (blue curve), is fit to observed
-    data (black crosses). Model predictions for unobserved variable
-    (nutrient amount) are also plotted (yellow). The outer two rows
-    and columns have been removed. See Figure~\ref{fig:P15_zone_fit}
-    for a larger plot of the boxed zone.}
-  \label{fig:comp_fit_plate}
-\end{Figure}
-\end{landscape}
-\begin{multicols}{2}
-
-
 
 \subsubsection{Evaluating the treatment of boundaries}
 \label{sec:treatment_of_boundaries}
