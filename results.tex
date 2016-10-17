@@ -157,7 +157,7 @@ model performed well considering that it used far fewer parameters
   \label{tab:P15_obj_fun}
 \end{center}
 
-\subsubsection{\boldmath Correlation of fitness estimates \unboldmath}
+\subsubsection{Correlation of fitness estimates}
 \label{sec:correlation}
 
 To compare fitness estimates between models, I converted competition
@@ -214,24 +214,14 @@ I compared between models the ranking of strains by median fitness
 (Figure~\ref{fig:comp_vs_log_ranking}). Rankings of competition model
 \(b\), \(r\), and \(MDR\) are equivalent (see
 Section~\ref{sec:parameter_conversion}), so I compared \(b\) directly
-with logistic model \(r\) and \(MDR\).
-% In Figure~\ref{fig:comp_vs_log_ranking}, I compare deletions on P15
-% ranked by competition model \(b\), logistic model \(r\), and
-% logistic model \(MDR\). The fittest deletions are at the top. For
-% each fitness measure, I took the median estimate from repeats of
-% each deletion. I used the QFA R package to infer logistic model
-% \(r\) and \(MDR\), and used \(b\) from the best fit of the
-% competition model (Section~\ref{sec:P15_fit}). Competition model
-% \(b\), \(r\), and \(MDR\) rank are equivalent (see
-% Section~\ref{sec:parameter_conversion}) so it is not necessary to
-% convert \(b\) to compare rankings.
-The latter agree in the order of all but two deletions:
-\textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. These deletions
-each have an explained outlier with unrealistically high \(r\) and low
-\(K\) (Section~\ref{sec:correlation}). This appears to have been
-corrected for when \(MDR\) was calculated (\ref{eq:MDR_MDP}a), and
-\(MDR\) rank agrees much better with the competition model. Spearman's
-Rho is therefore higher between competition \(b\) and logistic \(MDR\)
+with logistic model \(r\) and \(MDR\). The latter agree in the order
+of all but two deletions: \textit{rad50\(\Delta\)} and
+\textit{est1\(\Delta\)}. These deletions each have an explained
+outlier with unrealistically high \(r\) and low \(K\)
+(Section~\ref{sec:correlation}). This appears to have been corrected
+for when \(MDR\) was calculated (\ref{eq:MDR_MDP}a), and \(MDR\) rank
+agrees much better with the competition model. Spearman's Rho is
+therefore higher between competition \(b\) and logistic \(MDR\)
 (0.635) than between competition \(b\) and logistic \(r\)
 (0.497). Between models, there is good agreement in extreme positions,
 but middle positions are almost inverted. The positions of the neutral
@@ -251,7 +241,6 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
   \label{fig:comp_vs_log_ranking}
 \end{Figure}
 
-
 % \graphicspath{{images/rank/}}
 % \begin{Figure}
 %   \centering
@@ -266,8 +255,6 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 %     cultures.}
 %   \label{fig:comp_vs_log_ranking2}
 % \end{Figure}
-
-
 
 % Complicated correlation coefficient table
 % \columnbreak
@@ -302,62 +289,6 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 % \end{Figure}
 % \begin{multicols}{2}
 
-\subsubsection{Evaluating the treatment of boundaries}
-\label{sec:treatment_of_boundaries}
-
-I had seen that objective function values were large for edge cultures
-compared to internal cultures (Table~\ref{tab:P15_obj_fun}). To
-evaluate the treatment of boundaries, I also fit the one \(N(0)\)
-parameter competition model to P15 using the same method as for the
-two \(N(0)\) parameter model (see Section~\ref{sec:P15_fit}). Fits
-appear similar in quality for both models
-(Figure~\ref{fig:P15_corner}) and average objective function values
-for the entire plate are very similar
-(Table~\ref{tab:corner}). Objective function values for cultures next
-to an edge culture are improved with the two \(N(0)\) model and
-internal cultures were better fit overall. Interestingly, fits of the
-edge cultures are actually worse in the two \(N(0)\) model. These
-cultures are dominated by noise due to reflections from plate walls
-which is why they are discarded from final estimates. However, the
-edge cultures must be included in the objective function when fitting
-the competition model. Despite this deficit, the two \(N(0)\) model
-has increased the goodness of fit to internal cultures by collectively
-fitting all cultures.
-
-
-\graphicspath{{images/corners/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/top_left_new_aspect_2}
-  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
-      of the competition model.} The top left corner of a 16x24 QFA
-    plate (P15) fitted with two versions of the competition model: the
-    first with a single initial nutrient amount for all cultures, the
-    second with a separate initial nutrient amount for edge cultures.}
-  \label{fig:P15_corner}
-\end{Figure}
-
-
-\begin{center}
-  \captionof{table}{\textbf{Average objective function value for one a
-      two \(\bm{N(0)}\) parameter competition models.} Values are for
-    the same fits as in Figure~\ref{fig:P15_corner} and have been
-    scaled by \(10^{4}\). Averages are for cultures belonging to the
-    areas indicated by the column ``Cultures''. ``Next to edge''
-    refers to cultures one in from the edge. ``Internal'' refers to
-    all cultures but the edge. Lower values are better.}
-  \begin{tabular}{l l l}
-    \hline
-    Cultures     & One \(N(0)\)  & Two \(N(0)\) \\
-    \hline
-    Edge         & 35.9    & 36.5\\
-    Next to edge & 9.54    & 7.98\\
-    Internal     & 6.67    & 6.30\\
-    All          & 12.4    & 12.2\\
-    \hline
-  \end{tabular}
-  \label{tab:corner}
-\end{center}
 
 % \subsection{\thesubsection~Agreement of b rankings}
 
@@ -447,6 +378,64 @@ estimates in repeats of these deletions.
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
+
+  \subsubsection{Evaluating the treatment of boundaries}
+\label{sec:treatment_of_boundaries}
+
+I had seen that objective function values were large for edge cultures
+compared to internal cultures (Table~\ref{tab:P15_obj_fun}). To
+evaluate the treatment of boundaries, I also fit the one \(N(0)\)
+parameter competition model to P15 using the same method as for the
+two \(N(0)\) parameter model (see Section~\ref{sec:P15_fit}). Fits
+appear similar in quality for both models
+(Figure~\ref{fig:P15_corner}) and average objective function values
+for the entire plate are very similar
+(Table~\ref{tab:corner}). Objective function values for cultures next
+to an edge culture are improved with the two \(N(0)\) model and
+internal cultures were better fit overall. Interestingly, fits of the
+edge cultures are actually worse in the two \(N(0)\) model. These
+cultures are dominated by noise due to reflections from plate walls
+which is why they are discarded from final estimates. However, the
+edge cultures must be included in the objective function when fitting
+the competition model. Despite this deficit, the two \(N(0)\) model
+has increased the goodness of fit to internal cultures by collectively
+fitting all cultures.
+
+
+\graphicspath{{images/corners/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/top_left_new_aspect_2}
+  \captionof{figure}{\textbf{Treatment of boundary conditions in fits
+      of the competition model.} The top left corner of a 16x24 QFA
+    plate (P15) fitted with two versions of the competition model: the
+    first with a single initial nutrient amount for all cultures, the
+    second with a separate initial nutrient amount for edge cultures.}
+  \label{fig:P15_corner}
+\end{Figure}
+
+
+\begin{center}
+  \captionof{table}{\textbf{Average objective function value for one a
+      two \(\bm{N(0)}\) parameter competition models.} Values are for
+    the same fits as in Figure~\ref{fig:P15_corner} and have been
+    scaled by \(10^{4}\). Averages are for cultures belonging to the
+    areas indicated by the column ``Cultures''. ``Next to edge''
+    refers to cultures one in from the edge. ``Internal'' refers to
+    all cultures but the edge. Lower values are better.}
+  \begin{tabular}{l l l}
+    \hline
+    Cultures     & One \(N(0)\)  & Two \(N(0)\) \\
+    \hline
+    Edge         & 35.9    & 36.5\\
+    Next to edge & 9.54    & 7.98\\
+    Internal     & 6.67    & 6.30\\
+    All          & 12.4    & 12.2\\
+    \hline
+  \end{tabular}
+  \label{tab:corner}
+\end{center}
+
 
 \subsection{Cross-plate validation}
 \label{sec:cross_plate_val_results}
