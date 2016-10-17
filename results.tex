@@ -139,6 +139,7 @@ model performed well considering that it used far fewer parameters
 \end{center}
 
 \subsubsection{\boldmath Correlation of fitness estimates \unboldmath}
+\label{sec:correlation}
 
 To compare fitness estimates between models, I converted competition
 model \(b\) to logistic model \(r\) using (\ref{eq:conversion}).
@@ -190,46 +191,44 @@ between cultures (0.731).
 
 \subsubsection{Comparison of fitness rankings}
 
-%%%% Write here
-
-In Figure~\ref{fig:comp_vs_log_ranking}, I compare deletions on P15
-ranked by competition model \(b\), logistic model \(r\), and logistic
-model \(MDR\). The fittest deletions are at the top. For each fitness
-measure, I took the median estimate from repeats of each deletion. I
-used the QFA R package to infer logistic model \(r\) and \(MDR\), and
-used \(b\) from the best fit of the competition model
-(Section~\ref{sec:P15_fit}). Competition model \(b\), \(r\), and
-\(MDR\) rank are equivalent (see
-Section~\ref{sec:parameter_conversion}) so it is not necessary to
-convert \(b\) to compare rankings.
-
-Logistic model \(r\) and \(MDR\) rankings agree for all but two
-deletions: \textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. These
-are the same deletions as the two outliers with high logistic model
-\(r\) values in Figure~\ref{fig:P15_correlations}. When \(MDR\) is
-calculated (\ref{eq:MDR_MDP}a), the confounding between \(r\) and
-\(K\) is corrected for and the rank of these deletions agrees well
-with competition model \(b\) rank. As a result, Spearman's
-\(\rho_{S}\) is higher for competition model \(b\) and logistic model
-\(MDR\) (0.635) than it is for competition model \(b\) and logistic
-model \(r\) (0.497). When comparing competition model \(b\) rank with
-logistic model \(MDR\) rank, there is good agreement between the
-extreme rankings but middle rankings appear almost inverted. There is
-also a disagreement of 13 places in the rank of the neutral deletion
-\textit{his3\(\Delta\)} (bold).
+I compared between models the ranking of strains by median fitness
+(Figure~\ref{fig:comp_vs_log_ranking}). Rankings of competition model
+\(b\), \(r\), and \(MDR\) are equivalent (see
+Section~\ref{sec:parameter_conversion}), so I compared \(b\) directly
+with logistic model \(r\) and \(MDR\).
+% In Figure~\ref{fig:comp_vs_log_ranking}, I compare deletions on P15
+% ranked by competition model \(b\), logistic model \(r\), and
+% logistic model \(MDR\). The fittest deletions are at the top. For
+% each fitness measure, I took the median estimate from repeats of
+% each deletion. I used the QFA R package to infer logistic model
+% \(r\) and \(MDR\), and used \(b\) from the best fit of the
+% competition model (Section~\ref{sec:P15_fit}). Competition model
+% \(b\), \(r\), and \(MDR\) rank are equivalent (see
+% Section~\ref{sec:parameter_conversion}) so it is not necessary to
+% convert \(b\) to compare rankings.
+The logistic rankings agree in the order of all but two deletions:
+\textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. These deletions
+each have explained outliers with unrealistically high \(r\) and low
+\(K\) (Section~\ref{sec:correlation}). This appears to have been
+corrected for when \(MDR\) was calculated (\ref{eq:MDR_MDP}a), and
+\(MDR\) rank agrees much better with competition model. Spearman's Rho
+is therefore higher between competition \(b\) and logistic \(MDR\)
+(0.635) than between competition \(b\) and logistic \(r\)
+(0.497). Between models, there is good agreement in extreme positions,
+but middle positions are almost inverted. The positions of the neutral
+deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 
 \graphicspath{{images/rank/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/median_ranks_comp_b_log_r_MDR}
-  \captionof{figure}{\textbf{Comparison of fitness ranking for fits of
-      the competition and logistic model to P15.} Rankings are
-    determined from median parameter estimates for six repeats of each
-    deletion. Logistic \(r\) and \(MDR\) were inferred using the QFA R
-    package. For competition \(b\) and logistic \(r\), Spearman's
-    \(\rho_{S} = 0.497\); for competition \(b\) and logistic \(MDR\),
-    Spearman's \(\rho_{S} = 0.635\). \textit{his3\(\Delta\)} (bold) is
-    a neutral deletion which had 14 replicates.}
+  \captionof{figure}{\textbf{Comparison of competition and logistic
+      fitness rankings for P15.} Deletions, each with six repeats, are
+    ranked according to median fitness, with the fittest strain at the
+    top. Spearman's Rho is 0.497 between competition \(b\) and
+    logistic \(r\), and 0.635 between competition \(b\) and logistic
+    \(MDR\). \textit{his3\(\Delta\)} (bold) is a neutral deletion with
+    14 repeats.}
   \label{fig:comp_vs_log_ranking}
 \end{Figure}
 
