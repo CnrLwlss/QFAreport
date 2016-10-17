@@ -140,8 +140,8 @@ model performed well considering that it used far fewer parameters
 
 \subsubsection{\boldmath Correlation of fitness estimates \unboldmath}
 
-To compare estimates between models, I converted competition model
-\(b\) to logistic model \(r\) using (\ref{eq:conversion}).
+To compare fitness estimates between models, I converted competition
+model \(b\) to logistic model \(r\) using (\ref{eq:conversion}).
 % I took the median \(r\) for each deletion for both the competition
 % and logistic model. I took the median, rather than mean, to reduce
 % the effect of outliers that may results from cross-contamination of
@@ -152,17 +152,17 @@ and between median \(r\) estimates for each deletion (red)
 % competiton model r is corrected to independent conditions.
 For individual cultures, the competition model distribution is
 unimodal, the logistic model distribution bimodal with minimum at
-\(r \approx 4\). This creates two distinct correlated groups: the
-first with lower \(r\) and gradient close to one, the second with
-higher \(r\) and a steeper gradient. Cultures from the middle of the
+\(r \approx 4\). There are two distinct correlated groups: the first
+with lower \(r\) and gradient close to one, the second with higher
+\(r\) and a steeper gradient. Cultures from the middle of the
 competition model distribution, but not the tails, are split between
 groups. Competition model \(r\) was lower than logistic model \(r\)
 for almost all cultures. There are several outlying cultures (black)
 caused by failures of heuristic checks from the QFA R package. For the
 eight outliers on the left axis, checks set \(r\) = 0. The two
-outliers with very high logistic \(r\) are repeats of
+outliers with very high logistic \(r\) are the deletions
 \textit{rad50\(\Delta\)} and \textit{est1\(\Delta\)}. They have
-escaped the heuristic checks and exhibit a confounding effect between
+escaped heuristic checks and exhibit a confounding effect between
 \(r\) and \(K\).
 
 In the distribution of medians (red), most deletions fall inside the
@@ -170,9 +170,10 @@ denser group of cultures with lower logistic \(r\). Several deletions,
 with high competition model \(r\), fall inside the second group
 (top-right). A significant number of deletions, however, lie in the
 region between the two groups, meaning that repeats of these cultures
-are split between the groups. Correlation, measured by Spearman's rank
-correlation coefficient, \(\rho_{S}\), is lower between medians
-(0.497) than between cultures (0.731).
+are split between groups. This may also be true for other
+deletions. Correlation, measured by Spearman's rank correlation
+coefficient, \(\rho_{S}\), is lower between medians (0.497) than
+between cultures (0.731).
 
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
@@ -182,7 +183,7 @@ correlation coefficient, \(\rho_{S}\), is lower between medians
       competition model r for P15}. Correlations are between estimates
     for each culture (black) and between median estimates (six
     repeats) for each deletion (red). Spearman's rank correlation
-    coefficient, \(\rho_{s}\), is shown for each distribution. The
+    coefficient, \(\rho_{s}\), is displayed for each distribution. The
     line y = x is also plotted.}
   \label{fig:P15_correlations}
 \end{Figure}
