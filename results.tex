@@ -9,7 +9,7 @@
   \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
   \captionof{figure}{\textbf{Fit of the competition model to P15.}
     Data are for a 16x24 format plate (P15) with background mutation
-    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+nn    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
     6 repeats of 50 genetic strains arranged randomly across internal
     cultures. The outer two rows and columns have been removed from
     the image to better fit the page. Model output for state variable,
@@ -236,8 +236,8 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
     ranked according to median fitness, with the fittest strain at the
     top. Spearman's Rho is 0.497 between competition \(b\) and
     logistic \(r\), and 0.635 between competition \(b\) and logistic
-    \(MDR\). \textit{his3\(\Delta\)} (bold) is a neutral deletion with
-    14 repeats.}
+    \(MDR\). \textbf{\textit{his3\(\Delta\)}} is a neutral deletion
+    with 14 repeats.}
   \label{fig:comp_vs_log_ranking}
 \end{Figure}
 
@@ -311,54 +311,58 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 % Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
 % calculate coefficient of variation (COV) of estimated r or MDR.
 
-I compared the precision of competition and logistic model fitness
-estimates using the coefficient of variation (COV) in \(r\) for
-repeats of each deletion (Figure~\ref{fig:COV}). N.B. COV of
-competition \(b\), \(r\), and \(MDR\) are equivalent. I chose to
-compare logistic \(r\), rather than \(MDR\), because both \(r\) and
-\(b\) are fundamental parameters: growth constants; \(MDR\) is
-dependent on initial conditions (see
-Equation~\ref{eq:MDR_MDP}a). Regardless, COVs for logistic \(r\) and
+Using coefficient of variation (COV), I compared the precision of
+competition and logistic model fitness estimates in repeats of each
+deletion (Figure~\ref{fig:COV}). COV of competition \(b\), \(r\), and
+\(MDR\) is equivalent. I chose to compare to logistic \(r\), rather
+than \(MDR\), because \(r\) and \(b\) are fixed properties of a
+strain, whereas \(MDR\) is dependent on initial conditions (see
+Equation~\ref{eq:MDR_MDP}a). This makes the former more useful for
+cross-plate comparison. Regardless, COVs for logistic \(r\) and
 \(MDR\) (not shown) are very similar.
+% The precision of fitness estimates is of interest both as a test of
+% the model and because it affects the power to infer genetic
+% interactions. If we assume that biological variation in fitness
+% between repeats of the same strain is small, then the better model
+% should estimate the fitness of strains more precisely, regardless of
+% where they grown on the plate.
+The competition model is more precise for 36 out of 50 deletions, but
+less precise for the 11 fastest growing (according to \(b\) ranking)
+strains. The precision of both estimates tends to decrease for slower
+growing strains.
+% which are more affected by noise. There are
+% exceptions such as \textit{png1}\(\Delta\) which might indicate an
+% error in the order of \(b\) ranking.
 
-% In Figure~\ref{fig:COV}, I compare coefficients of variation (COVs)
-% for competition model estimates of \(b\) and logistic model estimates
-% of \(r\) between repeats of each deletion on P15.
-I chose to compare \(b\) and \(r\), rather than \(b\) and \(MDR\),
-because both parameters represent growth constants. The precision of fitness estimates
-is of interest both as a test of the model and because it affects the
-power to infer genetic interactions. If we assume that biological
-variation in fitness between repeats of the same strain is small, then
-the better model should estimate the fitness of strains more
-precisely, regardless of where repeats are grown on the plate.
 
-Deletions in Figure~\ref{fig:COV} are arranged from left to right
-according to competition model \(b\) ranking, with the fastest growing
-deletion on the left. The competition model has a smaller COV for 36
-out of 50 deletions. However, the logistic model has a smaller COV for
-the 11 fastest growers (according to \(b\) ranking). Comparing with
-Figure~\ref{fig:P15_correlations}, median values for these deletions
-(red) appear in the upper right of both groups of cultures (black),
-not in the gap inbetween. \(b\) COV tends to be smaller than \(r\) COV
-at smaller values of \(b\), where repeats are likely to divided
-between the groups (as indicated by the positions of medians inbetween
-groups). The slowest growers tend to have greater COV for both models,
-which is likely due to the greater effect of noise on cell density
-estimates in repeats of these deletions.
+% Deletions in Figure~\ref{fig:COV} are arranged from left to right
+% according to competition model \(b\) ranking, with the fastest growing
+% deletion on the left.
+
+%  Comparing with Figure~\ref{fig:P15_correlations}, median
+% values for these deletions (red) appear in the upper right of both
+% groups of cultures (black), not in the gap inbetween.
+
+% \(b\) COV tends to be smaller than \(r\) COV at smaller values of
+% \(b\), where repeats are likely to divided between the groups (as
+% indicated by the positions of medians inbetween groups). The slowest
+% growers tend to have greater COV for both models, which is likely due
+% to the greater effect of noise on cell density estimates in repeats of
+% these deletions.
 
 \end{multicols}
 \graphicspath{{images/COV/}}
 \begin{Figure}
   \centering
   \includegraphics[width=\linewidth]{final/comp_b_log_r_median_rank_his3_bold}
-  \captionof{figure}{\textbf{Coefficients of variation (COVs) for
-      growth estimates from P15.} COVs are shown for competition model
-    \(b\) and logistic model \(r\) estimates for repeats of each
-    deletion. COVs of competition model \(b\) and \(r\) are equivalent
-    (see Section~\ref{sec:parameter_conversion}). Deletions are
-    ordered left to right along the horizontal axis from highest to
-    lowest competition model \(b\) ranking. Logistic fits used the QFA
-    R package.}
+  \captionof{figure}{\textbf{Coefficient of variation (COV) in P15
+      fitness estimates.} Shown for each deletion are COVs in
+    estimates of competition model \(b\) (blue) and logistic model
+    \(r\) (red). COV in competition model \(b\) and \(r\) are
+    equivalent so comparison is direct. Deletions are ordered left to
+    right from highest to lowest \(b\) estimate. Each deletion has 6
+    repeats, except for the neutral deletion
+    \textbf{\textit{his3\(\Delta\)}} which has 14.}
   \label{fig:COV}
 \end{Figure}
 \begin{multicols}{2}
