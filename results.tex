@@ -80,9 +80,9 @@ model.
   \captionof{table}{\textbf{Estimated parameters for the two best
       competition model fits to P15.} Spearman's rank correlation
     coefficient (\(\rho_{S}\)) between \(b\) estimates is 0.989. Mean
-    absolute deviation (MAD) between \(b\) estimates is 1.56. Obj.~is
-    the total objective function value for internal cultures (smaller
-    values are better).}
+    absolute deviation (MAD) between \(b\) estimates is 1.56. Mean
+    \(b\) for the best fit is 44.4. Obj.~is the total objective
+    function value for internal cultures (smaller values are better).}
   \begin{tabular}{l l l l l l}
     \hline
     Fit     & \(C(0)\)                    & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & Obj.\\
@@ -580,6 +580,32 @@ shown).
 % \end{Figure}
 % %\begin{multicols}{2}
 %\end{multicols}
+In the interest of developing a quick method for estimating parameters
+while avoiding local minima, I investigated how well culture level
+parameters can be recovered when plate level parameters are fixed. The
+idea is to evolve candidate sets of plate level parameters and
+evaluate by fitting data using a gradient method. If culture level
+parameters can be recovered reliably, we might not have to worry about
+confounding between plate and culture level parameters when evolving
+candidates. I took parameter estimates from the five best fits for
+P15, and simulated full plate cell timecoureses with 10 timepoints. I
+added a small amount of random noise to replicate real data. I then
+fixed plate level parameters to the true values and fit the
+competition model just for \(b\). I treated \(b\) differently because
+I knew the true values. I set bounds of \(0 < b < 200\) and used 11
+guesses of \(b\) evenly spaced in the range
+\(\frac{1}{2}\mu_{b} < b < \frac{3}{2}\mu_{b}\) where \(\mu_{b}\) is
+the mean true \(b\). These guesses were used in the imaginary
+neighbour model to determine 11 sets of initial parameters for the
+competition model for each simulation (11 fits to each simulation).
+Otherwise, I fit as for P15. \(b\) were recovered well even in the
+worst instance (Figure~\ref{fig:comp_fit_fixed_plate_level}). In all
+instances, estimates were less accurate for slow growing cultures
+which are more affected by noise. For some simulations different
+initial parameters all achieved a similar quality of fit. For others,
+however, certain guesses were much better, suggesting that multiple
+fits needed to be run for each candidate.
+
 \graphicspath{{images/genetic_algorithm/}}
 \begin{Figure}
   \centering
@@ -589,30 +615,12 @@ shown).
     timecourses from the best five competition model fits to p15,
     added a small amount of noise, and used a gradient method to
     recover b given the true plate level parameters. This plot shows
-    the worst correlation from the five sets of values.}
+    the worst recovery for the five sets of values.}
   \label{fig:comp_fit_fixed_plate_level}
 \end{Figure}
 
-% Due to the disagreement between competition model estimates for the
-% same plates, I was motivated to explore alternative strategies for
-% fitting that might return global minima.
-To test the viability of using a genetic algorithm to evolve
-plate-level parameter candidates to be evaluated using a gradient
-method, I took parameter estimates from the five best fits for P15,
-and simulated full plate timecoureses of cell observations with 15
-timepoints. I added a small amount of random noise to each timecourse
-to replicate real data. I then fixed the plate level parameters to the
-true values and fit the competition model just for
-\(b_{i}\). \(b_{i}\) were recovered well even in the worst instance
-(Figure~\ref{fig:comp_fit_fixed_plate_level}). Estimates are worse for
-slow growing cultures which are more affected by noise.
-
-
 % (Currently only have comp obj funs using different cultures (Stripes
 % obj fun 0.66) (Filled obj fun 0.76).)
-
-
-%\begin{multicols}{2}
 
 %%% Local Variables:
 %%% mode: latex
