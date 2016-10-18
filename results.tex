@@ -368,30 +368,7 @@ growing strains.
 \begin{multicols}{2}
 
 
-\end{multicols}
-\graphicspath{{images/stripes/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
-  \captionof{figure}{\textbf{Calibration and validation of the
-      competition model.} I fit the competition model to the 16x24
-    format ``Stripes'' and ``Filled'' plates
-    (Section~\ref{sec:stripes_description}). The plot shows cell
-    measurements and estimates for both plates for a 3x3 section with
-    top left coordinates (R9, C10). I took the parameters estimates
-    for the ``Filled'' plate (calibration) and set growth constants,
-    \(b_{i}\), to zero for cultures in the empty columns of the
-    ``Stripes'' plate. I then simulated using these parameters to
-    produce the dashed blue curve (validation). If the model corrects
-    for differences in growth between these experimental designs
-    perfectly, the dashed blue curves should resemble the ``Stripes''
-    data (blue crosses) in columns one and three. The logistic model
-    would predict no change in growth between plates.}
-  \label{fig:stripes_validation}
-\end{Figure}
-\begin{multicols}{2}
-
-  \subsubsection{Evaluating the treatment of boundaries}
+\subsubsection{Evaluating the treatment of boundaries}
 \label{sec:treatment_of_boundaries}
 
 To evaluate how I treat boundaries, I again fit the competition model
@@ -447,53 +424,66 @@ cultures to improve the overall fit.
 \subsection{Cross-plate validation}
 \label{sec:cross_plate_val_results}
 
-I used the Stripes and Filled plates experiment
-(Figure~\ref{fig:stripes_images}) to conduct cross plate calibration
-and validation of the competition model. As for P15
-(Section~\ref{sec:P15_fit}), I ran multiple fits of the competition
-model for each plate. Due to the greater number of timepoints in the
-data, I fit to cell densities at 15 evenly spaced timepoints taken
-from a spline of the observed data to increase the speed of fitting
-(see Section~\ref{sec:solving_comp}). I used a greater range of
-\(C(0)\) guesses than for P15: 10 values ranging from
-\(N(0)\times\)10\(^{-7}\) to \(N(0)\times\)10\(^{-1}\) in logspace. I
-made this decision due to the higher inoculum densities used in these
-plates and as a result of discussion with Herrmann and Lawless, who
-had suggested, based on recent work, that heterogeneity exists within
-individual cultures such that only a small number of cell lines
-contribute significantly to final populations. Again, each fit used
-the imaginary neighbour model to make initial guesses of \(b_{i}\)
-with 14 different initial \(b\) guesses for each \(C(0)\) guess
-(Section~\ref{sec:guessing_b}). This made a total of 140 fits to each
-plate. I guessed other parameters as described in
-Section~\ref{sec:initial_guess} and used separate parameters for the
-initial amount of nutrients in edge and internal cultures.
+\end{multicols}
+\graphicspath{{images/stripes/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
+  \captionof{figure}{\textbf{Cross-plate calibration and validation of
+      the competition model.} I fit the competition model to the 16x24
+    format ``Stripes'' and ``Filled'' plates
+    (Section~\ref{sec:stripes_description}). The plot shows measured
+    cells (crosses) and estimated cells (solid curves) from both
+    plates for a 3x3 section with top left coordinates (R9, C10). I
+    took the parameter estimates for the ``Filled'' plate
+    (calibration), and set growth constants to zero for cultures in
+    the empty columns of the ``Stripes'' plate (column two here). I
+    then simulated using these parameters to produce the validation
+    curves (dashed blue). If the competition model corrects for
+    differences in growth between these experimental designs
+    perfectly, the dashed blue curves should resemble the ``Stripes''
+    data (blue crosses) in columns one and three. The logistic model
+    predicts no difference between plates.}
+  \label{fig:stripes_validation}
+\end{Figure}
+\begin{multicols}{2}
 
-The experiment, described in detail in
-Section~\ref{sec:stripes_description}, is designed to test for
-competition effects.
-% Already mentioned - just refer to methods is needs be: I received
-% data from E. Holstein (April 2016) in personal communications.
-The strains in the Stripes plate (Figure~\ref{fig:stripes_images}a)
-are inoculated in the same positions on the Filled plate
-(Figure~\ref{fig:stripes_images}b). I took the competition model
-parameter estimates for the Filled plate and simulated the Stripes
-plate by setting \(b\) to zero for locations in the gaps on this
-plate. I compared the resulting timecourses with the Stripes cell
-observations (Figure~\ref{fig:stripes_validation}). If the competition
-model corrects for differences between the plates perfectly, then the
-simulated timecourses (blue dashes) should fit closely to the Stripes
-data (blue crosses). I found that the competition model overcorrects
-for competition; simulated cell densities are higher than observations
-across the plate. In contrast, the logistic model makes no adjustment
-between plates and would underestimate observed cell densities by a
-similar amount. There are some issues with the data set. For instance,
-the top right culture in Figure~\ref{fig:stripes_validation} does not
-grow and may have been inoculated with dead cells. However, these
-mistakes are unlikely to have caused the systematic overcorrection
-that is observed. Data for empty cultures on the Stripes plate (blue
-crosses, middle column) is just noise and I excluded these timecourses
-from the objective function when fitting.
+I conducted cross-plate calibration and validation of the
+competition model using the Stripes and Filled plates experiment.
+%
+The experiment, designed to exhibit competition, is described in
+detail in Section~\ref{sec:stripes_description}. As for P15, I ran
+multiple fits to each plate as described in
+Section~\ref{sec:fitting_comp}. This time I used a wider range of
+\(C(0)\) guesses: 10 values from \(N(0)\times\)10\(^{-7}\) to
+\(N(0)\times\)10\(^{-1}\) in logspace. I made this decision because of
+the higher inoculum densities in this experiment, and as a result of
+discussion with Herrmann and Lawless, who had suggested, based on
+recent work, that heterogeneity exists within individual cultures such
+that only a small number of cell lines contribute significantly to
+final populations. Strains in the Stripes plate are inoculated in the
+same locations on the Filled plate, and empty locations on the Stripes
+plate are inoculated with extra strains on the Filled plate. When
+fitting, I ignored data for empty cultures which is just noise. I took
+the estimated parameters for the Filled plate and simulated the
+Stripes plate by setting \(b\) to zero for empty locations. The
+simulated timecourses can be compared with the Stripes cell
+observations to validate the competition model
+(Figure~\ref{fig:stripes_validation}); if the model corrects perfectly
+for differences between the plates, then simulated timecourses (blue
+dashes) should fit closely to Stripes data (blue crosses). I found
+that the competition model overcorrects for competition: simulated
+cell densities are higher than observations across the plate. In
+contrast, the logistic model makes no adjustment between plates and
+systematically underestimates observed cell densities by a similar
+margin.
+
+% Good to mention here as not an important point for the discussion.
+There are some issues with the experiment. For instance, the top right
+culture in Figure~\ref{fig:stripes_validation} does not grow and may
+have been inoculated with dead cells. Nevertheless, these mistakes are
+unlikely to have caused the systematic overcorrection that is observed
+across the plate.
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
