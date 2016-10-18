@@ -9,7 +9,7 @@
   \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
   \captionof{figure}{\textbf{Fit of the competition model to P15.}
     Data are for a 16x24 format plate (P15) with background mutation
-nn    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
     6 repeats of 50 genetic strains arranged randomly across internal
     cultures. The outer two rows and columns have been removed from
     the image to better fit the page. Model output for state variable,
@@ -485,11 +485,32 @@ have been inoculated with dead cells. Nevertheless, these mistakes are
 unlikely to have caused the systematic overcorrection that is observed
 across the plate.
 
+% Estimated parameters for the best competition model fit to both plates
+% are shown in Table~\ref{tab:Stripes_and_Filled_params}.
+I looked more closely at estimated parameters to investigate why the
+validation curves are overcorrections
+(Table~\ref{tab:Stripes_and_Filled_params}). All parameters disagreed
+significantly between plates. In particular, \(k\) varies greatly and
+is much higher for the Filled plate. Both plates used the same
+inoculum density and formula of agar so I did not expect plate level
+parameters to differ so much. The average \(b\) estimate was
+significantly higher for the Stripes plate. Estimates of \(C(0)\)
+differed the least. In summary, the Stripes solution has faster
+growing cultures, fewer starting nutrients, and slower diffusion.
+% I should really calculate the objective function for internal
+% cultures and remove the empties for the stripes plate. It is
+% probably best to look at just the cultures in common. Should
+% probably also normalise by cell density measurement (at each point?)
+% because stripes values are all higher.
+Despite these differences, both solutions fit data with similar
+closeness.
+
+
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
-      two competition model fits to P15.} Spearman's rank correlation
-    coefficient (\(\rho_{s}\)) for \(b\) estimates of the cultures in
-    common is 0.787.}
+      fit to the Stripes and Filled plates.} The mean \(b\) is taken
+    only for common cultures. Spearman's rank correlation coefficient
+    for \(b\) estimates between these cultures is 0.787.}
   \begin{tabular}{l l l l l l}
     \hline
     Plate     & \(C(0)\)                   & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & \(b\) (mean)\\
@@ -501,19 +522,13 @@ across the plate.
   \label{tab:Stripes_and_Filled_params}
 \end{center}
 
-The inferred parameters for the best competition model fits to both
-plates are shown in Table~\ref{tab:Stripes_and_Filled_params}. Both
-plates used the same inoculum density and formula of agar so I did not
-expect plate level parameters to vary between plates. However, there
-is significant disagreement in all parameters, indicating that the
-competition model is not working correctly. There was also more
-disagreement in the top fits for each plate than was the case for P15,
-which used a lower inoculum density. Estimates for the five best fits
-to the Filled plate (Table~\ref{tab:Stripes_and_Filled_params}) are
-only consistent for initial nutrient densities. Despite this, they all
-overestimated growth when used to simulate the Stripes
-plate. Disagreement between the best estimates was worse still for the
-Stripes plate (not shown).
+There was also more disagreement in the top fits for each plate than
+was the case for P15, which used a lower inoculum density. Estimates
+for the five best fits to the Filled plate
+(Table~\ref{tab:Stripes_and_Filled_params}) are only consistent for
+initial nutrient densities. Despite this, they all overestimated
+growth when used to simulate the Stripes plate. Disagreement between
+the best estimates was worse still for the Stripes plate (not shown).
 
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
@@ -536,44 +551,7 @@ Stripes plate (not shown).
   \end{tabular}
   \label{tab:Filled_best_fits}
 \end{center}
-% \begin{center}
-%   \captionof{table}{\textbf{Parameter bounds.} Used for fitting the
-%     competition model to P15 and the Stripes and Filled plates. Bounds
-%     on \(N(0)\) were applied to both \(N^{I}(0)\) and
-%     \(N^{E}(0)\) for internal and edge cultures. ``guess'' refers
-%     to the initial guess (see Section~\ref{sec:initial_guess}).}
-%   \begin{tabular}{| c | c c |}
-%     \hline
-%     Parameter        & Stripes  & Filled \\
-%     \hline
-%     Spearman's \(C(0)\)     & guess x \(10^{-3}\)  & guess x \(10^{3}\)\\
-%     \(N(0)\)     & guess / \(2\)  & guess x \(2\)\\
-%     % \(N^{I}(0)\) \& \(N^{E}(0)\) & guess / \(2\)  & guess x \(2\)\\\\
-%     \(k\)        & 0.0    & 10.0\\
-%     % \(b\) (all cultures)           & 0.0    & \(\infty\) \\
-%     \(b\)           & 0.0    & None \\
-%     \hline
-%   \end{tabular}
-%   \label{tab:stipes_agreements}
-% \end{center}
-% \graphicspath{{images/stripes/}}
-% \begin{Figure}
-%   \centering
-%   \includegraphics[width=\linewidth]{final/r_correlations_between_plates_A}
-%   \includegraphics[width=\linewidth]{final/r_correlations_between_models_B_colours_2}
-%   \captionof{figure}{\textbf{Correlation of r estimates for
-%       ``Stripes'' and ``Filled'' plates.}~A) Correlation of r
-%     estimates between plates for logistic and competition
-%     models. B) Correlation of r estimates between logistic and
-%     competition models for both plates.  I fit the competition model
-%     and independent model to the ``Stripes'' and ``Filled'' plates in
-%     Figure~\ref{fig:stripes_images}. I converted competition model b
-%     to logistic model r. I only used data for cultures that were
-%     common between the two plates common and removed edge
-%     cultures. Pearson correlation coefficients, \(\rho\), are shown
-%     in the legends. The line \(y=x\) is also plotted.}
-%   \label{fig:r_correlations_v2}
-% \end{Figure}
+
 % \graphicspath{{images/stripes/correlations/}}
 % \begin{Figure}
 %   \centering
