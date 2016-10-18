@@ -588,23 +588,23 @@ evaluate by fitting data using a gradient method. If culture level
 parameters can be recovered reliably, we might not have to worry about
 confounding between plate and culture level parameters when evolving
 candidates. I took parameter estimates from the five best fits for
-P15, and simulated full plate cell timecoureses with 10 timepoints. I
-added a small amount of random noise to replicate real data. I then
+P15, and simulated full plate timecoureses at the observed times. I
+added a small amount of random noise to imitate real data. I then
 fixed plate level parameters to the true values and fit the
-competition model just for \(b\). I treated \(b\) differently because
-I knew the true values. I set bounds of \(0 < b < 200\) and used 11
-guesses of \(b\) evenly spaced in the range
+competition model just for \(b\). I set bounds of \(0 < b < 200\) and
+used 11 evenly spaced guesses of \(b\) in the range
 \(\frac{1}{2}\mu_{b} < b < \frac{3}{2}\mu_{b}\) where \(\mu_{b}\) is
 the mean true \(b\). These guesses were used in the imaginary
-neighbour model to determine 11 sets of initial parameters for the
-competition model for each simulation (11 fits to each simulation).
-Otherwise, I fit as for P15. \(b\) were recovered well even in the
-worst instance (Figure~\ref{fig:comp_fit_fixed_plate_level}). In all
-instances, estimates were less accurate for slow growing cultures
-which are more affected by noise. For some simulations different
-initial parameters all achieved a similar quality of fit. For others,
-however, certain guesses were much better, suggesting that multiple
-fits needed to be run for each candidate.
+neighbour model to generate 11 sets of initial parameters for the
+competition model for each simulation (Section~\ref{sec:guessing_b}).
+Otherwise, I fit as for P15 (Section~\ref{sec:fitting_comp}). \(b\)
+were recovered well even in the worst instance
+(Figure~\ref{fig:comp_fit_fixed_plate_level}). In all instances,
+estimates were less accurate for slow growing cultures which are more
+affected by noise. For some simulations, different initial parameter
+sets all achieved a similar quality of fit. For others, however,
+certain guesses were much better, suggesting that multiple fits need
+to be run for each candidate.
 
 \graphicspath{{images/genetic_algorithm/}}
 \begin{Figure}
