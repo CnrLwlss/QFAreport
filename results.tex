@@ -431,38 +431,39 @@ cultures to improve the overall fit.
   \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
   \captionof{figure}{\textbf{Cross-plate calibration and validation of
       the competition model.} I fit the competition model to the 16x24
-    format ``Stripes'' and ``Filled'' plates
+    format Stripes and Filled plates
     (Section~\ref{sec:stripes_description}). The plot shows measured
     cells (crosses) and estimated cells (solid curves) from both
     plates for a 3x3 section with top left coordinates (R9, C10). I
-    took the parameter estimates for the ``Filled'' plate
-    (calibration), and set growth constants to zero for cultures in
-    the empty columns of the ``Stripes'' plate (column two here). I
-    then simulated using these parameters to produce the validation
-    curves (dashed blue). If the competition model corrects for
-    differences in growth between these experimental designs
-    perfectly, the dashed blue curves should resemble the ``Stripes''
-    data (blue crosses) in columns one and three. The logistic model
-    predicts no difference between plates.}
+    took the parameter estimates for the Filled plate (calibration),
+    and set growth constants to zero for cultures in the empty columns
+    of the Stripes plate (column two here). I then simulated using
+    these parameters to produce the validation curves (dashed
+    blue). If the competition model corrects for differences in growth
+    between these experimental designs perfectly, the dashed blue
+    curves should resemble the Stripes data (blue crosses) in columns
+    one and three. The logistic model predicts no difference between
+    plates.}
   \label{fig:stripes_validation}
 \end{Figure}
 \begin{multicols}{2}
 
 I conducted cross-plate calibration and validation of the
-competition model using the Stripes and Filled plates experiment.
+competition model using the Stripes and Filled plates experiment,
+which is described in detail in
+Section~\ref{sec:stripes_description}.
 %
-The experiment, designed to exhibit competition, is described in
-detail in Section~\ref{sec:stripes_description}. As for P15, I ran
-multiple fits to each plate as described in
-Section~\ref{sec:fitting_comp}. This time I used a wider range of
-\(C(0)\) guesses: 10 values from \(N(0)\times\)10\(^{-7}\) to
-\(N(0)\times\)10\(^{-1}\) in logspace. I made this decision because of
-the higher inoculum densities in this experiment, and as a result of
-discussion with Herrmann and Lawless, who had suggested, based on
-recent work, that heterogeneity exists within individual cultures such
-that only a small number of cell lines contribute significantly to
-final populations. Strains in the Stripes plate are inoculated in the
-same locations on the Filled plate, and empty locations on the Stripes
+As for P15, I ran multiple fits to each plate (see
+Section~\ref{sec:fitting_comp}). This time I used a wider range of
+\(C(0)\) guesses: 10 values over
+\(N(0)\times\)10\(^{-7} < C(0) < N(0)\times\)10\(^{-1}\) in
+logspace. I made this decision because of the higher inoculum
+densities in this experiment, and as a result of discussion with
+Herrmann and Lawless, who had suggested, based on recent work, that
+heterogeneity exists within individual cultures such that only a small
+number of cell lines contribute significantly to final
+populations. Strains in the Stripes plate are inoculated in the same
+locations on the Filled plate, and empty locations on the Stripes
 plate are inoculated with extra strains on the Filled plate. When
 fitting, I ignored data for empty cultures which is just noise. I took
 the estimated parameters for the Filled plate and simulated the
@@ -472,40 +473,35 @@ observations to validate the competition model
 (Figure~\ref{fig:stripes_validation}); if the model corrects perfectly
 for differences between the plates, then simulated timecourses (blue
 dashes) should fit closely to Stripes data (blue crosses). I found
-that the competition model overcorrects for competition: simulated
-cell densities are higher than observations across the plate. In
-contrast, the logistic model makes no adjustment between plates and
-systematically underestimates observed cell densities by a similar
-margin.
-
+that the competition model overcorrects: simulated cell densities are
+higher than observations across the plate. In contrast, the logistic
+model makes no adjustment between plates and systematically
+underestimates observed cell densities by a similar margin.
 % Good to mention here as not an important point for the discussion.
 There are some issues with the experiment. For instance, the top right
-culture in Figure~\ref{fig:stripes_validation} does not grow and may
+culture in Figure~\ref{fig:stripes_validation} does not grow and might
 have been inoculated with dead cells. Nevertheless, these mistakes are
-unlikely to have caused the systematic overcorrection that is observed
-across the plate.
+unlikely to explain the systematic overestimation that is observed.
 
 % Estimated parameters for the best competition model fit to both plates
 % are shown in Table~\ref{tab:Stripes_and_Filled_params}.
 I looked more closely at estimated parameters to investigate why the
-validation curves are overcorrections
+validation curves disagree with data
 (Table~\ref{tab:Stripes_and_Filled_params}). All parameters disagreed
-significantly between plates. In particular, \(k\) varies greatly and
-is much higher for the Filled plate. Both plates used the same
-inoculum density and formula of agar so I did not expect plate level
-parameters to differ so much. The average \(b\) estimate was
-significantly higher for the Stripes plate. Estimates of \(C(0)\)
-differed the least. In summary, the Stripes solution has faster
-growing cultures, fewer starting nutrients, and slower diffusion.
+significantly between plates. Both plates used the same inoculum
+density and formula of agar so I did not expect plate level parameters
+to differ so much. In particular, \(k\) is much higher for the Filled
+plate. Estimates of \(C(0)\) differed the least. The average \(b\)
+estimate among common cultures was significantly higher for the
+Stripes plate. In summary, the Stripes solution has faster growing
+cultures, fewer starting nutrients, and slower diffusion.
 % I should really calculate the objective function for internal
 % cultures and remove the empties for the stripes plate. It is
 % probably best to look at just the cultures in common. Should
 % probably also normalise by cell density measurement (at each point?)
 % because stripes values are all higher.
-Despite these differences, both solutions fit data with similar
+Despite these differences, both solutions fit their data with similar
 closeness.
-
-
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       fit to the Stripes and Filled plates.} The mean \(b\) is taken
@@ -522,22 +518,23 @@ closeness.
   \label{tab:Stripes_and_Filled_params}
 \end{center}
 
-There was also more disagreement in the top fits for each plate than
-was the case for P15, which used a lower inoculum density. Estimates
-for the five best fits to the Filled plate
-(Table~\ref{tab:Stripes_and_Filled_params}) are only consistent for
-initial nutrient densities. Despite this, they all overestimated
-growth when used to simulate the Stripes plate. Disagreement between
-the best estimates was worse still for the Stripes plate (not shown).
-
+When examining fits to the same plate, agreement between parameter
+estimates is poor compared to P15. The five best fits to the Filled
+plate are only consistent for initial nutrient densities
+(Table~\ref{tab:Stripes_and_Filled_params}). Despite this, all
+solutions overestimate growth when used to simulate the Stripes
+plate. Disagreement is greater still for the Stripes plate (not
+shown).
+% Discusion: Further from a global minimum. Main difference is the
+% higher starting cell density.
 \begin{center}
   \captionof{table}{\textbf{Estimated parameter values for the best
       five competition model fits to the Filled plate.} Estimates are
-    ordered by objective function values (Obj.) of the fits where
-    lower values are better. The column MAD \(b\) is the mean absolute
-    deviation of growth constants \(b_{i}\) with those of the best fit
-    (row one). Mean \(b\) for the best fit was 27.9. Spearman's
-    \(\rho_{S}\) > 0.96 for all correlations of these fits.}
+    ordered by whole-plate objective function value (Obj.). Lower
+    values are better. Mean Absolute Deviation (MAD) in \(b\)
+    estimates is calculated against the best fit for which
+    \(\mu_{b} = 27.9\). Spearman's Rho in \(b\) estimates is greater
+    than 0.96 for all combinations of these fits.}
   \begin{tabular}{l l l l l l}
     \hline
     Obj.  & \(C(0)\)                  & \(N_{I}(0)\) & \(N_{E}(0)\) & \(k\) & MAD \(b\)\\
@@ -588,12 +585,11 @@ the best estimates was worse still for the Stripes plate (not shown).
   \centering
   \includegraphics[width=\linewidth]{final/est_b_vs_true_b}
   \captionof{figure}{\textbf{Recovery of true \(b\) values from a
-      gradient fit to simulated date using fixed plate level
-      parameters.} I simulated timecourses from the best five
-    competition model fits to p15, added a small amount of noise, and
-    used a gradient method to recover b given the true plate level
-    parameters. This plot shows the worst case from the five sets of
-    values.}
+      gradient fit with fixed plate level parameters.} I simulated
+    timecourses from the best five competition model fits to p15,
+    added a small amount of noise, and used a gradient method to
+    recover b given the true plate level parameters. This plot shows
+    the worst correlation from the five sets of values.}
   \label{fig:comp_fit_fixed_plate_level}
 \end{Figure}
 
