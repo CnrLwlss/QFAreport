@@ -596,15 +596,17 @@ used 11 evenly spaced guesses of \(b\) in the range
 \(\frac{1}{2}\mu_{b} < b < \frac{3}{2}\mu_{b}\) where \(\mu_{b}\) is
 the mean true \(b\). These guesses were used in the imaginary
 neighbour model to generate 11 sets of initial parameters for the
-competition model for each simulation (Section~\ref{sec:guessing_b}).
-Otherwise, I fit as for P15 (Section~\ref{sec:fitting_comp}). \(b\)
-were recovered well even in the worst instance
-(Figure~\ref{fig:comp_fit_fixed_plate_level}). In all instances,
-estimates were less accurate for slow growing cultures which are more
-affected by noise. For some simulations, different initial parameter
-sets all achieved a similar quality of fit. For others, however,
-certain guesses were much better, suggesting that multiple fits need
-to be run for each candidate.
+competition model for each simulation
+(Section~\ref{sec:guessing_b}). I solved using SciPy's
+integrate.odeint, as I had not yet developed code to solve using
+libRoadRunner. Otherwise, I fit as for P15
+(Section~\ref{sec:fitting_comp}). \(b\) were recovered well even in
+the worst instance (Figure~\ref{fig:comp_fit_fixed_plate_level}). In
+all instances, estimates were less accurate for slow growing cultures
+which are more affected by noise. For some simulations, different
+initial parameter sets all achieved a similar quality of fit. For
+others, however, certain guesses were much better, suggesting that
+multiple fits need to be run for each candidate.
 
 \graphicspath{{images/genetic_algorithm/}}
 \begin{Figure}
