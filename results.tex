@@ -1,27 +1,5 @@
 \graphicspath{{images/}}
 
-% Make landscape and take a whole page.
-\end{multicols}
-\begin{landscape}
-\graphicspath{{images/comp_fit/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
-  \captionof{figure}{\textbf{Fit of the competition model to P15.}
-    Data are for a 16x24 format plate (P15) with background mutation
-    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
-    6 repeats of 50 genetic strains arranged randomly across internal
-    cultures. The outer two rows and columns have been removed from
-    the image to better fit the page. Model output for state variable,
-    cell population size (blue curve), is fit to observed data (black
-    crosses). Model predictions for unobserved variable (nutrient
-    amount) are also plotted (yellow). The boxed zone is plotted at a
-    larger size in Figure~\ref{fig:P15_zone_fit}.}
-  \label{fig:comp_fit_plate}
-\end{Figure}
-\end{landscape}
-\begin{multicols}{2}
-
 \section{Results}
 \label{sec:results}
 
@@ -102,21 +80,6 @@ model.
 % 13.29. Despite not finding a global minimum, the best competition
 % model estimates of \(b_{i}\) agree well enough with each to allow
 % meaningful comparison with logistic model parameter estimates.
-\graphicspath{{images/p15_fits/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun_2}
-  \captionof{figure}{\textbf{A 3x3 zone of P15 showing fits of the
-      competition and logistic models}. The zone has top-left
-    coordinates (5, 18) and is boxed in red in
-    Figure~\ref{fig:comp_fit_plate}. This is a zoom on a whole plate
-    fit, not just a fit to the zone. Fits are for the competition
-    model (blue and yellow solid); logistic model (solid red), and
-    initial guess (blue and yellow dashed). Objective function values
-    (Obj.), scaled by \(10^{4}\), are displayed for each culture
-    (smaller values are better).}
-  \label{fig:P15_zone_fit}
-\end{Figure}
 
 The boxed 3x3 zone in Figure~\ref{fig:comp_fit_plate} is replotted in
 Figure~\ref{fig:P15_zone_fit} with fits of the competition model
@@ -140,6 +103,45 @@ Table~\ref{tab:P15_obj_fun}). Recall that only internal objective
 function values are used to assess the fit. Overall, the competition
 model performed well considering that it used far fewer parameters
 (387 vs 1152).
+
+\graphicspath{{images/p15_fits/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/zone_r5_c18_with_obj_fun_2}
+  \captionof{figure}{\textbf{A 3x3 zone of P15 showing fits of the
+      competition and logistic models}. The zone has top-left
+    coordinates (5, 18) and is boxed in red in
+    Figure~\ref{fig:comp_fit_plate}. This is a zoom on a whole plate
+    fit, not just a fit to the zone. Fits are for the competition
+    model (blue and yellow solid); logistic model (solid red), and
+    initial guess (blue and yellow dashed). Objective function values
+    (Obj.), scaled by \(10^{4}\), are displayed for each culture
+    (smaller values are better).}
+  \label{fig:P15_zone_fit}
+\end{Figure}
+
+% Make landscape and take a whole page.
+\end{multicols}
+\begin{landscape}
+\graphicspath{{images/comp_fit/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{full_plate/final/P15_12x20_2}
+  \captionof{figure}{\textbf{Fit of the competition model to P15.}
+    Data are for a 16x24 format plate (P15) with background mutation
+    \textit{cdc13-1} incubated at 27\(^{\circ}C\). The plate contains
+    6 repeats of 50 genetic strains arranged randomly across internal
+    cultures. The outer two rows and columns have been removed from
+    the image to better fit the page. Model output for state variable,
+    cell population size (blue curve), is fit to observed data (black
+    crosses). Model predictions for unobserved variable (nutrient
+    amount) are also plotted (yellow). The boxed zone is plotted at a
+    larger size in Figure~\ref{fig:P15_zone_fit}.}
+  \label{fig:comp_fit_plate}
+\end{Figure}
+\end{landscape}
+\begin{multicols}{2}
+
 \begin{center}
   \captionof{table}{\textbf{Objective function values for competition
       and logistic model fits to P15.} ``Internal'' is the total
@@ -185,16 +187,6 @@ outliers with very high logistic \(r\) are the deletions
 escaped heuristic checks and exhibit a confounding effect between
 \(r\) and \(K\).
 
-In the distribution of medians (red), most deletions fall inside the
-denser group of cultures with lower logistic \(r\). Several deletions,
-with high competition model \(r\), fall inside the second group
-(top-right). A significant number of deletions, however, lie in the
-region between the two groups, meaning that repeats of these cultures
-are split between groups. This may also be true for other
-deletions. Correlation, measured by Spearman's rank correlation
-coefficient, \(\rho_{S}\), is lower between medians (0.497) than
-between cultures (0.731).
-
 \graphicspath{{images/p15_correlations/}}
 \begin{Figure}
   \centering
@@ -207,6 +199,16 @@ between cultures (0.731).
     line y = x is also plotted.}
   \label{fig:P15_correlations}
 \end{Figure}
+
+In the distribution of medians (red), most deletions fall inside the
+denser group of cultures with lower logistic \(r\). Several deletions,
+with high competition model \(r\), fall inside the second group
+(top-right). A significant number of deletions, however, lie in the
+region between the two groups, meaning that repeats of these cultures
+are split between groups. This may also be true for other
+deletions. Correlation, measured by Spearman's rank correlation
+coefficient, \(\rho_{S}\), is lower between medians (0.497) than
+between cultures (0.731).
 
 \subsubsection{Comparison of fitness rankings}
 
@@ -304,9 +306,27 @@ deletion, \textit{his3\(\Delta\)} (bold), disagree by 13 places.
 %   \label{fig:comp_b_ranking}
 % \end{Figure}
 
+\newpage
 
 \subsubsection{Precision of fitness estimates}
 \label{sec:cross_plate_validation}
+
+\end{multicols}
+\graphicspath{{images/COV/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/comp_b_log_r_median_rank_his3_bold}
+  \captionof{figure}{\textbf{Coefficient of variation (COV) in P15
+      fitness estimates.} Shown for each deletion are COVs in
+    estimates of competition model \(b\) (blue) and logistic model
+    \(r\) (red). COV in competition model \(b\) and \(r\) are
+    equivalent so comparison is direct. Deletions are ordered left to
+    right from highest to lowest \(b\) estimate. Each deletion has 6
+    repeats, except for the neutral deletion
+    \textbf{\textit{his3\(\Delta\)}} which has 14.}
+  \label{fig:COV}
+\end{Figure}
+\begin{multicols}{2}
 
 % Use repeats on plate 15 (6 per deletion) more (14) for HIS3 to
 % calculate coefficient of variation (COV) of estimated r or MDR.
@@ -350,24 +370,6 @@ growing strains.
 % to the greater effect of noise on cell density estimates in repeats of
 % these deletions.
 
-\end{multicols}
-\graphicspath{{images/COV/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/comp_b_log_r_median_rank_his3_bold}
-  \captionof{figure}{\textbf{Coefficient of variation (COV) in P15
-      fitness estimates.} Shown for each deletion are COVs in
-    estimates of competition model \(b\) (blue) and logistic model
-    \(r\) (red). COV in competition model \(b\) and \(r\) are
-    equivalent so comparison is direct. Deletions are ordered left to
-    right from highest to lowest \(b\) estimate. Each deletion has 6
-    repeats, except for the neutral deletion
-    \textbf{\textit{his3\(\Delta\)}} which has 14.}
-  \label{fig:COV}
-\end{Figure}
-\begin{multicols}{2}
-
-
 \subsubsection{Evaluating the treatment of boundaries}
 \label{sec:treatment_of_boundaries}
 
@@ -398,7 +400,6 @@ cultures to improve the overall fit.
   \label{fig:P15_corner}
 \end{Figure}
 
-
 \begin{center}
   \captionof{table}{\textbf{Average objective function values for one
       and two \(\bm{N(0)}\) parameter competition models fit to P15.}
@@ -420,33 +421,8 @@ cultures to improve the overall fit.
   \label{tab:corner}
 \end{center}
 
-
 \subsection{Cross-plate validation}
 \label{sec:cross_plate_val_results}
-
-\end{multicols}
-\graphicspath{{images/stripes/}}
-\begin{Figure}
-  \centering
-  \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
-  \captionof{figure}{\textbf{Cross-plate calibration and validation of
-      the competition model.} I fit the competition model to the 16x24
-    format Stripes and Filled plates
-    (Section~\ref{sec:stripes_description}). The plot shows measured
-    cells (crosses) and estimated cells (solid curves) from both
-    plates for a 3x3 section with top left coordinates (R9, C10). I
-    took the parameter estimates for the Filled plate (calibration),
-    and set growth constants to zero for cultures in the empty columns
-    of the Stripes plate (column two here). I then simulated using
-    these parameters to produce the validation curves (dashed
-    blue). If the competition model corrects for differences in growth
-    between these experimental designs perfectly, the dashed blue
-    curves should resemble the Stripes data (blue crosses) in columns
-    one and three. The logistic model predicts no difference between
-    plates.}
-  \label{fig:stripes_validation}
-\end{Figure}
-\begin{multicols}{2}
 
 I conducted cross-plate calibration and validation of the
 competition model using the Stripes and Filled plates experiment,
@@ -482,6 +458,30 @@ There are some issues with the experiment. For instance, the top right
 culture in Figure~\ref{fig:stripes_validation} does not grow and might
 have been inoculated with dead cells. Nevertheless, these mistakes are
 unlikely to explain the systematic overestimation that is observed.
+
+\end{multicols}
+\graphicspath{{images/stripes/}}
+\begin{Figure}
+  \centering
+  \includegraphics[width=\linewidth]{final/validation_r9_c10_no_nutrients}
+  \captionof{figure}{\textbf{Cross-plate calibration and validation of
+      the competition model.} I fit the competition model to the 16x24
+    format Stripes and Filled plates
+    (Section~\ref{sec:stripes_description}). The plot shows measured
+    cells (crosses) and estimated cells (solid curves) from both
+    plates for a 3x3 section with top left coordinates (R9, C10). I
+    took the parameter estimates for the Filled plate (calibration),
+    and set growth constants to zero for cultures in the empty columns
+    of the Stripes plate (column two here). I then simulated using
+    these parameters to produce the validation curves (dashed
+    blue). If the competition model corrects for differences in growth
+    between these experimental designs perfectly, the dashed blue
+    curves should resemble the Stripes data (blue crosses) in columns
+    one and three. The logistic model predicts no difference between
+    plates.}
+  \label{fig:stripes_validation}
+\end{Figure}
+\begin{multicols}{2}
 
 % Estimated parameters for the best competition model fit to both plates
 % are shown in Table~\ref{tab:Stripes_and_Filled_params}.
@@ -519,10 +519,10 @@ closeness.
 \end{center}
 
 When examining fits to the same plate, agreement between parameter
-estimates is poor compared to P15. The five best fits to the Filled
+estimates is poor compared to P15; the five best fits to the Filled
 plate are only consistent for initial nutrient densities
-(Table~\ref{tab:Stripes_and_Filled_params}). Despite this, all
-solutions overestimate growth when used to simulate the Stripes
+(Table~\ref{tab:Filled_best_fits}). Despite this, all solutions
+overestimate growth when used to simulate the Stripes
 plate. Disagreement is greater still for the Stripes plate (not
 shown).
 % Discusion: Further from a global minimum. Main difference is the
