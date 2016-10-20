@@ -3,6 +3,92 @@
 \section{Discussion}
 \label{sec:discussion}
 
+Over a whole plate, the competition model fit P15 with similar
+closeness as the logistic model, and with greater closeness in the 3x3
+zone studied (Figure~\ref{fig:comp_fit_plate} and
+\ref{fig:P15_zone_fit}). This is despite using a 387 rather than
+parameters, and having to include noisy edge cultures in the fit.
+
+On average, the competition model fit internal cultures less closely
+than the logistic model: objective function value was 0.194 vs 0.155
+(Table~\ref{tab:P15_obj_fun}).
+
+However, for the two fastest growing cultures in a 3x3 zone studied in
+more detail, the competition model fit far more closely and logistic
+model objective function values were particularly high
+(Figure~\ref{fig:P15_zone_fit}). I am yet to determine whether this
+trend carries across the plate. If it does the experiment will have
+favoured the logistic model because slow growing cultures outnumber
+fast growing cultures on the plate.
+
+Why might the logistic model fit better to slow growing cultures? P15
+used a low inoculum density so slow growing cultures were dominated by
+noise. Whereas the competition model fit all cultures collectively,
+the logistic model fit all cultures independently and had three
+degrees of freedom rather than one to fit each culture. (three culture
+level parameters vs one). (Noise from slow growing cultures will also
+have affected competition model estimates for fast growing cultures
+through plate level parameters and neighbour interactions.)
+
+In most regions on the plate there is little competition.
+
+
+noise dominated and more parameters
+
+less competition for most zones
+
+overall effect of noise dominated on comp collective fit
+
+
+Slow growing cultures are dominated by noise and
+outnumber fast growing cultures on the plate so if it does
+(Figure~\ref{fig:comp_fit_plate}.
+
+
+
+
+Nevertheless, in a 3x3 zone with larger than average differences in
+culture growth rate, the competition model fits data more closely on
+average, and fits much more closely for the two fast growing cultures
+where logistic model objective function values are particularly high
+(Figure~\ref{fig:P15_zone_fit}). I am yet to determine whether this
+trend carries across the plate.
+
+but because
+
+Slow growing cultures are dominated by noise and
+outnumber fast growing cultures on the plate so if it does
+(Figure~\ref{fig:comp_fit_plate}.
+
+
+The log uses more params than the comp
+(also discards noisy edges)
+in these circumstances it cannot outperform comp.
+
+Nevertheless, in a 3x3 zone studied the
+compeitition model
+
+
+fit data more closely: objective function value was
+44.06 vs 68.38 \ref{fig:P15_zone_fit}).
+
+
+This performance is good when considering that the competition model
+achieved this using a 387 rather than 1552 parameters, and had to
+include noisy edge cultures in the fit
+
+This difference is small
+
+Over internal cultures, the competition model fit P15 slightly worse
+than the similar closeness as the logistic model, and with greater
+closeness in the 3x3 zone studied (Figure~\ref{fig:comp_fit_plate} and
+\ref{fig:P15_zone_fit}). This is despite using a 387 rather than
+parameters, and having to include noisy edge cultures in the fit. In
+particular, the competition model provided a much closer fit to data
+for the fastest growing cultures in Figure~\ref{fig:P15_zone_fit}.
+
+
+
 Fits of the competition model (Figures~\ref{fig:comp_fit_plate} and
 \ref{fig:P15_zone_fit}) use less parameters than fits of either the
 logistic or generalised logistic model from the QFA R package
