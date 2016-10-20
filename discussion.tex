@@ -9,32 +9,37 @@
 % \ref{fig:P15_zone_fit}). This is despite using a 387 rather than
 % parameters, and having to include noisy edge cultures in the fit.
 
-On average, the competition model fit internal cultures of P15 less
-closely than the logistic model: objective function value was 0.194 vs
-0.155 (Table~\ref{tab:P15_obj_fun}). However, for the two fastest
-growing cultures in a 3x3 zone studied in more detail, the competition
-model fit far more closely and logistic model objective function
-values were particularly high (Figure~\ref{fig:P15_zone_fit}). I am
-yet to determine whether this trend carries across the plate. If it
-does the experiment will have favoured the logistic model because slow
-growing cultures outnumber fast growing cultures on the plate. The
-worse performance of the competition model for slow growing cultures
-might be explained.
-% by noise in data and differences in parameter numbers.
-P15 used a low inoculum density meaning that slow growing cultures
-were dominated by noise. Whereas the competition model fit all
-cultures collectively with only one culture level parameter, the
-logistic model fit all cultures independently with three culture level
-parameters. It is not surprising then that the independent model could
-fit the noise dominated cultures better. Because these fits were
-dominated by noise, estimated parameters might be less accurate
-despite the closer fit. It is worth noting that noise from slow
-growing cultures will also have affected competition model estimates
-for fast growing cultures through plate level parameters and neighbour
-interactions.
+On average, the competition model fit internal cultures of P15 worse
+than the logistic model: objective function value was 0.194 vs 0.155
+(Table~\ref{tab:P15_obj_fun}). However, for the two fastest growing
+cultures in a 3x3 zone studied in more detail, the competition model
+fit much better and logistic model objective function values were
+particularly high (Figure~\ref{fig:P15_zone_fit}). I am yet to confirm
+that this trend carries across the plate. If it does then the
+experiment might have favoured the logistic model because slow growing
+cultures outnumbered fast growing cultures. The worse performance of
+the competition model for slow growing cultures might be explained by
+noise in data and differences in parameter numbers. P15 used a low
+inoculum density meaning that slow growing cultures were greatly
+affected by noise. The competition model fit all cultures collectively
+with only one culture level parameter, whereas the logistic model fit
+all cultures independently with three culture level parameters. It is
+not surprising then that the independent model was more flexible and
+better fit slow growing cultures; estimated parameters might be less
+accurate despite the closer fit. It is worth noting that noise from
+slow growing cultures will also have affected competition model
+estimates for fast growing cultures through plate level parameters and
+neighbour interactions.
 % For next section: use higher inoculum density.
 
-Noisy edge cultures.
+The competition model must also take a deficit from fitting edge
+cultures which the logistic model avoids. These cultures are more
+affected by noise from reflections off plate walls and are useually
+discarded. This can be seen in Tables~\ref{tab:P15_obj_fun} and
+\ref{tab:corner} where, for the competition model edge cultures
+contribute \(\sim\)5x as much noise.
+
+Noisy 5x edge cultures.
 % For next section: leave edges empty; use smaller zones with empty
 % edges.
 
