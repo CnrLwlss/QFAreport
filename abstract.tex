@@ -24,15 +24,16 @@ quantitative fitness estimates.
 Neighbouring cultures, which are often different genetic strains,
 consume nutrients at different rates, creating gradients in nutrient
 density. We believe that diffusion of nutrients between cultures is
-affecting growth. Current analysis does not account for this; instead,
-it is assumed that cultures grow independently. I use a network model
-of nutrient diffusion and nutrient-dependent growth, to correct for
-competition, to try to improve the accuracy and precision of fitness
-estimates. I test the model against QFA data from experiments on
+affecting growth in these experiments. Current analysis does not
+account for this; instead, it is assumed that cultures grow
+independently. I use a network model of nutrient diffusion and
+nutrient-dependent growth, to correct for competition, to try to
+improve the accuracy and precision of fitness estimates. I test the
+model against QFA data from studies on telomere function in
 \textit{Saccharomyces cerevisiae}. Ultimately, the model might be used
-to improve the reliability of genetic interaction and drug sensitivity
-studies.
-%estimate genetic interaction and drug sensitivity.
+to improve the reliability of screens for genetic interaction and drug
+sensitivity.
+% estimate genetic interaction and drug sensitivity.
 \\
 %Original
 % \textbf{Motivation:}~Growth rate is a major component of the
@@ -56,12 +57,12 @@ studies.
 % estimates to allow more accurate and precise genetic interaction and
 % drug screens.
 % \\
-\textbf{Results:}~I fit the competition model to a plate from a
-previous QFA publication.
+\textbf{Results:}~I fit the competition model to a QFA plate from
+\citet{Addinall2011}.
 % The plate is inoculated with dilute cultures
 % and strains have deletions in genes relevant to telomere function.
-Using far fewer parameters (387 vs 1152), it fits timecourses with
-similar closeness to the previous model.
+Using far fewer parameters (387 vs 1152), the new model fits
+timecourses with similar closeness to the previous model.
 % The fit is much closer for at least some fast growing strains.
 Fitness estimates are less precise for the fastest growing strains,
 but more precise for the majority of strains (36 out of 50). Fitness
@@ -72,10 +73,10 @@ strains, but disagree in the middle positions.
 % not available to resolve the disagreement in middle rankings.
 In a cross-plate validation experiment,
 % using QFA plates with a higher inoculum density,
-the model overcorrects for competition to a similar degree as the
-previous model undercorrects. A different method of fitting is
-required to find globally optimal solutions which might improve
-reliability further.
+the competition model overestimates timecourses to a similar degree
+that the previous model underestimates. A different method of fitting
+is required to find globally optimal solutions which might improve
+reliability.
 \\
 % Original
 % \textbf{Results:}~Using far fewer parameters (387 vs 1152), the
