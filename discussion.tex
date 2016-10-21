@@ -200,26 +200,10 @@ validation revealed issues with both models
 account for differences between plates at all and the competition
 model overcorrects. This was true for different solutions of the
 competition model (different local minima) so improving the method of
-fitting is unlikely redress the issue. With current fits, the logistic
-model undercorrects to a similar degree that the competition model
-overcorrects.
-
-
-% This should probably go elsewhere. Improvements.
-Recent work Herrmann and Lawless suggests that directly measurement of
-\(C(0)\) might be unreliable due to heterogeneity between cells in the
-same inoculum; many cells do not grow and only the fastest growing
-cells contribute significantly to the final population. Modelling
-using a plate level \(C(0)\) also seems inappropriate, but having to
-fit extra culture level parameters is undesirable. Instead, noting
-that only small amounts of nutrients are consumed when cultures are
-small, early timepoints could be discarded and \(C(0)\) could be
-measured when populations have already undergone several
-divisions. Currently, QFA inocula take cells from the stationary phase
-where there might be more heterogeneity \citep{bergkessel2016}. It
-might be possible to increase the precision by taking inocula from the
-exponential growth phase. Alternatively, a higher starting cell
-density could be used to average out stochastic effects.
+fitting is unlikely redress the issue; it is likely that the
+competition model needs to be improved. With current fits, the
+logistic model undercorrects to a similar degree that the competition
+model overcorrects.
 
 % As I lack independent data for validation it is
 % difficult to decide which to believe.
@@ -340,8 +324,24 @@ model to data. We may have to develop ways to calibrate effects in
 isolation and use this information when fitting to high-throughput
 data. We only have observations for cells.
 
-\subsection{Improvements and other recommendations}
+\subsection{Improvements and recommendations}
 
+% This should probably go elsewhere. Improvements.
+Recent work Herrmann and Lawless suggests that directly measurement of
+\(C(0)\) might be unreliable due to heterogeneity between cells in the
+same inoculum; many cells do not grow and only the fastest growing
+cells contribute significantly to the final population. Modelling
+using a plate level \(C(0)\) also seems inappropriate, but having to
+fit extra culture level parameters is undesirable. Instead, noting
+that only small amounts of nutrients are consumed when cultures are
+small, early timepoints could be discarded and \(C(0)\) could be
+measured when populations have already undergone several
+divisions. Currently, QFA inocula take cells from the stationary phase
+where there might be more heterogeneity \citep{bergkessel2016}. It
+might be possible to increase the precision by taking inocula from the
+exponential growth phase. Alternatively, a higher starting cell
+density could be used to average out stochastic effects.
+\\\\
 It is quicker to fit to small zones of a plate but, as these have a
 larger proportion of edge cultures, boundary conditions become
 important. Gathering QFA data from smaller arrays grown in isolation
