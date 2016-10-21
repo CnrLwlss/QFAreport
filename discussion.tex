@@ -185,48 +185,65 @@ cultures start to merge.
 % independent data for validation of the middle strains is not available
 % so it is difficult to draw conclusions.
 
-Recent work Herrmann and Lawless suggests that direct measurements of
-\(C(0)\) may not be reliable due to heterogeneity between cells in the
-same inoculum; many cells do not grow and only the fastest growing
-cells contribute significantly to the final population. A plate level
-\(C(0)\) also seems inappropriate but having extra parameters for the
-starting cell density of each culture is undesirable. Only a small
-amount of nutrients is used when cultures are small. Therefore, early
-timepoints could be discarded and \(C(0)\) could be measured when
-populations have already undergone several divisions. QFA inocula use
-cells taken from the stationary phase where there might be more
-heterogeneity \citep{bergkessel2016}. It may be possible to increase
-the precision of fitness estimates by taking inocula from the
-exponential growth phase or using a higher starting density to average
-out effects.
+In a validation experiment
+(Section~\ref{sec:cross_plate_val_results}), plates used a higher
+inoculum density reducing the effect of noise on slow growing
+cultures. The logistic model will not have required heuristic checks
+and the precision of competition estimates for fast growing strains
+should have improved. The experiment should therefore be a fairer
+comparison of the two models. Unfortunately, I struggled to find
+global minima with the competition model
+(Table~\ref{tab:Filled_best_fits}) so the method of fitting needs to
+be improved before such a comparison can be made. Despite this,
+validation revealed issues with both models
+(Figure~\ref{fig:stripes_validation}); the logistic model does not
+account for differences between plates at all and the competition
+model overcorrects. This was true for different solutions of the
+competition model (different local minima) so improving the method of
+fitting is unlikely redress the issue. With current fits, the logistic
+model undercorrects to a similar degree that the competition model
+overcorrects.
 
-The Stripes and Filled plates used a higher inoculum density and had
-very few noise dominated cultures. Compared to P15, this would have
-reduced noise in collectively fit competition model estimates and
-would not have required heuristic checks to be employed for the
-logistic model. This may therefore be a fairer comparison than P15. It
-would be informative to repeat P15 with an inoculum density at a
-detectable level so that the precision of competition and logistic
-model estimates can be compared in the absence of noise dominated
-cultures. However the competition model struggled to find a global
-minimum for the Stripes and Filled plates, which had higher inoculum
-densities. Therefore, fitting would first need to be improved.
+
+% This should probably go elsewhere. Improvements.
+Recent work Herrmann and Lawless suggests that directly measurement of
+\(C(0)\) might be unreliable due to heterogeneity between cells in the
+same inoculum; many cells do not grow and only the fastest growing
+cells contribute significantly to the final population. Modelling
+using a plate level \(C(0)\) also seems inappropriate, but having to
+fit extra culture level parameters is undesirable. Instead, noting
+that only small amounts of nutrients are consumed when cultures are
+small, early timepoints could be discarded and \(C(0)\) could be
+measured when populations have already undergone several
+divisions. Currently, QFA inocula take cells from the stationary phase
+where there might be more heterogeneity \citep{bergkessel2016}. It
+might be possible to increase the precision by taking inocula from the
+exponential growth phase. Alternatively, a higher starting cell
+density could be used to average out stochastic effects.
+
+% As I lack independent data for validation it is
+% difficult to decide which to believe.
+% (Unfortunately, the Stripes and Filled plates have few repeats so I
+% could not study the reliability of estimates on the same plate. (I
+% believe that we have more issues with accuracy than precision anyway).
+
+
+
 % Correlation of fitness estimates between plates in
 % Figure~\ref{fig:r_correlations}a was similar for both models. This is
 % despite not finding global minima with the competition model. However,
 % correlation between models for the same plate in
 % Figure~\ref{fig:r_correlations}b is poor. (Could definitely do with
 % P15 correlations to compare).
-There are issues with validation of both models
-(Figure~\ref{fig:stripes_validation}); the logistic model does not
-account for differences between plates at all and the competition
-model overcorrects. As I lack independent data for validation it is
-difficult to decide which to believe.
-% (Unfortunately, the Stripes and Filled plates have few repeats so I
-% could not study the reliability of estimates on the same plate. (I
-% believe that we have more issues with accuracy than precision anyway).
-In any case, it is clear that the competition model could be improved.
-
+% There are issues with validation of both models
+% (Figure~\ref{fig:stripes_validation}); the logistic model does not
+% account for differences between plates at all and the competition
+% model overcorrects. As I lack independent data for validation it is
+% difficult to decide which to believe.
+% % (Unfortunately, the Stripes and Filled plates have few repeats so I
+% % could not study the reliability of estimates on the same plate. (I
+% % believe that we have more issues with accuracy than precision anyway).
+% In any case, it is clear that the competition model could be improved.
 
 \subsection{Future work}
 
