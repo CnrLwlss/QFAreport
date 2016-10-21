@@ -100,16 +100,26 @@ because it will affect the significance given to genetic interactions
 % the significance given to genetic interactions in QFA studies (see
 % e.g. \citet{Addinall2011}).
 
-Competition model fitness ranking of deletions on P15 is similar to
-the published logistic model ranking from \citet{Addinall2011} for the
-fastest and slowest growing strains
+Competition model fitness rankings of deletions on P15 are similar to
+the published logistic model rankings from \citet{Addinall2011} for
+the fastest and slowest growing strains
 (Figure~\ref{fig:comp_vs_log_ranking}). Both models also agree with
 rankings from independent spot tests for these strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
 Middle rankings, however, disagree between models, and Spearman's Rho
-between \(MDR\) estimates for all cultures is just
-0.635. Unfortunately, I lack independent data for these strains to
-discern which model is more accurate.
+between \(MDR\) estimates is just 0.635. I investigated a disagreement
+between models by looking at plate images. \textit{hap4\(\Delta\)} is
+much healthier than \textit{zrt3\(\Delta\)} which agrees with the
+competition model and not the logistic model
+(Figure~\ref{fig:comp_vs_log_ranking}). This is promising for the
+competition model. However, I discuss below how inaccuracy in logistic
+estimates for the slower growing strain, \textit{zrt3\(\Delta\)}, may
+have been due to noise in the data rather than any fault of the
+model. Unfortunately, I lack independent data for middle strains to
+conclusively determine which model is more accurate. Collecting this
+data should be a priority for future studies.
+% Logistic model estimates for \textit{zrt3\(\Delta\)} might have been
+% affected by noise and confounding between \(r\) and \(K\).
 
 The competition model was more precise for the majority of strains (36
 out of 50), but less precise for the 11 fastest growing (see
@@ -135,45 +145,45 @@ the precision of estimates for the slowest growing strains is still
 much lower than for the fastest, so the power to infer genetic
 reactions might not be dramatically improved.
 
-
-Fitting the logistic model to slower growing cultures requires
+Fitting the logistic model to slower growing cultures required
 heuristic checks to correct for confounding between \(r\) and
 \(K\). The QFA R implementation appears to have some issues. The
-strains \textit{est1\(\Delta\)} and \textit{rad50\(\Delta\)} and are
-outliers in Figure~\ref{fig:P15_correlations} and this causes a
-dramatic change in ranking between logistic model \(r\) and \(MDR\)
-(Figure~\ref{fig:comp_vs_log_ranking}). I confirmed that these were
-weak growing strains by visual inspection of the raw QFA images. High
-\(r\) and low \(K\) have been erroneously fit to both. This is
-corrected for when converting to \(MDR\) which agrees with the
-competition model ranking and independent validation for
-\textit{rad50\(\Delta\)} \citep{zubko2004exo1}. \(MDR\) is more
-similar to the fitness measure (\(MDR \times MDP\)) used in the
-original analysis by \citet{Addinall2011} so this is unlikely to have
-affected their results. For other cultures it appears that
+strains \textit{est1\(\Delta\)} and \textit{rad50\(\Delta\)} are very
+fast growing outliers in Figure~\ref{fig:P15_correlations}. I visually
+inspected raw QFA images to confirm that these were weak growing
+strains. High \(r\) and low \(K\) were erroneously fit to both. This
+is corrected for when converting to \(MDR\); rankings agree with the
+competition model and independent spot tests for
+\textit{rad50\(\Delta\)} \citep{zubko2004exo1}. \(MDR\) is similar to
+the fitness measure (\(MDR \times MDP\)) used in the original analysis
+by \citet{Addinall2011} so these anomalies are unlikely to have
+affected their results. It is not clear how confounding is affecting
+other slow growing cultures. In some images it appears that
 encroachment of fast growing cultures into neighbours is affecting
-cell density estimates made by Colonyzer \citep{Lawless2010}. If
-repeated, the plate from \citet{Addinall2011} should be run with a
-lower concentration of nutrients in the agar so that the stationary
-phase is reached before cultures start to merge.
+cell density estimates made by Colonyzer. If repeated, the plate from
+\citet{Addinall2011} should be run with a lower concentration of
+nutrients in the agar so that the stationary phase is reached before
+cultures start to merge.
 
-I looked at plate images of P15 to investigate other discrepancies.
-%  ~\textit{mre11\(\Delta\)} is a weak growing strain
-% \citep{zubko2004exo1,Addinall2011} which was misclassified as healthy
-% by the competition model when I was using mean values (not shown) but
-% not the logistic model. One repeat contained unusual heterogeneity,
-% which may be natural or the results of contamination, and may explain
-% the discrepancy. I corrected for this by taking median values in Figure~\ref{fig:comp_vs_log_rankinkgsattempted to correct for this issue by taking the median with partian
-% nmedian rather than mean values.
-\textit{hap4\(\Delta\)} appears to be much healthier than
-\textit{zrt3\(\Delta\)}, which agrees with the competition model but
-not the logistic model (Figure~\ref{fig:comp_vs_log_ranking}). The
-estimate for \textit{zrt3\(\Delta\)} is more precise for the logistic
-model than for the competition model (Figure~\ref{fig:COV}). However,
-this does not confer greater accuracy to either model because the
-opposite is true for \textit{hap4\(\Delta\)} estimates. Unfortunately,
-independent data for validation of the middle strains is not available
-so it is difficult to draw conclusions.
+% I looked at plate images of P15 to investigate other discrepancies.
+% % ~\textit{mre11\(\Delta\)} is a weak growing strain
+% % \citep{zubko2004exo1,Addinall2011} which was misclassified as
+% % healthy by the competition model when I was using mean values (not
+% % shown) but not the logistic model. One repeat contained unusual
+% % heterogeneity, which may be natural or the results of contamination,
+% % and may explain the discrepancy. I corrected for this by taking
+% % median values in Figure~\ref{fig:comp_vs_log_rankinkgsattempted to
+% % correct for this issue by taking the median with partian nmedian
+% % rather than mean values.
+% \textit{hap4\(\Delta\)} appears to be much healthier than
+% \textit{zrt3\(\Delta\)}, which agrees with the competition model but
+% not the logistic model (Figure~\ref{fig:comp_vs_log_ranking}). The
+% estimate for \textit{zrt3\(\Delta\)} is more precise for the logistic
+% model than for the competition model (Figure~\ref{fig:COV}). However,
+% this does not confer greater accuracy to either model because the
+% opposite is true for \textit{hap4\(\Delta\)} estimates. Unfortunately,
+% independent data for validation of the middle strains is not available
+% so it is difficult to draw conclusions.
 
 Recent work Herrmann and Lawless suggests that direct measurements of
 \(C(0)\) may not be reliable due to heterogeneity between cells in the
