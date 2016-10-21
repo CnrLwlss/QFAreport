@@ -13,40 +13,62 @@ On average, the competition model fit internal cultures of P15 worse
 than the logistic model: objective function value was 0.194 vs 0.155
 (Table~\ref{tab:P15_obj_fun}). However, for the two fastest growing
 cultures in a 3x3 zone studied in more detail, the competition model
-fit much better and logistic model objective function values were
-particularly high (Figure~\ref{fig:P15_zone_fit}). I am yet to confirm
-that this trend carries across the plate. If it does then the
-experiment might have favoured the logistic model because slow growing
-cultures outnumbered fast growing cultures. The worse performance of
-the competition model for slow growing cultures might be explained by
-noise in data and differences in parameter numbers. P15 used a low
-inoculum density meaning that slow growing cultures were greatly
-affected by noise. The competition model fit all cultures collectively
-with only one culture level parameter, whereas the logistic model fit
-all cultures independently with three culture level parameters. It is
-not surprising then that the independent model was more flexible and
-better fit slow growing cultures; estimated parameters might be less
-accurate despite the closer fit. It is worth noting that noise from
-slow growing cultures will also have affected competition model
-estimates for fast growing cultures through plate level parameters and
-neighbour interactions.
+fit much better than the logistic model because logistic model
+objective function values were particularly high
+(Figure~\ref{fig:P15_zone_fit}). I am yet to confirm that this trend
+carries across the plate, but it is likely that the logistic model
+performed better in regions where there were more slow growing
+cultures and less difference in growth between neighbours. It would be
+unsurprising if the independent model better fit slow growing cultures
+because, due to the low inoculum density used, these cultures were
+greatly affected by noise and the model is more flexible; it fits all
+cultures independently with three culture level parameters, whereas
+the competition model fits all cultures collectively with only one
+culture level parameter. Estimated parameters might be less accurate
+despite the closer fit. Noise from slow growing cultures will also
+have affected competition model fits for fast growing cultures through
+plate level parameters and neighbour interactions.
 % For next section: use higher inoculum density.
 
-The competition model must also take a deficit from fitting edge
-cultures which the logistic model avoids. These cultures are more
-affected by noise from reflections off plate walls and are useually
-discarded. This can be seen in Tables~\ref{tab:P15_obj_fun} and
-\ref{tab:corner} where, for the competition model edge cultures
-contribute \(\sim\)5x as much noise.
-
-Noisy 5x edge cultures.
+Estimates from edge cultures are discarded due to noise from
+reflections off plate walls. Whereas the data is simply discarded for
+the logsitic model, the competition model must fit these cultures. For
+the competition model fit of P15, edge cultures contributed 70\% of
+error in objective function value despite making up only 20\% of
+cultures (Tables~\ref{tab:P15_obj_fun} and \ref{tab:corner}). This
+will have affected all parameter estimates because cultures were fit
+collectively with several plate level parameters. However, it will
+have most greatly affected cultures neighbouring an edge. A two
+\(N(0)\) parameter model improved the fit of these cultures
+(Table~\ref{tab:corner}) and might also have improved the accuracy of
+estimated parameters.
 % For next section: leave edges empty; use smaller zones with empty
 % edges.
-
 Considering the above effects and the fewer number of parameters used
 (387 vs 1152) the closeness of fit of the competition model is fairly
-good. Below I discuss differences in estimated parameters to try to
-discern which model performed best.
+good. Below I discuss differences in estimated parameters to discern
+whether one model made more reliable estimates.
+
+
+
+A model with an extra \(N(0)\) model  improved the The quality of fit was ibbbbb
+
+Because of collective fitting, This will have affected
+estimated plate level parameters and estimated \(b\) for cultures next
+to a
+
+
+a) These cultures dominate messes up other estimates.
+b)
+
+
+Edge cultures are more affected by noise from reflections off plate
+walls and estimates are useually discarded. This can be seen in
+Tables~\ref{tab:P15_obj_fun} and \ref{tab:corner} where, for the
+competition model edge cultures contribute more than five times as much noise.
+
+Noisy 5x edge cultures.
+
 
 
 % There are large regions on P15 where there is little difference in
