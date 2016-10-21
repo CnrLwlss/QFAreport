@@ -13,22 +13,19 @@ On average, the competition model fit internal cultures of P15 worse
 than the logistic model: objective function value was 0.194 vs 0.155
 (Table~\ref{tab:P15_obj_fun}). However, for the two fastest growing
 cultures in a 3x3 zone studied in more detail, the competition model
-fit much better than the logistic model because logistic model
-objective function values were particularly high
-(Figure~\ref{fig:P15_zone_fit}). I am yet to confirm that this trend
-carries across the plate, but it is likely that the logistic model
-performed better in regions where there were more slow growing
-cultures and less difference in growth between neighbours. It would be
-unsurprising if the independent model better fit slow growing cultures
-because it is more flexible, and edge cultures were greatly affected
-by noise due to the low inoculum density used.
-% The independent model fits all cultures independently with three
-% culture level parameters, whereas the competition model fits all
-% cultures collectively with only one culture level parameter.
-Estimated parameters might be less accurate despite the closer
-fit. Noise from slow growing cultures will also have affected
-competition model fits for fast growing cultures through plate level
-parameters and neighbour interactions.
+fit was better by far (Figure~\ref{fig:P15_zone_fit}). I am yet to
+confirm that this trend carries across the plate, but it is likely
+that the logistic model performed better in regions where there were
+more slow growing cultures and less difference in growth between
+neighbours. The logistic model is more flexible when fitting slow
+growing cultures which are more affected by noise; it fits cultures
+independently with three culture level parameters, whereas the
+competition model fits cultures with three plate level parameters and
+only one culture level parameter. Logistic parameter estimates for
+slow growing cultures were less precise (Figure~\ref{fig:COV}), and might be less accurate,
+despite the closer fit. Noise from slow growing cultures will also
+have affected competition model fits for fast growing cultures through
+plate level parameters and neighbour interactions.
 % For next section: use higher inoculum density.
 
 Estimates from edge cultures are discarded due to noise from
@@ -40,8 +37,8 @@ making up only 20\% of cultures (Tables~\ref{tab:P15_obj_fun} and
 because cultures were fit collectively. However, it will have most
 greatly affected cultures neighbouring an edge. A two \(N(0)\)
 parameter model improved the fit of these cultures
-(Table~\ref{tab:corner}) and might also have improved the accuracy of
-estimated parameters.
+(Table~\ref{tab:corner}) and might also have improved the reliability
+of estimated parameters.
 % For next section: leave edges empty; use smaller zones with empty
 % edges.
 Considering the above effects and the fewer number of parameters used
@@ -73,11 +70,11 @@ deletions suspected to have large positive and negative interactions
 with the query mutation. Nevertheless, repeats of the same strain are
 split between the gap in the logistic distribution; it appears that
 some deletions are acting as both enhancers and suppressors, but not
-as neutrals. It is possible that the split is an artefact of the
-heuristic checks conducted by QFA R, or caused by a relative
-acceleration and deceleration of fast and slow growing cultures due to
-competition. If the latter case is true, the competition model might
-have corrected for it.
+as neutrals. It is possible that the split is an artefact of heuristic
+checks conducted by QFA R, or caused by a relative acceleration and
+deceleration of fast and slow growing cultures due to competition. If
+the latter case is true, the competition model might have corrected
+for it.
 % Below could wait for future work.
 It is important to investigate the cause of the bimodal distribution
 because it will affect the significance given to genetic interactions
@@ -116,28 +113,27 @@ discern which model is more accurate.
 
 The competition model was more precise for the majority of strains (36
 out of 50), but less precise for the 11 fastest growing (see
-Figure~\ref{fig:COV}). The fastest growing cultures are not split
-across the gap in the logistic model distribution. Although it is
-ultimately the accuracy of the distributions that matters, it is,
-nevertheless, reasonable to expect the better model to make more
-precise estimates. Features of each model could contribute to the
-differences in precision. The logistic model fits cultures
-individually so it can be more precise for fast growing cultures which
-are less affected by noise. Conversely, the competition model fits
-cultures collectively, worsening the precision for fast growing
-cultures but improving the precise for slow growing cultures.
+Figure~\ref{fig:COV}). The fastest growing strains are not split
+across the gap in the logistic model distribution. Features of each
+model contribute to the differences in precision. The logistic model
+fits cultures individually so it can be more precise for fast growing
+cultures which are less affected by noise. Conversely, the competition
+model fits cultures collectively, worsening the precision for fast
+growing cultures but improving the precise for slow growing cultures.
 % noise dominated cell observations from slow growing cultures
 % will affect collectively fit competition model parameters. This does
 % not affect logistic model estimates because cultures are fit
 % individually.
-The higher precision for slow growing strains in the competition model
-could be entirely due to collective fitting rather than accuracy of
-the model. Similarly the higher precision for fast growing strains in
-the logistic model could be due to a failure to account for
-competition. Although improved with the competition model, the
-precision of estimates for the slowest growers is still much lower
-than for the fastest, so the power to infer genetic reactions might
-not be dramatically improved.
+If we believe that biological variation is low, it is reasonable to
+expect the better model to make more precise estimates for each
+strain. However, the higher precision for slow growing strains in the
+competition model could be entirely due to collective fitting rather
+than accuracy of the model. Similarly, the higher precision for fast
+growing strains in the logistic model could be due to a failure to
+account for competition. Although improved with the competition model,
+the precision of estimates for the slowest growing strains is still
+much lower than for the fastest, so the power to infer genetic
+reactions might not be dramatically improved.
 
 
 Fitting the logistic model to slower growing cultures requires
