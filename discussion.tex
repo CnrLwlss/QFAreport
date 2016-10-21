@@ -103,34 +103,42 @@ because it will affect the significance given to genetic interactions
 % the significance given to genetic interactions in QFA studies (see
 % e.g. \citet{Addinall2011}).
 
-Competition model fitness ranking of deletions on P15 agrees with the
-published logistic model ranking from \citet{Addinall2011} for the
-fastest and slowest growers
+Competition model fitness ranking of deletions on P15 is similar to
+the published logistic model ranking from \citet{Addinall2011} for the
+fastest and slowest growing strains
 (Figure~\ref{fig:comp_vs_log_ranking}). Both models also agree with
 rankings from independent spot tests for these strains
 \citep{maringele2002exo1,zubko2004exo1,Holstein20141259,foster2006mrx}.
-Middle rankings, however, disagree between models and Spearman's Rho
-between \(MDR\) estimates for all cultures is just 0.635.
+Middle rankings, however, disagree between models, and Spearman's Rho
+between \(MDR\) estimates for all cultures is just
+0.635. Unfortunately, I lack independent data for these strains to
+discern which model is more accurate.
 
-The precision of estimates was better for 36 out of 50 strains using
-the competition model.
+The competition model was more precise for the majority of strains (36
+out of 50), but less precise for the 11 fastest growing (see
+Figure~\ref{fig:COV}). The fastest growing cultures are not split
+across the gap in the logistic model distribution. Although it is
+ultimately the accuracy of the distributions that matters, it is,
+nevertheless, reasonable to expect the better model to make more
+precise estimates. Features of each model could contribute to the
+differences in precision. The logistic model fits cultures
+individually so it can be more precise for fast growing cultures which
+are less affected by noise. Conversely, the competition model fits
+cultures collectively, worsening the precision for fast growing
+cultures but improving the precise for slow growing cultures.
+% noise dominated cell observations from slow growing cultures
+% will affect collectively fit competition model parameters. This does
+% not affect logistic model estimates because cultures are fit
+% individually.
+The higher precision for slow growing strains in the competition model
+could be entirely due to collective fitting rather than accuracy of
+the model. Similarly the higher precision for fast growing strains in
+the logistic model could be due to a failure to account for
+competition. Although improved with the competition model, the
+precision of estimates for the slowest growers is still much lower
+than for the fastest, so the power to infer genetic reactions might
+not be dramatically improved.
 
-The
-precision of growth estimates was not improved using the competition
-model for the fastest growing strains on P15 (see
-Figure~\ref{fig:COV}). A couple of factors may contribute to
-this. Firstly, if fast growing cultures are accelerated relative to
-slower cultures due to competition, this might produce more precise
-but less accurate logistic model estimates. Secondly, noise dominated
-cell observations from slow growing cultures will affect collectively
-fit competition model parameters. This does not affect logistic model
-estimates because cultures are fit individually. The greater
-reliability of estimates for slow growing cultures in the competition
-model could be entirely due to collective fitting rather than to
-correcting for competition. Although improved, uncertainty in
-estimates for the slowest growers is still much higher than for the
-fastest, meaning that the power to infer genetic reactions would not
-be dramatically improved.
 
 Fitting the logistic model to slower growing cultures requires
 heuristic checks to correct for confounding between \(r\) and
