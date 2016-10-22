@@ -280,13 +280,13 @@ suggest to validate first in liquid cultures, where the assumption of
 a well stirred mixture is more valid, and then attempt to validate for
 single cultures grown on agar, which more closely resembles QFA. The
 latter scenario has a lower dimensionality, and growth might be
-diffusion limited, so a fractal kinetics model might be required
-\citep{Kopelman1988,savageau1995}. Nutrients (sugars, nitrogen, etc.)
-in QFA agars are of a standard composition, designed to reduce the
-excess of any single nutrient \citep{Addinall2011}. It would be
-helpful to know and control the identity of the limiting nutrient
-using a different formula of agar. With nitrogen, rather than sugar,
-as the limiting nutrient, we are less likely to have to model
+diffusion limited inside cultures, so a fractal kinetics model might
+be required \citep{Kopelman1988,savageau1995}. Nutrients (sugars,
+nitrogen, etc.)  in QFA agars are of a standard composition, designed
+to reduce the excess of any single nutrient \citep{Addinall2011}. It
+would be helpful to know and control the identity of the limiting
+nutrient using a different formula of agar. With nitrogen, rather than
+sugar, as the limiting nutrient, we are less likely to have to model
 metabolism.
 
 Estimates of the nutrient diffusion constant \(k\) for P15 were fairly
@@ -328,10 +328,10 @@ neighbours can diffuse, then we could instead model signalling by
 ethanol poisoning \citep{fujita2006}. Signal diffusion may be modelled
 as for nutrient diffusion
 (\ref{eq:competition_model},\ref{eq:diffusion_reaction}) so code can
-be quickly adapted. If there is any combination of effects, e.g,
-competition, metabolism, signalling, and arrest, contributing
-significantly to differences in the growth of cultures and the
-interaction between neighbours, then they will be difficult to
+be quickly adapted. If there is any combination of effects, e.g.,
+competition, metabolism, signalling, overcrowding, or arrest
+contributing significantly to differences in the growth of cultures
+and the interaction between neighbours, then they will be difficult to
 separate when fitting a model. We may have to develop ways to
 calibrate effects in isolation and use this information when fitting
 to high-throughput data. Currently, QFA only observes cells.
