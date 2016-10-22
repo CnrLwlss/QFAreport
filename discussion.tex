@@ -22,10 +22,11 @@ growing cultures which are more affected by noise; it fits cultures
 independently with three culture level parameters, whereas the
 competition model fits cultures with three plate level parameters and
 only one culture level parameter. Logistic parameter estimates for
-slow growing cultures were less precise (Figure~\ref{fig:COV}), and might be less accurate,
-despite the closer fit. Noise from slow growing cultures will also
-have affected competition model fits for fast growing cultures through
-plate level parameters and neighbour interactions.
+slow growing cultures were less precise (Figure~\ref{fig:COV}), and
+might be less accurate, despite the closer fit. Noise from slow
+growing cultures will also have affected competition model fits for
+fast growing cultures through plate level parameters and neighbour
+interactions.
 % For next section: use higher inoculum density.
 
 Estimates from edge cultures are discarded due to noise from
@@ -337,49 +338,28 @@ to high-throughput data. Currently, QFA only observes cells.
 
 \subsection{Improvements and recommendations}
 
-% This should probably go elsewhere. Improvements.
-Recent work Herrmann and Lawless suggests that directly measurement of
-\(C(0)\) might be unreliable due to heterogeneity between cells in the
+Recent work by Herrmann and Lawless suggests that directly measurement
+of \(C(0)\) is unreliable due to heterogeneity between cells in the
 same inoculum; many cells do not grow and only the fastest growing
 cells contribute significantly to the final population. Modelling
-using a plate level \(C(0)\) also seems inappropriate, but having to
-fit extra culture level parameters is undesirable. Instead, noting
-that only small amounts of nutrients are consumed when cultures are
-small, early timepoints could be discarded and \(C(0)\) could be
-measured when populations have already undergone several
-divisions. Currently, QFA inocula take cells from the stationary phase
-where there might be more heterogeneity \citep{bergkessel2016}. It
-might be possible to increase the precision by taking inocula from the
-exponential growth phase. Alternatively, a higher starting cell
-density could be used to average out stochastic effects.
+using a plate level \(C(0)\) seems inappropriate, but having to fit
+extra culture level parameters is undesirable. Instead, noting that
+only small amounts of nutrients are consumed when cultures are small,
+early timepoints could be discarded, and \(C(0)\) could be measured
+after populations have undergone several divisions. Currently, QFA
+takes inocula from the stationary phase where there might be more
+heterogeneity \citep{bergkessel2016}. It might be possible to reduce
+heterogeneity by taking inocula from the exponential growth
+phase. Alternatively, a higher inoculum density could be used to
+average out stochastic effects.
 \\\\
-It is quicker to fit to small zones of a plate but, as these have a
-larger proportion of edge cultures, boundary conditions become
-important. Gathering QFA data from smaller arrays grown in isolation
-would help to speed up the development process.
-\\\\
-Each culture is surrounded by a different group of neighbours with
-different growth constants \(b_{j} \in \delta_{i}\)
-(Figure~\ref{fig:comp_model_schematic}). The imaginary neighbour guess
-(Section~\ref{sec:guessing_b}) could be improved by using a range of
-\(b_{f}\) values to fit each culture and selecting \(b\) from the best
-fit. \(k\) is the last parameter to be guessed. Rather than using the
-linear relationship between variance in final cell measurement and
-\(k\), which may not hold for large values of \(k\), it would be
-better and just as quick to guess a value of \(k\) by fixing all other
-parameters as the guesses and fitting the competition model to
-data. It would also be good to compare guesses from the imaginary
-neighbour model with those from the logistic model. Even with an
-improved guess, I suspect, based on the closeness of current fits
-(Figure~\ref{fig:P15_zone_fit}), that a gradient method will still
-fail to find global minima.
-\\\\
-Edge cultures must be included in data when fitting the competition
-model and this contributed significantly to objective function values
-(see Table~\ref{tab:corner}). Noise might be better dealt with by
-leaving edge cultures empty. A different treatment of boundaries could
-also be used by modelling empty cultures outside edges rather than the
-approach in Section~(\ref{sec:fitting_comp}).
+Noisy edge cultures, which must be included in fits of the competition
+model, contribute significantly to objective function values (see
+Table~\ref{tab:corner}). Whereas these cultures reduce competition for
+the logistic model, noise would be better dealt with for the
+competition model if they were left empty. A different treatment of
+boundaries could also be used by modelling empty cultures outside
+edges rather than the approach in Section~(\ref{sec:fitting_comp}).
 % The design of the stripes validation experiment could be
 % improved. Rather than filling gaps with cultures not present on the
 % stripes plate, and for which we have no \(b\) estimates, we could fill
@@ -388,26 +368,48 @@ approach in Section~(\ref{sec:fitting_comp}).
 % validate from one direction to the other). It would also have been
 % helpful to have repeats to study differences in COV between the
 % competition and independent models.
+It is quicker to fit to small zones of a plate, but these have a large
+proportion of edge cultures, and it is difficult to model the
+boundary. Growing smaller arrays in isolation would help to speed up
+the development process.
 \\\\
-In order to make sure that competition effects were present in data,
-E. Holstein (personal communications) made a dramatic change between
-the Stripes and Filled plates. I could have first validated the model
-against a smaller change, by varying between slower and faster growing
-cultures rather than no cultures and very strong growing cultures. If
-the model works well between such plates, it may work well for the
-majority of QFA experiments which typically have smaller differences
-between cultures than the data we studied. We could also have
-calibrated and validated from the Stripes plate to the Filled plate
-(i.e. in both directions) if the same genotypes had been inoculated in
-the extra columns of the Filled plate. If we did want to test the an
-extreme case, we could have inoculated fast growing cultures next to
-certain strains and not others to try to induce a change in ranking
-for which the competition model might compensate better than the
-logistic model.
+I thought of several improvements to the guessing method which I did
+not have time to implement. The current implementation of imaginary
+neighbour guessing (Section~\ref{sec:guessing_b}) uses a range of
+\(b_{f}\) values, but estimated \(b_{i}\) are chosen from sets of fits
+using the same value, i.e., \(b_{i}\) currently come from the same
+\(b_{f}\). In reality cultures have different arrangements of
+neighbours, so mixing of fits from different \(b_{f}\) should be
+allowed. Alternatively, \(b_{i}\) could be initialised by converting
+from logistic model estimates
+(Section~\ref{sec:parameter_conversion}). \(k\) is the last parameter
+to be guessed. Rather than using the linear relationship between
+variance in final cell measurement and \(k\), which may not hold for
+large values, \(k\) could be guessed by fixing all other parameters as
+their guesses and fitting the competition model to data.
+% Even with an improved guess, I suspect, based on the closeness of
+% current fits (Figure~\ref{fig:P15_zone_fit}), that a gradient method
+% will fail to find global minima.
 \\\\
-It is desirable to have a mechanistic model including nutrient
-dependent growth so that we can use a plate level \(N(0)\) and
-eliminate the dependence on heuristic checks.
+A dramatic change was made between the Stripes and Filled plates to
+ensure that competition was present. I could have first validated the
+model against a smaller change, by inoculating slower growing cultures
+in gaps rather than removing cultures completely. If the model behaves
+well in such an experiment, it may work for the majority of QFA
+experiments, which typically have smaller differences between cultures
+than the original validation experiment. We could also have calibrated
+and validated from the Stripes plate to the Filled plate, i.e., in the
+other direction, if the extra columns on the Filled plate were repeats
+of common cultures. A different validation experiment could try to
+induce changes in logistic model ranking by inoculating fast or slow
+growing cultures next to target strains. Hopefully competition
+estimates would show no change.
+\\\\
+When inoculum density was low the logistic model struggled to deal
+with noise in slow growing cultures (Figure~\ref{fig:COV}). It is
+desirable model nutrient dependent growth, so that information is
+shared between cultures using a plate level \(N(0)\), and to eliminate
+the dependence on heuristic checks.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
