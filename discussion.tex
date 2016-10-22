@@ -198,20 +198,17 @@ be improved before such a comparison can be made. Despite this,
 validation revealed issues with both models
 (Figure~\ref{fig:stripes_validation}); the logistic model does not
 account for differences between plates at all and the competition
-model overcorrects. This was true for different solutions of the
-competition model (different local minima) so improving the method of
-fitting is unlikely redress the issue; it is likely that the
-competition model needs to be improved. With current fits, the
-logistic model undercorrects to a similar degree that the competition
-model overcorrects.
+model overcorrects. This was true for disparate solutions of the
+competition model so improving the method of fitting is unlikely
+redress the issue; it is likely that the competition model needs to be
+improved. With current fits, the logistic model undercorrects to a
+similar degree that the competition model overcorrects.
 
 % As I lack independent data for validation it is
 % difficult to decide which to believe.
 % (Unfortunately, the Stripes and Filled plates have few repeats so I
 % could not study the reliability of estimates on the same plate. (I
 % believe that we have more issues with accuracy than precision anyway).
-
-
 
 % Correlation of fitness estimates between plates in
 % Figure~\ref{fig:r_correlations}a was similar for both models. This is
@@ -231,18 +228,19 @@ model overcorrects.
 
 \subsection{Future work}
 
-The split in the distribution of logistic model \(r\)
-(Figure~\ref{fig:P15_correlations}) may offer a useful way to the
-compare the logistic and competition models. Firstly, P15 could be
-repeated using a higher inoculum density to eliminate the possibility
-that the heuristic checks of the QFA R package are responsible for the
-split. If the split still exists in only the logistic model, then the
-strains could be grown in independent conditions, either isolated on
-solid agar (diffusion still an issue) or in liquid cultures, where the
-models are equivalent. If the split does not exist in the independent
-distribution, then we may favour the competition model for QFA
-plates. This will also depend on how well competition model estimates
-agree between the two conditions.
+
+
+
+The distributions of logistic and competition \(r\) are very different
+(Figure~\ref{fig:P15_correlations}) and can be used to compare
+models. First, P15 should be repeated using a higher inoculum density
+to eliminate the possibility that heuristic checks cause the split in
+the logistic distribution. If this is not the case, then strains could
+be grown in independent conditions - either isolated on solid agar
+(diffusion still an issue) or in liquid cultures - where the models
+are equivalent. We will be able to asses the quality of both
+models. The model whose QFA distribution is most similar to the
+independent distribution should be used to analyse QFA data.
 
 % For the Stripes and Filled plates, the competition model was fit to 15
 % cell measurement values taken from a spline, whereas the logistic
@@ -253,76 +251,89 @@ agree between the two conditions.
 % fewer noise-dominated cultures than in P15, the competition model fit
 % may have improved.
 
-I was unable to find global minima using a gradient method to fit the
-competition model (Sections~\ref{sec:P15_fit} and
-\ref{sec:cross_plate_val_results}). I began work on a genetic
-algorithm method of solving but lacked time to complete this. I did
-however find that, with fixed plate level parameters, it is possible
-to reliably return \(b_{i}\) with a gradient method
-(Figure~\ref{fig:comp_fit_fixed_plate_level}). This offers the
-potential to use a hierarchical genetic algorithm where candidate
-plate level parameters are fixed in gradient fits of culture level
-parameters \(b_{i}\). Alternatively, a pure hierarchical genetic
-algorithm may work (i.e. where \(b_{i}\) are also evolved). A
-hierarchical Bayesian approach to fitting the competition model,
-similar to that of \citet{Heydari2016}, used to fit the logistic
-model, could also return global minima but might be slow. Current best
-fits, which are different local minima, have well correlated fitness
-rankings (Table~\ref{tab:Filled_best_fits}) and make similar
-overcorrections for competition
-(Figure~\ref{fig:stripes_validation}). This suggests that there is a
-more fundamental issue with the model.
+I was unable to find global minima of the competition model using a
+gradient method (Sections~\ref{sec:P15_fit} and
+\ref{sec:cross_plate_val_results}). I found, however, that it is
+possible to reliably return \(b_{i}\) when plate level parameters are
+fixed at true values (Figure~\ref{fig:comp_fit_fixed_plate_level}). It
+might therefore be possible to use a hierarchical genetic algorithm
+that evolves sets of plate level parameters, and evaluates using a
+gradient method to determine culture level parameters. Alternatively,
+a pure hierarchical genetic algorithm may work (i.e. where \(b_{i}\)
+are also evolved). A Bayesian hierarchical approach, similar to that
+of \citet{Heydari2016}, could also return global minima, but would
+probably be much slower.
+% Current best solutions, which are different
+% local minima, systematically overcorrect for competition in a
+% validation experiment (Figure~\ref{fig:stripes_validation}),
+% suggesting that fundamental improvements to the competition model are
+% also required.
 
-It would be informative to validate the independent limit of the
-competition model to determine whether a mass action approximation is
-valid and whether it is correct to ignore the effect of metabolism on
-nutrient density. I suggest to validate first in liquid cultures,
-where the assumption of a well stirred mixture is more valid, and then
-attempt to validate for single cultures grown on agar, which more
-closely resembles QFA. Growth on a surface has a lower dimensionality
-and may be diffusion limited so a fractal kinetics model may be
-required \citep{Kopelman1988,savageau1995}. Nutrients (sugars,
-nitrogen, etc.) in QFA agars are of a standard composition, designed
-to reduce the excess of any single nutrient \citep{Addinall2011}. It
-would be helpful to know and control the identity of the limiting
-nutrient using a different formula of agar. With nitrogen, rather than
-sugar, as the limiting nutrient, we are less likely to have to model
+The systematic overcorrection seen in the validation experiment
+(Section~\ref{sec:cross_plate_val_results}) suggests that more
+fundamental improvements to the competition model are required. It
+would be informative to validate the independent limit to determine
+whether a mass action approximation is appropriate and whether it is
+correct to disregard the effect of metabolism on nutrient density. I
+suggest to validate first in liquid cultures, where the assumption of
+a well stirred mixture is more valid, and then attempt to validate for
+single cultures grown on agar, which more closely resembles QFA. The
+latter scenario has a lower dimensionality, and growth might be
+diffusion limited, so a fractal kinetics model might be required
+\citep{Kopelman1988,savageau1995}. Nutrients (sugars, nitrogen, etc.)
+in QFA agars are of a standard composition, designed to reduce the
+excess of any single nutrient \citep{Addinall2011}. It would be
+helpful to know and control the identity of the limiting nutrient
+using a different formula of agar. With nitrogen, rather than sugar,
+as the limiting nutrient, we are less likely to have to model
 metabolism.
 
-Estimates of the nutrient diffusion constant \(k\) were fairly high,
-such that nutrients diffused readily between neighbours and were
-nearly depleted when growth stopped. It may be that growth becomes
-limited by the diffusion of nutrients through agar before all
-nutrients are depleted and that nutrients are not well approximated as
-being evenly distributed across the spatial scales that we
-model. Using a finer grid could reduce the overcorrection seen in
-Figure~\ref{fig:stripes_validation}. \citet{Reo2014} use the diffusion
-equation with Neumann and Dirichlet boundary conditions to simulate
-nutrient dependent growth of a single bacterial culture on a pertri
-dish in two-dimensions. They create a sink for nutrients from culture
-growth and equate the flux of nutrients through culture area with the
-rate of increase in culture size. They model culture area as varying
-and keep culture density constant. This model could be adapted for QFA
-by keeping culture area constant and allowing culture density to
-vary. A mass action kinetic model of reaction~(\ref{eq:reaction})
-could be used for culture growth and the nutrient sink. It would be
-computationally challenging to use such a detailed model to fit a
-whole plate but simulation could be very informative.
+Estimates of the nutrient diffusion constant \(k\) for P15 were fairly
+high (Table~\ref{tab:P15_best_fit_params}), such that nutrients
+diffused readily between neighbours and were nearly depleted when
+growth stopped (Figure~\ref{fig:P15_zone_fit}). In reality, growth
+might become limited by the diffusion of nutrients through agar long
+before all nutrients are depleted, in which case nutrients are not
+well approximated as being evenly distributed across the spatial
+scales that we model. The Stripes fit might support this; cultures
+have access to more nutrients from empty neighbours and lower \(k\)
+and \(N(0)\) are estimated
+(Table~\ref{tab:Stripes_and_Filled_params}). Using a finer grid could
+reduce the overcorrection seen in
+Figure~\ref{fig:stripes_validation}.
+% The diffusion equation model of \citet{Reo2014} could be adapted for
+% QFA to simulate the diffusion of nutrients in more detail. It would
+% be computationally challenging to use such a detailed model to fit a
+% whole plate but simulation could be very informative.
+\citet{Reo2014} use the diffusion equation with Neumann and Dirichlet
+boundary conditions to simulate nutrient dependent growth of a single
+bacterial culture on a pertri dish in two-dimensions. They create a
+sink for nutrients from culture growth and equate the flux of
+nutrients through culture area with the rate of increase in culture
+size. They model culture area as varying and keep culture density
+constant. This model could be adapted for QFA by keeping culture area
+constant and allowing culture density to vary. A mass action kinetic
+model of reaction~(\ref{eq:reaction}) could be used for culture growth
+and the nutrient sink. It might take too long to fit such a detailed
+model to a whole plate, but simulation could be used to determine an
+appropriate grid size for a mass action diffusion model.
+% A different type of diffusion limitation due to overcrowding inside
+% cultures could cause a similar issue and might be resolved using a
+% lower nutrient density.
 
-If we find that competition for nutrients is not responsible for the
-interaction between neighbours, for instance if growth becomes limited
-by diffusion of nutrients in the agar before nutrients from neighbours
-can be accessed, then we could instead model signalling by ethanol
-poisoning \citep{fujita2006}. Signal diffusion may be modelled as we
-have done for nutrient diffusion
-(\ref{eq:competition_model},\ref{eq:diffusion_reaction}) so much of
-the code could be reused. If there is any combination of competition,
-metabolism, signalling, or arrest contributing significantly to
-differences in the growth of cultures and the interaction between
-neighbours, then it will be difficult to separate them when fitting a
-model to data. We may have to develop ways to calibrate effects in
-isolation and use this information when fitting to high-throughput
-data. We only have observations for cells.
+If competition for nutrients is not responsible for the interaction
+between neighbours, for instance if growth stops before nutrients from
+neighbours can diffuse, then we could instead model signalling by
+ethanol poisoning \citep{fujita2006}. Signal diffusion may be modelled
+as for nutrient diffusion
+(\ref{eq:competition_model},\ref{eq:diffusion_reaction}) so code can
+be quickly adapted. If there is any combination of effects, e.g,
+competition, metabolism, signalling, and arrest, contributing
+significantly to differences in the growth of cultures and the
+interaction between neighbours, then they will be difficult to
+separate when fitting a model. We may have to develop ways to
+calibrate effects in isolation and use this information when fitting
+to high-throughput data. Currently, QFA only observes cells.
 
 \subsection{Improvements and recommendations}
 
